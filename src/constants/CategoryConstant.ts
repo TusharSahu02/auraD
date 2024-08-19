@@ -17,7 +17,11 @@ export const GETTING_STARTED = [
 
 export const CATEGORIES = [
   {
-    name: "Test",
+    name: "Components",
+    subcategories: ["Button", "Input", "Masonry", "Bento"],
+  },
+  {
+    name: "Text",
     subcategories: [
       "Blur Text",
       "Wave Text",
@@ -29,6 +33,7 @@ export const CATEGORIES = [
       "Count Up",
     ],
   },
+
   {
     name: "Animations",
     subcategories: [
@@ -51,10 +56,6 @@ export const CATEGORIES = [
       "Clump",
       "Ballpit",
     ],
-  },
-  {
-    name: "Components",
-    subcategories: ["Button", "Input", "Masonry", "Bento"],
   },
   {
     name: "Backgrounds",

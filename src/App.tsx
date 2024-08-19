@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Docs from "./pages/docs/Docs";
-import Navbar from "./components/common/Navbar";
+import Navbar from "./components/common/Docs/Navbar";
 import { Toaster } from "sonner";
 function App() {
   return (

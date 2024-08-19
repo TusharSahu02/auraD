@@ -25,7 +25,7 @@ const Navbar = () => {
         const searchInput =
           document.querySelector<HTMLInputElement>(".searchInput");
         if (searchInput) searchInput.blur();
-        setShowKbd(false);
+        setShowKbd(true);
       }
     };
     window.addEventListener("keydown", handleFocusSearch);
@@ -38,15 +38,17 @@ const Navbar = () => {
     <>
       <div
         className={
-          " flex items-center justify-center py-4 border-b fixed top-0 w-full bg-white "
+          " flex items-center justify-center py-4 border-b fixed z-10 top-0 w-full backdrop-blur-sm"
         }
       >
         <div className="xl:container flex items-center justify-between w-full px-4 lg:px-10 ">
           <div className="flex gap-x-6 items-center">
             <Link to="/">Logo.</Link>
-            <div className="hidden">
+            <div className="hidden lg:block ml-7">
               <ul className="flex items-center gap-x-6">
-                <li className=" text-sm text-gray-500">Docs</li>
+                <Link to={"/docs/introduction"}>
+                  <li className=" text-sm text-gray-500">Docs</li>
+                </Link>
                 <Link to="/docs/components/button">
                   <li className=" text-sm text-gray-500">Components</li>
                 </Link>
@@ -64,7 +66,10 @@ const Navbar = () => {
                 placeholder="Search..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
-                onBlur={() => setSearchInput("")}
+                onBlur={() => {
+                  setSearchInput("");
+                  setShowKbd(true);
+                }}
                 className="w-[200px] py-[3px] bg-transparent text-sm focus:outline-none placeholder:text-sm searchInput focus:w-[400px] transition-all duration-300"
               />
               {showKbd && (
@@ -95,11 +100,7 @@ const Navbar = () => {
             {/* <HamburgerMenu /> */}
             <TbMenuDeep size={26} />
           </div>
-          {showSidebar && (
-            <SidebarMenu
-              setShowSideBar={setShowSideBar}
-            />
-          )}
+          {showSidebar && <SidebarMenu setShowSideBar={setShowSideBar} />}
         </div>
       </div>
     </>
