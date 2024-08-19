@@ -13,7 +13,8 @@
   display: none;
 }
 
-.customScrollBar::-webkit-scrollbar {
+.customScrollBar::-webkit-scrollbar,
+body::-webkit-scrollbar {
   width: 4px;
   height: 20px;
   display: none;

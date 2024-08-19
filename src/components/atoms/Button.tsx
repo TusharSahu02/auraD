@@ -1,9 +1,11 @@
 import React from "react";
 
+type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
+
 type Props = {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: "ghost" | "outline" | "destructive" | "secondary";
+  variant?: Variant;
 };
 
 const Button: React.FC<Props> = ({ children, onClick, variant }: Props) => {
@@ -37,10 +39,10 @@ const Button: React.FC<Props> = ({ children, onClick, variant }: Props) => {
       );
       break;
     case "destructive":
-      classes.push("border", "bg-red-600", "hover:bg-red-600", "text-white");
+      classes.push("bg-red-600", "hover:bg-red-700", "text-white");
       break;
     case "secondary":
-      classes.push("bg-gray-100", "hover:bg-gray-100", "text-black");
+      classes.push("bg-gray-100", "hover:bg-gray-200", "text-black");
       break;
     default:
       classes.push("bg-blue-500", "text-white", "hover:bg-blue-700");

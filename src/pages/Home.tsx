@@ -39,15 +39,24 @@ const Home = () => {
             <h1 className="text-white mb-8">Components</h1>
 
             <div className="grid grid-cols-3 gap-5 w-[80%]">
-              <div className="border border-white/10 rounded-xl h-40"></div>
-              <div className="border border-white/10 rounded-xl h-40"></div>
-              <div className="border border-white/10 rounded-xl h-40"></div>
-              <div className="border border-white/10 rounded-xl h-40"></div>
-              <div className="border border-white/10 rounded-xl h-40"></div>
-              <div className="border border-white/10 rounded-xl h-40"></div>
+              <div className="border border-white/10 rounded-xl h-40 cursor-pointer"></div>
+              <div className="border border-white/10 rounded-xl h-40 cursor-pointer"></div>
+              <div className="border border-white/10 rounded-xl h-40 cursor-pointer"></div>
+              <div className="border border-white/10 rounded-xl h-40 cursor-pointer"></div>
+              <div className="border border-white/10 rounded-xl h-40 cursor-pointer"></div>
+              <div className="border border-white/10 rounded-xl h-40 cursor-pointer"></div>
             </div>
 
-            <h1>ALL rights</h1>
+            <div className="w-[80%] flex items-center justify-center my-6">
+              <Link to="/docs/components/button">
+                <div className="border  border-opacity-10 shiny-text border-white/25 px-4 py-2 rounded-full text-sm">
+                  See more
+                </div>
+              </Link>
+            </div>
+            <h1 className="text-gray-400/60 my-10 text-sm">
+              &copy; 2024 Tushar Sahu. All rights reserved.
+            </h1>
           </div>
         </div>
 
