@@ -32,7 +32,7 @@ const Navbar = () => {
     return () => window.removeEventListener("keydown", handleFocusSearch);
   }, [pathname]);
 
-  if (pathname === "/") return null;
+  if (pathname === "/" || pathname === "/test") return null;
 
   return (
     <>

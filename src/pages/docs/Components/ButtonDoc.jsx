@@ -56,7 +56,10 @@ const CodeBlock = ({
             className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
             onClick={() => {
               navigator.clipboard.writeText(codeString);
-              toast.success("Copied to clipboard");
+              toast.success("Copied to clipboard", {
+                icon: "📋",
+                position: "top-center",
+              });
               setCopy({ ...copy, [variant]: true });
               setTimeout(() => {
                 setCopy({ ...copy, [variant]: false });
@@ -73,7 +76,10 @@ const CodeBlock = ({
             className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
             onClick={() => {
               navigator.clipboard.writeText(codeString);
-              toast.success("Copied to clipboard");
+              toast.success("Copied to clipboard", {
+                icon: "📋",
+                position: "top-center",
+              });
               setCopy({ ...copy, [variant]: true });
               setTimeout(() => {
                 setCopy({ ...copy, [variant]: false });
@@ -127,6 +133,8 @@ const ButtonDoc = () => {
     { variant: "ghost", buttonText: "Ghost" },
   ];
 
+  const codeString = getCodeString("primary");
+
   return (
     <>
       <div className="mt-1 pb-[20px]">
@@ -170,7 +178,10 @@ const ButtonDoc = () => {
                 className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {
                   navigator.clipboard.writeText(codeString);
-                  toast.success("Copied to clipboard");
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
                   setCopy({ ...copy, code: true });
                   setTimeout(() => {
                     setCopy({ ...copy, code: false });
@@ -187,7 +198,10 @@ const ButtonDoc = () => {
                 className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {
                   navigator.clipboard.writeText(codeString);
-                  toast.success("Copied to clipboard");
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
                   setCopy({ ...copy, code: true });
                   setTimeout(() => {
                     setCopy({ ...copy, code: false });
