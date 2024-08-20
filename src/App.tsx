@@ -4,9 +4,12 @@ import Docs from "./pages/docs/Docs";
 import Navbar from "./components/common/Docs/Navbar";
 import { Toaster } from "sonner";
 import Test from "./demo/Test";
+import About from "./components/common/Home/About";
+import ScrollToTop from "./utils/ScrollToTop";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -14,6 +17,7 @@ function App() {
         <Route path="/docs/:instruction" element={<Docs />} />
         <Route path="/docs" element={<Docs />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/about-me" element={<About />} />
       </Routes>
       <Toaster richColors />
     </BrowserRouter>

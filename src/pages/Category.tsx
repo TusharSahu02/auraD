@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { ComponentMap } from "../constants/ComponentMap";
 import { ChevronRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const Category = () => {
   const { category, subcategory, instruction } = useParams();
@@ -10,8 +11,14 @@ const Category = () => {
   const SubcategoryComponent2 =
     ComponentMap[instruction as keyof typeof ComponentMap];
 
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    contentRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [category, subcategory, instruction]);
+
   return (
-    <div>
+    <div ref={contentRef}>
       {SubcategoryComponent && (
         <>
           <div className="flex gap-x-1 justify-start items-center">

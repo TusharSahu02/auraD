@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/common/Home/Navbar";
-
 const Home = () => {
   return (
     <>
@@ -55,7 +54,11 @@ const Home = () => {
               </Link>
             </div>
             <h1 className="text-gray-400/60 my-10 text-sm">
-              &copy; 2024 Tushar Sahu. All rights reserved.
+              &copy; 2024
+              <span className="ml-1">
+                <Link to={"/about-me"}>Tushar Sahu</Link>
+              </span>
+              . All rights reserved.
             </h1>
           </div>
         </div>
