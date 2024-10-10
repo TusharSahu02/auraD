@@ -18,7 +18,7 @@ const Category = () => {
   }, [category, subcategory, instruction]);
 
   return (
-    <div ref={contentRef}>
+    <div ref={contentRef} className="mt-5 md:mt-0">
       {SubcategoryComponent && (
         <>
           <div className="flex gap-x-1 justify-start items-center">

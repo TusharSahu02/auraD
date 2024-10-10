@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/common/Home/Navbar";
 import { motion } from "framer-motion";
+import Button from "../components/Button";
 const Home = () => {
   return (
     <div className="bg-[#090716] w-full min-h-screen relative">
-
       <Navbar />
       <div className=" py-2 px-10 flex items-center flex-col justify-center z-20 ">
         <div className=" flex items-center flex-col justify-center pt-24 text-white ">
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center gap-x-3">
+            className="flex items-center gap-x-3"
+          >
             <div className="h-[1px] bg-gradient-to-r from-gray-900 to-[#ffffffaa] w-[78px]"></div>
             <h1 className=" font-geistLight text-xl text-gray-400  shiny-text">
               Introducing
@@ -24,7 +24,8 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="shiny-text font-geistBlack text-[100px] mt-1">
+            className="shiny-text font-geistBlack text-[100px] mt-1"
+          >
             auraD
           </motion.h1>
           <motion.p
@@ -52,9 +53,7 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 1 }}
             className="xl:mt-[85px] z-20  mt-[65px]"
           >
-            <Link
-              to="/docs/components/button"
-            >
+            <Link to="/docs/components/button">
               <button className="border text-sm font-medium relative border-white/[0.2]  text-white px-4 py-2 rounded-full group">
                 <span className="absolute inset-x-0 w-1/2 mx-auto  transition-opacity duration-300  -top-px bg-gradient-to-r opacity-0 group-hover:opacity-100  from-transparent via-blue-500 to-transparent  h-px" />
                 <span>Browse Components</span>
@@ -72,20 +71,26 @@ const Home = () => {
           variants={{
             visible: {
               transition: {
-                staggerChildren: 0.2
-              }
-            }
+                staggerChildren: 0.2,
+              },
+            },
           }}
         >
           {[1, 2, 3, 4].map((index) => (
             <motion.div
               key={index}
-              className={`border border-white/[0.2] group cursor-pointer ${index === 2 ? 'col-span-2 lg:col-span-1' : 'col-span-2'
-                } ${index === 3 ? 'md:col-span-1' : ''
-                } flex items-center justify-start flex-col rounded-lg p-3 space-y-2`}
+              className={`border border-white/[0.2] group cursor-pointer ${
+                index === 2 ? "col-span-2 lg:col-span-1" : "col-span-2"
+              } ${
+                index === 3 ? "md:col-span-1" : ""
+              } flex items-center justify-start flex-col rounded-lg p-3 space-y-2`}
               variants={{
                 hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 1.4 + (index * 0.2) } }
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, delay: 1.4 + index * 0.2 },
+                },
               }}
             >
               <div className="border border-white/[0.1] bg-[#1e1e1e3e] overflow-hidden h-[200px] w-full rounded-lg">
@@ -121,6 +126,24 @@ const Home = () => {
           </Link>
         </motion.div>
       </div>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 3 }}
+        className="text-gray-400 text-center text-sm py-10 w-full "
+      >
+        All rights reserved © 2024 auraD |
+        <span className="ml-1">
+          <a
+            href="https://github.com/TusharSahu02"
+            target="_blank"
+            className=" underline text-gray-300 underline-offset-2"
+          >
+            Tushar Sahu
+          </a>
+        </span>
+      </motion.h1>
 
       {/* background pattern designs */}
       <div className="lg:grid grid-cols-4 hidden  absolute top-[130px] w-full   left-1/2 -translate-x-1/2">

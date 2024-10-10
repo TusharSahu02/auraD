@@ -12,11 +12,13 @@ const InputDoc = () => {
   const [show, setShow] = useState({
     code: true,
     file: true,
+    floatingInput: true,
   });
 
   const [copy, setCopy] = useState({
     code: false,
     file: false,
+    floatingInput: false,
   });
 
   const codeString = `getCodeString("code")`;
@@ -216,7 +218,7 @@ const InputDoc = () => {
               <div className="h-full w-full flex items-center justify-center flex-col">
                 <label
                   htmlFor="input-file"
-                  className={`w-[500px] h-[300px] relative p-[20px] border-2 border-gray-300 border-dashed  text-center rounded-[20px] transition-colors duration-200 ${
+                  className={`lg:w-[500px] w-full h-[300px] relative p-[20px] border-2 border-gray-300 border-dashed  text-center rounded-[8px] transition-colors duration-200 ${
                     iseDragging ? "bg-[#e8eafb]" : "bg-[#f7f8ff]"
                   }`}
                   onDragOver={handleDragOver}
@@ -259,6 +261,111 @@ const InputDoc = () => {
                     onChange={handleFileChange}
                   />
                 </label>
+              </div>
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, code: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, code: false });
+                  }, 3000);
+                }}
+              >
+                {copy.code ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <SyntaxHighlighter
+                language="tsx"
+                wrapLongLines={true}
+                style={atomOneDark}
+                className="rounded-lg p-5 mt-5 w-full"
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
+        {/* input == Floating Input */}
+        <div className="mt-10">
+          <h1 className="font-medium mb-5 text-xl capitalize">
+            Floating Input
+          </h1>
+
+          <div className="flex gap-x-6 border-b px-4">
+            <div
+              className={`cursor-pointer ${
+                show.floatingInput ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, floatingInput: true })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, floatingInput: true });
+                }
+              }}
+              tabIndex={0}
+            >
+              Preview
+            </div>
+            <div
+              className={`cursor-pointer ${
+                !show.floatingInput ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, floatingInput: false })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, floatingInput: false });
+                }
+              }}
+              tabIndex={0}
+            >
+              Code
+            </div>
+          </div>
+          {show.floatingInput ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(getCodeStringInputDoc());
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, floatingInput: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, floatingInput: false });
+                  }, 3000);
+                }}
+              >
+                {copy.floatingInput ? <Check /> : <Clipboard />}
+              </div>
+              {/* file code */}
+              <div className="flex flex-col items-center justify-center ">
+                <div className="relative h-[50px]  flex items-center justify-center">
+                  <input
+                    id="usernameInput"
+                    type="text"
+                    required
+                    className="border px-4 py-[10px] outline-none rounded-md text-gray-600  transition-all duration-200 ease-in-out focus:-mb-20 focus:ml-3"
+                  />
+                  <label
+                    htmlFor="usernameInput"
+                    className="absolute top-1/2 left-[5px] -translate-y-1/2 text-sm text-gray-400 px-4 py-1 pointer-events-none transition-all duration-200 ease-in-out  focus:text-xs"
+                  >
+                    Username
+                  </label>
+                </div>
               </div>
             </div>
           ) : (

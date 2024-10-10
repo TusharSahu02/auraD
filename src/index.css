@@ -134,3 +134,143 @@ body::-webkit-scrollbar {
     #ffffff 100%
   );
 }
+
+/* loading animation mobile-tab-desktop START */
+@layer utilities {
+  @keyframes dot1 {
+    3%,
+    97% {
+      width: 160px;
+      height: 100px;
+      margin-top: -50px;
+      margin-left: -80px;
+    }
+
+    30%,
+    36% {
+      width: 80px;
+      height: 120px;
+      margin-top: -60px;
+      margin-left: -40px;
+    }
+
+    63%,
+    69% {
+      width: 40px;
+      height: 80px;
+      margin-top: -40px;
+      margin-left: -20px;
+    }
+  }
+
+  @keyframes dot2 {
+    3%,
+    97% {
+      height: 90px;
+      width: 150px;
+      margin-left: -75px;
+      margin-top: -45px;
+    }
+
+    30%,
+    36% {
+      width: 70px;
+      height: 96px;
+      margin-left: -35px;
+      margin-top: -48px;
+    }
+
+    63%,
+    69% {
+      width: 32px;
+      height: 60px;
+      margin-left: -16px;
+      margin-top: -30px;
+    }
+  }
+
+  @keyframes dot3 {
+    3%,
+    97% {
+      height: 20px;
+      width: 40px;
+      margin-left: -20px;
+      margin-top: 50px;
+    }
+
+    30%,
+    36% {
+      width: 8px;
+      height: 8px;
+      margin-left: -5px;
+      margin-top: 49px;
+      border-radius: 8px;
+    }
+
+    63%,
+    69% {
+      width: 16px;
+      height: 4px;
+      margin-left: -8px;
+      margin-top: -37px;
+      border-radius: 10px;
+    }
+  }
+
+  .animate-dot1 {
+    animation: dot1 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
+  }
+
+  .animate-dot2 {
+    animation: dot2 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
+  }
+
+  .animate-dot3 {
+    animation: dot3 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
+  }
+}
+
+/* loading animation mobile-tab-desktop STOP */
+
+/* loading animation bounce stepper START */
+@layer utilities {
+  @keyframes loading-bounce {
+    0% {
+      transform: scale(1, 0.7);
+    }
+
+    40% {
+      transform: scale(0.8, 1.2);
+    }
+
+    60% {
+      transform: scale(1, 1);
+    }
+
+    100% {
+      bottom: 140px;
+    }
+  }
+
+  @keyframes loading-step {
+    0% {
+      box-shadow: 0 10px 0 rgba(0, 0, 0, 0), 0 10px 0 #f2f2f2,
+        -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2;
+    }
+
+    100% {
+      box-shadow: 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2,
+        -70px 90px 0 rgba(0, 0, 0, 0);
+    }
+  }
+
+  .animate-loading-bounce {
+    animation: loading-bounce 0.5s ease-in-out infinite alternate;
+  }
+
+  .animate-loading-step {
+    animation: loading-step 1s ease-in-out infinite;
+  }
+}
+
+/* loading animation bounce stepper STOP */

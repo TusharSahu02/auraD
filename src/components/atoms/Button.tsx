@@ -4,8 +4,9 @@ type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
 
 type Props = {
   children: React.ReactNode;
+  variant: Variant;
   onClick?: () => void;
-  variant?: Variant;
+  className?: string;
 };
 
 const Button: React.FC<Props> = ({ children, onClick, variant }: Props) => {
@@ -19,7 +20,7 @@ const Button: React.FC<Props> = ({ children, onClick, variant }: Props) => {
     "transition",
     "duration-300",
   ];
-
+  
   switch (variant) {
     case "ghost":
       classes.push(
