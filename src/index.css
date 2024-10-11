@@ -274,3 +274,7 @@ body::-webkit-scrollbar {
 }
 
 /* loading animation bounce stepper STOP */
+
+.header {
+  text-align: center;
+}
