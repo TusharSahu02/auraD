@@ -5,7 +5,7 @@ import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Input from "../../../components/atoms/Input";
-import { useState, useRef } from "react";
+import { useState, useRef, ChangeEvent } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdCloudUpload } from "react-icons/md";
 const InputDoc = () => {
@@ -20,42 +20,37 @@ const InputDoc = () => {
     file: false,
     floatingInput: false,
   });
+  const [imageUrl, setImageUrl] = useState("");
+  const [iseDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const codeString = `getCodeString("code")`;
 
   // input == file start
-  const [imageUrl, setImageUrl] = useState("");
-  const [iseDragging, setIsDragging] = useState(false);
-  const fileInputRef = useRef();
 
-  const handleFileChange = (event) => {
-    if (event.target.files && event.target.files?.length > 0) {
-      const file = event.target.files[0];
-      const fileURL = URL.createObjectURL(file);
-      setImageUrl(fileURL);
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setImageUrl(URL.createObjectURL(file));
     }
   };
 
-  const handleDragOver = (event) => {
+  const handleDragOver = (event: React.DragEvent<HTMLLabelElement>): void => {
     event.preventDefault();
     setIsDragging(true);
   };
 
-  const handleDragLeave = (event) => {
+  const handleDragLeave = (event: React.DragEvent<HTMLLabelElement>): void => {
     event.preventDefault();
     setIsDragging(false);
   };
 
-  const handleDrop = (event) => {
+  const handleDrop = (event: React.DragEvent<HTMLLabelElement>): void => {
     event.preventDefault();
-    if (event.dataTransfer.items && event.dataTransfer.items.length > 0) {
-      const fileItem = event.dataTransfer.items[0];
-      if (fileItem.kind === "file") {
-        const file = fileItem.getAsFile();
-        if (file) {
-          const fileURL = URL.createObjectURL(file);
-          setImageUrl(fileURL);
-        }
+    if (event.dataTransfer && event.dataTransfer.items) {
+      const file = event.dataTransfer.items[0].getAsFile();
+      if (file) {
+        setImageUrl(URL.createObjectURL(file));
       }
     }
     setIsDragging(true);
@@ -337,7 +332,7 @@ const InputDoc = () => {
               <div
                 className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {
-                  navigator.clipboard.writeText(getCodeStringInputDoc());
+                  // navigator.clipboard.writeText(getCodeStringInputDoc());
                   toast.success("Copied to clipboard", {
                     icon: "📋",
                     position: "top-center",
