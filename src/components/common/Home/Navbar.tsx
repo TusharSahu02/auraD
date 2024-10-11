@@ -7,8 +7,12 @@ const Navbar = () => {
       <div
         className={`w-[1024px] lg:px-16 flex items-center lg:justify-between justify-center text-white`}
       >
-        <h1 className="hidden lg:block">auraD</h1>
-        <div>Logo</div>
+        <h1 className="hidden lg:block w-[80px]">
+          <img src="/auratypo.svg" alt="" />
+        </h1>
+        <div className="w-[30px]">
+          <img src="/aurad.svg" alt="" />
+        </div>
         <div className="lg:flex hidden items-center gap-x-3">
           <a href="https://twitter.com" target="_blank" rel="noreferrer">
             {/* <Twitter className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}

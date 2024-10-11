@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/common/Home/Navbar";
 import { motion } from "framer-motion";
-import Button from "../components/Button";
 const Home = () => {
   return (
     <div className="bg-[#090716] w-full min-h-screen relative">
@@ -28,13 +27,21 @@ const Home = () => {
           >
             auraD
           </motion.h1>
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             className="text-4xl mt-10 font-geistMedium capitalize"
           >
             copy. paste. ship.
+          </motion.p> */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="lg:text-4xl mt-10 md:text-3xl font-geistMedium capitalize text-2xl text-center"
+          >
+            Design. Develop. Deploy.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -19,10 +19,10 @@ export const CATEGORIES = [
   {
     name: "Components",
     subcategories: [
-      "Bento",
       "Button",
       // "Cards",
-      "Input",
+      // "Input",
+      "Bento",
       // "Input",
     ],
   },

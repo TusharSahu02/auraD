@@ -42,7 +42,9 @@ const Navbar = () => {
     >
       <div className="xl:container flex items-center justify-between w-full px-4 lg:px-10 ">
         <div className="flex gap-x-6 items-center">
-          <Link to="/">Logo.</Link>
+          <Link to="/" className="w-[70px]">
+          <img src="/auratypo.svg" alt="" className="invert" />
+          </Link>
           <div className="hidden lg:block ml-7">
             <ul className="flex items-center gap-x-6">
               <Link to={"/docs/introduction"}>
@@ -51,10 +53,10 @@ const Navbar = () => {
               <Link to="/docs/components/button">
                 <li className=" text-sm text-gray-500">Components</li>
               </Link>
-              <li className=" text-sm text-gray-500">Templates</li>
+              {/* <li className=" text-sm text-gray-500">Templates</li>
               <li className=" text-sm text-gray-500">Blocks</li>
               <li className=" text-sm text-gray-500">Examples</li>
-              <li className=" text-sm text-gray-500">Pro</li>
+              <li className=" text-sm text-gray-500">Pro</li> */}
             </ul>
           </div>
         </div>

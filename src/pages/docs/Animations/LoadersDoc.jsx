@@ -14,7 +14,6 @@ import {
   Loader6,
   Loader7,
 } from "../../../components/atoms/Loaders";
-import Button from "../../../components/atoms/Button";
 
 export const inputDocSections = [
   { id: "l1", title: "Loader 1" },
@@ -28,21 +27,23 @@ export const inputDocSections = [
 
 const LoadersDoc = () => {
   const [show, setShow] = useState({
-    code: true,
-    primary: true,
-    secondary: true,
-    destructive: true,
-    outline: true,
-    ghost: true,
+    l1: true,
+    l2: true,
+    l3: true,
+    l4: true,
+    l5: true,
+    l6: true,
+    l7: true,
   });
 
   const [copy, setCopy] = useState({
-    code: false,
-    primary: false,
-    secondary: false,
-    destructive: false,
-    outline: false,
-    ghost: false,
+    l1: false,
+    l2: false,
+    l3: false,
+    l4: false,
+    l5: false,
+    l6: false,
+    l7: false,
   });
 
   const codeString = getCodeString("primary");
@@ -52,16 +53,17 @@ const LoadersDoc = () => {
       <p className="text-gray-500">
         Displays a button or a component that looks like a button.
       </p>
+      {/* Loader 1 */}
       <div className="mt-10" id="l1">
         <div className="flex gap-x-6 border-b px-4">
           <div
             className={`cursor-pointer ${
-              show.code ? "border-b-2 border-black" : ""
+              show.l1 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: true })}
+            onClick={() => setShow({ ...show, l1: true })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: true });
+                setShow({ ...show, l1: true });
               }
             }}
             tabIndex={0}
@@ -70,12 +72,12 @@ const LoadersDoc = () => {
           </div>
           <div
             className={`cursor-pointer ${
-              !show.code ? "border-b-2 border-black" : ""
+              !show.l1 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: false })}
+            onClick={() => setShow({ ...show, l1: false })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: false });
+                setShow({ ...show, l1: false });
               }
             }}
             tabIndex={0}
@@ -83,7 +85,7 @@ const LoadersDoc = () => {
             Code
           </div>
         </div>
-        {show.code ? (
+        {show.l1 ? (
           <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
             <div
               className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
@@ -93,13 +95,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l1: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l1: false });
                 }, 3000);
               }}
             >
-              {copy.code ? <Check /> : <Clipboard />}
+              {copy.l1 ? <Check /> : <Clipboard />}
             </div>
             <Loader1 />
           </div>
@@ -113,13 +115,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l1: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l1: false });
                 }, 3000);
               }}
             >
-              {copy.code ? (
+              {copy.l1 ? (
                 <Check className="text-white" />
               ) : (
                 <Clipboard className="text-white" />
@@ -136,16 +138,18 @@ const LoadersDoc = () => {
           </div>
         )}
       </div>
+
+      {/* Loader 2 */}
       <div className="mt-10" id="l2">
         <div className="flex gap-x-6 border-b px-4">
           <div
             className={`cursor-pointer ${
-              show.code ? "border-b-2 border-black" : ""
+              show.l2 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: true })}
+            onClick={() => setShow({ ...show, l2: true })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: true });
+                setShow({ ...show, l2: true });
               }
             }}
             tabIndex={0}
@@ -154,12 +158,12 @@ const LoadersDoc = () => {
           </div>
           <div
             className={`cursor-pointer ${
-              !show.code ? "border-b-2 border-black" : ""
+              !show.l2 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: false })}
+            onClick={() => setShow({ ...show, l2: false })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: false });
+                setShow({ ...show, l2: false });
               }
             }}
             tabIndex={0}
@@ -167,7 +171,7 @@ const LoadersDoc = () => {
             Code
           </div>
         </div>
-        {show.code ? (
+        {show.l2 ? (
           <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
             <div
               className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
@@ -177,13 +181,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l2: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l2: false });
                 }, 3000);
               }}
             >
-              {copy.code ? <Check /> : <Clipboard />}
+              {copy.l2 ? <Check /> : <Clipboard />}
             </div>
             <>
               <Loader2 />
@@ -199,13 +203,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l2: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l2: false });
                 }, 3000);
               }}
             >
-              {copy.code ? (
+              {copy.l2 ? (
                 <Check className="text-white" />
               ) : (
                 <Clipboard className="text-white" />
@@ -222,16 +226,18 @@ const LoadersDoc = () => {
           </div>
         )}
       </div>
+
+      {/* Loader 3 */}
       <div className="mt-10" id="l3">
         <div className="flex gap-x-6 border-b px-4">
           <div
             className={`cursor-pointer ${
-              show.code ? "border-b-2 border-black" : ""
+              show.l3 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: true })}
+            onClick={() => setShow({ ...show, l3: true })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: true });
+                setShow({ ...show, l3: true });
               }
             }}
             tabIndex={0}
@@ -240,12 +246,12 @@ const LoadersDoc = () => {
           </div>
           <div
             className={`cursor-pointer ${
-              !show.code ? "border-b-2 border-black" : ""
+              !show.l3 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: false })}
+            onClick={() => setShow({ ...show, l3: false })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: false });
+                setShow({ ...show, l3: false });
               }
             }}
             tabIndex={0}
@@ -253,7 +259,7 @@ const LoadersDoc = () => {
             Code
           </div>
         </div>
-        {show.code ? (
+        {show.l3 ? (
           <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
             <div
               className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
@@ -263,13 +269,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l3: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l3: false });
                 }, 3000);
               }}
             >
-              {copy.code ? <Check /> : <Clipboard />}
+              {copy.l3 ? <Check /> : <Clipboard />}
             </div>
             <>
               <Loader3 />
@@ -285,13 +291,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l3: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l3: false });
                 }, 3000);
               }}
             >
-              {copy.code ? (
+              {copy.l3 ? (
                 <Check className="text-white" />
               ) : (
                 <Clipboard className="text-white" />
@@ -308,16 +314,18 @@ const LoadersDoc = () => {
           </div>
         )}
       </div>
+
+      {/* Loader 4 */}
       <div className="mt-10" id="l4">
         <div className="flex gap-x-6 border-b px-4">
           <div
             className={`cursor-pointer ${
-              show.code ? "border-b-2 border-black" : ""
+              show.l4 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: true })}
+            onClick={() => setShow({ ...show, l4: true })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: true });
+                setShow({ ...show, l4: true });
               }
             }}
             tabIndex={0}
@@ -326,12 +334,12 @@ const LoadersDoc = () => {
           </div>
           <div
             className={`cursor-pointer ${
-              !show.code ? "border-b-2 border-black" : ""
+              !show.l4 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: false })}
+            onClick={() => setShow({ ...show, l4: false })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: false });
+                setShow({ ...show, l4: false });
               }
             }}
             tabIndex={0}
@@ -339,7 +347,7 @@ const LoadersDoc = () => {
             Code
           </div>
         </div>
-        {show.code ? (
+        {show.l4 ? (
           <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
             <div
               className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
@@ -349,13 +357,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l4: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l4: false });
                 }, 3000);
               }}
             >
-              {copy.code ? <Check /> : <Clipboard />}
+              {copy.l4 ? <Check /> : <Clipboard />}
             </div>
             <>
               <Loader4 />
@@ -371,13 +379,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l4: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l4: false });
                 }, 3000);
               }}
             >
-              {copy.code ? (
+              {copy.l4 ? (
                 <Check className="text-white" />
               ) : (
                 <Clipboard className="text-white" />
@@ -394,16 +402,18 @@ const LoadersDoc = () => {
           </div>
         )}
       </div>
+
+      {/* Loader 5 */}
       <div className="mt-10" id="l5">
         <div className="flex gap-x-6 border-b px-4">
           <div
             className={`cursor-pointer ${
-              show.code ? "border-b-2 border-black" : ""
+              show.l5 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: true })}
+            onClick={() => setShow({ ...show, l5: true })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: true });
+                setShow({ ...show, l5: true });
               }
             }}
             tabIndex={0}
@@ -412,12 +422,12 @@ const LoadersDoc = () => {
           </div>
           <div
             className={`cursor-pointer ${
-              !show.code ? "border-b-2 border-black" : ""
+              !show.l5 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: false })}
+            onClick={() => setShow({ ...show, l5: false })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: false });
+                setShow({ ...show, l5: false });
               }
             }}
             tabIndex={0}
@@ -425,7 +435,7 @@ const LoadersDoc = () => {
             Code
           </div>
         </div>
-        {show.code ? (
+        {show.l5 ? (
           <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
             <div
               className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
@@ -435,13 +445,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l5: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l5: false });
                 }, 3000);
               }}
             >
-              {copy.code ? <Check /> : <Clipboard />}
+              {copy.l5 ? <Check /> : <Clipboard />}
             </div>
             <>
               <Loader5 />
@@ -457,13 +467,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l5: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l5: false });
                 }, 3000);
               }}
             >
-              {copy.code ? (
+              {copy.l5 ? (
                 <Check className="text-white" />
               ) : (
                 <Clipboard className="text-white" />
@@ -480,16 +490,18 @@ const LoadersDoc = () => {
           </div>
         )}
       </div>
+
+      {/* Loader 6 */}
       <div className="mt-10" id="l6">
         <div className="flex gap-x-6 border-b px-4">
           <div
             className={`cursor-pointer ${
-              show.code ? "border-b-2 border-black" : ""
+              show.l6 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: true })}
+            onClick={() => setShow({ ...show, l6: true })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: true });
+                setShow({ ...show, l6: true });
               }
             }}
             tabIndex={0}
@@ -498,12 +510,12 @@ const LoadersDoc = () => {
           </div>
           <div
             className={`cursor-pointer ${
-              !show.code ? "border-b-2 border-black" : ""
+              !show.l6 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: false })}
+            onClick={() => setShow({ ...show, l6: false })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: false });
+                setShow({ ...show, l6: false });
               }
             }}
             tabIndex={0}
@@ -511,7 +523,7 @@ const LoadersDoc = () => {
             Code
           </div>
         </div>
-        {show.code ? (
+        {show.l6 ? (
           <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
             <div
               className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
@@ -521,13 +533,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l6: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l6: false });
                 }, 3000);
               }}
             >
-              {copy.code ? <Check /> : <Clipboard />}
+              {copy.l6 ? <Check /> : <Clipboard />}
             </div>
             <>
               <Loader6 />
@@ -543,13 +555,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l6: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l6: false });
                 }, 3000);
               }}
             >
-              {copy.code ? (
+              {copy.l6 ? (
                 <Check className="text-white" />
               ) : (
                 <Clipboard className="text-white" />
@@ -566,16 +578,18 @@ const LoadersDoc = () => {
           </div>
         )}
       </div>
+
+      {/* Loader 7 */}
       <div className="mt-10" id="l7">
         <div className="flex gap-x-6 border-b px-4">
           <div
             className={`cursor-pointer ${
-              show.code ? "border-b-2 border-black" : ""
+              show.l7 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: true })}
+            onClick={() => setShow({ ...show, l7: true })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: true });
+                setShow({ ...show, l7: true });
               }
             }}
             tabIndex={0}
@@ -584,12 +598,12 @@ const LoadersDoc = () => {
           </div>
           <div
             className={`cursor-pointer ${
-              !show.code ? "border-b-2 border-black" : ""
+              !show.l7 ? "border-b-2 border-black" : ""
             }`}
-            onClick={() => setShow({ ...show, code: false })}
+            onClick={() => setShow({ ...show, l7: false })}
             onKeyUp={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                setShow({ ...show, code: false });
+                setShow({ ...show, l7: false });
               }
             }}
             tabIndex={0}
@@ -597,7 +611,7 @@ const LoadersDoc = () => {
             Code
           </div>
         </div>
-        {show.code ? (
+        {show.l7 ? (
           <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
             <div
               className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
@@ -607,13 +621,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l7: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l7: false });
                 }, 3000);
               }}
             >
-              {copy.code ? <Check /> : <Clipboard />}
+              {copy.l7 ? <Check /> : <Clipboard />}
             </div>
             <>
               <Loader7 />
@@ -629,13 +643,13 @@ const LoadersDoc = () => {
                   icon: "📋",
                   position: "top-center",
                 });
-                setCopy({ ...copy, code: true });
+                setCopy({ ...copy, l7: true });
                 setTimeout(() => {
-                  setCopy({ ...copy, code: false });
+                  setCopy({ ...copy, l7: false });
                 }, 3000);
               }}
             >
-              {copy.code ? (
+              {copy.l7 ? (
                 <Check className="text-white" />
               ) : (
                 <Clipboard className="text-white" />

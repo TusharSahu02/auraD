@@ -37,7 +37,7 @@ const CodeBlock = ({
   const isPreview = show[variant];
 
   return (
-    <div id={id} className="mt-10">
+    <div id={id} className="mt-4">
       <h1 className="font-medium mb-5 text-xl capitalize">{variant}</h1>
       <div className="flex gap-x-6 border-b px-4">
         <div
@@ -275,10 +275,12 @@ const ManualDocs = () => {
   const buttonCodeString = getButtonCodeString();
   const [copy, setCopy] = useState(false);
 
+  const [seeAll, setSeeAll] = useState(false);
+
   return (
     <div className="mt-4">
-      <div className="flex items-start justify-center gap-2 border-l-2 border-gray-500">
-        <div className="w-[30px] border-l h-full">
+      <div className="flex items-start justify-center gap-2 border-l border-gray-500">
+        <div className="w-[20px] border-l h-full">
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
         </div>
         <div className="w-full">
@@ -297,44 +299,104 @@ const ManualDocs = () => {
           </p>
         </div>
       </div>
-      <div className="flex items-start justify-center pt-5 gap-2 border-l-2 border-gray-500">
-        <div className="w-[30px] border-l h-full">
+      <div className="flex items-start justify-center pt-5 gap-2 border-l border-gray-500">
+        <div className="w-[20px] border-l h-full">
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
         </div>
         <div className="w-full">
           <h1 className="text-lg font-medium">Add Button.tsx File</h1>
 
-          <p className="mt-3">src/components/Button.tsx</p>
-          <div className="relative">
-            <div
-              className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-              onClick={() => {
-                navigator.clipboard.writeText(buttonCodeString);
-                toast.success("Copied to clipboard", {
-                  icon: "📋",
-                  position: "top-center",
-                });
-                setCopy(true);
-                setTimeout(() => {
-                  setCopy(false);
-                }, 3000);
-              }}
-            >
-              {copy ? (
-                <Check className="text-white" />
-              ) : (
-                <Clipboard className="text-white" />
-              )}
+          <p className="mt-3">
+            <kbd className="px-2 py-1 bg-gray-200 rounded-md">
+              src/components/Button.tsx
+            </kbd>
+          </p>
+          {!seeAll ? (
+            <div className="relative overflow-hidden">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(buttonCodeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy(true);
+                  setTimeout(() => {
+                    setCopy(false);
+                  }, 3000);
+                }}
+              >
+                {copy ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <div className="relative">
+                <SyntaxHighlighter
+                  language="tsx"
+                  wrapLongLines={true}
+                  style={atomOneDark}
+                  className="rounded-lg p-5 mt-5 w-full h-[500px]"
+                >
+                  {buttonCodeString}
+                </SyntaxHighlighter>
+              </div>
+              <div className="absolute h-full w-full z-10 top-0 left-0 bg-gradient-to-b from-transparent rounded-lg to-black/80"></div>
+              <h1
+                onClick={() => {
+                  setSeeAll(true);
+                }}
+                className="text-gray-400 absolute bottom-5 left-1/2 -translate-x-1/2 z-10 cursor-pointer hover:underline "
+              >
+                See more
+              </h1>
             </div>
-            <SyntaxHighlighter
-              language="tsx"
-              wrapLongLines={true}
-              style={atomOneDark}
-              className="rounded-lg p-5 mt-5 w-full"
-            >
-              {buttonCodeString}
-            </SyntaxHighlighter>
-          </div>
+          ) : (
+            <>
+              <div className="relative">
+                <div
+                  className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                  onClick={() => {
+                    navigator.clipboard.writeText(buttonCodeString);
+                    toast.success("Copied to clipboard", {
+                      icon: "📋",
+                      position: "top-center",
+                    });
+                    setCopy(true);
+                    setTimeout(() => {
+                      setCopy(false);
+                    }, 3000);
+                  }}
+                >
+                  {copy ? (
+                    <Check className="text-white" />
+                  ) : (
+                    <Clipboard className="text-white" />
+                  )}
+                </div>
+                <SyntaxHighlighter
+                  language="tsx"
+                  wrapLongLines={true}
+                  style={atomOneDark}
+                  className="rounded-lg p-5 mt-5 w-full"
+                >
+                  {buttonCodeString}
+                </SyntaxHighlighter>
+              </div>
+              <div className="flex items-center justify-center mt-3 ">
+                <h1
+                  className=" cursor-pointer hover:underline"
+                  onClick={() => {
+                    setSeeAll(false);
+                  }}
+                >
+                  See less
+                </h1>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -466,7 +528,7 @@ const ButtonDoc = () => {
         <h1 className="font-medium mt-10 border-b pb-2 text-2xl">
           Installation
         </h1>
-        <div className="flex gap-x-6 border-b px-4 mt-6">
+        {/* <div className="flex gap-x-6 border-b px-4 mt-6">
           <div
             className={`cursor-pointer ${cli ? "border-b-2 border-black" : ""}`}
             onClick={() => setCli(true)}
@@ -493,10 +555,11 @@ const ButtonDoc = () => {
           >
             Manual
           </div>
-        </div>
+        </div> */}
 
         {/* CLI docs */}
-        {cli ? <CLIDocs /> : <ManualDocs />}
+        {/* {cli ? <CLIDocs /> : <ManualDocs />} */}
+        <ManualDocs />
 
         <h1 className="font-medium mt-10 border-b pb-2 text-2xl">Examples</h1>
         {variants.map(({ variant, buttonText }) => {

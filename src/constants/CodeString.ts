@@ -57,7 +57,7 @@ export const getBentoCodeString = (): string => {
           >
             <div className="border border-white/[0.1] bg-[#1e1e1e3e] overflow-hidden h-[200px] w-full rounded-lg">
               <img
-                src="https://images.unsplash.com/photo-1614289371518-722f2615943d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                src="https://images.unsplash.com"
                 alt=""
                 className="w-full h-full object-cover rounded-lg group-hover:scale-[102%] transition-all duration-300"
               />
@@ -94,7 +94,6 @@ export const getUsageImport = () => {
 export const getUsageButton = () => {
   return `<Button variant="outline">Click Me</Button>`;
 };
-
 
 export const getButtonCodeString = () => {
   return `
@@ -158,5 +157,5 @@ export const getButtonCodeString = () => {
 
   export default Button;
 
-  `
-}
+  `;
+};
