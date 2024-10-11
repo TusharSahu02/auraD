@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
 import { getCodeString } from "../../../constants/CodeString";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import {
   Loader1,
   Loader2,

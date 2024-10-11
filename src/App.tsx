@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import Docs from "./pages/docs/Docs";
 import Navbar from "./components/common/Docs/Navbar";
 import { Toaster } from "sonner";
-import Test from "./demo/Test";
 import About from "./components/common/Home/About";
 import ScrollToTop from "./utils/ScrollToTop";
 function App() {
@@ -16,7 +15,6 @@ function App() {
         <Route path="/docs/:category/:subcategory" element={<Docs />} />
         <Route path="/docs/:instruction" element={<Docs />} />
         <Route path="/docs" element={<Docs />} />
-        <Route path="/test" element={<Test />} />
         <Route path="/about-me" element={<About />} />
       </Routes>
       <Toaster richColors />

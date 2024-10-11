@@ -1,19 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../../../components/atoms/Button";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
 import {
-  getButtonCliInstallationCommand,
+  // getButtonCliInstallationCommand,
   getButtonCodeString,
-  getCliInstallationCommand,
+  // getCliInstallationCommand,
   getCodeString,
-  getUsageButton,
-  getUsageImport,
+  // getUsageButton,
+  // getUsageImport,
 } from "../../../constants/CodeString";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import NavigationButton from "../../../components/common/NavigationButton";
+
+type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
 
 export const buttonDocSections = [
   { id: "overview", title: "Overview" },
@@ -24,6 +25,17 @@ export const buttonDocSections = [
   { id: "ghost", title: "Ghost" },
 ];
 
+interface ButtonProps {
+  id: string;
+  show: { [key in Variant]: boolean };
+  setShow: React.Dispatch<React.SetStateAction<{ [key in Variant]: boolean }>>;
+  copy: { [key in Variant]: boolean };
+  setCopy: React.Dispatch<React.SetStateAction<{ [key in Variant]: boolean }>>;
+  variant: Variant;
+  buttonText: string;
+  codeString: string;
+}
+
 const CodeBlock = ({
   id,
   show,
@@ -33,8 +45,20 @@ const CodeBlock = ({
   variant,
   buttonText,
   codeString,
-}) => {
+}: ButtonProps) => {
   const isPreview = show[variant];
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(codeString);
+    toast.success("Copied to clipboard", {
+      icon: "📋",
+      position: "top-center",
+    });
+    setCopy({ ...copy, [variant]: true });
+    setTimeout(() => {
+      setCopy({ ...copy, [variant]: false });
+    }, 3000);
+  };
 
   return (
     <div id={id} className="mt-4">
@@ -73,17 +97,7 @@ const CodeBlock = ({
         <div className="w-full relative h-[400px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
           <div
             className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-            onClick={() => {
-              navigator.clipboard.writeText(codeString);
-              toast.success("Copied to clipboard", {
-                icon: "📋",
-                position: "top-center",
-              });
-              setCopy({ ...copy, [variant]: true });
-              setTimeout(() => {
-                setCopy({ ...copy, [variant]: false });
-              }, 3000);
-            }}
+            onClick={handleCopy}
           >
             {copy[variant] ? <Check /> : <Clipboard />}
           </div>
@@ -93,17 +107,7 @@ const CodeBlock = ({
         <div className="relative">
           <div
             className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-            onClick={() => {
-              navigator.clipboard.writeText(codeString);
-              toast.success("Copied to clipboard", {
-                icon: "📋",
-                position: "top-center",
-              });
-              setCopy({ ...copy, [variant]: true });
-              setTimeout(() => {
-                setCopy({ ...copy, [variant]: false });
-              }, 3000);
-            }}
+            onClick={handleCopy}
           >
             {copy[variant] ? (
               <Check className="text-white" />
@@ -125,157 +129,167 @@ const CodeBlock = ({
   );
 };
 
-const CLIDocs = () => {
-  const [copy, setCopy] = useState(false);
-  const [copyImport, setCopyImport] = useState(false);
-  const [copyButton, setCopyButton] = useState(false);
-  const [copyCli, setCopyCli] = useState(false);
-  const [copyButtonCli, setCopyButtonCli] = useState(false);
+// const CLIDocs = () => {
+//   const [copyImport, setCopyImport] = useState(false);
+//   const [copyButton, setCopyButton] = useState(false);
+//   const [copyCli, setCopyCli] = useState(false);
+//   const [copyButtonCli, setCopyButtonCli] = useState(false);
 
-  const codeStringForCli = getCliInstallationCommand();
-  const codeStringForButton = getButtonCliInstallationCommand();
-  const importCodeString = getUsageImport();
-  const buttonCodeString = getUsageButton();
-  return (
-    <>
-      <div className="relative">
-        <div
-          className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-          onClick={() => {
-            navigator.clipboard.writeText(codeStringForCli);
-            toast.success("Copied to clipboard", {
-              icon: "📋",
-              position: "top-center",
-            });
-            setCopyButtonCli(true);
-            setTimeout(() => {
-              setCopyButtonCli(false);
-            }, 3000);
-          }}
-        >
-          {copyButtonCli ? (
-            <Check className="text-white" />
-          ) : (
-            <Clipboard className="text-white" />
-          )}
-        </div>
-        <SyntaxHighlighter
-          language="tsx"
-          wrapLongLines={true}
-          style={atomOneDark}
-          className="rounded-lg p-5 mt-5 w-full"
-        >
-          {codeStringForCli}
-        </SyntaxHighlighter>
-      </div>
-      <div className="relative">
-        <div
-          className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-          onClick={() => {
-            navigator.clipboard.writeText(codeStringForButton);
-            toast.success("Copied to clipboard", {
-              icon: "📋",
-              position: "top-center",
-            });
-            setCopyCli(true);
-            setTimeout(() => {
-              setCopyCli(false);
-            }, 3000);
-          }}
-        >
-          {copyCli ? (
-            <Check className="text-white" />
-          ) : (
-            <Clipboard className="text-white" />
-          )}
-        </div>
-        <SyntaxHighlighter
-          language="tsx"
-          wrapLongLines={true}
-          style={atomOneDark}
-          className="rounded-lg p-5 mt-5 w-full"
-        >
-          {codeStringForButton}
-        </SyntaxHighlighter>
-      </div>
-      <h1 className="font-medium mt-10 border-b pb-2 text-2xl">Usage</h1>
-      <div className="relative">
-        <div
-          className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-          onClick={() => {
-            navigator.clipboard.writeText(importCodeString);
-            toast.success("Copied to clipboard", {
-              icon: "📋",
-              position: "top-center",
-            });
-            setCopyImport(true);
-            setTimeout(() => {
-              setCopyImport(false);
-            }, 3000);
-          }}
-        >
-          {copyImport ? (
-            <Check className="text-white" />
-          ) : (
-            <Clipboard className="text-white" />
-          )}
-        </div>
-        <SyntaxHighlighter
-          language="tsx"
-          wrapLongLines={true}
-          style={atomOneDark}
-          className="rounded-lg mt-5 w-full"
-        >
-          {importCodeString}
-        </SyntaxHighlighter>
-      </div>
-      <div className="relative">
-        <div
-          className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-          onClick={() => {
-            navigator.clipboard.writeText(buttonCodeString);
-            toast.success("Copied to clipboard", {
-              icon: "📋",
-              position: "top-center",
-            });
-            setCopyButton(true);
-            setTimeout(() => {
-              setCopyButton(false);
-            }, 3000);
-          }}
-        >
-          {copyButton ? (
-            <Check className="text-white" />
-          ) : (
-            <Clipboard className="text-white" />
-          )}
-        </div>
-        <SyntaxHighlighter
-          language="tsx"
-          wrapLongLines={true}
-          style={atomOneDark}
-          className="rounded-lg p-5 mt-5 w-full"
-        >
-          {buttonCodeString}
-        </SyntaxHighlighter>
-      </div>
-      <div className="mt-3">
-        <p>
-          Note : setup{" "}
-          <kbd className="px-2 py-1 bg-gray-300/30 rounded-lg mx-1">
-            tailwind
-          </kbd>{" "}
-          too else the styling will not work
-        </p>
-      </div>
-    </>
-  );
-};
+//   const codeStringForCli = getCliInstallationCommand();
+//   const codeStringForButton = getButtonCliInstallationCommand();
+//   const importCodeString = getUsageImport();
+//   const buttonCodeString = getUsageButton();
+//   return (
+//     <>
+//       <div className="relative">
+//         <div
+//           className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+//           onClick={() => {
+//             navigator.clipboard.writeText(codeStringForCli);
+//             toast.success("Copied to clipboard", {
+//               icon: "📋",
+//               position: "top-center",
+//             });
+//             setCopyButtonCli(true);
+//             setTimeout(() => {
+//               setCopyButtonCli(false);
+//             }, 3000);
+//           }}
+//         >
+//           {copyButtonCli ? (
+//             <Check className="text-white" />
+//           ) : (
+//             <Clipboard className="text-white" />
+//           )}
+//         </div>
+//         <SyntaxHighlighter
+//           language="tsx"
+//           wrapLongLines={true}
+//           style={atomOneDark}
+//           className="rounded-lg p-5 mt-5 w-full"
+//         >
+//           {codeStringForCli}
+//         </SyntaxHighlighter>
+//       </div>
+//       <div className="relative">
+//         <div
+//           className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+//           onClick={() => {
+//             navigator.clipboard.writeText(codeStringForButton);
+//             toast.success("Copied to clipboard", {
+//               icon: "📋",
+//               position: "top-center",
+//             });
+//             setCopyCli(true);
+//             setTimeout(() => {
+//               setCopyCli(false);
+//             }, 3000);
+//           }}
+//         >
+//           {copyCli ? (
+//             <Check className="text-white" />
+//           ) : (
+//             <Clipboard className="text-white" />
+//           )}
+//         </div>
+//         <SyntaxHighlighter
+//           language="tsx"
+//           wrapLongLines={true}
+//           style={atomOneDark}
+//           className="rounded-lg p-5 mt-5 w-full"
+//         >
+//           {codeStringForButton}
+//         </SyntaxHighlighter>
+//       </div>
+//       <h1 className="font-medium mt-10 border-b pb-2 text-2xl">Usage</h1>
+//       <div className="relative">
+//         <div
+//           className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+//           onClick={() => {
+//             navigator.clipboard.writeText(importCodeString);
+//             toast.success("Copied to clipboard", {
+//               icon: "📋",
+//               position: "top-center",
+//             });
+//             setCopyImport(true);
+//             setTimeout(() => {
+//               setCopyImport(false);
+//             }, 3000);
+//           }}
+//         >
+//           {copyImport ? (
+//             <Check className="text-white" />
+//           ) : (
+//             <Clipboard className="text-white" />
+//           )}
+//         </div>
+//         <SyntaxHighlighter
+//           language="tsx"
+//           wrapLongLines={true}
+//           style={atomOneDark}
+//           className="rounded-lg mt-5 w-full"
+//         >
+//           {importCodeString}
+//         </SyntaxHighlighter>
+//       </div>
+//       <div className="relative">
+//         <div
+//           className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+//           onClick={() => {
+//             navigator.clipboard.writeText(buttonCodeString);
+//             toast.success("Copied to clipboard", {
+//               icon: "📋",
+//               position: "top-center",
+//             });
+//             setCopyButton(true);
+//             setTimeout(() => {
+//               setCopyButton(false);
+//             }, 3000);
+//           }}
+//         >
+//           {copyButton ? (
+//             <Check className="text-white" />
+//           ) : (
+//             <Clipboard className="text-white" />
+//           )}
+//         </div>
+//         <SyntaxHighlighter
+//           language="tsx"
+//           wrapLongLines={true}
+//           style={atomOneDark}
+//           className="rounded-lg p-5 mt-5 w-full"
+//         >
+//           {buttonCodeString}
+//         </SyntaxHighlighter>
+//       </div>
+//       <div className="mt-3">
+//         <p>
+//           Note : setup{" "}
+//           <kbd className="px-2 py-1 bg-gray-300/30 rounded-lg mx-1">
+//             tailwind
+//           </kbd>{" "}
+//           too else the styling will not work
+//         </p>
+//       </div>
+//     </>
+//   );
+// };
 const ManualDocs = () => {
   const buttonCodeString = getButtonCodeString();
   const [copy, setCopy] = useState(false);
-
   const [seeAll, setSeeAll] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(buttonCodeString);
+    toast.success("Copied to clipboard", {
+      icon: "📋",
+      position: "top-center",
+    });
+    setCopy(true);
+    setTimeout(() => {
+      setCopy(false);
+    }, 3000);
+  };
 
   return (
     <div className="mt-4">
@@ -315,17 +329,7 @@ const ManualDocs = () => {
             <div className="relative overflow-hidden">
               <div
                 className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-                onClick={() => {
-                  navigator.clipboard.writeText(buttonCodeString);
-                  toast.success("Copied to clipboard", {
-                    icon: "📋",
-                    position: "top-center",
-                  });
-                  setCopy(true);
-                  setTimeout(() => {
-                    setCopy(false);
-                  }, 3000);
-                }}
+                onClick={handleCopy}
               >
                 {copy ? (
                   <Check className="text-white" />
@@ -358,17 +362,7 @@ const ManualDocs = () => {
               <div className="relative">
                 <div
                   className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-                  onClick={() => {
-                    navigator.clipboard.writeText(buttonCodeString);
-                    toast.success("Copied to clipboard", {
-                      icon: "📋",
-                      position: "top-center",
-                    });
-                    setCopy(true);
-                    setTimeout(() => {
-                      setCopy(false);
-                    }, 3000);
-                  }}
+                  onClick={handleCopy}
                 >
                   {copy ? (
                     <Check className="text-white" />
@@ -422,7 +416,7 @@ const ButtonDoc = () => {
     ghost: false,
   });
 
-  const [cli, setCli] = useState(true);
+  // const [cli, setCli] = useState(true);
 
   const variants = [
     { variant: "primary", buttonText: "Primary" },
@@ -489,7 +483,7 @@ const ButtonDoc = () => {
               >
                 {copy.code ? <Check /> : <Clipboard />}
               </div>
-              <Button>Button</Button>
+              <Button variant="primary">Button</Button>
             </div>
           ) : (
             <div className="relative">
@@ -579,22 +573,12 @@ const ButtonDoc = () => {
           );
         })}
       </div>
-      <div className="flex items-center justify-between">
-        <Button variant="outline">
-          <span className="flex items-center gap-1">
-            <FiChevronLeft />
-            Previous
-          </span>
-        </Button>
-        <Link to={"/docs/components/input"}>
-          <Button variant="outline">
-            <span className="flex items-center gap-1">
-              Input
-              <FiChevronRight />
-            </span>
-          </Button>
-        </Link>
-      </div>
+      <NavigationButton
+        previousTitle="Installation"
+        nextTitle="Bento"
+        previousLink="/docs/installation"
+        nextLink="/docs/components/bento"
+      />
     </>
   );
 };
