@@ -4,7 +4,6 @@ import Category from "../Category";
 import { useState, useEffect, useRef } from "react";
 import { normalizeURL } from "../../utils/util";
 import { DocHighlightConstant } from "../../constants/DocHighlightConstant";
-import { CircleHelp } from "lucide-react";
 import Tooltip from "../../components/atoms/Tooltip";
 
 const Docs = () => {
@@ -162,9 +161,6 @@ const Docs = () => {
         </div>
       </div>
 
-      {/* <div className=" absolute size-[50px] rounded-full z-20 bottom-5 bg-zinc-800 right-5 flex items-center justify-center cursor-pointer">
-        <CircleHelp size={40} strokeWidth={1} color="white" />
-      </div> */}
       <Tooltip />
     </>
   );

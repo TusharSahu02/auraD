@@ -1,5 +1,5 @@
 import { CircleHelp } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Tooltip = () => {
   const [visible, setVisible] = useState(false);

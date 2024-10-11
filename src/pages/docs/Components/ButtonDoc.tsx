@@ -399,7 +399,6 @@ const ManualDocs = () => {
 
 const ButtonDoc = () => {
   const [show, setShow] = useState({
-    code: true,
     primary: true,
     secondary: true,
     destructive: true,
@@ -407,8 +406,10 @@ const ButtonDoc = () => {
     ghost: true,
   });
 
+  const [code, setCode] = useState(true);
+  const [copyCode, setCopyCode] = useState(false);
+
   const [copy, setCopy] = useState({
-    code: false,
     primary: false,
     secondary: false,
     destructive: false,
@@ -438,12 +439,12 @@ const ButtonDoc = () => {
           <div className="flex gap-x-6 border-b px-4">
             <div
               className={`cursor-pointer ${
-                show.code ? "border-b-2 border-black" : ""
+                code ? "border-b-2 border-black" : ""
               }`}
-              onClick={() => setShow({ ...show, code: true })}
+              onClick={() => setCode(true)}
               onKeyUp={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
-                  setShow({ ...show, code: true });
+                  setCode(true);
                 }
               }}
               tabIndex={0}
@@ -452,12 +453,12 @@ const ButtonDoc = () => {
             </div>
             <div
               className={`cursor-pointer ${
-                !show.code ? "border-b-2 border-black" : ""
+                !code ? "border-b-2 border-black" : ""
               }`}
-              onClick={() => setShow({ ...show, code: false })}
+              onClick={() => setCode(false)}
               onKeyUp={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
-                  setShow({ ...show, code: false });
+                  setCode(false);
                 }
               }}
               tabIndex={0}
@@ -465,7 +466,7 @@ const ButtonDoc = () => {
               Code
             </div>
           </div>
-          {show.code ? (
+          {code ? (
             <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
               <div
                 className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
@@ -475,13 +476,13 @@ const ButtonDoc = () => {
                     icon: "📋",
                     position: "top-center",
                   });
-                  setCopy({ ...copy, code: true });
+                  setCopyCode(true);
                   setTimeout(() => {
-                    setCopy({ ...copy, code: false });
+                    setCopyCode(false);
                   }, 3000);
                 }}
               >
-                {copy.code ? <Check /> : <Clipboard />}
+                {copyCode ? <Check /> : <Clipboard />}
               </div>
               <Button variant="primary">Button</Button>
             </div>
@@ -495,13 +496,13 @@ const ButtonDoc = () => {
                     icon: "📋",
                     position: "top-center",
                   });
-                  setCopy({ ...copy, code: true });
+                  setCopyCode(true);
                   setTimeout(() => {
-                    setCopy({ ...copy, code: false });
+                    setCopyCode(false);
                   }, 3000);
                 }}
               >
-                {copy.code ? (
+                {copyCode ? (
                   <Check className="text-white" />
                 ) : (
                   <Clipboard className="text-white" />
@@ -557,7 +558,7 @@ const ButtonDoc = () => {
 
         <h1 className="font-medium mt-10 border-b pb-2 text-2xl">Examples</h1>
         {variants.map(({ variant, buttonText }) => {
-          const codeString = getCodeString(variant);
+          const codeString = getCodeString(variant as Variant);
           return (
             <CodeBlock
               key={variant}
@@ -566,7 +567,7 @@ const ButtonDoc = () => {
               setShow={setShow}
               copy={copy}
               setCopy={setCopy}
-              variant={variant}
+              variant={variant as Variant}
               buttonText={buttonText}
               codeString={codeString}
             />
