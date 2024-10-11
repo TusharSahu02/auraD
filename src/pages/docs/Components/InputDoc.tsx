@@ -5,7 +5,7 @@ import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Input from "../../../components/atoms/Input";
-import { useState, useRef, ChangeEvent } from "react";
+import React, { useState, useRef } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdCloudUpload } from "react-icons/md";
 const InputDoc = () => {
@@ -28,24 +28,24 @@ const InputDoc = () => {
 
   // input == file start
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setImageUrl(URL.createObjectURL(file));
     }
   };
 
-  const handleDragOver = (event: React.DragEvent<HTMLLabelElement>): void => {
+  const handleDragOver = (event: React.DragEvent<HTMLLabelElement>) => {
     event.preventDefault();
     setIsDragging(true);
   };
 
-  const handleDragLeave = (event: React.DragEvent<HTMLLabelElement>): void => {
+  const handleDragLeave = (event: React.DragEvent<HTMLLabelElement>) => {
     event.preventDefault();
     setIsDragging(false);
   };
 
-  const handleDrop = (event: React.DragEvent<HTMLLabelElement>): void => {
+  const handleDrop = (event: React.DragEvent<HTMLLabelElement>) => {
     event.preventDefault();
     if (event.dataTransfer && event.dataTransfer.items) {
       const file = event.dataTransfer.items[0].getAsFile();
