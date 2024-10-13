@@ -138,11 +138,11 @@ const Navbar = () => {
           )}
 
           <div className="flex items-center gap-x-2">
-            <a href="https://twitter.com" target="_blank" rel="noreferrer">
+            <a href="https://x.com/auraD_UI" target="_blank" rel="noreferrer">
               {/* <Twitter className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
               <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white  transition-colors duration-300" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/company/aura-d" target="_blank" rel="noreferrer">
               {/* <Linkedin className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
               <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
             </a>
