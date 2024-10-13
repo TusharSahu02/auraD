@@ -8,7 +8,7 @@ export const Loader1 = () => {
 
 export const Loader2 = () => {
   return (
-    <div className="relative w-12 h-24 bg-black rounded-[25px] overflow-hidden">
+    <div className="relative w-12 h-24 bg-black dark:bg-white/20 rounded-[25px] overflow-hidden">
       <div className="absolute top-0 w-5 h-5 bg-gradient-to-b from-pink-500 to-pink-300 rounded-full left-[15px] animate-drop" />
       <div className="absolute top-0 w-5 h-5 bg-gradient-to-b from-green-500 to-cyan-400 rounded-full left-1 animate-drop1" />
       <div className="absolute top-0 w-5 h-5 bg-gradient-to-b from-purple-600 to-pink-300 rounded-full left-[30px] animate-drop2" />
@@ -59,12 +59,12 @@ export const Loader4 = () => {
 export const Loader5 = () => {
   return (
     <div className="relative w-52 h-16 z-10">
-      <div className="circle size-[23px] bg-zinc-900/60 border  absolute rounded-full left-[15%] origin-center animate-circle1" />
-      <div className="circle size-[23px] bg-zinc-900/60 border  absolute rounded-full left-[45%] origin-center animate-circle2" />
-      <div className="circle size-[23px] bg-zinc-900/60 border  absolute rounded-full right-[15%] origin-center animate-circle3" />
-      <div className="shadow  bg-black/50 absolute rounded-full left-[15%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow1" />
-      <div className="shadow  bg-black/50 absolute rounded-full left-[45%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow2" />
-      <div className="shadow  bg-black/50 absolute rounded-full right-[15%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow3" />
+      <div className="circle size-[23px] bg-zinc-900/60 dark:bg-white/60 border  absolute rounded-full left-[15%] origin-center animate-circle1" />
+      <div className="circle size-[23px] bg-zinc-900/60  dark:bg-white/60 border  absolute rounded-full left-[45%] origin-center animate-circle2" />
+      <div className="circle size-[23px] bg-zinc-900/60  dark:bg-white/60 border  absolute rounded-full right-[15%] origin-center animate-circle3" />
+      <div className="shadow  bg-black/50  dark:bg-white/50 absolute rounded-full left-[15%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow1" />
+      <div className="shadow  bg-black/50  dark:bg-white/50 absolute rounded-full left-[45%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow2" />
+      <div className="shadow  bg-black/50  dark:bg-white/50 absolute rounded-full right-[15%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow3" />
     </div>
   );
 };
