@@ -73,18 +73,18 @@ const Button: React.FC<Props> = ({
   switch (variant) {
     case "ghost":
       classes.push(
-        "text-black",
+        "text-black dark:text-white",
         "bg-transparent",
-        "hover:bg-gray-200",
+        "hover:bg-gray-200 dark:hover:bg-gray-900",
         "hover:bg-opacity-60"
       );
       break;
     case "outline":
       classes.push(
-        "text-black",
+        "text-black dark:text-white",
         "border",
         "bg-transparent",
-        "hover:bg-gray-200",
+        "hover:bg-gray-200 dark:hover:bg-gray-900",
         "hover:bg-opacity-60"
       );
       break;

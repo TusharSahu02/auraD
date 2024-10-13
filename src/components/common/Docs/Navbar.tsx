@@ -4,6 +4,7 @@ import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { TbMenuDeep } from "react-icons/tb";
 import { Link, useLocation } from "react-router-dom";
 import SidebarMenu from "./SidebarMenu";
+import { ModeToggle } from "../mode-toggle";
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -43,7 +44,8 @@ const Navbar = () => {
       <div className="xl:container flex items-center justify-between w-full px-4 lg:px-10 ">
         <div className="flex gap-x-6 items-center">
           <Link to="/" className="w-[70px]">
-          <img src="/auratypo.svg" alt="" className="invert" />
+            <img src="/auratypo.svg" alt="" className="dark:hidden invert" />
+            <img src="/auratypo.svg" alt="" className="hidden dark:block" />
           </Link>
           <div className="hidden lg:block ml-7">
             <ul className="flex items-center gap-x-6">
@@ -61,7 +63,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="lg:flex items-center gap-x-3 hidden">
-          <div className=" border bg-gray-100/70 rounded-lg px-3 flex items-center ">
+          <div className=" border dark:bg-gray-400/30 bg-gray-100/70 rounded-lg px-3 flex items-center ">
             <input
               type="text"
               placeholder="Search..."
@@ -82,13 +84,14 @@ const Navbar = () => {
           <div className="flex items-center gap-x-2">
             <a href="https://twitter.com" target="_blank" rel="noreferrer">
               {/* <Twitter className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
-              <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" />
+              <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white  transition-colors duration-300" />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer">
               {/* <Linkedin className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
-              <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" />
+              <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
             </a>
           </div>
+          <ModeToggle />
         </div>
         {/* Mobile Menu */}
 

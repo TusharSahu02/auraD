@@ -65,9 +65,9 @@ const Docs = () => {
   };
   return (
     <>
-      <div className=" h-[calc(100vh-55px)] w-full flex items-center justify-center mt-[55px] relative  ">
+      <div className=" h-[calc(100vh-65px)] w-full flex items-center justify-center mt-[55px] relative  ">
         <div className="xl:container px-4 lg:px-0 flex  items-center justify-center  w-full h-full">
-          <div className="xl:w-[20%] lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
+          <div className="xl:w-[20%] mt-5 lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
             {GETTING_STARTED.map(
               (category: { name: string; subcategories: string[] }) => {
                 return (
@@ -87,7 +87,9 @@ const Docs = () => {
                               subcategory.toLowerCase()
                             )}`}
                             className={({ isActive }) =>
-                              isActive ? "text-black" : "border-gray-700"
+                              isActive
+                                ? "dark:text-white text-black"
+                                : "border-gray-700"
                             }
                           >
                             {subcategory}
@@ -119,7 +121,9 @@ const Docs = () => {
                                 subcategory.toLowerCase()
                               )}`}
                               className={({ isActive }) =>
-                                isActive ? "text-black" : "border-gray-700"
+                                isActive
+                                  ? "text-black dark:text-white"
+                                  : "border-gray-700"
                               }
                             >
                               {subcategory}
@@ -146,7 +150,7 @@ const Docs = () => {
                       href={`#${section.id}`}
                       className={`text-sm transition-colors duration-200 ${
                         activeSection === section.id
-                          ? "text-black font-medium"
+                          ? "text-black dark:text-white font-medium"
                           : "text-gray-500 hover:text-gray-900"
                       }`}
                       onClick={() => handleSectionClick(section.id)}

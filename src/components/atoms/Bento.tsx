@@ -16,7 +16,7 @@ const Bento = () => {
       {[1, 2, 3, 4].map((index) => (
         <motion.div
           key={index}
-          className={`border border-black/[0.2] group cursor-pointer ${
+          className={`border border-black/[0.2] dark:border-white/10 group cursor-pointer ${
             index === 2 ? "col-span-2 lg:col-span-1" : "col-span-2"
           } ${
             index === 3 ? "md:col-span-1" : ""

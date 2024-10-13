@@ -94,7 +94,7 @@ const CodeBlock = ({
         </div>
       </div>
       {isPreview ? (
-        <div className="w-full relative h-[400px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
+        <div className="w-full relative h-[400px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
           <div
             className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
             onClick={handleCopy}
@@ -321,7 +321,7 @@ const ManualDocs = () => {
           <h1 className="text-lg font-medium">Add Button.tsx File</h1>
 
           <p className="mt-3">
-            <kbd className="px-2 py-1 bg-gray-200 rounded-md">
+            <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-md">
               src/components/Button.tsx
             </kbd>
           </p>
@@ -439,7 +439,7 @@ const ButtonDoc = () => {
           <div className="flex gap-x-6 border-b px-4">
             <div
               className={`cursor-pointer ${
-                code ? "border-b-2 border-black" : ""
+                code ? "border-b-2 border-black dark:border-white" : ""
               }`}
               onClick={() => setCode(true)}
               onKeyUp={(e) => {
@@ -453,7 +453,7 @@ const ButtonDoc = () => {
             </div>
             <div
               className={`cursor-pointer ${
-                !code ? "border-b-2 border-black" : ""
+                !code ? "border-b-2 border-black dark:border-white" : ""
               }`}
               onClick={() => setCode(false)}
               onKeyUp={(e) => {
@@ -467,7 +467,7 @@ const ButtonDoc = () => {
             </div>
           </div>
           {code ? (
-            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
               <div
                 className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {

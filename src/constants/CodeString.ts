@@ -30,7 +30,6 @@ export const getCodeString = (variant: Variant): string => {
 
 export const getBentoCodeString = (): string => {
   return `
-  
   import { motion } from "framer-motion";
 
   const Bento = () => {
@@ -159,3 +158,52 @@ export const getButtonCodeString = () => {
 
   `;
 };
+
+// ==================================== LOADERS ====================================
+export const getLoader1CodeString = () => {
+  return `
+   <div 
+      className="relative w-10 h-10 transform rotate-[165deg]">
+      <div className="
+           before:content-[''] 
+           after:content-[''] 
+           before:absolute 
+           before:top-1/2 
+           before:left-1/2 
+           before:w-2 before:h-2 
+           before:rounded-md 
+           before:transform 
+           before:-translate-x-1/2 
+           before:-translate-y-1/2 
+           before:animate-before8 
+           after:absolute 
+           after:top-1/2 
+           after:left-1/2 
+           after:w-2 
+           after:h-2 
+           after:rounded-md 
+           after:transform 
+           after:-translate-x-1/2 
+           after:-translate-y-1/2 
+           after:animate-after6"
+         >
+      </div>
+    </div>
+  `;
+};
+
+export const getLoader2CodeString = () => {
+  return `
+  <div className="relative w-12 h-24 bg-black rounded-[25px] overflow-hidden">
+      <div className="absolute top-0 w-5 h-5 bg-gradient-to-b from-pink-500 to-pink-300 rounded-full left-[15px] animate-drop" />
+      <div className="absolute top-0 w-5 h-5 bg-gradient-to-b from-green-500 to-cyan-400 rounded-full left-1 animate-drop1" />
+      <div className="absolute top-0 w-5 h-5 bg-gradient-to-b from-purple-600 to-pink-300 rounded-full left-[30px] animate-drop2" />
+      <div className="absolute top-0 w-5 h-5 bg-gradient-to-b from-blue-600 to-cyan-400 rounded-full left-[20px] animate-drop3" />
+    </div>
+    `;
+};
+
+export const getLoader3CodeString = () => {
+  return`
+  `
+}
