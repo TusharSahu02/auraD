@@ -33,7 +33,7 @@ export const inputDocSections = [
 ];
 
 const LoadersDoc = () => {
-  const [show, setShow] = useState({
+  const [show, setShow] = useState<{ [key: string]: boolean }>({
     l1: true,
     l2: true,
     l3: true,
@@ -43,7 +43,7 @@ const LoadersDoc = () => {
     l7: true,
   });
 
-  const [copy, setCopy] = useState({
+  const [copy, setCopy] = useState<{ [key: string]: boolean }>({
     l1: false,
     l2: false,
     l3: false,
@@ -76,7 +76,7 @@ const LoadersDoc = () => {
     }, 3000);
   };
 
-  const renderLoaderSection = (id: string, LoaderComponent: any) => {
+  const renderLoaderSection = (id: string, LoaderComponent: React.FC) => {
     const codeString = loaderCodeMap[id]();
     return (
       <div className="mt-10" id={id}>
