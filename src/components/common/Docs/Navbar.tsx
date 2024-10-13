@@ -8,11 +8,12 @@ import { ModeToggle } from "../mode-toggle";
 import { CATEGORIES } from "@/constants/CategoryConstant";
 import { motion } from "framer-motion";
 
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
 const Navbar = () => {
   const { pathname } = useLocation();
   const [searchInput, setSearchInput] = useState("");
   const [showKbd, setShowKbd] = useState(true);
-  const [showSidebar, setShowSideBar] = useState(false);
   const [filteredCategories, setFilteredCategories] = useState(CATEGORIES);
 
   useEffect(() => {
@@ -139,28 +140,29 @@ const Navbar = () => {
 
           <div className="flex items-center gap-x-2">
             <a href="https://x.com/auraD_UI" target="_blank" rel="noreferrer">
-              {/* <Twitter className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
               <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white  transition-colors duration-300" />
             </a>
-            <a href="https://www.linkedin.com/company/aura-d" target="_blank" rel="noreferrer">
-              {/* <Linkedin className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
+            <a
+              href="https://www.linkedin.com/company/aura-d"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
             </a>
           </div>
           <ModeToggle />
         </div>
+
         {/* Mobile Menu */}
 
-        <div
-          className="lg:hidden"
-          onClick={() => {
-            setShowSideBar((prev) => !prev);
-          }}
-        >
-          {/* <HamburgerMenu /> */}
-          <TbMenuDeep size={26} />
-        </div>
-        {showSidebar && <SidebarMenu setShowSideBar={setShowSideBar} />}
+        <Sheet>
+          <SheetTrigger>
+            <TbMenuDeep size={26} />
+          </SheetTrigger>
+          <SheetContent>
+            <SidebarMenu />
+          </SheetContent>
+        </Sheet>
       </div>
     </div>
   );

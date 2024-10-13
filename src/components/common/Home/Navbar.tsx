@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 const Navbar = () => {
@@ -14,12 +13,14 @@ const Navbar = () => {
           <img src="/aurad.svg" alt="" />
         </div>
         <div className="lg:flex hidden items-center gap-x-3">
-          <a href="https://twitter.com" target="_blank" rel="noreferrer">
-            {/* <Twitter className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
+          <a href="https://x.com/auraD_UI" target="_blank" rel="noreferrer">
             <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-white transition-colors duration-300" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-            {/* <Linkedin className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
+          <a
+            href="https://www.linkedin.com/company/aura-d"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-white transition-colors duration-300" />
           </a>
         </div>

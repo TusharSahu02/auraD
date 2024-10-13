@@ -66,7 +66,7 @@ const CodeBlock = ({
       <div className="flex gap-x-6 border-b px-4">
         <div
           className={`cursor-pointer ${
-            isPreview ? "border-b-2 border-black" : ""
+            isPreview ? "border-b-2 border-black dark:border-white" : ""
           }`}
           onClick={() => setShow({ ...show, [variant]: true })}
           onKeyUp={(e) => {
@@ -80,7 +80,7 @@ const CodeBlock = ({
         </div>
         <div
           className={`cursor-pointer ${
-            !isPreview ? "border-b-2 border-black" : ""
+            !isPreview ? "border-b-2 border-black dark:border-white" : ""
           }`}
           onClick={() => setShow({ ...show, [variant]: false })}
           onKeyUp={(e) => {
@@ -294,7 +294,7 @@ const ManualDocs = () => {
   return (
     <div className="mt-4">
       <div className="flex items-start justify-center gap-2 border-l border-gray-500">
-        <div className="w-[20px] border-l h-full">
+        <div className="lg:w-[20px] border-l h-full">
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
         </div>
         <div className="w-full">
@@ -314,7 +314,7 @@ const ManualDocs = () => {
         </div>
       </div>
       <div className="flex items-start justify-center pt-5 gap-2 border-l border-gray-500">
-        <div className="w-[20px] border-l h-full">
+        <div className="lg:w-[20px] border-l h-full">
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
         </div>
         <div className="w-full">
