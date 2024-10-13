@@ -204,6 +204,68 @@ export const getLoader2CodeString = () => {
 };
 
 export const getLoader3CodeString = () => {
-  return`
-  `
-}
+  return `
+   <div className="flex items-center justify-center h-full w-full">
+      <div className="h-5 w-5 rounded-full bg-[#b3d4fc] animate-pulse1 mr-2"></div>
+      <div className="h-5 w-5 rounded-full bg-[#b3d4fc] animate-pulse2 mr-2"></div>
+      <div className="h-5 w-5 rounded-full bg-[#b3d4fc] animate-pulse3 mr-2"></div>
+      <div className="h-5 w-5 rounded-full bg-[#b3d4fc] animate-pulse4 mr-2"></div>
+      <div className="h-5 w-5 rounded-full bg-[#b3d4fc] animate-pulse5"></div>
+    </div>
+  `;
+};
+export const getLoader4CodeString = () => {
+  return `
+    <div className="flex justify-center items-center mx-auto my-10 w-[calc(3*30px+26px)] h-[calc(2*30px+26px)] relative">
+      <div
+        className="absolute w-[26px] h-[26px] bg-[#81A263] rounded-[2px] animate-square1"
+        style={{ left: "calc(0 * 30px)", top: "calc(0 * 30px)" }}
+      ></div>
+      <div
+        className="absolute w-[26px] h-[26px] bg-[#81A263] rounded-[2px] animate-square2"
+        style={{ left: "calc(0 * 30px)", top: "calc(1 * 30px)" }}
+      ></div>
+      <div
+        className="absolute w-[26px] h-[26px] bg-[#81A263] rounded-[2px] animate-square3"
+        style={{ left: "calc(1 * 30px)", top: "calc(1 * 30px)" }}
+      ></div>
+      <div
+        className="absolute w-[26px] h-[26px] bg-[#81A263] rounded-[2px] animate-square4"
+        style={{ left: "calc(2 * 30px)", top: "calc(1 * 30px)" }}
+      ></div>
+      <div
+        className="absolute w-[26px] h-[26px] bg-[#81A263] rounded-[2px] animate-square5"
+        style={{ left: "calc(3 * 30px)", top: "calc(1 * 30px)" }}
+      ></div>
+    </div>
+  `;
+};
+export const getLoader5CodeString = () => {
+  return `
+    <div className="relative w-52 h-16 z-10">
+      <div className="circle size-[23px] bg-zinc-900/60 border  absolute rounded-full left-[15%] origin-center animate-circle1" />
+      <div className="circle size-[23px] bg-zinc-900/60 border  absolute rounded-full left-[45%] origin-center animate-circle2" />
+      <div className="circle size-[23px] bg-zinc-900/60 border  absolute rounded-full right-[15%] origin-center animate-circle3" />
+      <div className="shadow  bg-black/50 absolute rounded-full left-[15%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow1" />
+      <div className="shadow  bg-black/50 absolute rounded-full left-[45%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow2" />
+      <div className="shadow  bg-black/50 absolute rounded-full right-[15%] w-4 h-px top-[62px] origin-center blur-[1px] animate-shadow3" />
+    </div>
+  `;
+};
+export const getLoader6CodeString = () => {
+  return `
+    <div className="relative flex justify-center items-center w-full h-full">
+      <div className="loader absolute top-1/2 left-1/2 z-10 w-[160px] h-[100px] -ml-[80px] -mt-[50px] rounded-[5px] bg-[#1e3f57] animate-dot1"></div>
+      <div className="loader absolute top-1/2 left-1/2 z-11 w-[150px] h-[90px] -ml-[75px] -mt-[45px] rounded-[3px] bg-[#3c517d] animate-dot2"></div>
+      <div className="loader absolute top-1/2 left-1/2 z-12 w-[40px] h-[20px] mt-[50px] -ml-[20px] rounded-b-[5px] bg-[#6bb2cd] animate-dot3"></div>
+    </div>
+  `;
+};
+export const getLoader7CodeString = () => {
+  return `
+    <div className="relative w-[120px] h-[90px] mx-auto">
+      <div className="absolute bottom-[30px] left-[50px] h-[30px] w-[30px] rounded-full bg-[#2a9d8f] animate-loading-bounce"></div>
+      <div className="absolute top-0 right-0 h-[7px] w-[45px] rounded-[4px] shadow-[0_5px_0_#f2f2f2,-35px_50px_0_#f2f2f2,-70px_95px_0_#f2f2f2] animate-loading-step"></div>
+    </div>
+  `;
+};

@@ -5,12 +5,15 @@ import { TbMenuDeep } from "react-icons/tb";
 import { Link, useLocation } from "react-router-dom";
 import SidebarMenu from "./SidebarMenu";
 import { ModeToggle } from "../mode-toggle";
+import { CATEGORIES } from "@/constants/CategoryConstant";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const { pathname } = useLocation();
   const [searchInput, setSearchInput] = useState("");
   const [showKbd, setShowKbd] = useState(true);
   const [showSidebar, setShowSideBar] = useState(false);
+  const [filteredCategories, setFilteredCategories] = useState(CATEGORIES);
 
   useEffect(() => {
     const handleFocusSearch = (event: KeyboardEvent) => {
@@ -32,6 +35,23 @@ const Navbar = () => {
     window.addEventListener("keydown", handleFocusSearch);
     return () => window.removeEventListener("keydown", handleFocusSearch);
   }, [pathname]);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    const searchValue = e.target.value.toLowerCase();
+    const filtered = CATEGORIES.flatMap((category) => {
+      const matchingSubcategories = category.subcategories.filter(
+        (subcategory) => subcategory.toLowerCase().includes(searchValue)
+      );
+      return matchingSubcategories.map((subcategory) => ({
+        name: category.name,
+        subcategories: [subcategory],
+      }));
+    });
+    console.log(filtered);
+    setFilteredCategories(filtered);
+    setSearchInput(searchValue);
+  };
 
   if (pathname === "/" || pathname === "/test") return null;
 
@@ -62,16 +82,21 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <div className="lg:flex items-center gap-x-3 hidden">
+        <div className="lg:flex items-center gap-x-3 hidden relative">
           <div className=" border dark:bg-gray-400/30 bg-gray-100/70 rounded-lg px-3 flex items-center ">
             <input
               type="text"
               placeholder="Search..."
               value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              onBlur={() => {
-                setSearchInput("");
-                setShowKbd(true);
+              onChange={handleSearch}
+              onBlur={(e) => {
+                if (
+                  !e.relatedTarget ||
+                  !e.relatedTarget.classList.contains("filtered-categories")
+                ) {
+                  setSearchInput("");
+                  setShowKbd(true);
+                }
               }}
               className="w-[200px] py-[3px] bg-transparent text-sm focus:outline-none placeholder:text-sm searchInput focus:w-[400px] transition-all duration-300"
             />
@@ -81,6 +106,37 @@ const Navbar = () => {
               </kbd>
             )}
           </div>
+          {filteredCategories.length > 0 && searchInput && (
+            <Link
+              to={`/docs/${filteredCategories[0].name.toLowerCase()}/${filteredCategories[0].subcategories[0].toLowerCase()}`}
+              className="block"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: "20%" }}
+                animate={{ opacity: 1, y: "0%" }}
+                exit={{ opacity: 0, y: "30%" }}
+                transition={{ duration: 0.5 }}
+                className="absolute w-[500px]  bg-white dark:bg-gray-800 right-[106px] top-[40px] p-2 rounded-lg filtered-categories"
+              >
+                {filteredCategories.map((category, index) => (
+                  <div key={category.name + index}>
+                    {category.subcategories.map((subcategory) => (
+                      <div
+                        key={subcategory}
+                        className="dark:bg-gray-400/30 mb-3 p-2 w-full rounded-md cursor-pointer"
+                      >
+                        <h2 className="text-lg font-bold">{category.name}</h2>
+                        <ul>
+                          <li>{subcategory}</li>
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </motion.div>
+            </Link>
+          )}
+
           <div className="flex items-center gap-x-2">
             <a href="https://twitter.com" target="_blank" rel="noreferrer">
               {/* <Twitter className="size-5 cursor-pointer text-gray-500 hover:text-black transition-colors duration-300" /> */}
