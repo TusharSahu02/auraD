@@ -96,7 +96,7 @@ const CodeBlock = ({
       {isPreview ? (
         <div className="w-full relative h-[400px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
           <div
-            className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+            className="absolute top-3 right-3 size-7 hover:bg-gray-100/10 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
             onClick={handleCopy}
           >
             {copy[variant] ? <Check /> : <Clipboard />}
@@ -328,7 +328,7 @@ const ManualDocs = () => {
           {!seeAll ? (
             <div className="relative overflow-hidden">
               <div
-                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                className="absolute top-8 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex z-20 items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={handleCopy}
               >
                 {copy ? (
@@ -342,7 +342,7 @@ const ManualDocs = () => {
                   language="tsx"
                   wrapLongLines={true}
                   style={atomOneDark}
-                  className="rounded-lg p-5 mt-5 w-full h-[500px]"
+                  className="rounded-lg p-5 mt-5 w-full h-[500px] customScrollBar"
                 >
                   {buttonCodeString}
                 </SyntaxHighlighter>
@@ -354,7 +354,7 @@ const ManualDocs = () => {
                 }}
                 className="text-gray-400 absolute bottom-5 left-1/2 -translate-x-1/2 z-10 cursor-pointer hover:underline "
               >
-                See more
+                <Button variant="ghost">See more</Button>
               </h1>
             </div>
           ) : (
@@ -374,20 +374,20 @@ const ManualDocs = () => {
                   language="tsx"
                   wrapLongLines={true}
                   style={atomOneDark}
-                  className="rounded-lg p-5 mt-5 w-full"
+                  className="rounded-lg p-5 mt-5 w-full h-[700px] customScrollBar"
                 >
                   {buttonCodeString}
                 </SyntaxHighlighter>
               </div>
               <div className="flex items-center justify-center mt-3 ">
-                <h1
-                  className=" cursor-pointer hover:underline"
+                <Button
+                  variant="ghost"
                   onClick={() => {
                     setSeeAll(false);
                   }}
                 >
                   See less
-                </h1>
+                </Button>
               </div>
             </>
           )}
@@ -469,7 +469,7 @@ const ButtonDoc = () => {
           {code ? (
             <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
               <div
-                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100/10 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {
                   navigator.clipboard.writeText(codeString);
                   toast.success("Copied to clipboard", {
