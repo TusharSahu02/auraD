@@ -3,9 +3,14 @@ import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTheme } from "@/components/common/theme-provider";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { normalizeURL } from "@/utils/util";
 
 const SidebarMenu = () => {
   const { setTheme } = useTheme();
+
+  const [active, setActive] = useState(false);
 
   return (
     <div className="mt-3 h-full relative">
@@ -37,19 +42,21 @@ const SidebarMenu = () => {
                 {category.subcategories.map((subcategory: string) => (
                   <li
                     key={subcategory}
-                    // onClick={() => setActive(!active)}
+                    onClick={() => {
+                      setActive(!active);
+                    }}
                     className="transition-colors duration-300  text-gray-500 text-sm border-gray-500 w-max"
                   >
-                    {/* <NavLink
+                    <NavLink
                       to={`/docs/${normalizeURL(subcategory.toLowerCase())}`}
                       className={({ isActive }) =>
                         isActive
                           ? "dark:text-white text-black"
                           : "border-gray-700"
                       }
-                    > */}
-                    {subcategory}
-                    {/* </NavLink> */}
+                    >
+                      {subcategory}
+                    </NavLink>
                   </li>
                 ))}
               </ul>
@@ -66,10 +73,10 @@ const SidebarMenu = () => {
                 return (
                   <li
                     key={subcategory}
-                    // onClick={() => setActive(!active)} // Keep this if you're using the active state elsewhere.
+                    onClick={() => setActive(!active)}
                     className="transition-colors duration-300  text-gray-500 text-sm border-gray-500 w-max"
                   >
-                    {/* <NavLink
+                    <NavLink
                       to={`/docs/${category.name.toLowerCase()}/${normalizeURL(
                         subcategory.toLowerCase()
                       )}`}
@@ -78,9 +85,9 @@ const SidebarMenu = () => {
                           ? "text-black dark:text-white"
                           : "border-gray-700"
                       }
-                    > */}
-                    {subcategory}
-                    {/* </NavLink> */}
+                    >
+                      {subcategory}
+                    </NavLink>
                   </li>
                 );
               })}
