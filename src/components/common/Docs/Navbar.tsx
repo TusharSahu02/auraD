@@ -153,10 +153,10 @@ const Navbar = () => {
           <ModeToggle />
         </div>
 
-        {/* Mobile Menu */}
 
+        {/* Mobile Menu */}
         <Sheet>
-          <SheetTrigger>
+          <SheetTrigger className="lg:hidden">
             <TbMenuDeep size={26} />
           </SheetTrigger>
           <SheetContent>

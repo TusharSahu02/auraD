@@ -1,4 +1,12 @@
-type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
+type Variant =
+  | "primary"
+  | "secondary"
+  | "destructive"
+  | "outline"
+  | "ghost"
+  | "animation";
+
+// TODO : make the code string for animation
 
 export const getCodeString = (variant: Variant): string => {
   const variantStyles: { [key in Variant]: string } = {
@@ -7,7 +15,10 @@ export const getCodeString = (variant: Variant): string => {
     destructive: "bg-red-600 hover:bg-red-700 text-white",
     outline:
       "text-black border bg-transparent hover:bg-gray-200 hover:bg-opacity-60",
-    ghost: "text-black bg-transparent hover:bg-gray-200 hover:bg-opacity-60",
+    ghost:
+      "text-black dark:text-white bg-transparent hover:bg-gray-200 hover:bg-opacity-60",
+    animation:
+      "relative border border-white/[0.2] text-white px-4 py-2 rounded-full group",
   };
 
   return `

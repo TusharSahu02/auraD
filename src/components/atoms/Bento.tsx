@@ -37,49 +37,51 @@ const Items = [
 
 const Bento = () => {
   return (
-    <motion.div
-      className="grid lg:grid-cols-3 grid-cols-1 gap-5 w-full mt-4"
-      initial="hidden"
-      animate="visible"
-      variants={{
-        visible: {
-          transition: {
-            staggerChildren: 0.2,
-          },
-        },
-      }}
-    >
-      {Items.map((item, index) => (
-        <motion.div
-          key={item.id}
-          className={`border border-black/[0.2] dark:border-white/10  group cursor-pointer ${
-            item.id === 2 ? "col-span-2 lg:col-span-1" : "col-span-2"
-          } ${
-            item.id === 3 ? "md:col-span-1" : ""
-          } flex items-center justify-start flex-col rounded-lg p-3 space-y-2`}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.5, delay: 0.2 + index * 0.2 },
+    <>
+      <motion.div
+        className="grid lg:grid-cols-3 grid-cols-1 gap-5 w-full mt-4"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
             },
-          }}
-        >
-          <div className=" overflow-hidden h-[200px] w-full rounded-lg">
-            <img
-              src={item.srcImg}
-              alt=""
-              className="w-full h-full object-cover rounded-lg group-hover:scale-[102%] transition-all duration-300"
-            />
-          </div>
-          <div className="px-1 group-hover:pl-3 transition-all duration-300">
-            <h1 className="">{item.title}</h1>
-            <p className="">{item.description}</p>
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
+          },
+        }}
+      >
+        {Items.map((item, index) => (
+          <motion.div
+            key={item.id}
+            className={`border border-black/[0.2] dark:border-white/10  group cursor-pointer ${
+              item.id === 2 ? "col-span-2 lg:col-span-1" : "col-span-2"
+            } ${
+              item.id === 3 ? "md:col-span-1" : ""
+            } flex items-center justify-start flex-col rounded-lg p-3 space-y-2`}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.5, delay: 0.2 + index * 0.2 },
+              },
+            }}
+          >
+            <div className=" overflow-hidden h-[200px] w-full rounded-lg">
+              <img
+                src={item.srcImg}
+                alt=""
+                className="w-full h-full object-cover rounded-lg group-hover:scale-[102%] transition-all duration-300"
+              />
+            </div>
+            <div className="px-1 group-hover:pl-3 transition-all duration-300">
+              <h1 className="">{item.title}</h1>
+              <p className="">{item.description}</p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </>
   );
 };
 

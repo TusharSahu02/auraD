@@ -1,6 +1,12 @@
 import React from "react";
 
-type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
+type Variant =
+  | "primary"
+  | "secondary"
+  | "destructive"
+  | "outline"
+  | "ghost"
+  | "animation";
 type ButtonType = "button" | "submit" | "reset";
 type Size = "small" | "medium" | "large";
 type IconPosition = "left" | "right";
@@ -94,6 +100,18 @@ const Button: React.FC<Props> = ({
     case "secondary":
       classes.push("bg-gray-100", "hover:bg-gray-200", "text-black");
       break;
+    case "animation":
+      classes.push(
+        "relative",
+        "border",
+        "border-white/[0.2]",
+        "text-white",
+        "px-4",
+        "py-2",
+        "rounded-full",
+        "group"
+      );
+      break;
     default:
       classes.push("bg-blue-500", "text-white", "hover:bg-blue-700");
   }
@@ -131,7 +149,13 @@ const Button: React.FC<Props> = ({
       disabled={disabled}
       className={`${classes.join(" ")} ${className}`}
     >
-      {loading ? (
+      {variant === "animation" ? (
+        <>
+          <span className="absolute inset-x-0 w-1/2 mx-auto transition-opacity duration-300 -top-px bg-gradient-to-r opacity-0 group-hover:opacity-100 from-transparent via-blue-500 to-transparent h-px" />
+          <span>{children}</span>
+          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
+        </>
+      ) : loading ? (
         <span className="flex items-center">
           <svg
             className="animate-spin h-5 w-5 text-white"

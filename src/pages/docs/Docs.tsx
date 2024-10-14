@@ -141,7 +141,7 @@ const Docs = () => {
             <Category />
           </div>
           <div className="w-[20%] h-full hidden p-4 xl:block">
-            <p className="font-semibold mb-4">On this page</p>
+            <p className="font-semibold mb-4 mt-2">On this page</p>
             {currentSections.length > 0 && (
               <ul className="space-y-1">
                 {currentSections.map((section) => (

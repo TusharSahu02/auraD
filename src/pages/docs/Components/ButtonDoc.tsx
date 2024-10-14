@@ -23,6 +23,7 @@ export const buttonDocSections = [
   { id: "destructive", title: "Destructive" },
   { id: "outline", title: "Outline" },
   { id: "ghost", title: "Ghost" },
+  { id: "animation", title: "Animation" },
 ];
 
 interface ButtonProps {
@@ -425,6 +426,7 @@ const ButtonDoc = () => {
     { variant: "destructive", buttonText: "Destructive" },
     { variant: "outline", buttonText: "Outline" },
     { variant: "ghost", buttonText: "Ghost" },
+    { variant: "animation", buttonText: "Animation" },
   ];
 
   const codeString = getCodeString("primary");
@@ -484,7 +486,7 @@ const ButtonDoc = () => {
               >
                 {copyCode ? <Check /> : <Clipboard />}
               </div>
-              <Button variant="primary">Button</Button>
+              <Button variant="animation">hover me </Button>
             </div>
           ) : (
             <div className="relative">
