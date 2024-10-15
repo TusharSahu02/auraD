@@ -14,7 +14,13 @@ import {
 } from "../../../constants/CodeString";
 import NavigationButton from "../../../components/common/NavigationButton";
 
-type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
+type Variant =
+  | "primary"
+  | "secondary"
+  | "destructive"
+  | "outline"
+  | "ghost"
+  | "animation";
 
 export const buttonDocSections = [
   { id: "overview", title: "Overview" },
@@ -355,7 +361,9 @@ const ManualDocs = () => {
                 }}
                 className="text-gray-400 absolute bottom-5 left-1/2 -translate-x-1/2 z-10 cursor-pointer hover:underline "
               >
-                <Button variant="ghost">See more</Button>
+                <Button variant="ghost" className="text-white">
+                  See more
+                </Button>
               </h1>
             </div>
           ) : (
@@ -405,6 +413,7 @@ const ButtonDoc = () => {
     destructive: true,
     outline: true,
     ghost: true,
+    animation: true,
   });
 
   const [code, setCode] = useState(true);
@@ -416,6 +425,7 @@ const ButtonDoc = () => {
     destructive: false,
     outline: false,
     ghost: false,
+    animation: false,
   });
 
   // const [cli, setCli] = useState(true);

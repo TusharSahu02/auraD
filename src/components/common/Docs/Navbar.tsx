@@ -156,7 +156,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <Sheet>
-          <SheetTrigger className="lg:hidden">
+          <SheetTrigger className="md:hidden">
             <TbMenuDeep size={26} />
           </SheetTrigger>
           <SheetContent>

@@ -104,12 +104,13 @@ const Button: React.FC<Props> = ({
       classes.push(
         "relative",
         "border",
-        "border-white/[0.2]",
-        "text-white",
+        "dark:border-white/[0.2] border-black/10",
+        "dark:text-white text-black/80",
         "px-4",
         "py-2",
         "rounded-full",
-        "group"
+        "group",
+        "bg-transparent"
       );
       break;
     default:
@@ -151,9 +152,9 @@ const Button: React.FC<Props> = ({
     >
       {variant === "animation" ? (
         <>
-          <span className="absolute inset-x-0 w-1/2 mx-auto transition-opacity duration-300 -top-px bg-gradient-to-r opacity-0 group-hover:opacity-100 from-transparent via-blue-500 to-transparent h-px" />
+          <span className="absolute inset-x-0 w-1/2 mx-auto transition-opacity duration-300 -top-px bg-gradient-to-r opacity-0 group-hover:opacity-100 from-transparent dark:via-blue-500 via-green-500 to-transparent h-px" />
           <span>{children}</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
+          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent dark:via-blue-500 via-green-400 to-transparent h-px" />
         </>
       ) : loading ? (
         <span className="flex items-center">
