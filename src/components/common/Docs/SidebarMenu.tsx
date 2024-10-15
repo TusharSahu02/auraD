@@ -3,7 +3,7 @@ import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTheme } from "@/components/common/theme-provider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { normalizeURL } from "@/utils/util";
 
@@ -12,10 +12,12 @@ const SidebarMenu = () => {
 
   const [active, setActive] = useState(false);
 
+  const theme = localStorage.getItem("vite-ui-theme");
+
   return (
     <div className="mt-3 h-full relative">
       <Tabs
-        defaultValue="dark"
+        defaultValue={theme ?? ""}
         className="w-full mt-3 mb-6 flex items-center justify-center"
       >
         <TabsList className="w-full flex items-center justify-evenly">
