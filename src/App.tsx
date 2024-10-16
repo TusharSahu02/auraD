@@ -6,12 +6,20 @@ import { Toaster } from "sonner";
 import About from "./components/common/Home/About";
 import Template from "./pages/Template";
 import ScrollToTop from "./utils/ScrollToTop";
+import { useEffect } from "react";
+import { useTheme } from "./components/common/theme-provider";
 function App() {
+  const { setTheme } = useTheme();
+  
+  useEffect(() => {
+    setTheme("system");
+  }, [setTheme]);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Navbar />
-      <Routes >
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/docs/:type/:category/:subcategory" element={<Docs />} />
         <Route path="/docs/:type/:instruction" element={<Docs />} />
