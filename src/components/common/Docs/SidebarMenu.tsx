@@ -15,7 +15,7 @@ const SidebarMenu = () => {
 
   const [active, setActive] = useState(false);
 
-  const theme = localStorage.getItem("vite-ui-theme");
+  const theme = localStorage.getItem("aurad-theme");
 
   return (
     <div className="mt-3 h-full relative">

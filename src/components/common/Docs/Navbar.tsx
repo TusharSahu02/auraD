@@ -1,5 +1,5 @@
 import { Command } from "lucide-react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { TbMenuDeep } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -20,6 +20,8 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const { selectedOption, setSelectedOption } = useSelectedOption();
+
+  // Toggle between react-js and react-native
   const toggleSwitch = () => {
     setSelectedOption(
       selectedOption === "react-js" ? "react-native" : "react-js"
@@ -31,29 +33,7 @@ const Navbar = () => {
     );
   };
 
-  useEffect(() => {
-    const handleFocusSearch = (event: KeyboardEvent) => {
-      if (event.key === "k" && event.ctrlKey) {
-        event.preventDefault();
-        setShowKbd((prev) => !prev);
-        const searchInput =
-          document.querySelector<HTMLInputElement>(".searchInput");
-        if (searchInput) searchInput.focus();
-      }
-
-      if (event.key === "Escape") {
-        const searchInput =
-          document.querySelector<HTMLInputElement>(".searchInput");
-        if (searchInput) searchInput.blur();
-        setShowKbd(true);
-      }
-    };
-    window.addEventListener("keydown", handleFocusSearch);
-    return () => window.removeEventListener("keydown", handleFocusSearch);
-  }, [pathname]);
-
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     const searchValue = e.target.value.toLowerCase();
     const filtered = CATEGORIES.flatMap((category) => {
       const matchingSubcategories = category.subcategories.filter(
@@ -64,10 +44,31 @@ const Navbar = () => {
         subcategories: [subcategory],
       }));
     });
-    console.log(filtered);
     setFilteredCategories(filtered);
     setSearchInput(searchValue);
   };
+
+  const handleFocusSearch = (event: KeyboardEvent) => {
+    if (event.key === "k" && event.ctrlKey) {
+      event.preventDefault();
+      setShowKbd((prev) => !prev);
+      const searchInput =
+        document.querySelector<HTMLInputElement>(".searchInput");
+      if (searchInput) searchInput.focus();
+    }
+
+    if (event.key === "Escape") {
+      const searchInput =
+        document.querySelector<HTMLInputElement>(".searchInput");
+      if (searchInput) searchInput.blur();
+      setShowKbd(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleFocusSearch);
+    return () => window.removeEventListener("keydown", handleFocusSearch);
+  }, [pathname]);
 
   if (pathname === "/" || pathname === "/test") return null;
 

@@ -6,14 +6,11 @@ import { Toaster } from "sonner";
 import About from "./components/common/Home/About";
 import Template from "./pages/Template";
 import ScrollToTop from "./utils/ScrollToTop";
-import { useEffect } from "react";
-import { useTheme } from "./components/common/theme-provider";
 function App() {
-  const { setTheme } = useTheme();
-  
-  useEffect(() => {
-    setTheme("system");
-  }, [setTheme]);
+  // Set the default theme in localStorage if not already set
+  if (!localStorage.getItem("aurad-theme")) {
+    localStorage.setItem("aurad-theme", "dark");
+  }
 
   return (
     <BrowserRouter>

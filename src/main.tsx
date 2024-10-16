@@ -8,7 +8,7 @@ import { SelectedOptionProvider } from "./context/SelectedOptionContext.tsx";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <div className=" font-geistRegular h-full">
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ThemeProvider defaultTheme="dark" storageKey="aurad-theme">
         <SelectedOptionProvider>
           <App />
         </SelectedOptionProvider>
