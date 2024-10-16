@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { ComponentMap } from "../constants/ComponentMap";
+import { ComponentMap } from "../constants/reactjs/ComponentMap";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 

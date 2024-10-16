@@ -4,7 +4,7 @@ import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
-import { getBentoCodeString } from "../../../constants/CodeString";
+import { getBentoCodeString } from "../../../constants/reactjs/CodeString";
 import NavigationButton from "../../../components/common/NavigationButton";
 
 const BentoDoc: React.FC = () => {
@@ -93,8 +93,8 @@ const BentoDoc: React.FC = () => {
       <NavigationButton
         previousTitle="Button"
         nextTitle="Loaders"
-        nextLink="/docs/animations/loaders"
-        previousLink="/docs/components/button"
+        nextLink="/docs/reactjs/animations/loaders"
+        previousLink="/docs/reactjs/components/button"
       />
     </>
   );

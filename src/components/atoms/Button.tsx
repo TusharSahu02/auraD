@@ -136,9 +136,7 @@ const Button: React.FC<Props> = ({
   const buttonContent = (
     <span className="flex items-center justify-center">
       {iconPosition === "left" && iconElement}
-      <span className={`${iconPosition === "left" ? "ml-2" : "mr-2"}`}>
-        {children}
-      </span>
+      <span>{children}</span>
       {iconPosition === "right" && iconElement}
     </span>
   );

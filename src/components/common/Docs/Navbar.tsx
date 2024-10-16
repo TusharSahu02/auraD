@@ -2,19 +2,34 @@ import { Command } from "lucide-react";
 import { useEffect, useState } from "react";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { TbMenuDeep } from "react-icons/tb";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SidebarMenu from "./SidebarMenu";
 import { ModeToggle } from "../mode-toggle";
-import { CATEGORIES } from "@/constants/CategoryConstant";
+import { CATEGORIES } from "@/constants/reactjs/CategoryConstant";
 import { motion } from "framer-motion";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Switch } from "@/components/ui/switch";
+import { useSelectedOption } from "@/context/SelectedOptionContext";
 
 const Navbar = () => {
   const { pathname } = useLocation();
   const [searchInput, setSearchInput] = useState("");
   const [showKbd, setShowKbd] = useState(true);
   const [filteredCategories, setFilteredCategories] = useState(CATEGORIES);
+  const navigate = useNavigate();
+
+  const { selectedOption, setSelectedOption } = useSelectedOption();
+  const toggleSwitch = () => {
+    setSelectedOption(
+      selectedOption === "react-js" ? "react-native" : "react-js"
+    );
+    navigate(
+      selectedOption === "react-js"
+        ? "/docs/react-native/components/button"
+        : "/docs/reactjs/components/button"
+    );
+  };
 
   useEffect(() => {
     const handleFocusSearch = (event: KeyboardEvent) => {
@@ -70,13 +85,16 @@ const Navbar = () => {
           </Link>
           <div className="hidden lg:block ml-7">
             <ul className="flex items-center gap-x-6">
-              <Link to={"/docs/introduction"}>
+              <Link to={"/docs/reactjs/introduction"}>
                 <li className=" text-sm text-gray-500">Docs</li>
               </Link>
-              <Link to="/docs/components/button">
+              <Link to="/docs/reactjs/components/button">
                 <li className=" text-sm text-gray-500">Components</li>
               </Link>
-              {/* <li className=" text-sm text-gray-500">Templates</li>
+              <Link to={"/templates/landing-pages"}>
+                <li className=" text-sm text-gray-500">Templates</li>
+              </Link>
+              {/*
               <li className=" text-sm text-gray-500">Blocks</li>
               <li className=" text-sm text-gray-500">Examples</li>
               <li className=" text-sm text-gray-500">Pro</li> */}
@@ -84,6 +102,11 @@ const Navbar = () => {
           </div>
         </div>
         <div className="lg:flex items-center gap-x-3 hidden relative">
+          <div className="flex gap-2 text-gray-600 mr-2 text-sm">
+            <p>React JS</p>
+            <Switch onCheckedChange={toggleSwitch} />
+            <p>React Native</p>
+          </div>
           <div className=" border dark:bg-gray-400/30 bg-gray-100/70 rounded-lg px-3 flex items-center ">
             <input
               type="text"
@@ -152,7 +175,6 @@ const Navbar = () => {
           </div>
           <ModeToggle />
         </div>
-
 
         {/* Mobile Menu */}
         <Sheet>

@@ -1,9 +1,12 @@
-import { CATEGORIES, GETTING_STARTED } from "@/constants/CategoryConstant";
+import {
+  CATEGORIES,
+  GETTING_STARTED,
+} from "@/constants/reactjs/CategoryConstant";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTheme } from "@/components/common/theme-provider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { normalizeURL } from "@/utils/util";
 

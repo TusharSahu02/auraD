@@ -11,7 +11,7 @@ import {
   getLoader5CodeString,
   getLoader6CodeString,
   getLoader7CodeString,
-} from "../../../constants/CodeString";
+} from "../../../constants/reactjs/CodeString";
 import {
   Loader1,
   Loader2,

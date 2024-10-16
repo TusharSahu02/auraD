@@ -11,7 +11,7 @@ import {
   getCodeString,
   // getUsageButton,
   // getUsageImport,
-} from "../../../constants/CodeString";
+} from "../../../constants/reactjs/CodeString";
 import NavigationButton from "../../../components/common/NavigationButton";
 
 type Variant =
@@ -589,8 +589,8 @@ const ButtonDoc = () => {
       <NavigationButton
         previousTitle="Installation"
         nextTitle="Bento"
-        previousLink="/docs/installation"
-        nextLink="/docs/components/bento"
+        previousLink="/docs/reactjs/installation"
+        nextLink="/docs/reactjs/components/bento"
       />
     </>
   );

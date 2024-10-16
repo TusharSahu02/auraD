@@ -61,7 +61,7 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 1 }}
             className="xl:mt-[85px] z-20  mt-[65px]"
           >
-            <Link to="/docs/components/button">
+            <Link to="/docs/reactjs/components/button">
               <button className="border text-sm font-medium relative border-white/[0.2]  text-white px-4 py-2 rounded-full group">
                 <span className="absolute inset-x-0 w-1/2 mx-auto  transition-opacity duration-300  -top-px bg-gradient-to-r opacity-0 group-hover:opacity-100  from-transparent via-blue-500 to-transparent  h-px" />
                 <span>Browse Components</span>
