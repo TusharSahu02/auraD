@@ -6,11 +6,11 @@ import { Toaster } from "sonner";
 import About from "./components/common/Home/About";
 import Template from "./pages/Template";
 import ScrollToTop from "./utils/ScrollToTop";
+import { checkThemeAndSet } from "./lib/utils";
 function App() {
+  
   // Set the default theme in localStorage if not already set
-  if (!localStorage.getItem("aurad-theme")) {
-    localStorage.setItem("aurad-theme", "dark");
-  }
+  checkThemeAndSet();
 
   return (
     <BrowserRouter>

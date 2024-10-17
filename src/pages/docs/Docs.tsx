@@ -15,6 +15,7 @@ import { normalizeURL } from "../../utils/util";
 import { DocHighlightConstant } from "../../constants/reactjs/DocHighlightConstant";
 import Tooltip from "../../components/atoms/Tooltip";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
+import BugReport from "./BugReport";
 
 const Docs = () => {
   const [active, setActive] = useState(false);
@@ -163,7 +164,9 @@ const Docs = () => {
           </div>
         </div>
 
-        <Tooltip />
+        <Tooltip>
+          <BugReport />
+        </Tooltip>
       </>
     );
   }
@@ -272,8 +275,9 @@ const Docs = () => {
         </div>
       </div>
 
-      <Tooltip />
-     
+      <Tooltip>
+        <BugReport />
+      </Tooltip>
     </>
   );
 };

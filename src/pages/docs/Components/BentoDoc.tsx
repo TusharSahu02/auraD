@@ -92,8 +92,8 @@ const BentoDoc: React.FC = () => {
 
       <NavigationButton
         previousTitle="Button"
-        nextTitle="Loaders"
-        nextLink="/docs/reactjs/animations/loaders"
+        nextTitle="Modal"
+        nextLink="/docs/reactjs/components/modal"
         previousLink="/docs/reactjs/components/button"
       />
     </>

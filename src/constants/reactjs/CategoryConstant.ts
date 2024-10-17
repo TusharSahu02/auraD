@@ -23,7 +23,7 @@ export const CATEGORIES = [
       // "Cards",
       // "Input",
       "Bento",
-      // "Input",
+      "Modal",
     ],
   },
   // {
