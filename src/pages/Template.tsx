@@ -2,6 +2,7 @@ import Tooltip from "@/components/atoms/Tooltip";
 import { TEMPLATES_CATEGORIES } from "@/constants/templates/CategoryConstant";
 import { normalizeURL } from "@/utils/util";
 import { NavLink } from "react-router-dom";
+import BugReport from "./docs/BugReport";
 
 const Template = () => {
   return (
@@ -52,7 +53,9 @@ const Template = () => {
           </div>
         </div>
       </div>
-      <Tooltip />
+      <Tooltip >
+        <BugReport />
+      </Tooltip>
     </>
   );
 };
