@@ -1,3 +1,4 @@
+import { Github } from "lucide-react";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 const Navbar = () => {
@@ -22,6 +23,13 @@ const Navbar = () => {
             rel="noreferrer"
           >
             <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-white transition-colors duration-300" />
+          </a>
+          <a
+            href="https://github.com/aura-desgins"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Github className="size-5 cursor-pointer text-gray-500 hover:text-white transition-colors duration-300" />
           </a>
         </div>
       </div>

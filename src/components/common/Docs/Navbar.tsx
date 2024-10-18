@@ -1,4 +1,4 @@
-import { Command } from "lucide-react";
+import { Command, Github } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { TbMenuDeep } from "react-icons/tb";
@@ -176,6 +176,13 @@ const Navbar = () => {
               rel="noreferrer"
             >
               <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
+            </a>
+            <a
+              href="https://github.com/aura-desgins"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
             </a>
           </div>
           <ModeToggle />

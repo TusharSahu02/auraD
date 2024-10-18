@@ -80,7 +80,7 @@ const Home = () => {
           className="w-[80%] flex items-center justify-center my-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 2.8 }}
+          transition={{ duration: 0.5, delay: 1.4 }}
         >
           <Link to="/docs/components/button">
             <button className="border text-sm font-medium relative border-white/[0.2] text-white px-4 py-2 rounded-full group">
