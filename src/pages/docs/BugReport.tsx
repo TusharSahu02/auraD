@@ -1,4 +1,3 @@
-
 const BugReport = () => {
   return (
     <div className=" h-full">
@@ -8,7 +7,7 @@ const BugReport = () => {
         id=""
         autoFocus
         placeholder="Describe the bug"
-        className="w-full bg-transparent p-4 border border-gray-400/10 h-[80%] mt-4 resize-none rounded-lg"
+        className="w-full  bg-transparent p-4 border border-gray-400/10 h-[250px] mt-4 resize-none rounded-lg"
       ></textarea>
     </div>
   );

@@ -6,8 +6,8 @@ import { useState } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { toast } from "sonner";
-import BugReport from "../BugReport";
 import NavigationButton from "@/components/common/NavigationButton";
+import Dialog from "@/components/molecules/Dialog";
 
 const ModalDoc = () => {
   const [code, setCode] = useState(true);
@@ -120,7 +120,7 @@ const ModalDoc = () => {
       />
 
       <Modal openModal={openModal} setOpenModal={setOpenModal}>
-        <BugReport />
+        <Dialog />
       </Modal>
     </>
   );

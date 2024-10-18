@@ -24,7 +24,7 @@ const Modal = ({ openModal, setOpenModal, children }: ModalProps) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-1/3 h-1/3 bg-[#09090b] rounded-xl border border-gray-300/10 p-4 absolute"
+            className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-1/3  bg-[#09090b] rounded-xl border border-gray-300/10 p-4 absolute"
           >
             <div
               className="absolute top-3 right-3 cursor-pointer"
