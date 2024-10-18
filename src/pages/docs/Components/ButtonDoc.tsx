@@ -5,6 +5,7 @@ import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
 import {
+  getAnimationButtonCodeString,
   // getButtonCliInstallationCommand,
   getButtonCodeString,
   // getCliInstallationCommand,
@@ -439,7 +440,8 @@ const ButtonDoc = () => {
     { variant: "animation", buttonText: "Animation" },
   ];
 
-  const codeString = getCodeString("primary");
+  // TODO : change the code string for animation
+  const codeString = getAnimationButtonCodeString();
 
   return (
     <>
@@ -522,9 +524,9 @@ const ButtonDoc = () => {
               </div>
               <SyntaxHighlighter
                 language="tsx"
-                wrapLongLines={true}
+                // wrapLongLines={true}
                 style={atomOneDark}
-                className="rounded-lg p-5 mt-5 w-full"
+                className="rounded-lg p-5 mt-5 w-full customScrollBarHorizonalal"
               >
                 {codeString}
               </SyntaxHighlighter>

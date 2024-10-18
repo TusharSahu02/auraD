@@ -120,13 +120,13 @@ const Button: React.FC<Props> = ({
   // Render icon
   const iconElement = icon && (
     <span
-      className={`${
+      className={
         iconSize === "small"
           ? "w-4 h-4 flex items-center justify-center"
           : iconSize === "medium"
           ? "w-6 h-6 flex items-center justify-center"
-          : "w-8 h-8 flex items-center justify-center "
-      }`}
+          : "w-8 h-8 flex items-center justify-center"
+      }
     >
       {icon}
     </span>
@@ -146,7 +146,7 @@ const Button: React.FC<Props> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${classes.join(" ")} ${className}`}
+      className={classes.join(" ") + (className ? " " + className : "")}
     >
       {variant === "animation" ? (
         <>

@@ -19,8 +19,8 @@ export const TEMPLATES_CATEGORIES = [
   {
     name: "Templates",
     subcategories: [
-      "Landing Pages",
       "Portfolios",
+      "Landing",
       // "Portfolios",
     ],
   },

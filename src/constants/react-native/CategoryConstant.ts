@@ -1,7 +1,7 @@
 export const GETTING_STARTED_REACT_NATIVE = [
   {
     name: "Getting Started",
-    subcategories: ["Installation"],
+    subcategories: ["Introduction", "Installation"],
   },
 ];
 

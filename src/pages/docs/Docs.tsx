@@ -174,7 +174,7 @@ const Docs = () => {
   // ========================= REACT JS =========================
   return (
     <>
-      <div className="h-[calc(100vh-68px)] w-full flex items-center justify-center mt-[68px]  relative">
+      <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px]  relative">
         {/* <div className=" h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[55px] relative  bg-red-500 "> */}
         <div className="xl:container px-4 lg:px-0 flex  items-center justify-center  w-full h-full">
           <div className="xl:w-[20%] pt-5 lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
@@ -261,7 +261,7 @@ const Docs = () => {
                       className={`text-sm transition-colors duration-200 ${
                         activeSection === section.id
                           ? "text-black dark:text-white font-medium"
-                          : "text-gray-500 hover:text-gray-900"
+                          : "text-gray-500 hover:text-gray-900 dark:hover:text-white"
                       }`}
                       onClick={() => handleSectionClick(section.id)}
                     >

@@ -86,19 +86,23 @@ const Navbar = () => {
           </Link>
           <div className="hidden lg:block ml-7">
             <ul className="flex items-center gap-x-6">
-              <Link to={"/docs/reactjs/introduction"}>
+              <Link
+                to={`/docs/${
+                  selectedOption === "react-js" ? "reactjs" : "react-native"
+                }/introduction`}
+              >
                 <li className=" text-sm text-gray-500">Docs</li>
               </Link>
-              <Link to="/docs/reactjs/components/button">
+              <Link
+                to={`/docs/${
+                  selectedOption === "react-js" ? "reactjs" : "react-native"
+                }/components/button`}
+              >
                 <li className=" text-sm text-gray-500">Components</li>
               </Link>
-              <Link to={"/templates/landing-pages"}>
+              <Link to={"/templates/landing"}>
                 <li className=" text-sm text-gray-500">Templates</li>
               </Link>
-              {/*
-              <li className=" text-sm text-gray-500">Blocks</li>
-              <li className=" text-sm text-gray-500">Examples</li>
-              <li className=" text-sm text-gray-500">Pro</li> */}
             </ul>
           </div>
         </div>
