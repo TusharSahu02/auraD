@@ -41,10 +41,10 @@ const Bento = () => {
         {Items.map((item, index) => (
           <motion.div
             key={item.id}
-            className={`border border-black/[0.2] dark:border-white/10  group cursor-pointer ${
+            className={`border border-black/[0.2] dark:border-white/10 group w-[90%] md:w-[450px] lg:w-full cursor-pointer ${
               item.id === 2 ? "col-span-2 lg:col-span-1" : "col-span-2"
             } ${
-              item.id === 3 ? "md:col-span-1" : ""
+              item.id === 3 ? "lg:col-span-1" : ""
             } flex items-center justify-start flex-col rounded-lg p-3 space-y-2`}
             variants={{
               hidden: { opacity: 0, y: 20 },
@@ -56,7 +56,7 @@ const Bento = () => {
             }}
           >
             <div className=" overflow-hidden h-[200px] w-full rounded-lg bg-gray-600/10"></div>
-            <div className="px-1 group-hover:ml-3  w-full 0 transition-all duration-300">
+            <div className="px-1 group-hover:ml-3   w-full transition-all duration-300">
               <h1 className="text-white">{item.title}</h1>
               <p className="text-white/60">{item.description}</p>
             </div>
