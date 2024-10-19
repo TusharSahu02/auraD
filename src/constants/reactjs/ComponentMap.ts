@@ -5,13 +5,15 @@ import BentoDoc from "../../pages/docs/Components/BentoDoc";
 import CardDoc from "../../pages/docs/Components/CardDoc";
 import Introduction from "../../pages/docs/GettingStarted/reactjs/Introduction";
 import ModalDoc from "@/pages/docs/Components/ModalDoc";
+import Installation from "@/pages/docs/GettingStarted/reactjs/Installation";
 
 export const ComponentMap = {
+  introduction: Introduction,
+  installation: Installation,
   button: ButtonDoc,
   // input: InputDoc,
   loaders: LoadersDoc,
-  bento: BentoDoc,
   cards: CardDoc,
-  introduction: Introduction,
+  bento: BentoDoc,
   modal: ModalDoc,
 };

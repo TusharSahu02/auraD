@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 const Introduction = () => {
   return (
     <div>
-      <h1 className="text-3xl font-black mb-4">Introduction</h1>
-
       <div>
         <div className="mb-5 text-gray-400">
           <p>Beautifully designed, reusable components at your fingertips.</p>

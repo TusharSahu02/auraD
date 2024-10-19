@@ -30,7 +30,19 @@ const Category = () => {
           <SubcategoryComponent />
         </>
       )}
-      {SubcategoryComponent2 && <SubcategoryComponent2 />}
+      {SubcategoryComponent2 && (
+        <>
+          <div className="flex gap-x-1 justify-start items-center">
+            <p className="capitalize text-gray-500 text-sm">docs</p>
+            <ChevronRight className="w-[16px] text-gray-500 text-sm" />
+            <p className=" capitalize text-sm">{instruction}</p>
+          </div>
+          <h1 className=" capitalize text-6xl font-black mb-1">
+            {instruction}
+          </h1>
+          <SubcategoryComponent2 />
+        </>
+      )}
       {!SubcategoryComponent && !SubcategoryComponent2 && (
         <div className="w-full flex items-center justify-center py-[100px]">
           <p className=" text-center">
@@ -62,3 +74,4 @@ const Category = () => {
 };
 
 export default Category;
+
