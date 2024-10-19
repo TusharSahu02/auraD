@@ -4,6 +4,9 @@ import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
+
+import { motion } from "framer-motion";
+
 import {
   getAnimationButtonCodeString,
   // getButtonCliInstallationCommand,
@@ -13,7 +16,7 @@ import {
   // getUsageButton,
   // getUsageImport,
 } from "../../../constants/reactjs/CodeString";
-import NavigationButton from "../../../components/common/NavigationButton";
+import NavigationButton from "../../../components/molecules/NavigationButton";
 
 type Variant =
   | "primary"
@@ -72,7 +75,7 @@ const CodeBlock = ({
     <div id={id} className="mt-4">
       <h1 className="font-medium mb-5 text-xl capitalize">{variant}</h1>
       <div className="flex gap-x-6 border-b px-4">
-        <div
+        <motion.div
           className={`cursor-pointer ${
             isPreview ? "border-b-2 border-black dark:border-white" : ""
           }`}
@@ -85,7 +88,7 @@ const CodeBlock = ({
           tabIndex={0}
         >
           Preview
-        </div>
+        </motion.div>
         <div
           className={`cursor-pointer ${
             !isPreview ? "border-b-2 border-black dark:border-white" : ""
@@ -101,8 +104,9 @@ const CodeBlock = ({
           Code
         </div>
       </div>
+
       {isPreview ? (
-        <div className="w-full relative h-[400px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
+        <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
           <div
             className="absolute top-3 right-3 size-7 hover:bg-gray-100/10 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
             onClick={handleCopy}
@@ -127,7 +131,7 @@ const CodeBlock = ({
             language="tsx"
             wrapLongLines={true}
             style={atomOneDark}
-            className="rounded-lg p-5 mt-5 w-full"
+            className="rounded-lg p-5 mt-5 w-full text-sm md:text-md"
           >
             {codeString}
           </SyntaxHighlighter>
@@ -350,7 +354,7 @@ const ManualDocs = () => {
                   language="tsx"
                   wrapLongLines={true}
                   style={atomOneDark}
-                  className="rounded-lg p-5 mt-5 w-full h-[500px] customScrollBar"
+                  className="rounded-lg p-5 mt-5 w-full h-[500px] text-sm md:text-md customScrollBar"
                 >
                   {buttonCodeString}
                 </SyntaxHighlighter>
@@ -526,7 +530,7 @@ const ButtonDoc = () => {
                 language="tsx"
                 // wrapLongLines={true}
                 style={atomOneDark}
-                className="rounded-lg p-5 mt-5 w-full customScrollBarHorizonalal"
+                className="rounded-lg p-5 mt-5 w-full text-sm md:text-md customScrollBarHorizonalal"
               >
                 {codeString}
               </SyntaxHighlighter>
@@ -594,6 +598,7 @@ const ButtonDoc = () => {
         previousLink="/docs/reactjs/installation"
         nextLink="/docs/reactjs/components/bento"
       />
+      <div className="mb-5 md:mb-0" />
     </>
   );
 };

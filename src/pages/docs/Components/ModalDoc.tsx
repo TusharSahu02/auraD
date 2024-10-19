@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { toast } from "sonner";
-import NavigationButton from "@/components/common/NavigationButton";
+import NavigationButton from "@/components/molecules/NavigationButton";
 import Dialog from "@/components/molecules/Dialog";
 
 const ModalDoc = () => {

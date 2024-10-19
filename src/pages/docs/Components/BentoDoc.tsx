@@ -5,7 +5,7 @@ import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
 import { getBentoCodeString } from "../../../constants/reactjs/CodeString";
-import NavigationButton from "../../../components/common/NavigationButton";
+import NavigationButton from "../../../components/molecules/NavigationButton";
 
 const BentoDoc: React.FC = () => {
   const [copyStates, setCopyStates] = useState({ code: false, framer: false });

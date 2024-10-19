@@ -9,27 +9,29 @@ import ScrollToTop from "./utils/ScrollToTop";
 import { checkThemeAndSet } from "./lib/utils";
 // import Test from "./test/Test";
 
-
 function App() {
   // Set the default theme in localStorage if not already set
   checkThemeAndSet();
 
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/docs/:type/:category/:subcategory" element={<Docs />} />
-        <Route path="/docs/:type/:instruction" element={<Docs />} />
-        <Route path="/docs" element={<Docs />} />
-        <Route path="/templates/:category" element={<Template />} />
-        <Route path="/about-me" element={<About />} />
+    <div className=" overflow-x-hidden">
+      <BrowserRouter>
+        <ScrollToTop />
+        <Navbar />
 
-        {/* <Route path="/test" element={<Test />} /> */}
-      </Routes>
-      <Toaster richColors />
-    </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/docs/:type/:category/:subcategory" element={<Docs />} />
+          <Route path="/docs/:type/:instruction" element={<Docs />} />
+          <Route path="/docs" element={<Docs />} />
+          <Route path="/templates/:category" element={<Template />} />
+          <Route path="/about-me" element={<About />} />
+
+          {/* <Route path="/test" element={<Test />} /> */}
+        </Routes>
+        <Toaster richColors />
+      </BrowserRouter>
+    </div>
   );
 }
 

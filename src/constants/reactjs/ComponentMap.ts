@@ -3,7 +3,7 @@ import ButtonDoc from "../../pages/docs/Components/ButtonDoc";
 import LoadersDoc from "../../pages/docs/Animations/LoadersDoc";
 import BentoDoc from "../../pages/docs/Components/BentoDoc";
 import CardDoc from "../../pages/docs/Components/CardDoc";
-import Introduction from "../../pages/docs/GettingStarted/Introduction";
+import Introduction from "../../pages/docs/GettingStarted/reactjs/Introduction";
 import ModalDoc from "@/pages/docs/Components/ModalDoc";
 
 export const ComponentMap = {

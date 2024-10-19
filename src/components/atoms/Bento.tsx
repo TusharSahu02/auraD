@@ -56,9 +56,9 @@ const Bento = () => {
             }}
           >
             <div className=" overflow-hidden h-[200px] w-full rounded-lg bg-gray-600/10"></div>
-            <div className="px-1 group-hover:ml-3 w-full transition-all duration-300">
-              <h1 className="">{item.title}</h1>
-              <p className="">{item.description}</p>
+            <div className="px-1 group-hover:ml-3  w-full 0 transition-all duration-300">
+              <h1 className="text-white">{item.title}</h1>
+              <p className="text-white/60">{item.description}</p>
             </div>
           </motion.div>
         ))}

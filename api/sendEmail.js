@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { bugDescription } = req.body;
+    const { bugDescription, userEmail } = req.body;
 
     // Nodemailer configuration
     const transporter = nodemailer.createTransport({
@@ -13,7 +13,6 @@ export default async function handler(req, res) {
     });
 
     const mailOptions = {
-      from: process.env.SMTP_EMAIL,
       to: process.env.SMTP_TO_EMAIL,
       subject: "Bug Report",
       text: bugDescription,
