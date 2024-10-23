@@ -15,10 +15,8 @@ function App() {
   // Set the default theme in localStorage if not already set
   checkThemeAndSet();
 
-  const path = location.pathname.split("/");
-
+  const path = location.pathname;
   const template = path[path.length - 2];
-
   return (
     <div className=" overflow-x-hidden">
       <BrowserRouter>
@@ -37,11 +35,18 @@ function App() {
         </Routes>
         <Toaster richColors />
 
-        {!template && (
+        {path === "/" || template === "templates" ? (
+          <></>
+        ) : (
           <Tooltip>
             <BugReport />
           </Tooltip>
         )}
+
+        {/* {template === "templates" ? (
+          <></>
+        ) : (
+        )} */}
       </BrowserRouter>
     </div>
   );
