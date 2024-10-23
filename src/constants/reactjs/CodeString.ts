@@ -57,6 +57,7 @@ export const getAnimationButtonCodeString = (): string => {
   `;
 };
 
+// TODO : make the code string for bento
 export const getBentoCodeString = (): string => {
   return `
   import { motion } from "framer-motion";

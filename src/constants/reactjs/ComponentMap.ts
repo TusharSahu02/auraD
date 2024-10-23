@@ -6,6 +6,7 @@ import CardDoc from "../../pages/docs/Components/CardDoc";
 import Introduction from "../../pages/docs/GettingStarted/reactjs/Introduction";
 import ModalDoc from "@/pages/docs/Components/ModalDoc";
 import Installation from "@/pages/docs/GettingStarted/reactjs/Installation";
+import SheetDoc from "@/pages/docs/Components/SheetDoc";
 
 export const ComponentMap = {
   introduction: Introduction,
@@ -16,4 +17,5 @@ export const ComponentMap = {
   cards: CardDoc,
   bento: BentoDoc,
   modal: ModalDoc,
+  sheet: SheetDoc,
 };

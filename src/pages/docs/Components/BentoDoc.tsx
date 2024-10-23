@@ -68,6 +68,13 @@ const BentoDoc: React.FC = () => {
               </div>
               <div className="w-full">
                 <h1 className="text-lg font-medium">{title}</h1>
+                {index === 1 && (
+                  <p className="my-3">
+                    <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-md">
+                      src/components/Bento.tsx
+                    </kbd>
+                  </p>
+                )}
                 <div className="relative">
                   <div
                     className="absolute top-1.5 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"

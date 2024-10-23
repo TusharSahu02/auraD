@@ -7,11 +7,17 @@ import About from "./components/common/Home/About";
 import Template from "./pages/Template";
 import ScrollToTop from "./utils/ScrollToTop";
 import { checkThemeAndSet } from "./lib/utils";
+import Tooltip from "./components/atoms/Tooltip";
+import BugReport from "./pages/docs/BugReport";
 // import Test from "./test/Test";
 
 function App() {
   // Set the default theme in localStorage if not already set
   checkThemeAndSet();
+
+  const path = location.pathname.split("/");
+
+  const template = path[path.length - 2];
 
   return (
     <div className=" overflow-x-hidden">
@@ -30,6 +36,12 @@ function App() {
           {/* <Route path="/test" element={<Test />} /> */}
         </Routes>
         <Toaster richColors />
+
+        {!template && (
+          <Tooltip>
+            <BugReport />
+          </Tooltip>
+        )}
       </BrowserRouter>
     </div>
   );

@@ -13,9 +13,7 @@ import Category from "../Category";
 import { useState, useEffect, useRef } from "react";
 import { normalizeURL } from "../../utils/util";
 import { DocHighlightConstant } from "../../constants/reactjs/DocHighlightConstant";
-import Tooltip from "../../components/atoms/Tooltip";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
-import BugReport from "./BugReport";
 
 const Docs = () => {
   const [active, setActive] = useState(false);
@@ -82,7 +80,7 @@ const Docs = () => {
   if (selectedOption === "react-native") {
     return (
       <>
-        <div className=" h-[calc(100vh-65px)] w-full flex items-center justify-center mt-[55px] relative  ">
+        <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px] ">
           <div className="xl:container px-4 lg:px-0 flex  items-center justify-center  w-full h-full">
             <div className="xl:w-[20%] mt-5 lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
               {GETTING_STARTED_REACT_NATIVE.map(
@@ -177,10 +175,6 @@ const Docs = () => {
             </div>
           </div>
         </div>
-
-        <Tooltip>
-          <BugReport />
-        </Tooltip>
       </>
     );
   }
@@ -188,7 +182,7 @@ const Docs = () => {
   // ========================= REACT JS =========================
   return (
     <>
-      <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px]  relative">
+      <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px] ">
         {/* <div className=" h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[55px] relative  bg-red-500 "> */}
         <div className="xl:container px-4 lg:px-0 flex  items-center justify-center  w-full h-full">
           <div className="xl:w-[20%] pt-5 lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
@@ -288,10 +282,6 @@ const Docs = () => {
           </div>
         </div>
       </div>
-
-      <Tooltip>
-        <BugReport />
-      </Tooltip>
     </>
   );
 };

@@ -24,6 +24,7 @@ export const CATEGORIES = [
       // "Input",
       "Bento",
       "Modal",
+      "Sheet",
     ],
   },
   // {
