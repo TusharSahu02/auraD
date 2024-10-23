@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Docs from "./pages/docs/Docs";
 import Navbar from "./components/common/Docs/Navbar";
@@ -15,39 +15,31 @@ function App() {
   // Set the default theme in localStorage if not already set
   checkThemeAndSet();
 
+  const location = useLocation();
   const path = location.pathname;
-  const template = path[path.length - 2];
+  const template = path.split("/")[1];
   return (
     <div className=" overflow-x-hidden">
-      <BrowserRouter>
-        <ScrollToTop />
-        <Navbar />
+      <ScrollToTop />
+      <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/docs/:type/:category/:subcategory" element={<Docs />} />
-          <Route path="/docs/:type/:instruction" element={<Docs />} />
-          <Route path="/docs" element={<Docs />} />
-          <Route path="/templates/:category" element={<Template />} />
-          <Route path="/about-me" element={<About />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/docs/:type/:category/:subcategory" element={<Docs />} />
+        <Route path="/docs/:type/:instruction" element={<Docs />} />
+        <Route path="/docs" element={<Docs />} />
+        <Route path="/templates/:category" element={<Template />} />
+        <Route path="/about-me" element={<About />} />
 
-          {/* <Route path="/test" element={<Test />} /> */}
-        </Routes>
-        <Toaster richColors />
+        {/* <Route path="/test" element={<Test />} /> */}
+      </Routes>
+      <Toaster richColors />
 
-        {path === "/" || template === "templates" ? (
-          <></>
-        ) : (
-          <Tooltip>
-            <BugReport />
-          </Tooltip>
-        )}
-
-        {/* {template === "templates" ? (
-          <></>
-        ) : (
-        )} */}
-      </BrowserRouter>
+      {path !== "/" && template !== "templates" && (
+        <Tooltip>
+          <BugReport />
+        </Tooltip>
+      )}
     </div>
   );
 }
