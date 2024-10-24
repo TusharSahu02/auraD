@@ -7,6 +7,8 @@ import Introduction from "../../pages/docs/GettingStarted/reactjs/Introduction";
 import ModalDoc from "@/pages/docs/Components/ModalDoc";
 import Installation from "@/pages/docs/GettingStarted/reactjs/Installation";
 import SheetDoc from "@/pages/docs/Components/SheetDoc";
+import AuthenticationDoc from "@/pages/docs/Molecules/AuthenticationDoc";
+
 
 export const ComponentMap = {
   introduction: Introduction,
@@ -18,4 +20,5 @@ export const ComponentMap = {
   bento: BentoDoc,
   modal: ModalDoc,
   sheet: SheetDoc,
+  authentication: AuthenticationDoc,
 };

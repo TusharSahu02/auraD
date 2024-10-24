@@ -9,7 +9,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import { checkThemeAndSet } from "./lib/utils";
 import Tooltip from "./components/atoms/Tooltip";
 import BugReport from "./pages/docs/BugReport";
-// import Test from "./test/Test";
+import Test from "./test/Test";
 
 function App() {
   // Set the default theme in localStorage if not already set
@@ -31,7 +31,7 @@ function App() {
         <Route path="/templates/:category" element={<Template />} />
         <Route path="/about-me" element={<About />} />
 
-        {/* <Route path="/test" element={<Test />} /> */}
+        <Route path="/test" element={<Test />} />
       </Routes>
       <Toaster richColors />
 
