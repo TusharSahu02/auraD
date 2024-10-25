@@ -1,13 +1,18 @@
-import Button from "../../../components/atoms/Button";
-import { Check, Clipboard } from "lucide-react";
+import { AtSign, Check, Clipboard, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import Input from "../../../components/atoms/Input";
+import Input, {
+  Input32,
+  Input35,
+  Input45,
+  Input51,
+} from "../../../components/atoms/Input";
 import React, { useState, useRef } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdCloudUpload } from "react-icons/md";
+import NavigationButton from "@/components/molecules/NavigationButton";
+import { Input44 } from "../../../components/atoms/Input";
 const InputDoc = () => {
   const [show, setShow] = useState({
     code: true,
@@ -103,7 +108,7 @@ const InputDoc = () => {
             </div>
           </div>
           {show.code ? (
-            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
               <div
                 className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {
@@ -192,7 +197,7 @@ const InputDoc = () => {
             </div>
           </div>
           {show.file ? (
-            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
               <div
                 className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {
@@ -213,8 +218,10 @@ const InputDoc = () => {
               <div className="h-full w-full flex items-center justify-center flex-col">
                 <label
                   htmlFor="input-file"
-                  className={`lg:w-[500px] w-full h-[300px] relative p-[20px] border-2 border-gray-300 border-dashed  text-center rounded-[8px] transition-colors duration-200 ${
-                    iseDragging ? "bg-[#e8eafb]" : "bg-[#f7f8ff]"
+                  className={`lg:w-[500px] w-full h-[300px] relative p-[20px] border-2 border-white/10 border-dashed  text-center rounded-[8px] transition-colors duration-200 ${
+                    iseDragging
+                      ? "bg-[#e8eafb] dark:bg-white/10 border-white/40"
+                      : "bg-[#f7f8ff] dark:bg-transparent"
                   }`}
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
@@ -228,7 +235,7 @@ const InputDoc = () => {
                         className="w-full h-full object-cover rounded-[10px]"
                       />
                       <div
-                        className="size-[30px] rounded-full border absolute top-[25px] cursor-pointer right-[25px] flex items-center justify-center"
+                        className="size-[30px] bg-black rounded-full border absolute top-[25px] cursor-pointer right-[25px] flex items-center justify-center"
                         onClick={(e) => {
                           e.preventDefault();
                           resetFileInput();
@@ -238,7 +245,7 @@ const InputDoc = () => {
                       </div>
                     </>
                   ) : (
-                    <div className="flex items-center rounded-[10px] h-full flex-col justify-center">
+                    <div className="flex items-center rounded-[10px] bg-transparent h-full flex-col justify-center">
                       <MdCloudUpload size={100} className="text-blue-400" />
                       <p>
                         Drag & Drop or Click here <br /> to upload image
@@ -291,21 +298,19 @@ const InputDoc = () => {
             </div>
           )}
         </div>
-        {/* input == Floating Input */}
+        {/* input == Start Icon */}
         <div className="mt-10">
-          <h1 className="font-medium mb-5 text-xl capitalize">
-            Floating Input
-          </h1>
+          <h1 className="font-medium mb-5 text-xl capitalize">File</h1>
 
           <div className="flex gap-x-6 border-b px-4">
             <div
               className={`cursor-pointer ${
-                show.floatingInput ? "border-b-2 border-black" : ""
+                show.file ? "border-b-2 border-black" : ""
               }`}
-              onClick={() => setShow({ ...show, floatingInput: true })}
+              onClick={() => setShow({ ...show, file: true })}
               onKeyUp={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
-                  setShow({ ...show, floatingInput: true });
+                  setShow({ ...show, file: true });
                 }
               }}
               tabIndex={0}
@@ -314,12 +319,12 @@ const InputDoc = () => {
             </div>
             <div
               className={`cursor-pointer ${
-                !show.floatingInput ? "border-b-2 border-black" : ""
+                !show.file ? "border-b-2 border-black" : ""
               }`}
-              onClick={() => setShow({ ...show, floatingInput: false })}
+              onClick={() => setShow({ ...show, file: false })}
               onKeyUp={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
-                  setShow({ ...show, floatingInput: false });
+                  setShow({ ...show, file: false });
                 }
               }}
               tabIndex={0}
@@ -327,39 +332,37 @@ const InputDoc = () => {
               Code
             </div>
           </div>
-          {show.floatingInput ? (
-            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 flex items-center justify-center mt-5 rounded-lg">
+          {show.file ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
               <div
                 className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {
-                  // navigator.clipboard.writeText(getCodeStringInputDoc());
+                  navigator.clipboard.writeText(codeString);
                   toast.success("Copied to clipboard", {
                     icon: "📋",
                     position: "top-center",
                   });
-                  setCopy({ ...copy, floatingInput: true });
+                  setCopy({ ...copy, file: true });
                   setTimeout(() => {
-                    setCopy({ ...copy, floatingInput: false });
+                    setCopy({ ...copy, file: false });
                   }, 3000);
                 }}
               >
-                {copy.floatingInput ? <Check /> : <Clipboard />}
+                {copy.file ? <Check /> : <Clipboard />}
               </div>
               {/* file code */}
-              <div className="flex flex-col items-center justify-center ">
-                <div className="relative h-[50px]  flex items-center justify-center">
+              <div className="space-y-2">
+                <label htmlFor="input-09">Input with start icon</label>
+                <div className="relative bg-transparent border py-1 rounded-lg">
                   <input
-                    id="usernameInput"
-                    type="text"
-                    required
-                    className="border px-4 py-[10px] outline-none rounded-md text-gray-600  transition-all duration-200 ease-in-out focus:-mb-20 focus:ml-3"
+                    id="input-09"
+                    className="ps-9 bg-transparent py-1"
+                    placeholder="Email"
+                    type="email"
                   />
-                  <label
-                    htmlFor="usernameInput"
-                    className="absolute top-1/2 left-[5px] -translate-y-1/2 text-sm text-gray-400 px-4 py-1 pointer-events-none transition-all duration-200 ease-in-out  focus:text-xs"
-                  >
-                    Username
-                  </label>
+                  <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50">
+                    <AtSign size={16} strokeWidth={2} aria-hidden="true" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -396,21 +399,655 @@ const InputDoc = () => {
             </div>
           )}
         </div>
+        {/* input == End Icon */}
+        <div className="mt-10">
+          <h1 className="font-medium mb-5 text-xl capitalize">File</h1>
+
+          <div className="flex gap-x-6 border-b px-4">
+            <div
+              className={`cursor-pointer ${
+                show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: true })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: true });
+                }
+              }}
+              tabIndex={0}
+            >
+              Preview
+            </div>
+            <div
+              className={`cursor-pointer ${
+                !show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: false })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: false });
+                }
+              }}
+              tabIndex={0}
+            >
+              Code
+            </div>
+          </div>
+          {show.file ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, file: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, file: false });
+                  }, 3000);
+                }}
+              >
+                {copy.file ? <Check /> : <Clipboard />}
+              </div>
+              {/* file code */}
+              <div className="space-y-2">
+                <label htmlFor="input-10">Input with end icon</label>
+                <div className="flex items-center justify-center focus-within:outline focus-within:outline-1  bg-transparent border py-1 rounded-lg">
+                  <input
+                    id="input-10"
+                    className="ps-3 bg-transparent py-1 focus:outline-none pe-2"
+                    placeholder="Email"
+                    type="email"
+                  />
+                  <div className="pointer-events-none pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
+                    <Mail size={16} strokeWidth={2} aria-hidden="true" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, code: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, code: false });
+                  }, 3000);
+                }}
+              >
+                {copy.code ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <SyntaxHighlighter
+                language="tsx"
+                wrapLongLines={true}
+                style={atomOneDark}
+                className="rounded-lg p-5 mt-5 w-full"
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
+        {/* input == Start inline add on */}
+        <div className="mt-10">
+          <h1 className="font-medium mb-5 text-xl capitalize">File</h1>
+
+          <div className="flex gap-x-6 border-b px-4">
+            <div
+              className={`cursor-pointer ${
+                show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: true })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: true });
+                }
+              }}
+              tabIndex={0}
+            >
+              Preview
+            </div>
+            <div
+              className={`cursor-pointer ${
+                !show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: false })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: false });
+                }
+              }}
+              tabIndex={0}
+            >
+              Code
+            </div>
+          </div>
+          {show.file ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, file: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, file: false });
+                  }, 3000);
+                }}
+              >
+                {copy.file ? <Check /> : <Clipboard />}
+              </div>
+              {/* file code */}
+              <div className="space-y-2">
+                <label htmlFor="input-11">Input with start inline add-on</label>
+                <div className="flex border py-1 rounded-lg focus-within:outline focus-within:outline-1  bg-transparent">
+                  <span className="pointer-events-none  inset-y-0 start-0 flex items-center justify-center ps-3  text-sm text-muted-foreground peer-disabled:opacity-50">
+                    https://
+                  </span>
+                  <input
+                    id="input-11"
+                    className="ps-1 bg-transparent py-1 focus:outline-none pe-2"
+                    placeholder="google.com"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, code: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, code: false });
+                  }, 3000);
+                }}
+              >
+                {copy.code ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <SyntaxHighlighter
+                language="tsx"
+                wrapLongLines={true}
+                style={atomOneDark}
+                className="rounded-lg p-5 mt-5 w-full"
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
+        {/* input == Start inline add on */}
+        <div className="mt-10">
+          <h1 className="font-medium mb-5 text-xl capitalize">File</h1>
+
+          <div className="flex gap-x-6 border-b px-4">
+            <div
+              className={`cursor-pointer ${
+                show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: true })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: true });
+                }
+              }}
+              tabIndex={0}
+            >
+              Preview
+            </div>
+            <div
+              className={`cursor-pointer ${
+                !show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: false })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: false });
+                }
+              }}
+              tabIndex={0}
+            >
+              Code
+            </div>
+          </div>
+          {show.file ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, file: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, file: false });
+                  }, 3000);
+                }}
+              >
+                {copy.file ? <Check /> : <Clipboard />}
+              </div>
+              {/* file code */}
+              <Input44 />
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, code: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, code: false });
+                  }, 3000);
+                }}
+              >
+                {copy.code ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <SyntaxHighlighter
+                language="tsx"
+                wrapLongLines={true}
+                style={atomOneDark}
+                className="rounded-lg p-5 mt-5 w-full"
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
+        {/* input == Start inline add on */}
+        <div className="mt-10">
+          <h1 className="font-medium mb-5 text-xl capitalize">File</h1>
+
+          <div className="flex gap-x-6 border-b px-4">
+            <div
+              className={`cursor-pointer ${
+                show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: true })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: true });
+                }
+              }}
+              tabIndex={0}
+            >
+              Preview
+            </div>
+            <div
+              className={`cursor-pointer ${
+                !show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: false })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: false });
+                }
+              }}
+              tabIndex={0}
+            >
+              Code
+            </div>
+          </div>
+          {show.file ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, file: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, file: false });
+                  }, 3000);
+                }}
+              >
+                {copy.file ? <Check /> : <Clipboard />}
+              </div>
+              {/* file code */}
+              <Input45 />
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, code: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, code: false });
+                  }, 3000);
+                }}
+              >
+                {copy.code ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <SyntaxHighlighter
+                language="tsx"
+                wrapLongLines={true}
+                style={atomOneDark}
+                className="rounded-lg p-5 mt-5 w-full"
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
+        {/* input == Start inline add on */}
+        <div className="mt-10">
+          <h1 className="font-medium mb-5 text-xl capitalize">File</h1>
+
+          <div className="flex gap-x-6 border-b px-4">
+            <div
+              className={`cursor-pointer ${
+                show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: true })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: true });
+                }
+              }}
+              tabIndex={0}
+            >
+              Preview
+            </div>
+            <div
+              className={`cursor-pointer ${
+                !show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: false })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: false });
+                }
+              }}
+              tabIndex={0}
+            >
+              Code
+            </div>
+          </div>
+          {show.file ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, file: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, file: false });
+                  }, 3000);
+                }}
+              >
+                {copy.file ? <Check /> : <Clipboard />}
+              </div>
+              {/* file code */}
+              <Input35 />
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, code: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, code: false });
+                  }, 3000);
+                }}
+              >
+                {copy.code ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <SyntaxHighlighter
+                language="tsx"
+                wrapLongLines={true}
+                style={atomOneDark}
+                className="rounded-lg p-5 mt-5 w-full"
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
+        {/* input == Start inline add on */}
+        <div className="mt-10">
+          <h1 className="font-medium mb-5 text-xl capitalize">File</h1>
+
+          <div className="flex gap-x-6 border-b px-4">
+            <div
+              className={`cursor-pointer ${
+                show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: true })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: true });
+                }
+              }}
+              tabIndex={0}
+            >
+              Preview
+            </div>
+            <div
+              className={`cursor-pointer ${
+                !show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: false })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: false });
+                }
+              }}
+              tabIndex={0}
+            >
+              Code
+            </div>
+          </div>
+          {show.file ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, file: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, file: false });
+                  }, 3000);
+                }}
+              >
+                {copy.file ? <Check /> : <Clipboard />}
+              </div>
+              {/* file code */}
+              <Input51 />
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, code: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, code: false });
+                  }, 3000);
+                }}
+              >
+                {copy.code ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <SyntaxHighlighter
+                language="tsx"
+                wrapLongLines={true}
+                style={atomOneDark}
+                className="rounded-lg p-5 mt-5 w-full"
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
+        {/* input == Start inline add on */}
+        <div className="mt-10">
+          <h1 className="font-medium mb-5 text-xl capitalize">File</h1>
+
+          <div className="flex gap-x-6 border-b px-4">
+            <div
+              className={`cursor-pointer ${
+                show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: true })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: true });
+                }
+              }}
+              tabIndex={0}
+            >
+              Preview
+            </div>
+            <div
+              className={`cursor-pointer ${
+                !show.file ? "border-b-2 border-black" : ""
+              }`}
+              onClick={() => setShow({ ...show, file: false })}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setShow({ ...show, file: false });
+                }
+              }}
+              tabIndex={0}
+            >
+              Code
+            </div>
+          </div>
+          {show.file ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, file: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, file: false });
+                  }, 3000);
+                }}
+              >
+                {copy.file ? <Check /> : <Clipboard />}
+              </div>
+              {/* file code */}
+              <Input32 />
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  toast.success("Copied to clipboard", {
+                    icon: "📋",
+                    position: "top-center",
+                  });
+                  setCopy({ ...copy, code: true });
+                  setTimeout(() => {
+                    setCopy({ ...copy, code: false });
+                  }, 3000);
+                }}
+              >
+                {copy.code ? (
+                  <Check className="text-white" />
+                ) : (
+                  <Clipboard className="text-white" />
+                )}
+              </div>
+              <SyntaxHighlighter
+                language="tsx"
+                wrapLongLines={true}
+                style={atomOneDark}
+                className="rounded-lg p-5 mt-5 w-full"
+              >
+                {codeString}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="flex items-center justify-between">
-        <Button variant="outline">
-          <span className="flex items-center gap-1">
-            <FiChevronLeft />
-            Previous
-          </span>
-        </Button>
-        <Button variant="outline">
-          <span className="flex items-center gap-1">
-            Input
-            <FiChevronRight />
-          </span>
-        </Button>
-      </div>
+      <NavigationButton
+        previousTitle="Button"
+        nextTitle="Bento"
+        previousLink="/docs/reactjs/components/button"
+        nextLink="/docs/reactjs/components/bento"
+      />
     </>
   );
 };

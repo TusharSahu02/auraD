@@ -30,3 +30,5 @@ const Test = () => {
 };
 
 export default Test;
+
+// Dependencies: npm install input-otp

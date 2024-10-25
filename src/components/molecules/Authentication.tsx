@@ -19,7 +19,9 @@ const Authentication = () => {
   return (
     <div className=" mt-10">
       {/* Welcome Card */}
-      <div className="py-16 border  flex items-center justify-center">
+      <div className="py-16 border  flex items-center justify-center relative">
+        <div className="circle absolute top-48 left-44 w-20 h-20 bg-purple-500 rounded-full filter"></div>
+        <div className="circle absolute top-96 right-24 w-40 h-40 bg-orange-500 rounded-full filter"></div>
         {/* <div className=" h-[350px]  rounded-md  border "> */}
         <div className="h-[550px] w-[400px]  shadow-lg rounded-3xl py-5 px-12 border-2 border-white/20  flex flex-col gap-2 items-center justify-center backdrop-filter backdrop-blur-[20px] bg-opacity-5 bg-white transform ">
           <h1 className=" text-2xl font-semibold mb-3">Welcome to</h1>
@@ -44,7 +46,9 @@ const Authentication = () => {
       </div>
 
       {/* Login Form */}
-      <div className="py-16 border  flex items-center justify-center">
+      <div className="py-16 border  flex items-center justify-center relative">
+        <div className="circle absolute top-48 left-44 w-20 h-20 bg-purple-500 rounded-full filter"></div>
+        <div className="circle absolute top-96 right-24 w-40 h-40 bg-orange-500 rounded-full filter"></div>
         <div className="h-[550px] w-[400px]  shadow-lg rounded-3xl py-5 px-12 border-2 border-white/20  flex flex-col gap-2 items-center justify-center backdrop-filter backdrop-blur-[20px] bg-opacity-5 bg-white transform ">
           <h1 className=" text-2xl font-semibold mb-3">Log in</h1>
           <input

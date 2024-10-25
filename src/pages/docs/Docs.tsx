@@ -25,6 +25,7 @@ const Docs = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const { selectedOption } = useSelectedOption();
+
   useEffect(() => {
     const path = location.pathname.split("/");
     // const type = path[path.length - 3];

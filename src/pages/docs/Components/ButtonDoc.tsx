@@ -594,9 +594,9 @@ const ButtonDoc = () => {
       </div>
       <NavigationButton
         previousTitle="Installation"
-        nextTitle="Bento"
+        nextTitle="Input"
         previousLink="/docs/reactjs/installation"
-        nextLink="/docs/reactjs/components/bento"
+        nextLink="/docs/reactjs/components/input"
       />
       <div className="mb-5 md:mb-0" />
     </>

@@ -21,10 +21,22 @@ export const CATEGORIES = [
     subcategories: [
       "Button",
       // "Cards",
-      // "Input",
+      "Input",
       "Bento",
       "Modal",
       "Sheet",
+    ],
+  },
+  {
+    name: "Text",
+    subcategories: [
+      "Shimmer",
+      "Loader",
+      // "Cards",
+      // "Input",
+      // "Bento",
+      // "Modal",
+      // "Sheet",
     ],
   },
   {

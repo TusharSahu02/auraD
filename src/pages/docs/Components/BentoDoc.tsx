@@ -98,10 +98,10 @@ const BentoDoc: React.FC = () => {
       </div>
 
       <NavigationButton
-        previousTitle="Button"
+        previousTitle="Input"
         nextTitle="Modal"
         nextLink="/docs/reactjs/components/modal"
-        previousLink="/docs/reactjs/components/button"
+        previousLink="/docs/reactjs/components/input"
       />
     </>
   );
