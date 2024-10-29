@@ -38,7 +38,7 @@ const ResizeView = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
       <div
-        className={`w-full border h-full rounded-lg p-2 overflow-y-hidden ${
+        className={`w-full border h-full rounded-lg p-2 overflow-y-hidden transition-all duration-300 ease-in-out ${
           selectedScreenSize === "smartphone"
             ? "max-w-sm"
             : selectedScreenSize === "tablet"
