@@ -14,9 +14,11 @@ import { useSelectedOption } from "@/context/SelectedOptionContext";
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const location = useLocation();
   const [searchInput, setSearchInput] = useState("");
   const [showKbd, setShowKbd] = useState(true);
   const [filteredCategories, setFilteredCategories] = useState(CATEGORIES);
+  const [active, setActive] = useState(false);
   const navigate = useNavigate();
 
   const { selectedOption, setSelectedOption } = useSelectedOption();
@@ -26,6 +28,7 @@ const Navbar = () => {
     setSelectedOption(
       selectedOption === "react-js" ? "react-native" : "react-js"
     );
+    setActive(!active);
     navigate(
       selectedOption === "react-js"
         ? "/docs/react-native/components/button"
@@ -90,27 +93,56 @@ const Navbar = () => {
                 to={`/docs/${
                   selectedOption === "react-js" ? "reactjs" : "react-native"
                 }/introduction`}
+                className={
+                  location.pathname.includes(
+                    selectedOption === "react-js"
+                      ? "docs/reactjs"
+                      : "docs/react-native"
+                  ) && !location.pathname.includes("/components")
+                    ? "text-sm text-white"
+                    : "text-sm text-gray-500"
+                }
               >
-                <li className=" text-sm text-gray-500">Docs</li>
+                <li>Docs</li>
               </Link>
               <Link
                 to={`/docs/${
                   selectedOption === "react-js" ? "reactjs" : "react-native"
                 }/components/button`}
+                className={
+                  location.pathname.includes(
+                    selectedOption === "react-js"
+                      ? "docs/reactjs/components"
+                      : "docs/react-native/components"
+                  )
+                    ? "text-sm text-white"
+                    : "text-sm text-gray-500"
+                }
               >
-                <li className=" text-sm text-gray-500">Components</li>
+                <li>Components</li>
               </Link>
-              <Link to={"/templates/landing"}>
-                <li className=" text-sm text-gray-500">Templates</li>
+              <Link
+                to={"/templates/landing"}
+                className={
+                  location.pathname.includes("/templates")
+                    ? "text-sm text-white"
+                    : "text-sm text-gray-500"
+                }
+              >
+                <li>Templates</li>
               </Link>
             </ul>
           </div>
         </div>
         <div className="lg:flex items-center gap-x-3 hidden relative">
           <div className="flex gap-2 text-gray-600 mr-2 text-sm">
-            <p>React JS</p>
+            <p className={`${!active ? "text-white" : "text-gray-600"}`}>
+              React JS
+            </p>
             <Switch onCheckedChange={toggleSwitch} />
-            <p>React Native</p>
+            <p className={` ${active ? "text-white" : "text-gray-600"}`}>
+              React Native
+            </p>
           </div>
           <div className=" border dark:bg-gray-400/30 bg-gray-100/70 rounded-lg px-3 flex items-center ">
             <input
