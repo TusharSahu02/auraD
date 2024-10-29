@@ -14,6 +14,8 @@ import { useState, useEffect, useRef } from "react";
 import { normalizeURL } from "../../utils/util";
 import { DocHighlightConstant } from "../../constants/reactjs/DocHighlightConstant";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
+import Iphone from "@/components/atoms/Iphone";
+import Button from "@/components/atoms/Button";
 
 const Docs = () => {
   const [active, setActive] = useState(false);
@@ -83,7 +85,7 @@ const Docs = () => {
       <>
         <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px] ">
           <div className="xl:container px-4 lg:px-0 flex  items-center justify-center  w-full h-full">
-            <div className="xl:w-[20%] mt-5 lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
+            <div className="xl:w-[20%]  lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
               {GETTING_STARTED_REACT_NATIVE.map(
                 (category: { name: string; subcategories: string[] }) => {
                   return (
@@ -157,22 +159,11 @@ const Docs = () => {
               {/* <Category /> */}
               <p className="text-center mt-5">comming soon...</p>
             </div>
-            <div className="w-[20%] h-full hidden p-4 xl:block">
-              <p className="font-semibold mb-4 mt-2">On this page</p>
-
+            <div className="w-25%] h-full hidden p-4 items-center justify-center xl:flex ">
               {/* iPhone */}
-
-              <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
-                <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
-                <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-                <div className="h-[46px] w-[3px] bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-                <div className="h-[64px] w-[3px] bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-                <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white/20">
-                  <div className="mt-5">
-                    <h1>Heading</h1>
-                  </div>
-                </div>
-              </div>
+              <Iphone>
+                <Button variant="animation">Test in Mobile</Button>
+              </Iphone>
             </div>
           </div>
         </div>
