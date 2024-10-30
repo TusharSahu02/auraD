@@ -157,7 +157,7 @@ const Docs = () => {
             </div>
             <div className="xl:w-[55%] w-full md:p-4  h-full md:border-l xl:border-r overflow-y-scroll hideScrollBar">
               {/* <Category /> */}
-              <p className="text-center mt-5">comming soon...</p>
+              <Category />
             </div>
             <div className="w-25%] h-full hidden p-4 items-center justify-center xl:flex ">
               {/* iPhone */}

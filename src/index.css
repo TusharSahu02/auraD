@@ -366,3 +366,16 @@ body::-webkit-scrollbar {
     @apply bg-background text-foreground;
   }
 }
+
+a {
+  text-decoration: none;
+}
+
+.resizer {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.resizer:hover {
+  opacity: 1;
+}

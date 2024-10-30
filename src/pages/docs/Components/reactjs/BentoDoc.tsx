@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Bento from "../../../components/atoms/Bento";
+import Bento from "@/components/atoms/Bento";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
-import { getBentoCodeString } from "../../../constants/reactjs/CodeString";
-import NavigationButton from "../../../components/molecules/NavigationButton";
+import { getBentoCodeString } from "@/constants/reactjs/CodeString";
+import NavigationButton from "@/components/molecules/NavigationButton";
 
 const BentoDoc: React.FC = () => {
   const [copyStates, setCopyStates] = useState({ code: false, framer: false });

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../../components/atoms/Button";
+import Button from "../../../../components/atoms/Button";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
@@ -15,8 +15,8 @@ import {
   getCodeString,
   // getUsageButton,
   // getUsageImport,
-} from "../../../constants/reactjs/CodeString";
-import NavigationButton from "../../../components/molecules/NavigationButton";
+} from "../../../../constants/reactjs/CodeString";
+import NavigationButton from "../../../../components/molecules/NavigationButton";
 
 type Variant =
   | "primary"

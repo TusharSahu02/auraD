@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Monitor, Smartphone, Tablet } from "lucide-react";
 
 const ResizeView = ({ children }: { children: React.ReactNode }) => {
-  const [selectedScreenSize, setSelectedScreenSize] = useState("fullscreen");
-
+  const [selectedScreenSize, setSelectedScreenSize] = useState("monitor");
   const handleScreenSizeClick = (size: string) => {
     setSelectedScreenSize(size);
   };
+
   return (
     <div className=" h-[700px]">
       <div className=" w-full flex items-center justify-end mb-2">
@@ -29,14 +29,9 @@ const ResizeView = ({ children }: { children: React.ReactNode }) => {
           >
             <Monitor className="h-3.5 w-3.5 text-gray-400" />
           </div>
-          {/* <div
-          onClick={() => handleScreenSizeClick("fullscreen")}
-          className="h-[22px] w-[22px] p-0 hover:bg-gray-800 transition-colors duration-200 ease-in-out flex items-center justify-center border rounded-md cursor-pointer"
-        >
-          <Fullscreen className="h-3.5 w-3.5 text-gray-400" />
-        </div> */}
         </div>
       </div>
+
       <div
         className={`w-full border h-full rounded-lg p-2 overflow-y-hidden transition-all duration-300 ease-in-out ${
           selectedScreenSize === "smartphone"

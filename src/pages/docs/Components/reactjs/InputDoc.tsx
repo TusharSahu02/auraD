@@ -7,12 +7,12 @@ import Input, {
   Input35,
   Input45,
   Input51,
-} from "../../../components/atoms/Input";
+} from "../../../../components/atoms/Input";
 import React, { useState, useRef } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdCloudUpload } from "react-icons/md";
 import NavigationButton from "@/components/molecules/NavigationButton";
-import { Input44 } from "../../../components/atoms/Input";
+import { Input44 } from "../../../../components/atoms/Input";
 const InputDoc = () => {
   const [show, setShow] = useState({
     code: true,
