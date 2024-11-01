@@ -15,7 +15,7 @@ import { normalizeURL } from "../../utils/util";
 import { DocHighlightConstant } from "../../constants/reactjs/DocHighlightConstant";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
 import Iphone from "@/components/atoms/Iphone";
-import Button from "@/components/atoms/Button";
+import { Input44 } from "@/components/atoms/Input";
 
 const Docs = () => {
   const [active, setActive] = useState(false);
@@ -159,10 +159,11 @@ const Docs = () => {
               {/* <Category /> */}
               <Category />
             </div>
-            <div className="w-25%] h-full hidden p-4 items-center justify-center xl:flex ">
+            <div className="w-25%] h-full hidden pl-4 items-center justify-center xl:flex ">
               {/* iPhone */}
               <Iphone>
-                <Button variant="animation">Test in Mobile</Button>
+                {/* <Button variant="animation">Test in Mobile</Button> */}
+                <Input44 />
               </Iphone>
             </div>
           </div>

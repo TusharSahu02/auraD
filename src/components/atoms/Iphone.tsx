@@ -14,7 +14,7 @@ const Iphone = ({ children }: { children: React.ReactNode }) => {
         {/* Screen */}
         <div className="relative w-full h-full bg-zinc-900 bg-cover bg-center">
           {/* Status Bar */}
-          <div className="flex justify-between items-center px-4 pt-2 text-white text-sm">
+          <div className="flex justify-between items-center px-4 pt-3 text-gray-400 text-sm">
             <div>{time}</div>
             <div className="flex items-center space-x-1">
               <Signal className="w-4 h-4" />
