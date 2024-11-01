@@ -2,7 +2,8 @@ import formatDateAndTime from "@/utils/fetchDateTime";
 import { Battery, Signal, Wifi } from "lucide-react";
 
 const Iphone = ({ children }: { children: React.ReactNode }) => {
-  const { time, date } = formatDateAndTime();
+  // const { time, date } = formatDateAndTime();
+  const { time } = formatDateAndTime();
 
   return (
     <div className="relative">
