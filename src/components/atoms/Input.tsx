@@ -3,7 +3,7 @@ const Input = () => {
     <>
       <input
         type="text"
-        className="border px-4 py-1 border-gray-300 rounded-md placeholder:text-sm text-sm dark:bg-transparent dark:text-white"
+        className="border px-4 py-2 border-gray-700 rounded-md placeholder:text-sm text-sm dark:bg-transparent dark:text-white"
         placeholder="username"
       />
     </>
