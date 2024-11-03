@@ -22,16 +22,6 @@ import {
   Loader7,
 } from "../../../components/atoms/Loaders";
 
-export const inputDocSections = [
-  { id: "l1", title: "Loader 1" },
-  { id: "l2", title: "Loader 2" },
-  { id: "l3", title: "Loader 3" },
-  { id: "l4", title: "Loader 4" },
-  { id: "l5", title: "Loader 5" },
-  { id: "l6", title: "Loader 6" },
-  { id: "l7", title: "Loader 7" },
-];
-
 const LoadersDoc = () => {
   const [show, setShow] = useState<{ [key: string]: boolean }>({
     l1: true,

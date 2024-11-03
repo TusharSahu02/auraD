@@ -1,10 +1,9 @@
 import { useState } from "react";
-import NavigationButton from "@/components/molecules/NavigationButton";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { getRNButtonCodeString } from "@/constants/react-native/RNcodeString";
-import { toast } from "sonner";
 import { Check, Clipboard } from "lucide-react";
+import { showToast } from "@/lib/utils";
 const RNButtonDoc = () => {
   // const [code, setCode] = useState(true);
   const [copyCode, setCopyCode] = useState(false);
@@ -25,14 +24,7 @@ const RNButtonDoc = () => {
               className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
               onClick={() => {
                 navigator.clipboard.writeText(codeString);
-                toast.success("Copied to clipboard", {
-                  icon: "📋",
-                  position: "top-center",
-                });
-                setCopyCode(true);
-                setTimeout(() => {
-                  setCopyCode(false);
-                }, 3000);
+                showToast(setCopyCode);
               }}
             >
               {copyCode ? (
@@ -51,12 +43,12 @@ const RNButtonDoc = () => {
           </div>
         </div>
 
-        <NavigationButton
+        {/* <NavigationButton
           previousTitle="Installation"
           nextTitle="Input"
           previousLink="/docs/react-native/installation"
           nextLink="/docs/reactjs/components/input"
-        />
+        /> */}
 
         <div className="mb-5 md:mb-0" />
       </div>
