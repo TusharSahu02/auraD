@@ -1,5 +1,4 @@
-import { buttonDocSections } from "../../pages/docs/Components/reactjs/ButtonDoc";
-import { inputDocSections } from "../../pages/docs/Animations/LoadersDoc";
+import { inputDocSections, buttonDocSections } from "./Components";
 export const DocHighlightConstant = {
   button: buttonDocSections,
   loaders: inputDocSections,
