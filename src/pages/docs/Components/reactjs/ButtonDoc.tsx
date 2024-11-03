@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import Button from "../../../../components/atoms/Button";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
 
-import { motion } from "framer-motion";
+import Button from "@/components/atoms/Button";
+import NavigationButton from "@/components/molecules/NavigationButton";
 
 import {
   getAnimationButtonCodeString,
-  // getButtonCliInstallationCommand,
   getButtonCodeString,
-  // getCliInstallationCommand,
   getCodeString,
-  // getUsageButton,
-  // getUsageImport,
-} from "../../../../constants/reactjs/CodeString";
-import NavigationButton from "../../../../components/molecules/NavigationButton";
+} from "@/constants/reactjs/CodeString";
+import { showToast } from "@/lib/utils";
+
+import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";
+import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
+import CodeToggle from "@/utils/CodeToggle";
 
 type Variant =
   | "primary"
@@ -25,16 +22,6 @@ type Variant =
   | "outline"
   | "ghost"
   | "animation";
-
-export const buttonDocSections = [
-  { id: "overview", title: "Overview" },
-  { id: "primary", title: "Primary" },
-  { id: "secondary", title: "Secondary" },
-  { id: "destructive", title: "Destructive" },
-  { id: "outline", title: "Outline" },
-  { id: "ghost", title: "Ghost" },
-  { id: "animation", title: "Animation" },
-];
 
 interface ButtonProps {
   id: string;
@@ -46,6 +33,120 @@ interface ButtonProps {
   buttonText: string;
   codeString: string;
 }
+
+const ButtonDoc = () => {
+  const [show, setShow] = useState({
+    primary: true,
+    secondary: true,
+    destructive: true,
+    outline: true,
+    ghost: true,
+    animation: true,
+  });
+
+  const [code, setCode] = useState(true);
+  const [copyCode, setCopyCode] = useState(false);
+
+  const [copy, setCopy] = useState({
+    primary: false,
+    secondary: false,
+    destructive: false,
+    outline: false,
+    ghost: false,
+    animation: false,
+  });
+
+  const variants = [
+    { variant: "primary", buttonText: "Primary" },
+    { variant: "secondary", buttonText: "Secondary" },
+    { variant: "destructive", buttonText: "Destructive" },
+    { variant: "outline", buttonText: "Outline" },
+    { variant: "ghost", buttonText: "Ghost" },
+    { variant: "animation", buttonText: "Animation" },
+  ];
+
+  const codeString = getAnimationButtonCodeString();
+
+  return (
+    <>
+      <div className="mt-1 pb-[20px]">
+        <p className="text-gray-500">
+          Displays a button or a component that looks like a button.
+        </p>
+        <div id="overview" className="mt-10">
+          <CodeToggle
+            code={code}
+            setCode={setCode}
+            leftText="Preview"
+            rightText="Code"
+          />
+          {code ? (
+            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-100/10 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  showToast(setCopyCode);
+                }}
+              >
+                <CopyCodeToggleIcons copyCode={copyCode} />
+              </div>
+              <Button variant="animation">hover me </Button>
+            </div>
+          ) : (
+            <div className="relative">
+              <div
+                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  showToast(setCopyCode);
+                }}
+              >
+                <CopyCodeToggleIcons copyCode={copyCode} />
+              </div>
+
+              <SyntaxHighlighterWrapper className="text-sm md:text-md ">
+                {codeString}
+              </SyntaxHighlighterWrapper>
+            </div>
+          )}
+        </div>
+
+        <h1 className="font-medium mt-10 border-b pb-2 text-2xl">
+          Installation
+        </h1>
+        <ManualDocs />
+
+        <h1 className="font-medium mt-10 border-b pb-2 text-2xl">Examples</h1>
+        {variants.map(({ variant, buttonText }) => {
+          const codeString = getCodeString(variant as Variant);
+          return (
+            <CodeBlock
+              key={variant}
+              id={variant}
+              show={show}
+              setShow={setShow}
+              copy={copy}
+              setCopy={setCopy}
+              variant={variant as Variant}
+              buttonText={buttonText}
+              codeString={codeString}
+            />
+          );
+        })}
+      </div>
+      <NavigationButton
+        previousTitle="Installation"
+        nextTitle="Input"
+        previousLink="/docs/reactjs/installation"
+        nextLink="/docs/reactjs/components/input"
+      />
+      <div className="mb-5 md:mb-0" />
+    </>
+  );
+};
+
+export default ButtonDoc;
 
 const CodeBlock = ({
   id,
@@ -70,12 +171,20 @@ const CodeBlock = ({
       setCopy({ ...copy, [variant]: false });
     }, 3000);
   };
+  const copyButton = (
+    <div
+      className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+      onClick={handleCopy}
+    >
+      <CopyCodeToggleIcons copyCode={copy[variant]} />
+    </div>
+  );
 
   return (
     <div id={id} className="mt-4">
       <h1 className="font-medium mb-5 text-xl capitalize">{variant}</h1>
       <div className="flex gap-x-6 border-b px-4">
-        <motion.div
+        <div
           className={`cursor-pointer ${
             isPreview ? "border-b-2 border-black dark:border-white" : ""
           }`}
@@ -88,7 +197,7 @@ const CodeBlock = ({
           tabIndex={0}
         >
           Preview
-        </motion.div>
+        </div>
         <div
           className={`cursor-pointer ${
             !isPreview ? "border-b-2 border-black dark:border-white" : ""
@@ -107,34 +216,15 @@ const CodeBlock = ({
 
       {isPreview ? (
         <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
-          <div
-            className="absolute top-3 right-3 size-7 hover:bg-gray-100/10 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-            onClick={handleCopy}
-          >
-            {copy[variant] ? <Check /> : <Clipboard />}
-          </div>
+          {copyButton}
           <Button variant={variant}>{buttonText}</Button>
         </div>
       ) : (
         <div className="relative">
-          <div
-            className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-            onClick={handleCopy}
-          >
-            {copy[variant] ? (
-              <Check className="text-white" />
-            ) : (
-              <Clipboard className="text-white" />
-            )}
-          </div>
-          <SyntaxHighlighter
-            language="tsx"
-            wrapLongLines={true}
-            style={atomOneDark}
-            className="rounded-lg p-5 mt-5 w-full text-sm md:text-md"
-          >
+          {copyButton}
+          <SyntaxHighlighterWrapper className="text-sm md:text-md">
             {codeString}
-          </SyntaxHighlighter>
+          </SyntaxHighlighterWrapper>
         </div>
       )}
     </div>
@@ -286,6 +376,7 @@ const CodeBlock = ({
 //     </>
 //   );
 // };
+
 const ManualDocs = () => {
   const buttonCodeString = getButtonCodeString();
   const [copy, setCopy] = useState(false);
@@ -293,14 +384,7 @@ const ManualDocs = () => {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(buttonCodeString);
-    toast.success("Copied to clipboard", {
-      icon: "📋",
-      position: "top-center",
-    });
-    setCopy(true);
-    setTimeout(() => {
-      setCopy(false);
-    }, 3000);
+    showToast(setCopy);
   };
 
   return (
@@ -343,21 +427,12 @@ const ManualDocs = () => {
                 className="absolute top-8 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex z-20 items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={handleCopy}
               >
-                {copy ? (
-                  <Check className="text-white" />
-                ) : (
-                  <Clipboard className="text-white" />
-                )}
+                <CopyCodeToggleIcons copyCode={copy} />
               </div>
               <div className="relative">
-                <SyntaxHighlighter
-                  language="tsx"
-                  wrapLongLines={true}
-                  style={atomOneDark}
-                  className="rounded-lg p-5 mt-5 w-full h-[500px] text-sm md:text-md customScrollBar"
-                >
+                <SyntaxHighlighterWrapper className="h-[500px]  text-sm md:text-md">
                   {buttonCodeString}
-                </SyntaxHighlighter>
+                </SyntaxHighlighterWrapper>
               </div>
               <div className="absolute h-full w-full z-10 top-0 left-0 bg-gradient-to-b from-transparent rounded-lg to-black/80"></div>
               <h1
@@ -378,20 +453,12 @@ const ManualDocs = () => {
                   className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
                   onClick={handleCopy}
                 >
-                  {copy ? (
-                    <Check className="text-white" />
-                  ) : (
-                    <Clipboard className="text-white" />
-                  )}
+                  <CopyCodeToggleIcons copyCode={copy} />
                 </div>
-                <SyntaxHighlighter
-                  language="tsx"
-                  wrapLongLines={true}
-                  style={atomOneDark}
-                  className="rounded-lg p-5 mt-5 w-full h-[700px] customScrollBar"
-                >
+
+                <SyntaxHighlighterWrapper className="h-[700px]">
                   {buttonCodeString}
-                </SyntaxHighlighter>
+                </SyntaxHighlighterWrapper>
               </div>
               <div className="flex items-center justify-center mt-3 ">
                 <Button
@@ -410,197 +477,3 @@ const ManualDocs = () => {
     </div>
   );
 };
-
-const ButtonDoc = () => {
-  const [show, setShow] = useState({
-    primary: true,
-    secondary: true,
-    destructive: true,
-    outline: true,
-    ghost: true,
-    animation: true,
-  });
-
-  const [code, setCode] = useState(true);
-  const [copyCode, setCopyCode] = useState(false);
-
-  const [copy, setCopy] = useState({
-    primary: false,
-    secondary: false,
-    destructive: false,
-    outline: false,
-    ghost: false,
-    animation: false,
-  });
-
-  // const [cli, setCli] = useState(true);
-
-  const variants = [
-    { variant: "primary", buttonText: "Primary" },
-    { variant: "secondary", buttonText: "Secondary" },
-    { variant: "destructive", buttonText: "Destructive" },
-    { variant: "outline", buttonText: "Outline" },
-    { variant: "ghost", buttonText: "Ghost" },
-    { variant: "animation", buttonText: "Animation" },
-  ];
-
-  // TODO : change the code string for animation
-  const codeString = getAnimationButtonCodeString();
-
-  return (
-    <>
-      <div className="mt-1 pb-[20px]">
-        <p className="text-gray-500">
-          Displays a button or a component that looks like a button.
-        </p>
-        <div id="overview" className="mt-10">
-          <div className="flex gap-x-6 border-b px-4">
-            <div
-              className={`cursor-pointer ${
-                code ? "border-b-2 border-black dark:border-white" : ""
-              }`}
-              onClick={() => setCode(true)}
-              onKeyUp={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setCode(true);
-                }
-              }}
-              tabIndex={0}
-            >
-              Preview
-            </div>
-            <div
-              className={`cursor-pointer ${
-                !code ? "border-b-2 border-black dark:border-white" : ""
-              }`}
-              onClick={() => setCode(false)}
-              onKeyUp={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setCode(false);
-                }
-              }}
-              tabIndex={0}
-            >
-              Code
-            </div>
-          </div>
-          {code ? (
-            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
-              <div
-                className="absolute top-3 right-3 size-7 hover:bg-gray-100/10 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-                onClick={() => {
-                  navigator.clipboard.writeText(codeString);
-                  toast.success("Copied to clipboard", {
-                    icon: "📋",
-                    position: "top-center",
-                  });
-                  setCopyCode(true);
-                  setTimeout(() => {
-                    setCopyCode(false);
-                  }, 3000);
-                }}
-              >
-                {copyCode ? <Check /> : <Clipboard />}
-              </div>
-              <Button variant="animation">hover me </Button>
-            </div>
-          ) : (
-            <div className="relative">
-              <div
-                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
-                onClick={() => {
-                  navigator.clipboard.writeText(codeString);
-                  toast.success("Copied to clipboard", {
-                    icon: "📋",
-                    position: "top-center",
-                  });
-                  setCopyCode(true);
-                  setTimeout(() => {
-                    setCopyCode(false);
-                  }, 3000);
-                }}
-              >
-                {copyCode ? (
-                  <Check className="text-white" />
-                ) : (
-                  <Clipboard className="text-white" />
-                )}
-              </div>
-              <SyntaxHighlighter
-                language="tsx"
-                // wrapLongLines={true}
-                style={atomOneDark}
-                className="rounded-lg p-5 mt-5 w-full text-sm md:text-md customScrollBarHorizonalal"
-              >
-                {codeString}
-              </SyntaxHighlighter>
-            </div>
-          )}
-        </div>
-
-        <h1 className="font-medium mt-10 border-b pb-2 text-2xl">
-          Installation
-        </h1>
-        {/* <div className="flex gap-x-6 border-b px-4 mt-6">
-          <div
-            className={`cursor-pointer ${cli ? "border-b-2 border-black" : ""}`}
-            onClick={() => setCli(true)}
-            onKeyUp={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                setCli(true);
-              }
-            }}
-            tabIndex={0}
-          >
-            CLI
-          </div>
-          <div
-            className={`cursor-pointer ${
-              !cli ? "border-b-2 border-black" : ""
-            }`}
-            onClick={() => setCli(false)}
-            onKeyUp={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                setCli(false);
-              }
-            }}
-            tabIndex={0}
-          >
-            Manual
-          </div>
-        </div> */}
-
-        {/* CLI docs */}
-        {/* {cli ? <CLIDocs /> : <ManualDocs />} */}
-        <ManualDocs />
-
-        <h1 className="font-medium mt-10 border-b pb-2 text-2xl">Examples</h1>
-        {variants.map(({ variant, buttonText }) => {
-          const codeString = getCodeString(variant as Variant);
-          return (
-            <CodeBlock
-              key={variant}
-              id={variant}
-              show={show}
-              setShow={setShow}
-              copy={copy}
-              setCopy={setCopy}
-              variant={variant as Variant}
-              buttonText={buttonText}
-              codeString={codeString}
-            />
-          );
-        })}
-      </div>
-      <NavigationButton
-        previousTitle="Installation"
-        nextTitle="Input"
-        previousLink="/docs/reactjs/installation"
-        nextLink="/docs/reactjs/components/input"
-      />
-      <div className="mb-5 md:mb-0" />
-    </>
-  );
-};
-
-export default ButtonDoc;
