@@ -41,7 +41,7 @@ const Bento = () => {
         {Items.map((item, index) => (
           <motion.div
             key={item.id}
-            className={`border border-black/[0.2] dark:border-white/10 group w-[90%] md:w-[450px] lg:w-full cursor-pointer ${
+            className={`border w-full border-black/[0.2] dark:border-white/10 group  md:w-[450px] lg:w-full cursor-pointer ${
               item.id === 2 ? "col-span-2 lg:col-span-1" : "col-span-2"
             } ${
               item.id === 3 ? "lg:col-span-1" : ""

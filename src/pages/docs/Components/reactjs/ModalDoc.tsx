@@ -172,7 +172,7 @@ const ManualDocs = () => {
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
         </div>
         <div className="w-full">
-          <h1 className="text-lg font-medium">Add Button.tsx File</h1>
+          <h1 className="text-lg font-medium">Add Modal.tsx File</h1>
 
           <p className="mt-3">
             <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-md">
@@ -196,7 +196,7 @@ const ManualDocs = () => {
                   language="tsx"
                   wrapLongLines={true}
                   style={atomOneDark}
-                  className="rounded-lg p-5 mt-5 w-full h-[500px] customScrollBar"
+                  className="rounded-lg p-5 mt-5 w-full h-[500px] customScrollBar text-sm"
                 >
                   {modalCodeString}
                 </SyntaxHighlighter>

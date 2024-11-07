@@ -1,3 +1,10 @@
+import { Minus } from "lucide-react";
+import { useCharacterCount } from "@/hooks/use-character-limit";
+import { cn } from "@/lib/utils";
+import { OTPInput, SlotProps } from "input-otp";
+import { Check, Eye, EyeOff, X } from "lucide-react";
+import { useMemo, useState } from "react";
+
 const Input = () => {
   return (
     <>
@@ -11,9 +18,6 @@ const Input = () => {
 };
 
 export default Input;
-
-import { cn } from "@/lib/utils";
-import { OTPInput, SlotProps } from "input-otp";
 
 export function Input44() {
   return (
@@ -51,10 +55,6 @@ function Slot(props: SlotProps) {
   );
 }
 
-// Dependencies: npm install input-otp lucide-react
-
-import { Minus } from "lucide-react";
-
 export function Input45() {
   return (
     <div className="space-y-2">
@@ -87,8 +87,6 @@ export function Input45() {
   );
 }
 
-import { useCharacterCount } from "@/hooks/use-character-limit";
-
 export function Input35() {
   const maxLength = 8;
   const { value, characterCount, handleChange } = useCharacterCount("");
@@ -116,9 +114,6 @@ export function Input35() {
     </div>
   );
 }
-
-import { Check, Eye, EyeOff, X } from "lucide-react";
-import { useMemo, useState } from "react";
 
 export function Input51() {
   const [password, setPassword] = useState("");
