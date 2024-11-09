@@ -167,6 +167,22 @@ const ManualDocs = () => {
           </p>
         </div>
       </div>
+      <div className="flex items-start justify-center gap-2 pt-5 border-l border-gray-500">
+        <div className="lg:w-[20px] border-l h-full">
+          <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
+        </div>
+        <div className="w-full">
+          <h1 className="text-lg font-medium">Install Framer Motion</h1>
+          <SyntaxHighlighter
+            language="tsx"
+            wrapLongLines={true}
+            style={atomOneDark}
+            className="rounded-lg p-5 mt-5 w-full customScrollBar text-sm"
+          >
+            npm i framer-motion
+          </SyntaxHighlighter>
+        </div>
+      </div>
       <div className="flex items-start justify-center pt-5 gap-2 border-l border-gray-500">
         <div className="lg:w-[20px] border-l h-full">
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
