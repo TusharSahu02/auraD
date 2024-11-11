@@ -21,5 +21,5 @@ export const ComponentMap = {
   modal: ModalDoc,
   sheet: SheetDoc,
   loader: LoaderTextDoc,
-  authentication: AuthenticationDoc,
+  auth: AuthenticationDoc,
 };

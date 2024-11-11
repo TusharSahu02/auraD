@@ -67,7 +67,7 @@ const Navbar = () => {
   return (
     <div
       className={
-        " flex items-center justify-center border-b fixed z-10 top-0 w-full backdrop-blur-sm "
+        " flex items-center justify-center py-4 md:py-0 border-b fixed z-10 top-0 w-full backdrop-blur-sm "
       }
     >
       <div className="xl:container flex items-center justify-between w-full px-4 lg:px-10 ">

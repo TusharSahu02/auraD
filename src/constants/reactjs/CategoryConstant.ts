@@ -42,7 +42,7 @@ export const CATEGORIES = [
   {
     name: "Molecules",
     subcategories: [
-      "Authentication",
+      "Auth",
       // "Wave Text",
       // "Shiny Text",
       // "Gradient Text",
