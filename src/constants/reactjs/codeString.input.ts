@@ -1,10 +1,9 @@
 export const getInputMainCode = () => {
-  return `    <input
-        type="text"
-        className="border px-4 py-2 border-gray-700 rounded-md placeholder:text-sm text-sm dark:bg-transparent dark:text-white"
-        placeholder="username"
-    />
-    `;
+  return `<input
+    type="text"
+    className="border px-4 py-2 border-gray-700 rounded-md placeholder:text-sm text-sm dark:bg-transparent dark:text-white"
+    placeholder="username"
+ /> `;
 };
 
 export const getInputFileCode = () => {
@@ -383,9 +382,8 @@ export function PasswordValidatorInput() {
   `;
 };
 
-
 export const getInputWithLabel = () => {
-return`
+  return `
 <div className="group relative ">
   <label
     htmlFor="input-32"
@@ -402,5 +400,5 @@ return`
     className="dark:bg-transparent focus:outline-none border border-white/10 bg-background px-4 py-2  rounded-md placeholder:text-xs text-sm "
   />
 </div>
-`
-}
+`;
+};
