@@ -1,9 +1,49 @@
+export const getWelcomeAuthCodeString = () => {
+  return `
+import Button from "../atoms/Button";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
+
+const WelcomeCardAuth = () => {
+  return (
+    <div className="py-16 rounded-lg w-full  flex items-center justify-center relative">
+      <div className="circle absolute top-48 left-44 w-20 h-20 bg-purple-500 rounded-full filter"></div>
+      <div className="circle absolute top-96 right-24 w-40 h-40 bg-orange-500 rounded-full filter"></div>
+      <div className="h-[550px] w-[400px]  shadow-lg rounded-3xl py-5 px-12 border-2 border-white/20  flex flex-col gap-2 items-center justify-center backdrop-filter backdrop-blur-[20px] bg-opacity-5 bg-white transform ">
+        <h1 className=" text-2xl font-semibold mb-3">Welcome to</h1>
+        <Button
+          variant="primary"
+          className="w-full bg-[#8046b6] hover:bg-[#512c74] py-3"
+        >
+          Continue with email
+        </Button>
+        <div className="flex items-center gap-3 my-3 w-full">
+          <div className="w-full h-px bg-gray-500"></div>
+          <p className=" min-w-max text-gray-500">or continue with</p>
+          <div className="w-full h-px bg-gray-500"></div>
+        </div>
+        <Button variant="outline" className="w-full" icon={<FaGithub />}>
+          Github
+        </Button>
+        <Button variant="outline" className="w-full" icon={<FaGoogle />}>
+          Google
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default WelcomeCardAuth;
+
+`;
+};
+
+export const getAuthenticationSignUpAndSignIn = () => {
+  return `
 import Button from "../atoms/Button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
-export const AuthenticationSignUpAndSignIn = () => {
+const AuthenticationSignUpAndSignIn = () => {
   const [visibleEye, setVisibleEye] = useState(true);
   const [inputVisible, setInputVisible] = useState("password");
 
@@ -112,32 +152,7 @@ export const AuthenticationSignUpAndSignIn = () => {
   );
 };
 
-export const WelcomeCardAuth = () => {
-  return (
-    <div className="py-16 rounded-lg w-full  flex items-center justify-center relative">
-      <div className="circle absolute top-48 left-44 w-20 h-20 bg-purple-500 rounded-full filter"></div>
-      <div className="circle absolute top-96 right-24 w-40 h-40 bg-orange-500 rounded-full filter"></div>
-      {/* <div className=" h-[350px]  rounded-md  border "> */}
-      <div className="h-[550px] w-[400px]  shadow-lg rounded-3xl py-5 px-12 border-2 border-white/20  flex flex-col gap-2 items-center justify-center backdrop-filter backdrop-blur-[20px] bg-opacity-5 bg-white transform ">
-        <h1 className=" text-2xl font-semibold mb-3">Welcome to</h1>
-        <Button
-          variant="primary"
-          className="w-full bg-[#8046b6] hover:bg-[#512c74] py-3"
-        >
-          Continue with email
-        </Button>
-        <div className="flex items-center gap-3 my-3 w-full">
-          <div className="w-full h-px bg-gray-500"></div>
-          <p className=" min-w-max text-gray-500">or continue with</p>
-          <div className="w-full h-px bg-gray-500"></div>
-        </div>
-        <Button variant="outline" className="w-full" icon={<FaGithub />}>
-          Github
-        </Button>
-        <Button variant="outline" className="w-full" icon={<FaGoogle />}>
-          Google
-        </Button>
-      </div>
-    </div>
-  );
+export default AuthenticationSignUpAndSignIn;
+
+`;
 };

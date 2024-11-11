@@ -9,6 +9,7 @@ import { useTheme } from "@/components/common/theme-provider";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { normalizeURL } from "@/utils/util";
+import { Switch } from "@/components/ui/switch";
 
 const SidebarMenu = () => {
   const { setTheme } = useTheme();
@@ -16,6 +17,18 @@ const SidebarMenu = () => {
   const [active, setActive] = useState(false);
 
   const theme = localStorage.getItem("aurad-theme");
+
+  const toggleSwitch = () => {
+    // setSelectedOption(
+    //   selectedOption === "react-js" ? "react-native" : "react-js"
+    // );
+    // setActive(!active);
+    // navigate(
+    //   selectedOption === "react-js"
+    //     ? "/docs/react-native/components/button"
+    //     : "/docs/reactjs/components/button"
+    // );
+  };
 
   return (
     <div className="mt-3 h-full relative">
@@ -35,6 +48,16 @@ const SidebarMenu = () => {
           </TabsTrigger>
         </TabsList>
       </Tabs>
+
+      <div className="flex gap-2 text-gray-600 mr-2 text-sm my-5">
+        <p className={`${!active ? "text-white" : "text-gray-600"}`}>
+          React JS
+        </p>
+        <Switch onCheckedChange={toggleSwitch} />
+        <p className={` ${active ? "text-white" : "text-gray-600"}`}>
+          React Native
+        </p>
+      </div>
 
       {GETTING_STARTED.map(
         (category: { name: string; subcategories: string[] }) => {

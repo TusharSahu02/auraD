@@ -9,7 +9,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import { checkThemeAndSet } from "./lib/utils";
 import Tooltip from "./components/atoms/Tooltip";
 import BugReport from "./pages/docs/BugReport";
-import Test from "./test/Test";
+import Test from "./Types/test/Test";
 
 function App() {
   // Set the default theme in localStorage if not already set

@@ -1,5 +1,5 @@
-import ButtonDoc from "@/pages/docs/Components/reactjs/ButtonDoc";
-import InputDoc from "@/pages/docs/Components/reactjs/InputDoc";
+import ButtonDoc from "@/pages/docs/Components/reactjs/Button/ButtonDoc";
+import InputDoc from "@/pages/docs/Components/reactjs/Input/InputDoc";
 import LoadersDoc from "@/pages/docs/Animations/LoadersDoc";
 import BentoDoc from "@/pages/docs/Components/reactjs/BentoDoc";
 import CardDoc from "@/pages/docs/Components/reactjs/CardDoc";

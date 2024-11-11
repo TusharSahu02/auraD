@@ -46,7 +46,7 @@ const BentoDoc: React.FC = () => {
   return (
     <>
       <p className="text-gray-500">Displays a bento grid of cards.</p>
-      <div className="flex gap-x-6 border-b px-4 mt-10">
+      <div id="bento4Grid" className="flex gap-x-6 border-b px-4 mt-10">
         <h1>Preview</h1>
       </div>
       <Bento />
@@ -99,9 +99,9 @@ const BentoDoc: React.FC = () => {
 
       <NavigationButton
         previousTitle="Input"
-        nextTitle="Modal"
-        nextLink="/docs/reactjs/components/modal"
+        nextTitle="Authentication"
         previousLink="/docs/reactjs/components/input"
+        nextLink="/docs/reactjs/molecules/authentication"
       />
     </>
   );

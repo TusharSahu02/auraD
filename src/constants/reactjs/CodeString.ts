@@ -1,12 +1,4 @@
-type Variant =
-  | "primary"
-  | "secondary"
-  | "destructive"
-  | "outline"
-  | "ghost"
-  | "animation";
-
-// TODO : make the code string for animation
+type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
 
 export const getCodeString = (variant: Variant): string => {
   const variantStyles: { [key in Variant]: string } = {
@@ -17,8 +9,6 @@ export const getCodeString = (variant: Variant): string => {
       "text-black border bg-transparent hover:bg-gray-200 hover:bg-opacity-60",
     ghost:
       "text-black dark:text-white bg-transparent hover:bg-gray-200 hover:bg-opacity-60",
-    animation:
-      "relative border border-white/[0.2] text-white px-4 py-2 rounded-full group",
   };
 
   return `
@@ -30,7 +20,7 @@ export const getCodeString = (variant: Variant): string => {
         type="button"
         className="px-3 text-sm py-2 rounded transition duration-300 ${variantStyles[variant]}"
       >
-        {children}
+        ${variant}
       </button>
     );
   };

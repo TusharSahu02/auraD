@@ -1,27 +1,15 @@
-import { AtSign, Mail, Minus } from "lucide-react";
-import { useCharacterCount } from "@/hooks/use-character-limit";
-import { cn } from "@/lib/utils";
-import { OTPInput, SlotProps } from "input-otp";
-import { Check, Eye, EyeOff, X } from "lucide-react";
-import { useMemo, useRef, useState } from "react";
-import { IoIosCloseCircle } from "react-icons/io";
-import { MdCloudUpload } from "react-icons/md";
-
-export const Input = () => {
-  return (
-    <>
-      <input
+export const getInputMainCode = () => {
+  return `    <input
         type="text"
         className="border px-4 py-2 border-gray-700 rounded-md placeholder:text-sm text-sm dark:bg-transparent dark:text-white"
         placeholder="username"
-      />
-    </>
-  );
+    />
+    `;
 };
 
-// INPUT == FILE --> Start
-
-export function FileInput() {
+export const getInputFileCode = () => {
+  return `
+function FileInput() {
   const [imageUrl, setImageUrl] = useState("");
   const [iseDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -65,11 +53,11 @@ export function FileInput() {
       <div className="h-full w-full flex items-center justify-center flex-col">
         <label
           htmlFor="input-file"
-          className={`lg:w-[500px] w-full h-[300px] relative p-[20px] border-2 border-white/10 border-dashed  text-center rounded-[8px] transition-colors duration-200 ${
+          className={\`lg:w-[500px] w-full h-[300px] relative p-[20px] border-2 border-white/10 border-dashed  text-center rounded-[8px] transition-colors duration-200 \${
             iseDragging
               ? "bg-[#e8eafb] dark:bg-white/10 border-white/40"
               : "bg-[#f7f8ff] dark:bg-transparent"
-          }`}
+          }\`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -113,137 +101,121 @@ export function FileInput() {
       </div>
     </>
   );
-}
-// Start Icon Input --> Start
+}   
+    `;
+};
 
-export function StartIconInput() {
-  return (
-    <>
-      <div className="space-y-2">
-        <label htmlFor="input-09">Input with start icon</label>
-        <div className="relative bg-transparent border py-1 rounded-lg">
-          <input
+export const getInputStartIconCode = () => {
+  return `
+<div className="space-y-2">
+    <label htmlFor="input-09">Input with start icon</label>
+    <div className="relative bg-transparent border py-1 rounded-lg">
+        <input
             id="input-09"
             className="ps-9 bg-transparent py-1"
             placeholder="Email"
             type="email"
-          />
-          <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50">
+        />
+        <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50">
             <AtSign size={16} strokeWidth={2} aria-hidden="true" />
-          </div>
         </div>
-      </div>
-    </>
-  );
-}
+    </div>
+</div>`;
+};
 
-export function EndIconInput() {
-  return (
-    <div className="space-y-2">
-      <label htmlFor="input-10">Input with end icon</label>
-      <div className="flex items-center justify-center focus-within:outline focus-within:outline-1  bg-transparent border py-1 rounded-lg">
-        <input
-          id="input-10"
-          className="ps-3 bg-transparent py-1 focus:outline-none pe-2"
-          placeholder="Email"
-          type="email"
-        />
-        <div className="pointer-events-none pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
-          <Mail size={16} strokeWidth={2} aria-hidden="true" />
+export const getInputEndIconCode = () => {
+  return `
+<div className="space-y-2">
+    <label htmlFor="input-10">Input with end icon</label>
+    <div className="flex items-center justify-center focus-within:outline focus-within:outline-1  bg-transparent border py-1 rounded-lg">
+    <input
+        id="input-10"
+        className="ps-3 bg-transparent py-1 focus:outline-none pe-2"
+        placeholder="Email"
+        type="email"
+    />
+    <div className="pointer-events-none pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
+        <Mail size={16} strokeWidth={2} aria-hidden="true" />
+    </div>
+    </div>
+</div>
+    `;
+};
+
+export const getStartIconInlineInputCode = () => {
+  return `
+<div className="space-y-2">
+  <label htmlFor="input-11">Input with start inline add-on</label>
+  <div className="flex border py-1 rounded-lg focus-within:outline focus-within:outline-1  bg-transparent">
+    <span className="pointer-events-none  inset-y-0 start-0 flex items-center justify-center ps-3  text-sm text-muted-foreground peer-disabled:opacity-50">
+      https://
+    </span>
+    <input
+      id="input-11"
+      className="ps-1 bg-transparent py-1 focus:outline-none pe-2"
+      placeholder="google.com"
+      type="text"
+    />
+  </div>
+</div>
+  `;
+};
+
+export const getOTP4DigitCode = () => {
+  return `
+<div className="space-y-2">
+  <label htmlFor="input-44">OTP input single</label>
+  <OTPInput
+    id="input-44"
+    containerClassName="flex items-center gap-3 has-[:disabled]:opacity-50"
+    maxLength={4}
+    render={({ slots }) => (
+      <div className="flex">
+        {slots.map((slot, idx) => (
+          <Slot key={idx} {...slot} />
+        ))}
+      </div>
+    )}
+  />
+</div>
+  `;
+};
+
+export const getOTP6DigitCode = () => {
+  return `
+<div className="space-y-2">
+  <label htmlFor="input-45">OTP input double</label>
+  <OTPInput
+    id="input-45"
+    containerClassName="flex items-center gap-3 has-[:disabled]:opacity-50"
+    maxLength={6}
+    render={({ slots }) => (
+      <>
+        <div className="flex">
+          {slots.slice(0, 3).map((slot, idx) => (
+            <Slot key={idx} {...slot} />
+          ))}
         </div>
-      </div>
-    </div>
-  );
-}
 
-export function StartInlineIconInput() {
-  return (
-    <div className="space-y-2">
-      <label htmlFor="input-11">Input with start inline add-on</label>
-      <div className="flex border py-1 rounded-lg focus-within:outline focus-within:outline-1  bg-transparent">
-        <span className="pointer-events-none  inset-y-0 start-0 flex items-center justify-center ps-3  text-sm text-muted-foreground peer-disabled:opacity-50">
-          https://
-        </span>
-        <input
-          id="input-11"
-          className="ps-1 bg-transparent py-1 focus:outline-none pe-2"
-          placeholder="google.com"
-          type="text"
-        />
-      </div>
-    </div>
-  );
-}
+        <div className="text-muted-foreground/80">
+          <Minus size={16} strokeWidth={2} aria-hidden="true" />
+        </div>
 
-export function OTP4Digit() {
-  return (
-    <div className="space-y-2">
-      <label htmlFor="input-44">OTP input single</label>
-      <OTPInput
-        id="input-44"
-        containerClassName="flex items-center gap-3 has-[:disabled]:opacity-50"
-        maxLength={4}
-        render={({ slots }) => (
-          <div className="flex">
-            {slots.map((slot, idx) => (
-              <Slot key={idx} {...slot} />
-            ))}
-          </div>
-        )}
-      />
-    </div>
-  );
-}
+        <div className="flex">
+          {slots.slice(3).map((slot, idx) => (
+            <Slot key={idx} {...slot} />
+          ))}
+        </div>
+      </>
+    )}
+  />
+</div>
+`;
+};
 
-function Slot(props: SlotProps) {
-  return (
-    <div
-      className={cn(
-        "relative flex size-9 items-center justify-center border-y border-e border-input bg-background font-medium text-foreground shadow-sm shadow-black/[.04] ring-offset-background transition-all first:rounded-s-lg first:border-s last:rounded-e-lg",
-        {
-          "z-10 border border-ring ring-2 ring-ring/30 ring-offset-2":
-            props.isActive,
-        }
-      )}
-    >
-      {props.char !== null && <div>{props.char}</div>}
-    </div>
-  );
-}
-
-export function OTP6Digit() {
-  return (
-    <div className="space-y-2">
-      <label htmlFor="input-45">OTP input double</label>
-      <OTPInput
-        id="input-45"
-        containerClassName="flex items-center gap-3 has-[:disabled]:opacity-50"
-        maxLength={6}
-        render={({ slots }) => (
-          <>
-            <div className="flex">
-              {slots.slice(0, 3).map((slot, idx) => (
-                <Slot key={idx} {...slot} />
-              ))}
-            </div>
-
-            <div className="text-muted-foreground/80">
-              <Minus size={16} strokeWidth={2} aria-hidden="true" />
-            </div>
-
-            <div className="flex">
-              {slots.slice(3).map((slot, idx) => (
-                <Slot key={idx} {...slot} />
-              ))}
-            </div>
-          </>
-        )}
-      />
-    </div>
-  );
-}
-
-export function InputwithCharactersLeft() {
+export const getInputWithCharsCountCode = () => {
+  return `
+function InputwithCharactersLeft() {
   const maxLength = 8;
   const { value, characterCount, handleChange } = useCharacterCount("");
 
@@ -270,7 +242,11 @@ export function InputwithCharactersLeft() {
     </div>
   );
 }
+  `;
+};
 
+export const getPasswordValidatorInputCode = () => {
+  return `
 export function PasswordValidatorInput() {
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -355,10 +331,10 @@ export function PasswordValidatorInput() {
         aria-label="Password strength"
       >
         <div
-          className={`h-full ${getStrengthColor(
+          className={\`h-full \${getStrengthColor(
             strengthScore
-          )} transition-all duration-500 ease-out`}
-          style={{ width: `${(strengthScore / 4) * 100}%` }}
+          )} transition-all duration-500 ease-out\`}
+          style={{ width: \`\${(strengthScore / 4) * 100}%\` }}
         ></div>
       </div>
 
@@ -388,9 +364,9 @@ export function PasswordValidatorInput() {
               />
             )}
             <span
-              className={`text-xs ${
+              className={\`text-xs \${
                 req.met ? "text-emerald-600" : "text-muted-foreground"
-              }`}
+              }\`}
             >
               {req.text}
               <span className="sr-only">
@@ -404,23 +380,27 @@ export function PasswordValidatorInput() {
   );
 }
 
-export function InputWithLabel() {
-  return (
-    <div className="group relative ">
-      <label
-        htmlFor="input-32"
-        className="has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)):-translate-y-1/2 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium has-[+input:not(:placeholder-shown)]:text-foreground origin-start absolute top-1/2 block -translate-y-1/2 cursor-text px-1 text-sm text-muted-foreground/70 transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium group-focus-within:text-foreground"
-      >
-        <span className="inline-flex bg-background px-2 ">
-          Input with label
-        </span>
-      </label>
-      <input
-        id="input-32"
-        type="email"
-        placeholder=""
-        className="dark:bg-transparent focus:outline-none border border-white/10 bg-background px-4 py-2  rounded-md placeholder:text-xs text-sm "
-      />
-    </div>
-  );
+  `;
+};
+
+
+export const getInputWithLabel = () => {
+return`
+<div className="group relative ">
+  <label
+    htmlFor="input-32"
+    className="has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)):-translate-y-1/2 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium has-[+input:not(:placeholder-shown)]:text-foreground origin-start absolute top-1/2 block -translate-y-1/2 cursor-text px-1 text-sm text-muted-foreground/70 transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium group-focus-within:text-foreground"
+  >
+    <span className="inline-flex bg-background px-2 ">
+      Input with label
+    </span>
+  </label>
+  <input
+    id="input-32"
+    type="email"
+    placeholder=""
+    className="dark:bg-transparent focus:outline-none border border-white/10 bg-background px-4 py-2  rounded-md placeholder:text-xs text-sm "
+  />
+</div>
+`
 }

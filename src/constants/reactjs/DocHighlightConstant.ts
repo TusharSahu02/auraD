@@ -1,5 +1,12 @@
-import { inputDocSections, buttonDocSections } from "./Components";
+import {
+  bentoDocSections,
+  buttonDocSections,
+  inputDocSections,
+  loadersDocSections,
+} from "./Components";
 export const DocHighlightConstant = {
   button: buttonDocSections,
-  loaders: inputDocSections,
+  input: inputDocSections,
+  loaders: loadersDocSections,
+  bento: bentoDocSections,
 };

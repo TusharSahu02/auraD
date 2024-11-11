@@ -1,6 +1,6 @@
 import { Command, Github } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+// import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { TbMenuDeep } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SidebarMenu from "./SidebarMenu";
@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Switch } from "@/components/ui/switch";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -202,13 +203,13 @@ const Navbar = () => {
             <a href="https://x.com/auraD_UI" target="_blank" rel="noreferrer">
               <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white  transition-colors duration-300" />
             </a>
-            <a
+            {/* <a
               href="https://www.linkedin.com/company/aura-d"
               target="_blank"
               rel="noreferrer"
             >
               <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
-            </a>
+            </a> */}
             <a
               href="https://github.com/aura-desgins"
               target="_blank"
