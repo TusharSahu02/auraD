@@ -16,13 +16,13 @@ const AuthenticationDoc = () => {
 
   const sections = [
     {
-      title: "Welcome Card",
+      title: "Glassmorphism Welcome Card",
       key: "welcome" as const,
       component: WelcomeCardAuth,
       codeString: getWelcomeAuthCodeString(),
     },
     {
-      title: "Signup and Signin Card",
+      title: "Glassmorphism Signup and Signin Card",
       key: "signup" as const,
       component: AuthenticationSignUpAndSignIn,
       codeString: getAuthenticationSignUpAndSignIn(),

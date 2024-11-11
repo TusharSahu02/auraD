@@ -3,36 +3,25 @@ import {
   GETTING_STARTED,
 } from "@/constants/reactjs/CategoryConstant";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useTheme } from "@/components/common/theme-provider";
+// import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+// import { useTheme } from "@/components/common/theme-provider";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { normalizeURL } from "@/utils/util";
-import { Switch } from "@/components/ui/switch";
+import ToogleJsToNative from "../Home/ToogleJsToNative";
 
 const SidebarMenu = () => {
-  const { setTheme } = useTheme();
+  // const { setTheme } = useTheme();
 
   const [active, setActive] = useState(false);
 
-  const theme = localStorage.getItem("aurad-theme");
-
-  const toggleSwitch = () => {
-    // setSelectedOption(
-    //   selectedOption === "react-js" ? "react-native" : "react-js"
-    // );
-    // setActive(!active);
-    // navigate(
-    //   selectedOption === "react-js"
-    //     ? "/docs/react-native/components/button"
-    //     : "/docs/reactjs/components/button"
-    // );
-  };
+  // const theme = localStorage.getItem("aurad-theme");
 
   return (
     <div className="mt-3 h-full relative">
-      <Tabs
+      {/* <Tabs
         defaultValue={theme ?? ""}
         className="w-full mt-3 mb-6 flex items-center justify-center"
       >
@@ -47,17 +36,10 @@ const SidebarMenu = () => {
             system
           </TabsTrigger>
         </TabsList>
-      </Tabs>
-
-      <div className="flex gap-2 text-gray-600 mr-2 text-sm my-5">
-        <p className={`${!active ? "text-white" : "text-gray-600"}`}>
-          React JS
-        </p>
-        <Switch onCheckedChange={toggleSwitch} />
-        <p className={` ${active ? "text-white" : "text-gray-600"}`}>
-          React Native
-        </p>
-      </div>
+      </Tabs> */}
+      <SheetPrimitive.Close>
+        <ToogleJsToNative active={active} setActive={setActive} />
+      </SheetPrimitive.Close>
 
       {GETTING_STARTED.map(
         (category: { name: string; subcategories: string[] }) => {
@@ -83,7 +65,7 @@ const SidebarMenu = () => {
                           : "border-gray-700"
                       }
                     >
-                      {subcategory}
+                      <SheetPrimitive.Close>{subcategory}</SheetPrimitive.Close>
                     </NavLink>
                   </li>
                 ))}
@@ -92,6 +74,7 @@ const SidebarMenu = () => {
           );
         }
       )}
+
       {CATEGORIES.map((category: { name: string; subcategories: string[] }) => {
         return (
           <div key={category.name} className="mb-3">
@@ -114,7 +97,7 @@ const SidebarMenu = () => {
                           : "border-gray-700"
                       }
                     >
-                      {subcategory}
+                      <SheetPrimitive.Close>{subcategory}</SheetPrimitive.Close>
                     </NavLink>
                   </li>
                 );

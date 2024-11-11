@@ -1,78 +1,64 @@
-import { Command, Github } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { Github } from "lucide-react";
+import { useState } from "react";
 // import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { TbMenuDeep } from "react-icons/tb";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SidebarMenu from "./SidebarMenu";
-import { ModeToggle } from "../mode-toggle";
-import { CATEGORIES } from "@/constants/reactjs/CategoryConstant";
-import { motion } from "framer-motion";
+// import { ModeToggle } from "../mode-toggle";
+// import { CATEGORIES } from "@/constants/reactjs/CategoryConstant";
+// import { motion } from "framer-motion";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Switch } from "@/components/ui/switch";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
 import { FaXTwitter } from "react-icons/fa6";
+import ToogleJsToNative from "../Home/ToogleJsToNative";
 
 const Navbar = () => {
   const { pathname } = useLocation();
   const location = useLocation();
-  const [searchInput, setSearchInput] = useState("");
-  const [showKbd, setShowKbd] = useState(true);
-  const [filteredCategories, setFilteredCategories] = useState(CATEGORIES);
+  // const [searchInput, setSearchInput] = useState("");
+  // const [showKbd, setShowKbd] = useState(true);
+  // const [filteredCategories, setFilteredCategories] = useState(CATEGORIES);
   const [active, setActive] = useState(false);
-  const navigate = useNavigate();
 
-  const { selectedOption, setSelectedOption } = useSelectedOption();
+  const { selectedOption } = useSelectedOption();
 
-  // Toggle between react-js and react-native
-  const toggleSwitch = () => {
-    setSelectedOption(
-      selectedOption === "react-js" ? "react-native" : "react-js"
-    );
-    setActive(!active);
-    navigate(
-      selectedOption === "react-js"
-        ? "/docs/react-native/components/button"
-        : "/docs/reactjs/components/button"
-    );
-  };
+  // const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const searchValue = e.target.value.toLowerCase();
+  //   const filtered = CATEGORIES.flatMap((category) => {
+  //     const matchingSubcategories = category.subcategories.filter(
+  //       (subcategory) => subcategory.toLowerCase().includes(searchValue)
+  //     );
+  //     return matchingSubcategories.map((subcategory) => ({
+  //       name: category.name,
+  //       subcategories: [subcategory],
+  //     }));
+  //   });
+  //   setFilteredCategories(filtered);
+  //   setSearchInput(searchValue);
+  // };
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchValue = e.target.value.toLowerCase();
-    const filtered = CATEGORIES.flatMap((category) => {
-      const matchingSubcategories = category.subcategories.filter(
-        (subcategory) => subcategory.toLowerCase().includes(searchValue)
-      );
-      return matchingSubcategories.map((subcategory) => ({
-        name: category.name,
-        subcategories: [subcategory],
-      }));
-    });
-    setFilteredCategories(filtered);
-    setSearchInput(searchValue);
-  };
+  // const handleFocusSearch = (event: KeyboardEvent) => {
+  //   if (event.key === "k" && event.ctrlKey) {
+  //     event.preventDefault();
+  //     setShowKbd((prev) => !prev);
+  //     const searchInput =
+  //       document.querySelector<HTMLInputElement>(".searchInput");
+  //     if (searchInput) searchInput.focus();
+  //   }
 
-  const handleFocusSearch = (event: KeyboardEvent) => {
-    if (event.key === "k" && event.ctrlKey) {
-      event.preventDefault();
-      setShowKbd((prev) => !prev);
-      const searchInput =
-        document.querySelector<HTMLInputElement>(".searchInput");
-      if (searchInput) searchInput.focus();
-    }
+  //   if (event.key === "Escape") {
+  //     const searchInput =
+  //       document.querySelector<HTMLInputElement>(".searchInput");
+  //     if (searchInput) searchInput.blur();
+  //     setShowKbd(true);
+  //   }
+  // };
 
-    if (event.key === "Escape") {
-      const searchInput =
-        document.querySelector<HTMLInputElement>(".searchInput");
-      if (searchInput) searchInput.blur();
-      setShowKbd(true);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleFocusSearch);
-    return () => window.removeEventListener("keydown", handleFocusSearch);
-  }, [pathname]);
+  // useEffect(() => {
+  //   window.addEventListener("keydown", handleFocusSearch);
+  //   return () => window.removeEventListener("keydown", handleFocusSearch);
+  // }, [pathname]);
 
   if (pathname === "/" || pathname === "/test") return null;
 
@@ -124,7 +110,7 @@ const Navbar = () => {
               >
                 <li>Components</li>
               </Link>
-              <Link
+              {/* <Link
                 to={"/templates/landing"}
                 className={
                   location.pathname.includes("/templates")
@@ -133,21 +119,14 @@ const Navbar = () => {
                 }
               >
                 <li>Templates</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
         </div>
         <div className="lg:flex items-center gap-x-3 hidden relative">
-          <div className="flex gap-2 text-gray-600 mr-2 text-sm">
-            <p className={`${!active ? "text-white" : "text-gray-600"}`}>
-              React JS
-            </p>
-            <Switch onCheckedChange={toggleSwitch} />
-            <p className={` ${active ? "text-white" : "text-gray-600"}`}>
-              React Native
-            </p>
-          </div>
-          <div className=" border dark:bg-gray-400/30 bg-gray-100/70 rounded-lg px-3 flex items-center ">
+          <ToogleJsToNative active={active} setActive={setActive} />
+
+          {/* <div className=" border dark:bg-gray-400/30 bg-gray-100/70 rounded-lg px-3 flex items-center ">
             <input
               type="text"
               placeholder="Search..."
@@ -169,8 +148,8 @@ const Navbar = () => {
                 <Command className="size-[10px] text-gray-500" /> k
               </kbd>
             )}
-          </div>
-          {filteredCategories.length > 0 && searchInput && (
+          </div> */}
+          {/* {filteredCategories.length > 0 && searchInput && (
             <Link
               to={`/docs/${filteredCategories[0].name.toLowerCase()}/${filteredCategories[0].subcategories[0].toLowerCase()}`}
               className="block"
@@ -199,7 +178,7 @@ const Navbar = () => {
                 ))}
               </motion.div>
             </Link>
-          )}
+          )} */}
 
           <div className="flex items-center gap-x-2">
             <a href="https://x.com/auraD_UI" target="_blank" rel="noreferrer">
@@ -220,7 +199,7 @@ const Navbar = () => {
               <Github className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
             </a>
           </div>
-          <ModeToggle />
+          {/* <ModeToggle /> */}
         </div>
 
         {/* Mobile Menu */}
