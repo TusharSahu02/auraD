@@ -11,9 +11,15 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { normalizeURL } from "@/utils/util";
 import ToogleJsToNative from "../Home/ToogleJsToNative";
+import { useSelectedOption } from "@/context/SelectedOptionContext";
+import {
+  CATEGORIES_REACT_NATIVE,
+  GETTING_STARTED_REACT_NATIVE,
+} from "@/constants/react-native/CategoryConstant";
 
 const SidebarMenu = () => {
   // const { setTheme } = useTheme();
+  const { selectedOption } = useSelectedOption();
 
   const [active, setActive] = useState(false);
 
@@ -41,71 +47,155 @@ const SidebarMenu = () => {
         <ToogleJsToNative active={active} setActive={setActive} />
       </SheetPrimitive.Close>
 
-      {GETTING_STARTED.map(
-        (category: { name: string; subcategories: string[] }) => {
-          return (
-            <div key={category.name} className="mb-3">
-              <h1 className="text-md font-geistSemiBold mb-1">
-                {category.name}
-              </h1>
-              <ul className="space-y-1">
-                {category.subcategories.map((subcategory: string) => (
-                  <li
-                    key={subcategory}
-                    onClick={() => {
-                      setActive(!active);
-                    }}
-                    className="transition-colors duration-300  text-gray-500 text-sm border-gray-500 w-max"
-                  >
-                    <NavLink
-                      to={`/docs/${normalizeURL(subcategory.toLowerCase())}`}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "dark:text-white text-black"
-                          : "border-gray-700"
-                      }
-                    >
-                      <SheetPrimitive.Close>{subcategory}</SheetPrimitive.Close>
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        }
+      {selectedOption === "react-native" ? (
+        <>
+          {GETTING_STARTED_REACT_NATIVE.map(
+            (category: { name: string; subcategories: string[] }) => {
+              return (
+                <div key={category.name} className="mb-5">
+                  <h1 className="text-md font-geistSemiBold mb-3">
+                    {category.name}
+                  </h1>
+                  <ul className="ml-2 space-y-2">
+                    {category.subcategories.map((subcategory: string) => (
+                      <li
+                        key={subcategory}
+                        onClick={() => setActive(!active)}
+                        className="transition-colors duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+                      >
+                        <NavLink
+                          to={`/docs/react-native/${normalizeURL(
+                            subcategory.toLowerCase()
+                          )}`}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "dark:text-white text-black"
+                              : "border-gray-700"
+                          }
+                        >
+                          {subcategory}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            }
+          )}
+          {CATEGORIES_REACT_NATIVE.map(
+            (category: { name: string; subcategories: string[] }) => {
+              return (
+                <div key={category.name} className="mb-5">
+                  <h1 className="text-md font-geistSemiBold mb-3">
+                    {category.name}
+                  </h1>
+                  <ul className="ml-2 space-y-2">
+                    {category.subcategories.map((subcategory: string) => {
+                      return (
+                        <li
+                          key={subcategory}
+                          // onClick={() => setActive(!active)} // Keep this if you're using the active state elsewhere.
+                          className="transition-colors duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+                        >
+                          <NavLink
+                            to={`/docs/react-native/${category.name.toLowerCase()}/${normalizeURL(
+                              subcategory.toLowerCase()
+                            )}`}
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-black dark:text-white"
+                                : "border-gray-700"
+                            }
+                          >
+                            {subcategory}
+                          </NavLink>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            }
+          )}
+        </>
+      ) : (
+        <>
+          {GETTING_STARTED.map(
+            (category: { name: string; subcategories: string[] }) => {
+              return (
+                <div key={category.name} className="mb-3">
+                  <h1 className="text-md font-geistSemiBold mb-1">
+                    {category.name}
+                  </h1>
+                  <ul className="space-y-1">
+                    {category.subcategories.map((subcategory: string) => (
+                      <li
+                        key={subcategory}
+                        onClick={() => {
+                          setActive(!active);
+                        }}
+                        className="transition-colors duration-300  text-gray-500 text-sm border-gray-500 w-max"
+                      >
+                        <NavLink
+                          to={`/docs/reactjs/${normalizeURL(
+                            subcategory.toLowerCase()
+                          )}`}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "dark:text-white text-black"
+                              : "border-gray-700"
+                          }
+                        >
+                          <SheetPrimitive.Close>
+                            {subcategory}
+                          </SheetPrimitive.Close>
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            }
+          )}
+          {CATEGORIES.map(
+            (category: { name: string; subcategories: string[] }) => {
+              return (
+                <div key={category.name} className="mb-3">
+                  <h1 className="text-md font-geistSemiBold mb-1">
+                    {category.name}
+                  </h1>
+                  <ul className=" space-y-1">
+                    {category.subcategories.map((subcategory: string) => {
+                      return (
+                        <li
+                          key={subcategory}
+                          onClick={() => setActive(!active)}
+                          className="transition-colors duration-300  text-gray-500 text-sm border-gray-500 w-max"
+                        >
+                          <NavLink
+                            to={`/docs/reactjs/${category.name.toLowerCase()}/${normalizeURL(
+                              subcategory.toLowerCase()
+                            )}`}
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-black dark:text-white"
+                                : "border-gray-700"
+                            }
+                          >
+                            <SheetPrimitive.Close>
+                              {subcategory}
+                            </SheetPrimitive.Close>
+                          </NavLink>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            }
+          )}
+        </>
       )}
-
-      {CATEGORIES.map((category: { name: string; subcategories: string[] }) => {
-        return (
-          <div key={category.name} className="mb-3">
-            <h1 className="text-md font-geistSemiBold mb-1">{category.name}</h1>
-            <ul className=" space-y-1">
-              {category.subcategories.map((subcategory: string) => {
-                return (
-                  <li
-                    key={subcategory}
-                    onClick={() => setActive(!active)}
-                    className="transition-colors duration-300  text-gray-500 text-sm border-gray-500 w-max"
-                  >
-                    <NavLink
-                      to={`/docs/${category.name.toLowerCase()}/${normalizeURL(
-                        subcategory.toLowerCase()
-                      )}`}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "text-black dark:text-white"
-                          : "border-gray-700"
-                      }
-                    >
-                      <SheetPrimitive.Close>{subcategory}</SheetPrimitive.Close>
-                    </NavLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        );
-      })}
 
       <div className=" absolute bottom-3 right-0 z-20 w-full flex items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-3">
