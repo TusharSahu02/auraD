@@ -76,6 +76,8 @@ const Navbar = () => {
 
   if (pathname === "/" || pathname === "/test") return null;
 
+  // TODO : make the navbar tab highlighed based on the links active
+
   return (
     <div
       className={
@@ -101,7 +103,7 @@ const Navbar = () => {
                       : "docs/react-native"
                   ) && !location.pathname.includes("/components")
                     ? "text-sm text-white"
-                    : "text-sm text-gray-500"
+                    : "text-sm text-white"
                 }
               >
                 <li>Docs</li>
@@ -117,7 +119,7 @@ const Navbar = () => {
                       : "docs/react-native/components"
                   )
                     ? "text-sm text-white"
-                    : "text-sm text-gray-500"
+                    : "text-sm text-white"
                 }
               >
                 <li>Components</li>
@@ -127,7 +129,7 @@ const Navbar = () => {
                 className={
                   location.pathname.includes("/templates")
                     ? "text-sm text-white"
-                    : "text-sm text-gray-500"
+                    : "text-sm text-white"
                 }
               >
                 <li>Templates</li>
