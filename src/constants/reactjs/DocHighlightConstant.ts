@@ -1,4 +1,5 @@
 import {
+  AuthDocSections,
   bentoDocSections,
   buttonDocSections,
   inputDocSections,
@@ -9,4 +10,5 @@ export const DocHighlightConstant = {
   input: inputDocSections,
   loaders: loadersDocSections,
   bento: bentoDocSections,
+  authentication: AuthDocSections,
 };

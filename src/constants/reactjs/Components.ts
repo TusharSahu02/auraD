@@ -48,9 +48,12 @@ export const inputDocSections = [
   },
 ];
 
-export const bentoDocSections = [
-  { id: "bento4Grid", title: "Bento 4 Grid" },
-]
+export const bentoDocSections = [{ id: "bento4Grid", title: "Bento 4 Grid" }];
+
+export const AuthDocSections = [
+  { id: "welcome", title: "Glassmorphism Welcome Card" },
+  { id: "signup", title: "Glassmorphism Signup and Signin Card" },
+];
 
 export const loadersDocSections = [
   { id: "l1", title: "Loader 1" },
