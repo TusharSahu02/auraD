@@ -11,6 +11,7 @@ export const buttonDocSections = [
   { id: "hoverWithContentSlideOut", title: "Hover With Content Slideout" },
   { id: "premiumUnlockBtn", title: "Premium Unlock Button" },
   { id: "backToTopBtn", title: "Back To Top" },
+  { id: "socialRotateOnHoverBtn", title: "Social Link with Rotate On Hover" },
   // { id: "animation", title: "Animation" },
 ];
 

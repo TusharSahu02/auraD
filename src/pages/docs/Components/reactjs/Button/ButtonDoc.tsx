@@ -111,7 +111,7 @@ const ButtonDoc = () => {
       codeString: getBackToTopButton(),
     },
     {
-      title: "Social Link with Rotate Hover",
+      title: "Social Link with Rotate On Hover",
       key: "socialRotateOnHoverBtn" as const,
       component: RotateOnHoverSocialBtn,
       codeString: getRotateOnHoverBtn(),
