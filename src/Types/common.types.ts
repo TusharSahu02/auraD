@@ -8,8 +8,10 @@ export interface CodeDisplayCommmonProps {
 
 export interface ShowStateButton {
   telegramBtn: boolean;
+  slideAnimOnHoverBtn: boolean;
 }
 
 export interface CopyStateButton {
   telegramBtn: boolean;
+  slideAnimOnHoverBtn: boolean;
 }

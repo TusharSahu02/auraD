@@ -23,6 +23,7 @@ const initialAuthState: ShowStateAuth = {
 
 const initialButtonState: ShowStateButton = {
   telegramBtn: true,
+  slideAnimOnHoverBtn: true,
 };
 
 export const useTabState = () => {

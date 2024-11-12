@@ -15,9 +15,15 @@ import CodeToggle from "@/utils/CodeToggle";
 import ManualDocs from "./ButtonManualInstalltion";
 import CodeBlock from "./ButtonsCodeBlock";
 import { useButtonTabState } from "@/hooks/reactjs/useTabState";
-import { TelegramButton } from "@/components/atoms/CustomButtons";
+import {
+  SaveHoverAnimationButton,
+  TelegramButton,
+} from "@/components/atoms/CustomButtons";
 import { SectionCommon } from "@/components/common/SectionCommon";
-import { getTelegramButtonCode } from "@/constants/reactjs/codeString.button";
+import {
+  getSaveHoverAnimationButton,
+  getTelegramButtonCode,
+} from "@/constants/reactjs/codeString.button";
 
 type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
 // | "animation";
@@ -63,6 +69,12 @@ const ButtonDoc = () => {
       key: "telegramBtn" as const,
       component: TelegramButton,
       codeString: getTelegramButtonCode(),
+    },
+    {
+      title: "Slide Animation on Hover",
+      key: "slideAnimOnHoverBtn" as const,
+      component: SaveHoverAnimationButton,
+      codeString: getSaveHoverAnimationButton(),
     },
   ];
 

@@ -6,6 +6,7 @@ export const buttonDocSections = [
   { id: "outline", title: "Outline" },
   { id: "ghost", title: "Ghost" },
   { id: "telegramBtn", title: "Bounce Effect" },
+  { id: "slideAnimOnHoverBtn", title: "Slide on Hover Animation" },
   // { id: "animation", title: "Animation" },
 ];
 
