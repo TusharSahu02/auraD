@@ -13,6 +13,7 @@ export interface ShowStateButton {
   hoverWithContentSlideOut: boolean;
   premiumUnlockBtn: boolean;
   backToTopBtn: boolean;
+  socialRotateOnHoverBtn: boolean;
 }
 
 export interface CopyStateButton {
@@ -22,4 +23,5 @@ export interface CopyStateButton {
   hoverWithContentSlideOut: boolean;
   premiumUnlockBtn: boolean;
   backToTopBtn: boolean;
+  socialRotateOnHoverBtn: boolean;
 }

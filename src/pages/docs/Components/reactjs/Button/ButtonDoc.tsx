@@ -20,6 +20,7 @@ import {
   GoldShineOnHoverAnimButton,
   HoverWithContentSlideOutButton,
   PremiumUnlockButton,
+  RotateOnHoverSocialBtn,
   SaveHoverAnimationButton,
   TelegramButton,
 } from "@/components/atoms/CustomButtons";
@@ -29,6 +30,7 @@ import {
   getGoldShineOnHoverAnimButton,
   getHoverWithContentSlideOutButton,
   getPremiumUnlockButton,
+  getRotateOnHoverBtn,
   getSaveHoverAnimationButton,
   getTelegramButtonCode,
 } from "@/constants/reactjs/codeString.button";
@@ -107,6 +109,12 @@ const ButtonDoc = () => {
       key: "backToTopBtn" as const,
       component: BackToTopButtonWithAnimation,
       codeString: getBackToTopButton(),
+    },
+    {
+      title: "Social Link with Rotate Hover",
+      key: "socialRotateOnHoverBtn" as const,
+      component: RotateOnHoverSocialBtn,
+      codeString: getRotateOnHoverBtn(),
     },
   ];
 
