@@ -4,6 +4,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        royalblue: "#4169e1",
+      },
       fontFamily: {
         geistThin: ["Geist Thin", "sans-serif"],
         geistLight: ["Geist Light", "sans-serif"],
@@ -14,6 +17,10 @@ export default {
         geistBlack: ["Geist Black", "sans-serif"],
       },
       keyframes: {
+        fly: {
+          from: { transform: "translateY(0.1em)" },
+          to: { transform: "translateY(-0.1em)" },
+        },
         before8: {
           "0%": {
             width: "0.5em",
@@ -273,6 +280,7 @@ export default {
         },
       },
       animation: {
+        fly: "fly 0.6s ease-in-out infinite alternate",
         before8: "before8 2s infinite",
         after6: "after6 2s infinite",
         drop: "drop 5s ease-in-out infinite",

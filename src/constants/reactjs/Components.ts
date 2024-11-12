@@ -8,6 +8,7 @@ export const buttonDocSections = [
   { id: "telegramBtn", title: "Bounce Effect" },
   { id: "slideAnimOnHoverBtn", title: "Slide on Hover Animation" },
   { id: "goldShineOnHoverAnimBtn", title: "Gold Shine on Hover" },
+  { id: "hoverWithContentSlideOut", title: "Hover With Content Slideout" },
   // { id: "animation", title: "Animation" },
 ];
 

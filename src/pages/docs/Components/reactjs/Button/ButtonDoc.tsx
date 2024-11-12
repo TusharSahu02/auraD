@@ -17,12 +17,14 @@ import CodeBlock from "./ButtonsCodeBlock";
 import { useButtonTabState } from "@/hooks/reactjs/useTabState";
 import {
   GoldShineOnHoverAnimButton,
+  HoverWithContentSlideOutButton,
   SaveHoverAnimationButton,
   TelegramButton,
 } from "@/components/atoms/CustomButtons";
 import { SectionCommon } from "@/components/common/SectionCommon";
 import {
   getGoldShineOnHoverAnimButton,
+  getHoverWithContentSlideOutButton,
   getSaveHoverAnimationButton,
   getTelegramButtonCode,
 } from "@/constants/reactjs/codeString.button";
@@ -83,6 +85,12 @@ const ButtonDoc = () => {
       key: "goldShineOnHoverAnimBtn" as const,
       component: GoldShineOnHoverAnimButton,
       codeString: getGoldShineOnHoverAnimButton(),
+    },
+    {
+      title: "Hover With Content Slideout",
+      key: "hoverWithContentSlideOut" as const,
+      component: HoverWithContentSlideOutButton,
+      codeString: getHoverWithContentSlideOutButton(),
     },
   ];
 

@@ -25,6 +25,7 @@ const initialButtonState: ShowStateButton = {
   telegramBtn: true,
   slideAnimOnHoverBtn: true,
   goldShineOnHoverAnimBtn: true,
+  hoverWithContentSlideOut: true,
 };
 
 export const useTabState = () => {

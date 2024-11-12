@@ -45,3 +45,51 @@ export const getGoldShineOnHoverAnimButton = () => {
 </button>
 `;
 };
+
+export const getHoverWithContentSlideOutButton = () => {
+  return `
+<button className="group font-inherit text-xl bg-royalblue text-white py-[0.7em] px-[1em] pl-[0.9em] flex items-center border-none rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer hover:transform active:scale-95">
+    <div className="svg-wrapper-1">
+        <div className="svg-wrapper group-hover:animate-fly">
+        <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            width={24} 
+            height={24}
+            className="block transform-origin-center transition-transform duration-300 ease-in-out group-hover:translate-x-[1.2em] group-hover:rotate-45 group-hover:scale-110"
+        >
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" />
+        </svg>
+        </div>
+    </div>
+    <span className="block ml-[0.3em] transition-all duration-300 ease-in-out group-hover:translate-x-[5em]">
+        Send
+    </span>
+</button>
+      
+      
+      
+// Add this to your tailwind.config.js
+/* 
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'royalblue': '#4169e1',
+      },
+      keyframes: {
+        fly: {
+          'from': { transform: 'translateY(0.1em)' },
+          'to': { transform: 'translateY(-0.1em)' },
+        }
+      },
+      animation: {
+        'fly': 'fly 0.6s ease-in-out infinite alternate',
+      }
+    }
+  }
+}
+*/
+    `;
+};
