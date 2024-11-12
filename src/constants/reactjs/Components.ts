@@ -12,6 +12,8 @@ export const buttonDocSections = [
   { id: "premiumUnlockBtn", title: "Premium Unlock Button" },
   { id: "backToTopBtn", title: "Back To Top" },
   { id: "socialRotateOnHoverBtn", title: "Social Link with Rotate On Hover" },
+  { id: "amoungUsGameBtn", title: "Among Us Game Button" },
+  { id: "macCommandBtn", title: "Mac Command Button" },
   // { id: "animation", title: "Animation" },
 ];
 

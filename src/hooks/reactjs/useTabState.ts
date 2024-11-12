@@ -29,6 +29,8 @@ const initialButtonState: ShowStateButton = {
   premiumUnlockBtn: true,
   backToTopBtn: true,
   socialRotateOnHoverBtn: true,
+  amoungUsGameBtn: true,
+  macCommandBtn: true,
 };
 
 export const useTabState = () => {

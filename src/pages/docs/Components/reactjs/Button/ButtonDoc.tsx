@@ -1,14 +1,11 @@
 import { useState } from "react";
-
 import Button from "@/components/atoms/Button";
 import NavigationButton from "@/components/molecules/NavigationButton";
-
 import {
   getAnimationButtonCodeString,
   getCodeString,
 } from "@/constants/reactjs/CodeString";
 import { showToast } from "@/lib/utils";
-
 import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";
 import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 import CodeToggle from "@/utils/CodeToggle";
@@ -16,9 +13,11 @@ import ManualDocs from "./ButtonManualInstalltion";
 import CodeBlock from "./ButtonsCodeBlock";
 import { useButtonTabState } from "@/hooks/reactjs/useTabState";
 import {
+  AmoungUsPlayButton,
   BackToTopButtonWithAnimation,
   GoldShineOnHoverAnimButton,
   HoverWithContentSlideOutButton,
+  MacBookCommandKeyBoardBtn,
   PremiumUnlockButton,
   RotateOnHoverSocialBtn,
   SaveHoverAnimationButton,
@@ -26,9 +25,11 @@ import {
 } from "@/components/atoms/CustomButtons";
 import { SectionCommon } from "@/components/common/SectionCommon";
 import {
+  getAmoungUsBtnCodeString,
   getBackToTopButton,
   getGoldShineOnHoverAnimButton,
   getHoverWithContentSlideOutButton,
+  getMacBookCommandKeyCodeString,
   getPremiumUnlockButton,
   getRotateOnHoverBtn,
   getSaveHoverAnimationButton,
@@ -116,6 +117,18 @@ const ButtonDoc = () => {
       component: RotateOnHoverSocialBtn,
       codeString: getRotateOnHoverBtn(),
     },
+    {
+      title: "Among Us Game Button",
+      key: "amoungUsGameBtn" as const,
+      component: AmoungUsPlayButton,
+      codeString: getAmoungUsBtnCodeString(),
+    },
+    {
+      title: "Mac Command Button",
+      key: "macCommandBtn" as const,
+      component: MacBookCommandKeyBoardBtn,
+      codeString: getMacBookCommandKeyCodeString(),
+    },
   ];
 
   return (
@@ -186,6 +199,11 @@ const ButtonDoc = () => {
           );
         })}
       </div>
+      <h1 className=" mt-5">
+        <kbd className=" bg-gray-800 px-2 py-1 rounded-lg">
+          Below Button are Custom Buttons and is not added in the above varients
+        </kbd>
+      </h1>
       {sections.map(({ title, key, component, codeString }) => (
         <SectionCommon
           key={key}

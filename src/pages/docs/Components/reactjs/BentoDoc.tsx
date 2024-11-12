@@ -99,9 +99,9 @@ const BentoDoc: React.FC = () => {
 
       <NavigationButton
         previousTitle="Input"
-        nextTitle="Authentication"
+        nextTitle="Auth"
         previousLink="/docs/reactjs/components/input"
-        nextLink="/docs/reactjs/molecules/authentication"
+        nextLink="/docs/reactjs/molecules/auth"
       />
     </>
   );

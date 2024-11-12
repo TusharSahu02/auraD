@@ -14,6 +14,8 @@ export interface ShowStateButton {
   premiumUnlockBtn: boolean;
   backToTopBtn: boolean;
   socialRotateOnHoverBtn: boolean;
+  amoungUsGameBtn: boolean;
+  macCommandBtn: boolean;
 }
 
 export interface CopyStateButton {
@@ -24,4 +26,6 @@ export interface CopyStateButton {
   premiumUnlockBtn: boolean;
   backToTopBtn: boolean;
   socialRotateOnHoverBtn: boolean;
+  amoungUsGameBtn: boolean;
+  macCommandBtn: boolean;
 }
