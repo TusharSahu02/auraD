@@ -18,6 +18,7 @@ import { useButtonTabState } from "@/hooks/reactjs/useTabState";
 import {
   GoldShineOnHoverAnimButton,
   HoverWithContentSlideOutButton,
+  PremiumUnlockButton,
   SaveHoverAnimationButton,
   TelegramButton,
 } from "@/components/atoms/CustomButtons";
@@ -25,6 +26,7 @@ import { SectionCommon } from "@/components/common/SectionCommon";
 import {
   getGoldShineOnHoverAnimButton,
   getHoverWithContentSlideOutButton,
+  getPremiumUnlockButton,
   getSaveHoverAnimationButton,
   getTelegramButtonCode,
 } from "@/constants/reactjs/codeString.button";
@@ -91,6 +93,12 @@ const ButtonDoc = () => {
       key: "hoverWithContentSlideOut" as const,
       component: HoverWithContentSlideOutButton,
       codeString: getHoverWithContentSlideOutButton(),
+    },
+    {
+      title: "Premium Unlock Button",
+      key: "premiumUnlockBtn" as const,
+      component: PremiumUnlockButton,
+      codeString: getPremiumUnlockButton(),
     },
   ];
 

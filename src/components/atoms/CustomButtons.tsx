@@ -72,3 +72,24 @@ export const HoverWithContentSlideOutButton = () => {
     </button>
   );
 };
+
+export const PremiumUnlockButton = () => {
+  return (
+    <button
+      className="w-fit flex gap-[0.4rem] px-[1.1em] py-[0.8em] font-bold rounded-[30px] cursor-pointer text-white border-none
+        text-shadow-[2px_2px_3px_rgba(136,0,136,0.5)]
+        bg-gradient-to-r from-[#880088] via-[#aa2068] via-[#cc3f47] via-[#de6f3d] via-[#f09f33] via-[#de6f3d] via-[#cc3f47] via-[#aa2068] to-[#880088]
+        bg-[length:300%] bg-left hover:bg-[length:320%] hover:bg-right
+        transition-[background] duration-300 ease"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 36 24"
+        className="w-[23px] fill-[#f09f33] transition-all duration-300 ease hover:fill-white"
+      >
+        <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z" />
+      </svg>
+      Unlock Pro
+    </button>
+  );
+};

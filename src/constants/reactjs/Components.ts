@@ -9,6 +9,7 @@ export const buttonDocSections = [
   { id: "slideAnimOnHoverBtn", title: "Slide on Hover Animation" },
   { id: "goldShineOnHoverAnimBtn", title: "Gold Shine on Hover" },
   { id: "hoverWithContentSlideOut", title: "Hover With Content Slideout" },
+  { id: "premiumUnlockBtn", title: "Premium Unlock Button" },
   // { id: "animation", title: "Animation" },
 ];
 
