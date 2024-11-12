@@ -16,6 +16,7 @@ import ManualDocs from "./ButtonManualInstalltion";
 import CodeBlock from "./ButtonsCodeBlock";
 import { useButtonTabState } from "@/hooks/reactjs/useTabState";
 import {
+  BackToTopButtonWithAnimation,
   GoldShineOnHoverAnimButton,
   HoverWithContentSlideOutButton,
   PremiumUnlockButton,
@@ -24,6 +25,7 @@ import {
 } from "@/components/atoms/CustomButtons";
 import { SectionCommon } from "@/components/common/SectionCommon";
 import {
+  getBackToTopButton,
   getGoldShineOnHoverAnimButton,
   getHoverWithContentSlideOutButton,
   getPremiumUnlockButton,
@@ -99,6 +101,12 @@ const ButtonDoc = () => {
       key: "premiumUnlockBtn" as const,
       component: PremiumUnlockButton,
       codeString: getPremiumUnlockButton(),
+    },
+    {
+      title: "Back To Top",
+      key: "backToTopBtn" as const,
+      component: BackToTopButtonWithAnimation,
+      codeString: getBackToTopButton(),
     },
   ];
 

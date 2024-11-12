@@ -27,6 +27,7 @@ const initialButtonState: ShowStateButton = {
   goldShineOnHoverAnimBtn: true,
   hoverWithContentSlideOut: true,
   premiumUnlockBtn: true,
+  backToTopBtn:true
 };
 
 export const useTabState = () => {

@@ -12,6 +12,7 @@ export interface ShowStateButton {
   goldShineOnHoverAnimBtn: boolean;
   hoverWithContentSlideOut: boolean;
   premiumUnlockBtn: boolean;
+  backToTopBtn: boolean;
 }
 
 export interface CopyStateButton {
@@ -20,4 +21,5 @@ export interface CopyStateButton {
   goldShineOnHoverAnimBtn: boolean;
   hoverWithContentSlideOut: boolean;
   premiumUnlockBtn: boolean;
+  backToTopBtn: boolean;
 }
