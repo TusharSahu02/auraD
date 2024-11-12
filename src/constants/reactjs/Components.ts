@@ -5,6 +5,7 @@ export const buttonDocSections = [
   { id: "destructive", title: "Destructive" },
   { id: "outline", title: "Outline" },
   { id: "ghost", title: "Ghost" },
+  { id: "telegramBtn", title: "Bounce Effect" },
   // { id: "animation", title: "Animation" },
 ];
 

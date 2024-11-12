@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ShowState } from "../../Types/Reactjs/input.types";
 import { ShowStateAuth } from "@/Types/Reactjs/auth.types";
+import { ShowStateButton } from "@/Types/common.types";
 
 const initialState: ShowState = {
   code: true,
@@ -20,6 +21,10 @@ const initialAuthState: ShowStateAuth = {
   signup: true,
 };
 
+const initialButtonState: ShowStateButton = {
+  telegramBtn: true,
+};
+
 export const useTabState = () => {
   const [show, setShow] = useState<ShowState>(initialState);
 
@@ -36,6 +41,18 @@ export const useTabState = () => {
 export const useAuthTabState = () => {
   const [show, setShow] = useState<ShowStateAuth>(initialAuthState);
   const toggleTab = (key: keyof ShowStateAuth) => {
+    setShow((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  return { show, toggleTab };
+};
+
+export const useButtonTabState = () => {
+  const [show, setShow] = useState<ShowStateButton>(initialButtonState);
+  const toggleTab = (key: keyof ShowStateButton) => {
     setShow((prev) => ({
       ...prev,
       [key]: !prev[key],

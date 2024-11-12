@@ -14,6 +14,10 @@ import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 import CodeToggle from "@/utils/CodeToggle";
 import ManualDocs from "./ButtonManualInstalltion";
 import CodeBlock from "./ButtonsCodeBlock";
+import { useButtonTabState } from "@/hooks/reactjs/useTabState";
+import { TelegramButton } from "@/components/atoms/CustomButtons";
+import { SectionCommon } from "@/components/common/SectionCommon";
+import { getTelegramButtonCode } from "@/constants/reactjs/codeString.button";
 
 type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
 // | "animation";
@@ -51,9 +55,20 @@ const ButtonDoc = () => {
 
   const codeString = getAnimationButtonCodeString();
 
+  const { show: buttonShow, toggleTab } = useButtonTabState();
+
+  const sections = [
+    {
+      title: "Bounce Effect",
+      key: "telegramBtn" as const,
+      component: TelegramButton,
+      codeString: getTelegramButtonCode(),
+    },
+  ];
+
   return (
     <>
-      <div className="mt-1 pb-[20px]">
+      <div className="mt-1 ">
         <p className="text-gray-500">
           Displays a button or a component that looks like a button.
         </p>
@@ -119,6 +134,17 @@ const ButtonDoc = () => {
           );
         })}
       </div>
+      {sections.map(({ title, key, component, codeString }) => (
+        <SectionCommon
+          key={key}
+          id={key}
+          title={title}
+          show={buttonShow[key]}
+          onToggle={() => toggleTab(key)}
+          codeString={codeString}
+          Component={component}
+        />
+      ))}
       <NavigationButton
         previousTitle="Installation"
         nextTitle="Input"
