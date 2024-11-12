@@ -35,3 +35,13 @@ export const getSaveHoverAnimationButton = () => {
 </button>
 `;
 };
+
+export const getGoldShineOnHoverAnimButton = () => {
+  return `
+<button className="w-[140px] h-[40px] border-none rounded-[10px] bg-gradient-to-r from-[#77530a] via-[#ffd277] via-[#77530a] via-[#77530a] via-[#ffd277] to-[#77530a] bg-[length:250%] bg-left text-[#ffd277] relative flex items-center justify-center cursor-pointer transition-all duration-1000 overflow-hidden hover:bg-right active:scale-95">
+    <span className="absolute w-[97%] h-[90%] rounded-[8px] bg-black/[0.842] flex items-center justify-center text-[#ffd277] transition-all duration-1000">
+        SUBSCRIBE
+    </span>
+</button>
+`;
+};

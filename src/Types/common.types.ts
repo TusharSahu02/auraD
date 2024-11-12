@@ -9,9 +9,11 @@ export interface CodeDisplayCommmonProps {
 export interface ShowStateButton {
   telegramBtn: boolean;
   slideAnimOnHoverBtn: boolean;
+  goldShineOnHoverAnimBtn: boolean;
 }
 
 export interface CopyStateButton {
   telegramBtn: boolean;
   slideAnimOnHoverBtn: boolean;
+  goldShineOnHoverAnimBtn: boolean;
 }
