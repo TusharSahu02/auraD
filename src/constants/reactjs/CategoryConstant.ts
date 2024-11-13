@@ -25,6 +25,7 @@ export const CATEGORIES = [
       "Bento",
       // "Modal",
       // "Sheet",
+      "Ripple",
     ],
   },
   // {

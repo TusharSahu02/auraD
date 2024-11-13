@@ -9,6 +9,7 @@ import Installation from "@/pages/docs/GettingStarted/reactjs/Installation";
 import SheetDoc from "@/pages/docs/Components/reactjs/SheetDoc";
 import AuthenticationDoc from "@/pages/docs/Molecules/AuthenticationDoc";
 import LoaderTextDoc from "@/pages/docs/Text/LoaderTextDoc";
+import RippleDoc from "@/pages/docs/Components/reactjs/ripple/RippleDoc";
 
 export const ComponentMap = {
   introduction: Introduction,
@@ -19,6 +20,7 @@ export const ComponentMap = {
   cards: CardDoc,
   bento: BentoDoc,
   modal: ModalDoc,
+  ripple: RippleDoc,
   sheet: SheetDoc,
   loader: LoaderTextDoc,
   auth: AuthenticationDoc,

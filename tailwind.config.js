@@ -17,6 +17,14 @@ export default {
         geistBlack: ["Geist Black", "sans-serif"],
       },
       keyframes: {
+        ripple: {
+          "0%, 100%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+          "50%": {
+            transform: "translate(-50%, -50%) scale(0.9)",
+          },
+        },
         fly: {
           from: { transform: "translateY(0.1em)" },
           to: { transform: "translateY(-0.1em)" },
@@ -280,6 +288,7 @@ export default {
         },
       },
       animation: {
+        ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         fly: "fly 0.6s ease-in-out infinite alternate",
         before8: "before8 2s infinite",
         after6: "after6 2s infinite",
