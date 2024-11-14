@@ -129,7 +129,7 @@ const LoadersDoc = () => {
   return (
     <div className="mt-1 pb-[20px]">
       <p className="text-gray-500">
-        Displays a button or a component that looks like a button.
+        Displays bunch of loaders in different styles
       </p>
       {renderLoaderSection("l1", Loader1)}
       {renderLoaderSection("l2", Loader2)}

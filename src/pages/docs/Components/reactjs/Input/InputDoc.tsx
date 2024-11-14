@@ -95,9 +95,7 @@ const InputDoc: React.FC = () => {
 
   return (
     <div className="mt-1 pb-[20px]">
-      <p className="text-gray-500">
-        Displays a button or a component that looks like a button.
-      </p>
+      <p className="text-gray-500">Displays a variety of input fields.</p>
 
       {sections.map(({ title, key, component, codeString }) => (
         <InputSection

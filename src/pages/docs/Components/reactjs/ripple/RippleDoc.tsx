@@ -14,7 +14,7 @@ const RippleDoc = () => {
   return (
     <div className="mt-1 pb-[20px]">
       <p className="text-gray-500">
-        Displays a button or a component that looks like a button.
+        Displays a ripple effect as splash screen or loading screen
       </p>
       <div className="mt-10" id="ripple">
         <CodeToggle
