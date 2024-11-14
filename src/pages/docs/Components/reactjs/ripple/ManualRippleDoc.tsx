@@ -53,7 +53,7 @@ const ManualRippleDoc = () => {
             </kbd>
           </p>
 
-          <div className="relative">
+          <div className="relative" id="manual-setup">
             <div
               className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
               onClick={() => {

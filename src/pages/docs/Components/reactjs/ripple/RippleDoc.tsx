@@ -16,7 +16,7 @@ const RippleDoc = () => {
       <p className="text-gray-500">
         Displays a button or a component that looks like a button.
       </p>
-      <div id="overview" className="mt-10">
+      <div className="mt-10" id="ripple">
         <CodeToggle
           code={code}
           setCode={setCode}
@@ -64,10 +64,10 @@ const RippleDoc = () => {
       <ManualRippleDoc />
 
       <NavigationButton
-        previousTitle="Button"
-        nextTitle="Bento"
-        previousLink="/docs/reactjs/components/button"
-        nextLink="/docs/reactjs/components/bento"
+        previousTitle="Bento"
+        nextTitle="Auth"
+        previousLink="/docs/reactjs/components/bento"
+        nextLink="/docs/reactjs/molecules/auth"
       />
     </div>
   );
