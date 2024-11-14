@@ -63,7 +63,7 @@ const Category = () => {
 
   const renderComponent = (subtitle: string | undefined) => (
     <div className="flex gap-x-1 justify-start items-center">
-      <p className="capitalize text-gray-500 text-sm">{category}</p>
+      <p className="capitalize text-gray-500 text-sm">{category ?? "Docs"}</p>
       <ChevronRight
         className="w-[16px] text-gray-500 text-sm"
         aria-hidden="true"
