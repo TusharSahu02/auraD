@@ -12,5 +12,5 @@ export const DocHighlightConstant = {
   loaders: loadersDocSections,
   bento: bentoDocSections,
   ripple: rippleDocSections,
-  authentication: AuthDocSections,
+  auth: AuthDocSections,
 };
