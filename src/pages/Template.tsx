@@ -1,4 +1,4 @@
-import ResizeView from "@/components/templates/resize-view";
+import ResizeView from "@/components/reactjs/templates/resize-view";
 
 const Template = () => {
   return (

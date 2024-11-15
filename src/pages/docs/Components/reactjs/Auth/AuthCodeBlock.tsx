@@ -1,7 +1,7 @@
 import React from "react";
-import { Tab } from "@/components/common/Tab";
-import { CodeDisplayAuth } from "@/components/common/CodeDisplay";
-import { useClipboard } from "@/hooks/reactjs/useClipboard";
+import { Tab } from "@/common/Tab";
+import { CodeDisplayAuth } from "@/common/CodeDisplay";
+import { useClipboard } from "@/hooks/useClipboard";
 
 interface AuthSectionProps {
   id: string;

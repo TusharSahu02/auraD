@@ -1,5 +1,5 @@
-import NumberFlow from "@/components/atoms/text/NumberFlow";
 import { useEffect, useState } from "react";
+import NumberFlow from "../../atoms/text/NumberFlow";
 
 const IncrementDecrementNF = () => {
   const [count, setCount] = useState(0);

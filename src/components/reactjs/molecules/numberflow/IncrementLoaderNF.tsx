@@ -1,4 +1,4 @@
-import NumberFlow from "@/components/atoms/text/NumberFlow";
+import NumberFlow from "@/components/reactjs/atoms/text/NumberFlow";
 import { RotateCcw } from "lucide-react";
 import { useEffect, useState } from "react";
 

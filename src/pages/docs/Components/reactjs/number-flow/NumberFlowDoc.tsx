@@ -1,13 +1,13 @@
-import NavigationButton from "@/components/molecules/NavigationButton";
-import IncrementDecrementNF from "./IncrementDecrementNF";
-import IncrementLoaderNF from "./IncrementLoaderNF";
-import { SectionCommon } from "@/components/common/SectionCommon";
 import { useNumberTabState } from "@/hooks/reactjs/useTabState";
 import {
   getIncrementDecrementNF,
   getIncrementLoaderNF,
 } from "@/constants/reactjs/codeString.number";
 import ManualNFDoc from "./ManualNFDoc";
+import { SectionCommon } from "@/common/SectionCommon";
+import IncrementLoaderNF from "@/components/reactjs/molecules/numberflow/IncrementLoaderNF";
+import IncrementDecrementNF from "@/components/reactjs/molecules/numberflow/IncrementDecrementNF";
+import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
 
 const NumberFlowDoc = () => {
   const { show: numberShow, toggleTab } = useNumberTabState();
@@ -43,9 +43,7 @@ const NumberFlowDoc = () => {
         />
       ))}
       <div>
-        <h2 className="font-medium mt-10 border-b pb-2 text-2xl">
-          Manually
-        </h2>
+        <h2 className="font-medium mt-10 border-b pb-2 text-2xl">Manually</h2>
       </div>
       <ManualNFDoc />
       <NavigationButton

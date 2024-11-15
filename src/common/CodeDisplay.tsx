@@ -91,7 +91,7 @@ export const CodeDisplayAuth: React.FC<CodeDisplayProps> = ({
         language="tsx"
         wrapLongLines={true}
         style={atomOneDark}
-        className="rounded-lg p-5 mt-5 w-full"
+        className="rounded-lg p-5 mt-5 w-full h-[500px] hideScrollBar"
       >
         {codeString}
       </SyntaxHighlighter>

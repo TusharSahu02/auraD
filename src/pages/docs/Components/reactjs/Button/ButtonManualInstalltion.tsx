@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/button/Button";
+import Button from "@/components/reactjs/atoms/button/Button";
 import { getButtonCodeString } from "@/constants/reactjs/CodeString";
 import { showToast } from "@/lib/utils";
 import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";

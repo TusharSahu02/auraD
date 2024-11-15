@@ -64,6 +64,12 @@ export const rippleDocSections = [
   { id: "manual-setup", title: "Manaul Setup" },
 ];
 
+export const numberFlowDocSections = [
+  { id: "incrementLoaderNF", title: "Increment Loader" },
+  { id: "incrementDecrementNF", title: "Increment Decrement" },
+  { id: "manualNFDoc", title: "Manual Code" },
+];
+
 export const AuthDocSections = [
   { id: "welcome", title: "Glassmorphism Welcome Card" },
   { id: "signup", title: "Glassmorphism Signup and Signin Card" },
@@ -78,3 +84,4 @@ export const loadersDocSections = [
   { id: "l6", title: "Loader 6" },
   { id: "l7", title: "Loader 7" },
 ];
+

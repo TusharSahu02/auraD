@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "@/components/atoms/button/Button";
-import NavigationButton from "@/components/molecules/NavigationButton";
+import Button from "@/components/reactjs/atoms/button/Button";
+import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
 import {
   getAnimationButtonCodeString,
   getCodeString,
@@ -22,8 +22,7 @@ import {
   RotateOnHoverSocialBtn,
   SaveHoverAnimationButton,
   TelegramButton,
-} from "@/components/atoms/button/CustomButtons";
-import { SectionCommon } from "@/components/common/SectionCommon";
+} from "@/components/reactjs/atoms/button/CustomButtons";
 import {
   getAmoungUsBtnCodeString,
   getBackToTopButton,
@@ -35,6 +34,7 @@ import {
   getSaveHoverAnimationButton,
   getTelegramButtonCode,
 } from "@/constants/reactjs/codeString.button";
+import { SectionCommon } from "@/common/SectionCommon";
 
 type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
 // | "animation";

@@ -4,15 +4,6 @@ import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
 import {
-  getLoader1CodeString,
-  getLoader2CodeString,
-  getLoader3CodeString,
-  getLoader4CodeString,
-  getLoader5CodeString,
-  getLoader6CodeString,
-  getLoader7CodeString,
-} from "../../../constants/reactjs/CodeString";
-import {
   Loader1,
   Loader2,
   Loader3,
@@ -20,7 +11,16 @@ import {
   Loader5,
   Loader6,
   Loader7,
-} from "../../../components/atoms/Loaders";
+} from "../../../components/reactjs/atoms/Loaders";
+import {
+  getLoader1CodeString,
+  getLoader2CodeString,
+  getLoader3CodeString,
+  getLoader4CodeString,
+  getLoader5CodeString,
+  getLoader6CodeString,
+  getLoader7CodeString,
+} from "@/constants/reactjs/codeString.loaders";
 
 const LoadersDoc = () => {
   const [show, setShow] = useState<{ [key: string]: boolean }>({
@@ -114,9 +114,8 @@ const LoadersDoc = () => {
             </div>
             <SyntaxHighlighter
               language="tsx"
-              wrapLongLines={true}
               style={atomOneDark}
-              className="rounded-lg p-5 mt-5 w-full"
+              className="rounded-lg p-5 mt-5 w-full customScrollBarHorizonalal"
             >
               {codeString}
             </SyntaxHighlighter>

@@ -1,15 +1,15 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Docs from "./pages/docs/Docs";
-import Navbar from "./components/common/Docs/Navbar";
+import Navbar from "@/common/Docs/Navbar";
 import { Toaster } from "sonner";
-import About from "./components/common/Home/About";
+import About from "@/common/Home/About";
 import Template from "./pages/Template";
 import ScrollToTop from "./utils/ScrollToTop";
 import { checkThemeAndSet } from "./lib/utils";
-import Tooltip from "./components/atoms/Tooltip";
+import Tooltip from "./components/reactjs/atoms/Tooltip";
 import BugReport from "./pages/docs/BugReport";
-import Test from "./Types/test/Test";
+import Test from "./test/Test";
 
 function App() {
   // Set the default theme in localStorage if not already set

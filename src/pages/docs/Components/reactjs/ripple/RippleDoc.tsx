@@ -1,4 +1,3 @@
-import NavigationButton from "@/components/molecules/NavigationButton";
 import { getRippleCodeString } from "@/constants/reactjs/codeString.ripple";
 import { showToast } from "@/lib/utils";
 import CodeToggle from "@/utils/CodeToggle";
@@ -6,6 +5,7 @@ import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";
 import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 import { useState } from "react";
 import ManualRippleDoc from "./ManualRippleDoc";
+import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
 
 const RippleDoc = () => {
   const [code, setCode] = useState(true);

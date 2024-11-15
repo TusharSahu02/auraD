@@ -1,5 +1,5 @@
-import StepperComponent from "@/components/atoms/StepperComponent";
-import NavigationButton from "@/components/molecules/NavigationButton";
+import StepperComponent from "@/components/reactjs/atoms/StepperComponent";
+import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
 import { Check, Clipboard } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";

@@ -1,4 +1,4 @@
-import LoaderText from "@/components/atoms/text/LoaderText";
+import LoaderText from "@/components/reactjs/atoms/text/LoaderText";
 
 const LoaderTextDoc = () => {
   return (

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Navbar from "../components/common/Home/Navbar";
-import Bento from "@/components/atoms/Bento";
+import Navbar from "@/common/Home/Navbar";
+import Bento from "@/components/reactjs/atoms/Bento";
 import { motion } from "framer-motion";
 const Home = () => {
   return (
@@ -198,9 +198,9 @@ const Home = () => {
         className="lg:grid grid-cols-4 hidden  mt-[63px] absolute top-0 w-full  left-1/2 -translate-x-1/2"
       >
         <motion.div
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // transition={{ duration: 0.3, delay: 0.2 }}
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // transition={{ duration: 0.3, delay: 0.2 }}
         ></motion.div>
         <motion.div
           initial={{ opacity: 0 }}

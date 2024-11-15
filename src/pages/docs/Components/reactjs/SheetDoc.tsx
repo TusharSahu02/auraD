@@ -1,5 +1,9 @@
-import Button from "@/components/atoms/button/Button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/atoms/Sheet";
+import Button from "@/components/reactjs/atoms/button/Button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/reactjs/atoms/Sheet";
 
 const SheetDoc = () => {
   return (

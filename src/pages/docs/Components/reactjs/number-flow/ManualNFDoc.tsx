@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/button/Button";
+import Button from "@/components/reactjs/atoms/button/Button";
 import { getNumberFlowCodeString } from "@/constants/reactjs/codeString.number";
 import { showToast } from "@/lib/utils";
 import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";
@@ -18,7 +18,7 @@ const ManualNFDoc = () => {
     showToast(setCopy);
   };
   return (
-    <div className="mt-4">
+    <div className="mt-4" id="manualNFDoc">
       <div className="flex items-start justify-center gap-2 border-l border-gray-500">
         <div className="lg:w-[20px] border-l h-full">
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>

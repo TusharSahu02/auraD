@@ -1,7 +1,7 @@
 import React from "react";
-import { Tab } from "@/components/common/Tab";
-import { CodeDisplay } from "@/components/common/CodeDisplay";
-import { useClipboard } from "@/hooks/reactjs/useClipboard";
+import { useClipboard } from "@/hooks/useClipboard";
+import { Tab } from "@/common/Tab";
+import { CodeDisplay } from "@/common/CodeDisplay";
 
 interface InputSectionProps {
   id: string;

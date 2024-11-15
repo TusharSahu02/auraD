@@ -1,15 +1,14 @@
-import {
-  AuthenticationSignUpAndSignIn,
-  WelcomeCardAuth,
-} from "@/components/molecules/Authentication";
-
 import { useAuthTabState } from "@/hooks/reactjs/useTabState";
 import { AuthSection } from "../Components/reactjs/Auth/AuthCodeBlock";
-import NavigationButton from "@/components/molecules/NavigationButton";
+import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
 import {
   getAuthenticationSignUpAndSignIn,
   getWelcomeAuthCodeString,
 } from "@/constants/reactjs/codeString.Auth";
+import {
+  AuthenticationSignUpAndSignIn,
+  WelcomeCardAuth,
+} from "@/components/reactjs/molecules/Authentication";
 
 const AuthenticationDoc = () => {
   const { show, toggleTab } = useAuthTabState();

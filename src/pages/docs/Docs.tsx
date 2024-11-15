@@ -14,7 +14,7 @@ import { useState, useEffect, useRef } from "react";
 import { normalizeURL } from "../../utils/util";
 import { DocHighlightConstant } from "../../constants/reactjs/DocHighlightConstant";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
-import Iphone from "@/components/atoms/Iphone";
+import Iphone from "@/components/reactjs/atoms/Iphone";
 // import Button from "@/components/atoms/button/Button";
 // import { Input44 } from "@/components/atoms/Input";
 

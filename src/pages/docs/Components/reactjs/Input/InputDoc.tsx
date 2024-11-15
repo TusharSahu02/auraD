@@ -1,5 +1,5 @@
 import React from "react";
-import NavigationButton from "@/components/molecules/NavigationButton";
+import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
 import {
   Input,
   FileInput,
@@ -11,7 +11,7 @@ import {
   InputwithCharactersLeft,
   PasswordValidatorInput,
   InputWithLabel,
-} from "@/components/atoms/Input";
+} from "@/components/reactjs/atoms/Input";
 import { InputSection } from "./InputCodeBlock";
 import { useTabState } from "@/hooks/reactjs/useTabState";
 import {

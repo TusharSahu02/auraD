@@ -4,6 +4,7 @@ import {
   buttonDocSections,
   inputDocSections,
   loadersDocSections,
+  numberFlowDocSections,
   rippleDocSections,
 } from "./Components";
 export const DocHighlightConstant = {
@@ -12,5 +13,6 @@ export const DocHighlightConstant = {
   loaders: loadersDocSections,
   bento: bentoDocSections,
   ripple: rippleDocSections,
+  "number-flow": numberFlowDocSections,
   auth: AuthDocSections,
 };

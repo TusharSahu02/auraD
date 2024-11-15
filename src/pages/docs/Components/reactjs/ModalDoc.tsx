@@ -1,13 +1,13 @@
-import Button from "@/components/atoms/button/Button";
-import Modal from "@/components/atoms/Modal";
+import Button from "@/components/reactjs/atoms/button/Button";
+import Modal from "@/components/reactjs/atoms/Modal";
 import { getModalCodeString } from "@/constants/reactjs/CodeString";
 import { Check, Clipboard } from "lucide-react";
 import { useState } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { toast } from "sonner";
-import NavigationButton from "@/components/molecules/NavigationButton";
-import Dialog from "@/components/molecules/Dialog";
+import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
+import Dialog from "@/components/reactjs/molecules/Dialog";
 
 const ModalDoc = () => {
   const [code, setCode] = useState(true);
