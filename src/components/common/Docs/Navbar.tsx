@@ -10,7 +10,7 @@ import SidebarMenu from "./SidebarMenu";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import ToogleJsToNative from "../Home/ToogleJsToNative";
 
 const Navbar = () => {
@@ -184,13 +184,14 @@ const Navbar = () => {
             <a href="https://x.com/auraD_UI" target="_blank" rel="noreferrer">
               <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white  transition-colors duration-300" />
             </a>
-            {/* <a
-              href="https://www.linkedin.com/company/aura-d"
+            <a
+              // href="https://www.linkedin.com/company/aura-d"
+              href="https://www.linkedin.com/in/tusharsahu-rgh"
               target="_blank"
               rel="noreferrer"
             >
               <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
-            </a> */}
+            </a>
             <a
               href="https://github.com/aura-desgins"
               target="_blank"

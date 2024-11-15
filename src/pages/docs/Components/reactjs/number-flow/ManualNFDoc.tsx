@@ -1,20 +1,22 @@
 import Button from "@/components/atoms/button/Button";
-import { getButtonCodeString } from "@/constants/reactjs/CodeString";
+import { getNumberFlowCodeString } from "@/constants/reactjs/codeString.number";
 import { showToast } from "@/lib/utils";
 import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";
 import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 import { useState } from "react";
 
-const ManualDocs = () => {
-  const buttonCodeString = getButtonCodeString();
+const ManualNFDoc = () => {
+  const numberFlowCodeString = getNumberFlowCodeString();
   const [copy, setCopy] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
+  const [copy2, setCopy2] = useState(false);
+
+  const framerMotionCodeString: string = `npm i framer-motion`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(buttonCodeString);
+    navigator.clipboard.writeText(numberFlowCodeString);
     showToast(setCopy);
   };
-
   return (
     <div className="mt-4">
       <div className="flex items-start justify-center gap-2 border-l border-gray-500">
@@ -22,31 +24,33 @@ const ManualDocs = () => {
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
         </div>
         <div className="w-full">
-          <h1 className="text-lg font-medium">Setup Tailwind CSS</h1>
-          <p className="mt-3">
-            visit the link{" "}
-            <a
-              href="https://tailwindcss.com/docs/installation"
-              target="_blank"
-              className="underline mr-1 underline-offset-2"
+          <h1 className="text-lg font-medium">Install Framer motion</h1>
+          <div className="relative">
+            <div
+              className="absolute top-1 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-sm"
+              onClick={() => {
+                navigator.clipboard.writeText(framerMotionCodeString);
+                showToast(setCopy2);
+              }}
             >
-              here
-            </a>
-            and follow the instructions to setup the tailwind css for your
-            project
-          </p>
+              <CopyCodeToggleIcons copyCode={copy2} />
+            </div>
+            <SyntaxHighlighterWrapper className=" text-sm md:text-md">
+              {framerMotionCodeString}
+            </SyntaxHighlighterWrapper>
+          </div>
         </div>
       </div>
-      <div className="flex items-start justify-center pt-5 gap-2 border-l border-gray-500">
+      <div className="flex items-start pt-5 justify-center  gap-2 border-l border-gray-500">
         <div className="lg:w-[20px] border-l h-full">
           <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] "></div>
         </div>
         <div className="w-full">
-          <h1 className="text-lg font-medium">Add Button.tsx File</h1>
+          <h1 className="text-lg font-medium">Add NumberFlow.tsx File</h1>
 
           <p className="mt-3">
             <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-md">
-              src/components/Button.tsx
+              src/components/NumberFlow.tsx
             </kbd>
           </p>
           {!seeAll ? (
@@ -59,7 +63,7 @@ const ManualDocs = () => {
               </div>
               <div className="relative">
                 <SyntaxHighlighterWrapper className="h-[500px]  text-sm md:text-md">
-                  {buttonCodeString}
+                  {numberFlowCodeString}
                 </SyntaxHighlighterWrapper>
               </div>
               <div className="absolute h-full w-full z-10 top-0 left-0 bg-gradient-to-b from-transparent rounded-lg to-black/80"></div>
@@ -85,7 +89,7 @@ const ManualDocs = () => {
                 </div>
 
                 <SyntaxHighlighterWrapper className="h-[700px]">
-                  {buttonCodeString}
+                  {numberFlowCodeString}
                 </SyntaxHighlighterWrapper>
               </div>
               <div className="flex items-center justify-center mt-3 ">
@@ -106,4 +110,4 @@ const ManualDocs = () => {
   );
 };
 
-export default ManualDocs;
+export default ManualNFDoc;

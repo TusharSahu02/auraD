@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/Button";
+import Button from "@/components/atoms/button/Button";
 import { FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 

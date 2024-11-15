@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/Button";
+import Button from "@/components/atoms/button/Button";
 import Modal from "@/components/atoms/Modal";
 import { getModalCodeString } from "@/constants/reactjs/CodeString";
 import { Check, Clipboard } from "lucide-react";

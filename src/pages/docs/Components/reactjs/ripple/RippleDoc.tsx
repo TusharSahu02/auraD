@@ -65,9 +65,9 @@ const RippleDoc = () => {
 
       <NavigationButton
         previousTitle="Bento"
-        nextTitle="Auth"
+        nextTitle="Number Flow"
         previousLink="/docs/reactjs/components/bento"
-        nextLink="/docs/reactjs/molecules/auth"
+        nextLink="/docs/reactjs/text/number-flow"
       />
     </div>
   );

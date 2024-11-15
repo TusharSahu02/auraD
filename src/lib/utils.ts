@@ -24,3 +24,7 @@ export function showToast(
     setCopyCode(false);
   }, 3000);
 }
+
+export function replaceHyphensWithSpaces(str: string) {
+  return str.replace(/-/g, " ");
+}

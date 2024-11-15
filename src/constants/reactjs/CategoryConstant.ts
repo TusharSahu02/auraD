@@ -28,18 +28,18 @@ export const CATEGORIES = [
       "Ripple",
     ],
   },
-  // {
-  //   name: "Text",
-  //   subcategories: [
-  //     // "Shimmer",
-  //     // "Loader",
-  //     // "Cards",
-  //     // "Input",
-  //     // "Bento",
-  //     // "Modal",
-  //     // "Sheet",
-  //   ],
-  // },
+  {
+    name: "Text",
+    subcategories: [
+      "Number Flow",
+      // "Loader",
+      // "Cards",
+      // "Input",
+      // "Bento",
+      // "Modal",
+      // "Sheet",
+    ],
+  },
   {
     name: "Molecules",
     subcategories: [

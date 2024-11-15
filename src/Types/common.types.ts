@@ -29,3 +29,12 @@ export interface CopyStateButton {
   amoungUsGameBtn: boolean;
   macCommandBtn: boolean;
 }
+
+export interface ShowNumberButton {
+  incrementDecrementNF: boolean;
+  incrementLoaderNF: boolean;
+}
+export interface CopyNumberButton {
+  incrementDecrementNF: boolean;
+  incrementLoaderNF: boolean;
+}

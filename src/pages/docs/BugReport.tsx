@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/Button";
+import Button from "@/components/atoms/button/Button";
 import { useState } from "react";
 import { toast } from "sonner";
 

@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/Button";
+import Button from "@/components/atoms/button/Button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/atoms/Sheet";
 
 const SheetDoc = () => {

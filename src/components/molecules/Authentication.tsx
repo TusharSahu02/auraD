@@ -1,5 +1,5 @@
 import { FaGithub, FaGoogle } from "react-icons/fa6";
-import Button from "../atoms/Button";
+import Button from "../atoms/button/Button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 

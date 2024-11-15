@@ -3,6 +3,7 @@ import { Suspense, useEffect, useRef, useMemo } from "react";
 import { ComponentMap } from "../constants/reactjs/ComponentMap";
 import { ChevronRight } from "lucide-react";
 import { ReactNativeComponentMap } from "@/constants/react-native/ReactNativeComponentMap";
+import { replaceHyphensWithSpaces } from "@/lib/utils";
 
 type ComponentMapType = typeof ComponentMap;
 type ReactNativeComponentMapType = typeof ReactNativeComponentMap;
@@ -68,7 +69,9 @@ const Category = () => {
         className="w-[16px] text-gray-500 text-sm"
         aria-hidden="true"
       />
-      <p className="capitalize text-sm">{subtitle}</p>
+      <p className="capitalize text-sm">
+        {replaceHyphensWithSpaces(subtitle ?? "")}
+      </p>
     </div>
   );
 
@@ -88,7 +91,9 @@ const Category = () => {
           {SubcategoryToRender && (
             <div>
               {renderComponent(subcategory)}
-              <h1 className="capitalize text-6xl font-black">{subcategory}</h1>
+              <h1 className="capitalize text-6xl font-black">
+                {replaceHyphensWithSpaces(subcategory ?? "")}
+              </h1>
               <Suspense fallback={<LazyFallback />}>
                 <SubcategoryToRender />
               </Suspense>
@@ -115,17 +120,27 @@ const Category = () => {
           This component is currently under development. Follow us for updates:
           <br />
           <a
-            href="https://twitter.com/"
+            href="https://x.com/auraD_UI"
             target="_blank"
             rel="noreferrer"
             className="underline-offset-3 underline"
             aria-label="Follow us on Twitter"
           >
             Twitter
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/aura-desgins"
+            target="_blank"
+            rel="noreferrer"
+            className="underline-offset-3 underline"
+            aria-label="Follow us on LinkedIn"
+          >
+            Github
           </a>{" "}
           &{" "}
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/tusharsahu-rghp"
             target="_blank"
             rel="noreferrer"
             className="underline-offset-3 underline"

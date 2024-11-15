@@ -18,7 +18,8 @@ const Navbar = () => {
             <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-white transition-colors duration-300" />
           </a>
           <a
-            href="https://www.linkedin.com/company/aura-d"
+            // href="https://www.linkedin.com/company/aura-d"
+            href="https://www.linkedin.com/in/tusharsahu-rgh"
             target="_blank"
             rel="noreferrer"
           >

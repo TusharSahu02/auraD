@@ -2,8 +2,8 @@ import formatDateAndTime from "@/utils/fetchDateTime";
 import { Battery, Signal, Wifi } from "lucide-react";
 
 const Iphone = ({ children }: { children: React.ReactNode }) => {
-  // const { time, date } = formatDateAndTime();
-  const { time } = formatDateAndTime();
+  const { time, date } = formatDateAndTime();
+  // const { time } = formatDateAndTime();
 
   return (
     <div className="relative">
@@ -29,10 +29,10 @@ const Iphone = ({ children }: { children: React.ReactNode }) => {
           </div>
 
           {/* Lock Screen */}
-          {/* <div className="flex flex-col items-center mt-20 text-white">
-            <div className="text-7xl font-thin">{time}</div>
+          <div className="flex flex-col items-center mt-32 text-white">
+            <div className="text-6xl font-bold">{time}</div>
             <div className="text-lg mt-2">{date}</div>
-          </div> */}
+          </div>
 
           {/* Home Indicator */}
           <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white rounded-full"></div>

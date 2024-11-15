@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ShowState } from "../../Types/Reactjs/input.types";
 import { ShowStateAuth } from "@/Types/Reactjs/auth.types";
-import { ShowStateButton } from "@/Types/common.types";
+import { ShowNumberButton, ShowStateButton } from "@/Types/common.types";
 
 const initialState: ShowState = {
   code: true,
@@ -33,6 +33,11 @@ const initialButtonState: ShowStateButton = {
   macCommandBtn: true,
 };
 
+const initialNumberState: ShowNumberButton = {
+  incrementDecrementNF: true,
+  incrementLoaderNF: true,
+};
+
 export const useTabState = () => {
   const [show, setShow] = useState<ShowState>(initialState);
 
@@ -61,6 +66,17 @@ export const useAuthTabState = () => {
 export const useButtonTabState = () => {
   const [show, setShow] = useState<ShowStateButton>(initialButtonState);
   const toggleTab = (key: keyof ShowStateButton) => {
+    setShow((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  return { show, toggleTab };
+};
+export const useNumberTabState = () => {
+  const [show, setShow] = useState<ShowNumberButton>(initialNumberState);
+  const toggleTab = (key: keyof ShowNumberButton) => {
     setShow((prev) => ({
       ...prev,
       [key]: !prev[key],

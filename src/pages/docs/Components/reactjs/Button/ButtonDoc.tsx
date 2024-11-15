@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "@/components/atoms/Button";
+import Button from "@/components/atoms/button/Button";
 import NavigationButton from "@/components/molecules/NavigationButton";
 import {
   getAnimationButtonCodeString,
@@ -22,7 +22,7 @@ import {
   RotateOnHoverSocialBtn,
   SaveHoverAnimationButton,
   TelegramButton,
-} from "@/components/atoms/CustomButtons";
+} from "@/components/atoms/button/CustomButtons";
 import { SectionCommon } from "@/components/common/SectionCommon";
 import {
   getAmoungUsBtnCodeString,

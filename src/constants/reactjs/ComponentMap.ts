@@ -10,6 +10,7 @@ import SheetDoc from "@/pages/docs/Components/reactjs/SheetDoc";
 import AuthenticationDoc from "@/pages/docs/Molecules/AuthenticationDoc";
 import LoaderTextDoc from "@/pages/docs/Text/LoaderTextDoc";
 import RippleDoc from "@/pages/docs/Components/reactjs/ripple/RippleDoc";
+import NumberFlowDoc from "@/pages/docs/Components/reactjs/number-flow/NumberFlowDoc";
 
 export const ComponentMap = {
   introduction: Introduction,
@@ -21,6 +22,7 @@ export const ComponentMap = {
   bento: BentoDoc,
   modal: ModalDoc,
   ripple: RippleDoc,
+  "number-flow": NumberFlowDoc,
   sheet: SheetDoc,
   loader: LoaderTextDoc,
   auth: AuthenticationDoc,

@@ -1,4 +1,4 @@
-import Button from "@/components/atoms/Button";
+import Button from "@/components/atoms/button/Button";
 import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";
 import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 import { toast } from "sonner";
