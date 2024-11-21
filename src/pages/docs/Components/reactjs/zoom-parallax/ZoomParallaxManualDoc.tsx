@@ -1,5 +1,4 @@
 import Button from "@/components/reactjs/atoms/button/Button";
-import { getzoomParallaxCodeString } from "@/constants/reactjs/codeString.number";
 import {
   getUtilCodeString,
   getZoomParallaxCodeString,
