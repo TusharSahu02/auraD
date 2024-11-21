@@ -71,9 +71,8 @@ export default IncrementLoaderNF;
 `;
 };
 
-
 export const getNumberFlowCodeString = () => {
-  return`
+  return `
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -146,5 +145,93 @@ const NumberFlow = ({ value = 0, duration = 0.5 }) => {
 };
 
 export default NumberFlow;
-`
+`;
+};
+
+export const getMysteriousTextCodeString = () => {
+  return `
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import SplitText from "@/utils/SplitText";
+
+const MysteriousText = () => {
+  useEffect(() => {
+    const heading = document.querySelector(".heading") as HTMLElement;
+    const headingSplitText = new SplitText(heading, { type: "chars" });
+    const headingChars = headingSplitText.chars as HTMLElement[];
+
+    gsap.from(headingChars, {
+      filter: "blur(0.12em)",
+      stagger: {
+        from: "start",
+        each: 0.1,
+      },
+      duration: (i) => 1.25 + i * 0.75,
+      ease: "power2.inOut",
+    });
+
+    gsap.from(headingChars, {
+      xPercent: (i) => (i + 1) * 20,
+      opacity: 0,
+      stagger: {
+        from: "start",
+        each: 0.1,
+      },
+      duration: (i) => 1 + i * 0.85,
+      ease: "power2.out",
+    });
+  }, []);
+
+  return (
+    <div className=" flex items-center justify-center ">
+      <h1
+        className="heading dark:text-white text-center uppercase transform origin-center text-3xl font-bold"
+        aria-label="nebula"
+      >
+        AuraD UI
+      </h1>
+    </div>
+  );
+};
+
+export default MysteriousText;
+
+
+// Add this to utils/SplitText.ts
+/*
+
+interface SplitTextOptions {
+  type?: "chars";
 }
+export default class SplitText {
+  element: HTMLElement;
+  type: string;
+  chars: HTMLElement[];
+
+  constructor(element: HTMLElement, options: SplitTextOptions = {}) {
+    this.element = element;
+    this.type = options.type || "chars";
+    this.chars = [];
+    this.split();
+  }
+
+  split() {
+    const text = this.element.innerText;
+    this.element.innerHTML = "";
+
+    if (this.type === "chars") {
+      const chars = text.split("").map((char) => {
+        const span = document.createElement("span");
+        span.classList.add("char");
+        span.innerText = char;
+        this.element.appendChild(span);
+        return span;
+      });
+      this.chars = chars;
+    }
+  }
+}
+
+*/
+  `;
+};

@@ -70,6 +70,11 @@ export const numberFlowDocSections = [
   { id: "manualNFDoc", title: "Manual Code" },
 ];
 
+export const zoomParallaxDocSections = [
+  { id: "zoomParallax", title: "Zoom Parallax" },
+  { id: "manualZoomParallaxDoc", title: "Manual Code" },
+];
+
 export const AuthDocSections = [
   { id: "welcome", title: "Glassmorphism Welcome Card" },
   { id: "signup", title: "Glassmorphism Signup and Signin Card" },
@@ -84,4 +89,3 @@ export const loadersDocSections = [
   { id: "l6", title: "Loader 6" },
   { id: "l7", title: "Loader 7" },
 ];
-

@@ -38,3 +38,19 @@ export interface CopyNumberButton {
   incrementDecrementNF: boolean;
   incrementLoaderNF: boolean;
 }
+
+export interface ShowAnimatedNumberButton {
+  mysteriousText: boolean;
+  infiniteTextDemo: boolean;
+}
+export interface CopyAnimatedNumberButton {
+  mysteriousText: boolean;
+  infiniteTextDemo: boolean;
+}
+
+export interface ShowZoomParallaxButton {
+  zoomParallax: boolean;
+}
+export interface CopyZoomParallaxButton {
+  zoomParallax: boolean;
+}

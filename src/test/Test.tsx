@@ -1,7 +1,9 @@
+import ZoomParallax from "@/components/reactjs/atoms/zoom-parallax/ZoomParallax";
+
 const Test = () => {
   return (
     <>
-      <div className=" flex items-center justify-center h-screen "></div>
+      <ZoomParallax />
     </>
   );
 };

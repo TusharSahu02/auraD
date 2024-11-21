@@ -60,14 +60,15 @@ const Navbar = () => {
   //   return () => window.removeEventListener("keydown", handleFocusSearch);
   // }, [pathname]);
 
-  if (pathname === "/" || pathname === "/test") return null;
+  if (pathname === "/" || pathname === "/test" || pathname.includes("preview"))
+    return null;
 
   // TODO : make the navbar tab highlighed based on the links active
 
   return (
     <div
       className={
-        " flex items-center justify-center py-4 lg:py-0 md:py-5 border-b fixed z-10 top-0 w-full backdrop-blur-sm "
+        " flex items-center bg-[#090716] justify-center py-4 lg:py-0 md:py-5 border-b fixed z-10 top-0 w-full backdrop-blur-sm "
       }
     >
       <div className="xl:container flex items-center justify-between w-full px-4 lg:px-10 ">

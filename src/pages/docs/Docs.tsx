@@ -15,6 +15,7 @@ import { normalizeURL } from "../../utils/util";
 import { DocHighlightConstant } from "../../constants/reactjs/DocHighlightConstant";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
 import Iphone from "@/components/reactjs/atoms/Iphone";
+import { InputWithLabel } from "@/components/reactjs/atoms/Input";
 // import Button from "@/components/atoms/button/Button";
 // import { Input44 } from "@/components/atoms/Input";
 
@@ -84,7 +85,7 @@ const Docs = () => {
   if (selectedOption === "react-native") {
     return (
       <>
-        <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px] ">
+        <div className="h-[calc(100vh-60px)] bg-[#090716] w-full flex items-center justify-center mt-[60px] ">
           <div className="xl:container px-4 lg:px-0 flex  items-center justify-center  w-full h-full">
             <div className="xl:w-[20%]  lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
               {GETTING_STARTED_REACT_NATIVE.map(
@@ -163,9 +164,8 @@ const Docs = () => {
             <div className="w-25%] h-full hidden pl-4 items-center justify-center xl:flex ">
               {/* iPhone */}
               <Iphone>
-                <div />
-                {/* <Button variant="animation">Test in Mobile</Button> */}
-                {/* <Input44 /> */}
+                {/* <div /> */}
+                <InputWithLabel />
               </Iphone>
             </div>
           </div>
@@ -177,7 +177,7 @@ const Docs = () => {
   // ========================= REACT JS =========================
   return (
     <>
-      <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px] ">
+      <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px] bg-[#090716] ">
         {/* <div className=" h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[55px] relative  bg-red-500 "> */}
         <div className="xl:container px-4 lg:px-0 flex  items-center justify-center  w-full h-full">
           <div className="xl:w-[20%] pt-5 lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">

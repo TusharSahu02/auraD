@@ -18,7 +18,7 @@ const Modal = ({ openModal, setOpenModal, children }: ModalProps) => {
             exit={{ opacity: 0 }}
             className="absolute top-0 z-10 left-0 bg-black/80 w-full h-full flex items-center justify-center"
             onClick={() => setOpenModal(!openModal)}
-          ></motion.div>
+          />
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: "-50%", y: "-50%" }}
             animate={{ opacity: 1, scale: 1 }}
@@ -29,6 +29,13 @@ const Modal = ({ openModal, setOpenModal, children }: ModalProps) => {
             <div
               className="absolute top-3 right-3 cursor-pointer"
               onClick={() => setOpenModal(!openModal)}
+              title="Close"
+              aria-label="Close"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setOpenModal(!openModal);
+                }
+              }}
             >
               <CircleX className=" text-gray-500" />
             </div>

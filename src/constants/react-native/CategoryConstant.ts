@@ -10,7 +10,7 @@ export const CATEGORIES_REACT_NATIVE = [
     name: "Components",
     subcategories: [
       "Button",
-      //  "Input",
+      "Input",
       //   "Sheet",
       //    "Modal"
     ],

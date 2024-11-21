@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { ShowState } from "../../Types/Reactjs/input.types";
-import { ShowStateAuth } from "@/Types/Reactjs/auth.types";
-import { ShowNumberButton, ShowStateButton } from "@/Types/common.types";
+import type { ShowState } from "../../Types/Reactjs/input.types";
+import type { ShowStateAuth } from "@/Types/Reactjs/auth.types";
+import type {
+  ShowAnimatedNumberButton,
+  ShowNumberButton,
+  ShowStateButton,
+  ShowZoomParallaxButton,
+} from "@/Types/common.types";
 
 const initialState: ShowState = {
   code: true,
@@ -36,6 +41,13 @@ const initialButtonState: ShowStateButton = {
 const initialNumberState: ShowNumberButton = {
   incrementDecrementNF: true,
   incrementLoaderNF: true,
+};
+const initialAnimatedNumberState: ShowAnimatedNumberButton = {
+  mysteriousText: true,
+  infiniteTextDemo: true,
+};
+const initialZoomParallaxState: ShowZoomParallaxButton = {
+  zoomParallax: true,
 };
 
 export const useTabState = () => {
@@ -77,6 +89,33 @@ export const useButtonTabState = () => {
 export const useNumberTabState = () => {
   const [show, setShow] = useState<ShowNumberButton>(initialNumberState);
   const toggleTab = (key: keyof ShowNumberButton) => {
+    setShow((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  return { show, toggleTab };
+};
+
+export const useAnimatedNumberTabState = () => {
+  const [show, setShow] = useState<ShowAnimatedNumberButton>(
+    initialAnimatedNumberState
+  );
+  const toggleTab = (key: keyof ShowAnimatedNumberButton) => {
+    setShow((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  return { show, toggleTab };
+};
+export const useZoomParallaxTabState = () => {
+  const [show, setShow] = useState<ShowZoomParallaxButton>(
+    initialZoomParallaxState
+  );
+  const toggleTab = (key: keyof ShowZoomParallaxButton) => {
     setShow((prev) => ({
       ...prev,
       [key]: !prev[key],

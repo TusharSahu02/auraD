@@ -26,13 +26,14 @@ export const CATEGORIES = [
       // "Modal",
       // "Sheet",
       "Ripple",
+      "Zoom Parallax",
     ],
   },
   {
     name: "Text",
     subcategories: [
       "Number Flow",
-      // "Loader",
+      // "Animated Text",
       // "Cards",
       // "Input",
       // "Bento",

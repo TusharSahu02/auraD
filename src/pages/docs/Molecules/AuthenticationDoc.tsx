@@ -44,9 +44,9 @@ const AuthenticationDoc = () => {
       ))}
 
       <NavigationButton
-        previousTitle="Ripple"
+        previousTitle="Animated Text"
         nextTitle="Loaders"
-        previousLink="/docs/reactjs/components/ripple"
+        previousLink="/docs/reactjs/text/animated-text"
         nextLink="/docs/reactjs/animations/loaders"
       />
     </>

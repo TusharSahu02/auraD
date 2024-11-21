@@ -14,11 +14,11 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex items-center gap-x-3"
           >
-            <div className="h-[1px] bg-gradient-to-r from-gray-900 to-[#ffffffaa] w-[78px]"></div>
+            <div className="h-[1px] bg-gradient-to-r from-gray-900 to-[#ffffffaa] w-[78px]"/>
             <h1 className=" font-geistLight text-xl text-gray-400  shiny-text">
               Introducing
             </h1>
-            <div className="h-[1px] bg-gradient-to-r from-[#ffffffaa] to-gray-900 w-[78px]"></div>
+            <div className="h-[1px] bg-gradient-to-r from-[#ffffffaa] to-gray-900 w-[78px]"/>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

@@ -10,7 +10,9 @@ import SheetDoc from "@/pages/docs/Components/reactjs/SheetDoc";
 import AuthenticationDoc from "@/pages/docs/Molecules/AuthenticationDoc";
 import LoaderTextDoc from "@/pages/docs/Text/LoaderTextDoc";
 import RippleDoc from "@/pages/docs/Components/reactjs/ripple/RippleDoc";
-import NumberFlowDoc from "@/pages/docs/Components/reactjs/number-flow/NumberFlowDoc";
+import NumberFlowDoc from "@/pages/docs/Text/number-flow/NumberFlowDoc";
+import AnimatedTextDoc from "@/pages/docs/Text/animated-text/AnimatedTextDoc";
+import ZoomParallaxDoc from "@/pages/docs/Components/reactjs/zoom-parallax/ZoomParallaxDoc";
 
 export const ComponentMap = {
   introduction: Introduction,
@@ -23,6 +25,8 @@ export const ComponentMap = {
   modal: ModalDoc,
   ripple: RippleDoc,
   "number-flow": NumberFlowDoc,
+  "animated-text": AnimatedTextDoc,
+  "zoom-parallax": ZoomParallaxDoc,
   sheet: SheetDoc,
   loader: LoaderTextDoc,
   auth: AuthenticationDoc,

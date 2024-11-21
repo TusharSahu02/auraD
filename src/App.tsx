@@ -10,6 +10,7 @@ import { checkThemeAndSet } from "./lib/utils";
 import Tooltip from "./components/reactjs/atoms/Tooltip";
 import BugReport from "./pages/docs/BugReport";
 import Test from "./test/Test";
+import Preview from "./previews/Preview";
 
 function App() {
   // Set the default theme in localStorage if not already set
@@ -18,8 +19,9 @@ function App() {
   const location = useLocation();
   const path = location.pathname;
   const template = path.split("/")[1];
+
   return (
-    <div className=" overflow-x-hidden">
+    <div className="">
       <ScrollToTop />
       <Navbar />
 
@@ -30,16 +32,19 @@ function App() {
         <Route path="/docs" element={<Docs />} />
         <Route path="/templates/:category" element={<Template />} />
         <Route path="/about-me" element={<About />} />
-
+        <Route path="/preview/:componentName" element={<Preview />} />
         <Route path="/test" element={<Test />} />
       </Routes>
       <Toaster richColors />
 
-      {path !== "/" && template !== "templates" && (
-        <Tooltip>
-          <BugReport />
-        </Tooltip>
-      )}
+      {path !== "/" &&
+        template !== "templates" &&
+        template !== "test" &&
+        template !== "preview" && (
+          <Tooltip>
+            <BugReport />
+          </Tooltip>
+        )}
     </div>
   );
 }
