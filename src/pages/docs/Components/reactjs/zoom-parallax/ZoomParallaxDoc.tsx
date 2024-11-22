@@ -1,9 +1,9 @@
 import { SectionCommon } from "@/common/SectionCommon";
 import { ZoomParallaxPreviewModal } from "@/components/reactjs/atoms/zoom-parallax/ZoomParallax";
 import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
-import { getMysteriousTextCodeString } from "@/constants/reactjs/codeString.number";
 import { useZoomParallaxTabState } from "@/hooks/reactjs/useTabState";
 import ZoomParallaxManualDoc from "./ZoomParallaxManualDoc";
+import { getZoomParallaxCodeString } from "@/constants/reactjs/codeString.zoomParallax";
 
 const ZoomParallaxDoc = () => {
   const { show: animatedNumberShow, toggleTab } = useZoomParallaxTabState();
@@ -13,7 +13,7 @@ const ZoomParallaxDoc = () => {
       title: "Zoom Parallax",
       key: "zoomParallax" as const,
       component: ZoomParallaxPreviewModal,
-      codeString: getMysteriousTextCodeString(),
+      codeString: getZoomParallaxCodeString(),
     },
   ];
   return (
