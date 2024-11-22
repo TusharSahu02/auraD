@@ -157,43 +157,49 @@ const SidebarMenu = () => {
               );
             }
           )}
-          {CATEGORIES.map(
-            (category: { name: string; subcategories: string[] }) => {
-              return (
-                <div key={category.name} className="mb-3">
-                  <h1 className="text-md font-geistSemiBold mb-1">
-                    {category.name}
-                  </h1>
-                  <ul className=" space-y-1">
-                    {category.subcategories.map((subcategory: string) => {
-                      return (
-                        <li
-                          key={subcategory}
-                          onClick={() => setActive(!active)}
-                          className="transition-colors duration-300  text-gray-500 text-sm border-gray-500 w-max"
+          {CATEGORIES.map((category) => {
+            return (
+              <div key={category.name} className="mb-5">
+                <h1 className="text-md font-geistSemiBold mb-3">
+                  {category.name}
+                </h1>
+                <ul className="ml-2 space-y-2">
+                  {category.subcategories.map((subcategory) => {
+                    return (
+                      <li
+                        key={subcategory.name}
+                        onClick={() => setActive(!active)} // Keep this if you're using the active state elsewhere.
+                        className="transition-colors flex gap-x-3 duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            setActive(!active);
+                          }
+                        }}
+                      >
+                        <NavLink
+                          to={`/docs/reactjs/${category.name.toLowerCase()}/${normalizeURL(
+                            subcategory.name.toLowerCase()
+                          )}`}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "text-black dark:text-white"
+                              : "border-gray-700"
+                          }
                         >
-                          <NavLink
-                            to={`/docs/reactjs/${category.name.toLowerCase()}/${normalizeURL(
-                              subcategory.toLowerCase()
-                            )}`}
-                            className={({ isActive }) =>
-                              isActive
-                                ? "text-black dark:text-white"
-                                : "border-gray-700"
-                            }
-                          >
-                            <SheetPrimitive.Close>
-                              {subcategory}
-                            </SheetPrimitive.Close>
-                          </NavLink>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              );
-            }
-          )}
+                          {subcategory.name}
+                        </NavLink>
+                        {subcategory.isNew && (
+                          <p className="bg-green-300/20 border border-green-300 text-green-300 px-3 rounded-md text-xs -py-2 leading-none flex items-center justify-center">
+                            new
+                          </p>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
         </>
       )}
 
