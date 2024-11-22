@@ -16,6 +16,7 @@ import { DocHighlightConstant } from "../../constants/reactjs/DocHighlightConsta
 import { useSelectedOption } from "@/context/SelectedOptionContext";
 import Iphone from "@/components/reactjs/atoms/Iphone";
 import { InputWithLabel } from "@/components/reactjs/atoms/Input";
+import TailwindCSSIndicator from "@/utils/TailwindCSSIndicator";
 // import Button from "@/components/atoms/button/Button";
 // import { Input44 } from "@/components/atoms/Input";
 
@@ -51,11 +52,11 @@ const Docs = () => {
     };
 
     const observerCallback: IntersectionObserverCallback = (entries) => {
-      entries.forEach((entry) => {
+      for (const entry of entries) {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
         }
-      });
+      }
     };
 
     observerRef.current = new IntersectionObserver(
@@ -63,12 +64,12 @@ const Docs = () => {
       observerOptions
     );
 
-    currentSections.forEach((section) => {
+    for (const section of currentSections) {
       const element = document.getElementById(section.id);
       if (element) {
         observerRef.current?.observe(element);
       }
-    });
+    }
 
     return () => {
       if (observerRef.current) {
@@ -101,6 +102,11 @@ const Docs = () => {
                             key={subcategory}
                             onClick={() => setActive(!active)}
                             className="transition-colors duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter" || e.key === " ") {
+                                setActive(!active);
+                              }
+                            }}
                           >
                             <NavLink
                               to={`/docs/react-native/${normalizeURL(
@@ -179,8 +185,8 @@ const Docs = () => {
     <>
       <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px] bg-[#090716] ">
         {/* <div className=" h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[55px] relative  bg-red-500 "> */}
-        <div className="xl:container px-4 lg:px-0 flex  items-center justify-center  w-full h-full">
-          <div className="xl:w-[20%] pt-5 lg:w-[30%] lg:pl-10 pl-6 w-[40%] hidden md:block h-full py-3 overflow-y-scroll customScrollBar">
+        <div className="xl:container px-4 lg:px-10 flex items-center justify-center  w-full h-full">
+          <div className="pt-5 xl:w-[20%] lg:w-[30%] lg:pl-0 pl-6 w-[40%] hidden md:block h-full py-3  overflow-y-scroll customScrollBar">
             {GETTING_STARTED.map(
               (category: { name: string; subcategories: string[] }) => {
                 return (
@@ -193,7 +199,12 @@ const Docs = () => {
                         <li
                           key={subcategory}
                           onClick={() => setActive(!active)}
-                          className="transition-colors duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+                          className="transition-colors  duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              setActive(!active);
+                            }
+                          }}
                         >
                           <NavLink
                             to={`/docs/reactjs/${normalizeURL(
@@ -214,46 +225,54 @@ const Docs = () => {
                 );
               }
             )}
-            {CATEGORIES.map(
-              (category: { name: string; subcategories: string[] }) => {
-                return (
-                  <div key={category.name} className="mb-5">
-                    <h1 className="text-md font-geistSemiBold mb-3">
-                      {category.name}
-                    </h1>
-                    <ul className="ml-2 space-y-2">
-                      {category.subcategories.map((subcategory: string) => {
-                        return (
-                          <li
-                            key={subcategory}
-                            onClick={() => setActive(!active)} // Keep this if you're using the active state elsewhere.
-                            className="transition-colors duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+            {CATEGORIES.map((category) => {
+              return (
+                <div key={category.name} className="mb-5">
+                  <h1 className="text-md font-geistSemiBold mb-3">
+                    {category.name}
+                  </h1>
+                  <ul className="ml-2 space-y-2">
+                    {category.subcategories.map((subcategory) => {
+                      return (
+                        <li
+                          key={subcategory.name}
+                          onClick={() => setActive(!active)} // Keep this if you're using the active state elsewhere.
+                          className="transition-colors flex gap-x-3 duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              setActive(!active);
+                            }
+                          }}
+                        >
+                          <NavLink
+                            to={`/docs/reactjs/${category.name.toLowerCase()}/${normalizeURL(
+                              subcategory.name.toLowerCase()
+                            )}`}
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-black dark:text-white"
+                                : "border-gray-700"
+                            }
                           >
-                            <NavLink
-                              to={`/docs/reactjs/${category.name.toLowerCase()}/${normalizeURL(
-                                subcategory.toLowerCase()
-                              )}`}
-                              className={({ isActive }) =>
-                                isActive
-                                  ? "text-black dark:text-white"
-                                  : "border-gray-700"
-                              }
-                            >
-                              {subcategory}
-                            </NavLink>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                );
-              }
-            )}
+                            {subcategory.name}
+                          </NavLink>
+                          {subcategory.isNew && (
+                            <p className="bg-green-300/20 border border-green-300 text-green-300 px-3 rounded-md text-xs -py-2 leading-none flex items-center justify-center">
+                              new
+                            </p>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
-          <div className="xl:w-[55%] w-full md:p-4  h-full md:border-l xl:border-r overflow-y-scroll hideScrollBar">
+          <div className="xl:w-[70%] w-full md:p-4  h-full md:border-l xl:border-r overflow-y-scroll hideScrollBar">
             <Category />
           </div>
-          <div className="w-[20%] h-full hidden p-4 xl:block">
+          <div className="w-[15%] h-full hidden p-4 xl:block">
             <p className="font-semibold mb-4 mt-2">On this page</p>
             {currentSections.length > 0 && (
               <ul className="space-y-1">
@@ -277,6 +296,7 @@ const Docs = () => {
           </div>
         </div>
       </div>
+      <TailwindCSSIndicator />
     </>
   );
 };
