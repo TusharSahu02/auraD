@@ -20,8 +20,8 @@ export const AuthenticationSignUpAndSignIn = () => {
 
   return (
     <div className="py-16 w-full flex items-center justify-center relative">
-      <div className="circle absolute top-48 left-44 w-20 h-20 bg-purple-500 rounded-full filter"></div>
-      <div className="circle absolute top-96 right-24 w-40 h-40 bg-orange-500 rounded-full filter"></div>
+      <div className="circle absolute top-48 xl:left-52 left-44 w-20 h-20 bg-purple-500 rounded-full filter"/>
+      <div className="circle absolute top-96 xl:right-36 right-24 w-40 h-40 bg-orange-500 rounded-full filter"/>
       <div className="h-[550px] w-[400px]  shadow-lg rounded-3xl py-5 px-12 border-2 border-white/20  flex flex-col gap-2 items-center justify-center backdrop-filter backdrop-blur-[20px] bg-opacity-5 bg-white transform ">
         {show ? (
           <>
@@ -62,6 +62,11 @@ export const AuthenticationSignUpAndSignIn = () => {
               <span
                 className="text-blue-500/60 cursor-pointer"
                 onClick={() => setShow(false)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    setShow(false);
+                  }
+                }}
               >
                 Log in
               </span>
@@ -101,6 +106,11 @@ export const AuthenticationSignUpAndSignIn = () => {
               <span
                 className="text-blue-500/60 cursor-pointer"
                 onClick={() => setShow(true)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    setShow(true);
+                  }
+                }}
               >
                 Signup
               </span>
@@ -115,8 +125,8 @@ export const AuthenticationSignUpAndSignIn = () => {
 export const WelcomeCardAuth = () => {
   return (
     <div className="py-16 rounded-lg w-full  flex items-center justify-center relative">
-      <div className="circle absolute top-48 left-44 w-20 h-20 bg-purple-500 rounded-full filter"></div>
-      <div className="circle absolute top-96 right-24 w-40 h-40 bg-orange-500 rounded-full filter"></div>
+      <div className="circle absolute top-48 xl:left-52 left-44 w-20 h-20 bg-purple-500 rounded-full filter" />
+      <div className="circle absolute top-96 xl:right-36 right-24 w-40 h-40 bg-orange-500 rounded-full filter" />
       {/* <div className=" h-[350px]  rounded-md  border "> */}
       <div className="h-[550px] w-[400px]  shadow-lg rounded-3xl py-5 px-12 border-2 border-white/20  flex flex-col gap-2 items-center justify-center backdrop-filter backdrop-blur-[20px] bg-opacity-5 bg-white transform ">
         <h1 className=" text-2xl font-semibold mb-3">Welcome to</h1>
@@ -127,9 +137,9 @@ export const WelcomeCardAuth = () => {
           Continue with email
         </Button>
         <div className="flex items-center gap-3 my-3 w-full">
-          <div className="w-full h-px bg-gray-500"></div>
+          <div className="w-full h-px bg-gray-500" />
           <p className=" min-w-max text-gray-500">or continue with</p>
-          <div className="w-full h-px bg-gray-500"></div>
+          <div className="w-full h-px bg-gray-500" />
         </div>
         <Button variant="outline" className="w-full" icon={<FaGithub />}>
           Github
