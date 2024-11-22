@@ -53,7 +53,7 @@ const ZoomParallaxManualDoc = () => {
             <h1 className="text-lg font-medium">Install dependencies</h1>
             <div className="relative overflow-hidden mb-3">
               <div
-                className="absolute top-6 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex z-20 items-center p-[6px] cursor-pointer justify-center rounded-md"
+                className="absolute top-7 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex z-20 items-center p-[6px] cursor-pointer justify-center rounded-md"
                 onClick={() => {
                   navigator.clipboard.writeText(gsapCodeString);
                   showToast(setCopy);
@@ -67,9 +67,11 @@ const ZoomParallaxManualDoc = () => {
               >
                 <CopyCodeToggleIcons copyCode={copy} />
               </div>
-              <SyntaxHighlighterWrapper className="rounded-md p-5 bg-red-500 mt-1 w-full text-sm md:text-md">
-                {gsapCodeString}
-              </SyntaxHighlighterWrapper>
+              <div className="relative">
+                <SyntaxHighlighterWrapper className="rounded-md w-full   mt-1  text-sm md:text-md">
+                  {gsapCodeString}
+                </SyntaxHighlighterWrapper>
+              </div>
             </div>
           </div>
         </div>
@@ -105,7 +107,7 @@ const ZoomParallaxManualDoc = () => {
                   <CopyCodeToggleIcons copyCode={copy2} />
                 </div>
                 <div className="relative">
-                  <SyntaxHighlighterWrapper className="h-[500px]  text-sm md:text-md">
+                  <SyntaxHighlighterWrapper className="h-[500px] text-sm md:text-md">
                     {zoomParallaxCodeString}
                   </SyntaxHighlighterWrapper>
                 </div>
