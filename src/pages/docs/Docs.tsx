@@ -186,7 +186,7 @@ const Docs = () => {
       <div className="h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[60px] bg-[#090716] ">
         {/* <div className=" h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[55px] relative  bg-red-500 "> */}
         <div className="xl:container px-4 lg:px-10 flex items-center justify-center  w-full h-full">
-          <div className="pt-5 xl:w-[20%] lg:w-[30%] lg:pl-0 pl-6 w-[40%] hidden md:block h-full py-3  overflow-y-scroll customScrollBar">
+          <div className="pt-5 xl:w-[20%] lg:w-[30%] lg:pl-0 pl-6 w-[40%] hidden md:block h-full py-3  overflow-y-scroll hideScrollBar">
             {GETTING_STARTED.map(
               (category: { name: string; subcategories: string[] }) => {
                 return (
@@ -237,7 +237,7 @@ const Docs = () => {
                         <li
                           key={subcategory.name}
                           onClick={() => setActive(!active)} // Keep this if you're using the active state elsewhere.
-                          className="transition-colors flex gap-x-3 duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
+                          className="transition-colors  cursor-pointer flex gap-x-3 duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
                           onKeyDown={(e) => {
                             if (e.key === "Enter" || e.key === " ") {
                               setActive(!active);
