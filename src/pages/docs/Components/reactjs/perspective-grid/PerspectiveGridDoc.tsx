@@ -1,25 +1,25 @@
 import { SectionCommon } from "@/common/SectionCommon";
-import { ZoomParallaxPreviewModal } from "@/components/reactjs/atoms/zoom-parallax/ZoomParallax";
+import { usePerspectiveGridTabState } from "@/hooks/reactjs/useTabState";
 import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
-import { useZoomParallaxTabState } from "@/hooks/reactjs/useTabState";
-import ZoomParallaxManualDoc from "./ZoomParallaxManualDoc";
-import { getZoomParallaxCodeString } from "@/constants/reactjs/codeString.zoomParallax";
+import { PerspectiveGridPreview } from "@/components/reactjs/atoms/perspective-grid/PerspectiveGrid";
+import PerspectiveGridManualDoc from "./PerspectiveGridManualDoc";
+import { getPerspectiveGridCodeString } from "@/constants/reactjs/codeString.PerspectiveGrid";
 
-const ZoomParallaxDoc = () => {
-  const { show: animatedNumberShow, toggleTab } = useZoomParallaxTabState();
+const PerspectiveGridDoc = () => {
+  const { show: perspectiveGridShow, toggleTab } = usePerspectiveGridTabState();
 
   const sections = [
     {
-      title: "Zoom Parallax",
-      key: "zoomParallax" as const,
-      component: ZoomParallaxPreviewModal,
-      codeString: getZoomParallaxCodeString(),
+      title: "Perspective Grid",
+      key: "perspectiveGrid" as const,
+      component: PerspectiveGridPreview,
+      codeString: getPerspectiveGridCodeString(),
     },
   ];
   return (
     <>
       <p className="text-gray-500">
-        Displays a animated zoom parallax effect using GSAP
+        Displays a animated perspective grid using GSAP and lenis
       </p>
       <div className=" relative">
         {sections.map(({ title, key, component, codeString }) => (
@@ -27,14 +27,14 @@ const ZoomParallaxDoc = () => {
             key={key}
             id={key}
             title={title}
-            show={animatedNumberShow[key]}
+            show={perspectiveGridShow[key]}
             onToggle={() => toggleTab(key)}
             codeString={codeString}
             Component={component}
           />
         ))}
       </div>
-      <ZoomParallaxManualDoc />
+      <PerspectiveGridManualDoc />
       <NavigationButton
         previousTitle="Ripple"
         nextTitle="Number Flow"
@@ -45,4 +45,4 @@ const ZoomParallaxDoc = () => {
   );
 };
 
-export default ZoomParallaxDoc;
+export default PerspectiveGridDoc;

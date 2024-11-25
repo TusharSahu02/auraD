@@ -146,7 +146,7 @@ const Button: React.FC<Props> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={classes.join(" ") + (className ? " " + className : "")}
+      className={classes.join(" ") + (className ? "" + className : "")}
     >
       {variant === "animation" ? (
         <>

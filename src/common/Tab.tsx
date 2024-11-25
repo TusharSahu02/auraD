@@ -1,5 +1,4 @@
-import React from "react";
-import { TabProps } from "@/Types/Reactjs/input.types";
+import type { TabProps } from "@/Types/Reactjs/input.types";
 
 export const Tab: React.FC<TabProps> = ({ active, onClick, children }) => (
   <div

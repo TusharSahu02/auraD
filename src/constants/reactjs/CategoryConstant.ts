@@ -23,11 +23,12 @@ export const CATEGORIES = [
       { name: "Bento", isNew: false },
       { name: "Ripple", isNew: false },
       { name: "Zoom Parallax", isNew: true },
+      { name: "Perspective Grid", isNew: true },
     ],
   },
   {
     name: "Text",
-    subcategories: [{ name: "Number Flow", isNew: true }],
+    subcategories: [{ name: "Number Flow", isNew: false }],
   },
   {
     name: "Molecules",
@@ -38,4 +39,3 @@ export const CATEGORIES = [
     subcategories: [{ name: "Loaders", isNew: false }],
   },
 ];
-

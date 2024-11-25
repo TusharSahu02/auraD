@@ -1,8 +1,9 @@
-import React from "react";
+import type React from "react";
 import { Check, Clipboard } from "lucide-react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { CodeDisplayCommmonProps } from "@/Types/common.types";
+import type { CodeDisplayCommmonProps } from "@/Types/common.types";
+import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 
 export const CodeDisplayCommon: React.FC<CodeDisplayCommmonProps> = ({
   show,
@@ -19,6 +20,11 @@ export const CodeDisplayCommon: React.FC<CodeDisplayCommmonProps> = ({
         border transition-all duration-300 flex items-center p-[6px] cursor-pointer 
         justify-center rounded-md`}
       onClick={onCopy}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          onCopy();
+        }
+      }}
     >
       {copyState ? (
         <Check className={show ? "" : "text-white"} />
@@ -40,14 +46,9 @@ export const CodeDisplayCommon: React.FC<CodeDisplayCommmonProps> = ({
   return (
     <div className="relative">
       <CopyButton />
-      <SyntaxHighlighter
-        language="tsx"
-        wrapLongLines={true}
-        style={atomOneDark}
-        className="rounded-lg p-5 mt-5 w-full"
-      >
+      <SyntaxHighlighterWrapper className="rounded-lg p-5 mt-5 w-full">
         {codeString}
-      </SyntaxHighlighter>
+      </SyntaxHighlighterWrapper>
     </div>
   );
 };

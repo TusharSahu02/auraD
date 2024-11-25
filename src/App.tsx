@@ -11,6 +11,7 @@ import Tooltip from "./components/reactjs/atoms/Tooltip";
 import BugReport from "./pages/docs/BugReport";
 import Test from "./test/Test";
 import Preview from "./previews/Preview";
+import SmoothScrolling from "./utils/SmoothScrool";
 
 function App() {
   // Set the default theme in localStorage if not already set
@@ -26,7 +27,14 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <SmoothScrolling>
+              <Home />
+            </SmoothScrolling>
+          }
+        />
         <Route path="/docs/:type/:category/:subcategory" element={<Docs />} />
         <Route path="/docs/:type/:instruction" element={<Docs />} />
         <Route path="/docs" element={<Docs />} />

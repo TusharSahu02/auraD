@@ -1,8 +1,7 @@
-import React from "react";
+import type React from "react";
 import { Check, Clipboard } from "lucide-react";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { CodeDisplayProps } from "@/Types/Reactjs/input.types";
+import type { CodeDisplayProps } from "@/Types/Reactjs/input.types";
+import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 
 export const CodeDisplay: React.FC<CodeDisplayProps> = ({
   show,
@@ -19,6 +18,11 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
         border transition-all duration-300 flex items-center p-[6px] cursor-pointer 
         justify-center rounded-md`}
       onClick={onCopy}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          onCopy();
+        }
+      }}
     >
       {copyState ? (
         <Check className={show ? "" : "text-white"} />
@@ -40,14 +44,9 @@ export const CodeDisplay: React.FC<CodeDisplayProps> = ({
   return (
     <div className="relative">
       <CopyButton />
-      <SyntaxHighlighter
-        language="tsx"
-        wrapLongLines={true}
-        style={atomOneDark}
-        className="rounded-lg p-5 mt-5 w-full"
-      >
+      <SyntaxHighlighterWrapper className="rounded-lg p-5 mt-5 w-full">
         {codeString}
-      </SyntaxHighlighter>
+      </SyntaxHighlighterWrapper>
     </div>
   );
 };
@@ -66,6 +65,11 @@ export const CodeDisplayAuth: React.FC<CodeDisplayProps> = ({
         border transition-all duration-300 flex items-center p-[6px] cursor-pointer 
         justify-center rounded-md`}
       onClick={onCopy}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          onCopy();
+        }
+      }}
     >
       {copyState ? (
         <Check className={show ? "" : "text-white"} />
@@ -87,14 +91,9 @@ export const CodeDisplayAuth: React.FC<CodeDisplayProps> = ({
   return (
     <div className="relative">
       <CopyButton />
-      <SyntaxHighlighter
-        language="tsx"
-        wrapLongLines={true}
-        style={atomOneDark}
-        className="rounded-lg p-5 mt-5 w-full h-[500px] hideScrollBar"
-      >
+      <SyntaxHighlighterWrapper className="rounded-lg p-5 mt-5 w-full h-[500px] hideScrollBar">
         {codeString}
-      </SyntaxHighlighter>
+      </SyntaxHighlighterWrapper>
     </div>
   );
 };

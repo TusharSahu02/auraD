@@ -1,12 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
 }
 
 .hideScrollBar::-webkit-scrollbar {
@@ -158,7 +156,6 @@ body::-webkit-scrollbar {
   );
 }
 
-/* loading animation mobile-tab-desktop START */
 @layer utilities {
   @keyframes dot1 {
     3%,
@@ -253,9 +250,6 @@ body::-webkit-scrollbar {
   }
 }
 
-/* loading animation mobile-tab-desktop STOP */
-
-/* loading animation bounce stepper START */
 @layer utilities {
   @keyframes loading-bounce {
     0% {
@@ -295,8 +289,6 @@ body::-webkit-scrollbar {
     animation: loading-step 1s ease-in-out infinite;
   }
 }
-
-/* loading animation bounce stepper STOP */
 
 .header {
   text-align: center;

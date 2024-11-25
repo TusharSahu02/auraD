@@ -4,6 +4,7 @@ import type { ShowStateAuth } from "@/Types/Reactjs/auth.types";
 import type {
   ShowAnimatedNumberButton,
   ShowNumberButton,
+  ShowPerspectiveGridButton,
   ShowStateButton,
   ShowZoomParallaxButton,
 } from "@/Types/common.types";
@@ -48,6 +49,9 @@ const initialAnimatedNumberState: ShowAnimatedNumberButton = {
 };
 const initialZoomParallaxState: ShowZoomParallaxButton = {
   zoomParallax: true,
+};
+const perspectiveGridState: ShowPerspectiveGridButton = {
+  perspectiveGrid: true,
 };
 
 export const useTabState = () => {
@@ -116,6 +120,18 @@ export const useZoomParallaxTabState = () => {
     initialZoomParallaxState
   );
   const toggleTab = (key: keyof ShowZoomParallaxButton) => {
+    setShow((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  return { show, toggleTab };
+};
+export const usePerspectiveGridTabState = () => {
+  const [show, setShow] =
+    useState<ShowPerspectiveGridButton>(perspectiveGridState);
+  const toggleTab = (key: keyof ShowPerspectiveGridButton) => {
     setShow((prev) => ({
       ...prev,
       [key]: !prev[key],

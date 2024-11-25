@@ -1,9 +1,13 @@
 export const getInputMainCode = () => {
-  return `<input
-    type="text"
-    className="border px-4 py-2 border-gray-700 rounded-md placeholder:text-sm text-sm dark:bg-transparent dark:text-white"
-    placeholder="username"
- /> `;
+  return `
+    <div>
+      <input
+        type="text"
+        className="border px-4 py-2 border-gray-700 rounded-md placeholder:text-sm text-sm dark:bg-transparent dark:text-white"
+        placeholder="username"
+      />
+    </div>
+  `;
 };
 
 export const getInputFileCode = () => {

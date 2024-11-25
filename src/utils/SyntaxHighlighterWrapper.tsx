@@ -1,5 +1,8 @@
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+// import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { useEffect } from "react";
+import hljs from "highlight.js";
+import "highlight.js/styles/github-dark.css";
 
 interface SyntaxHighlighterWrapperProps {
   className?: string;
@@ -11,16 +14,18 @@ const SyntaxHighlighterWrapper = ({
   className,
   ...props
 }: SyntaxHighlighterWrapperProps) => {
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
   return (
-    <SyntaxHighlighter
-      language={`tsx`}
-      wrapLongLines={true}
-      style={atomOneDark}
-      className={`rounded-lg p-5 mt-5 w-full customScrollBar ${className}`}
-      {...props}
-    >
-      {children}
-    </SyntaxHighlighter>
+    <pre className=" whitespace-pre-wrap border p-2 mt-4 rounded-md">
+      <code
+        className={`rounded-lg px-3 mt-2 w-full hideScrollBar language-javascript ${className}`}
+        {...props}
+      >
+        {children}
+      </code>
+    </pre>
   );
 };
 

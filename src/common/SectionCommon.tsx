@@ -1,4 +1,3 @@
-import React from "react";
 import { Tab } from "@/common/Tab";
 import { useClipboard } from "@/hooks/useClipboard";
 import { CodeDisplayCommon } from "./CodeDisplayCommon";

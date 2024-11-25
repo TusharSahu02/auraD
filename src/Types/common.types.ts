@@ -54,3 +54,9 @@ export interface ShowZoomParallaxButton {
 export interface CopyZoomParallaxButton {
   zoomParallax: boolean;
 }
+export interface ShowPerspectiveGridButton {
+  perspectiveGrid: boolean;
+}
+export interface CopyPerspectiveGridButton {
+  perspectiveGrid: boolean;
+}

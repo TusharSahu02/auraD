@@ -13,6 +13,7 @@ import RippleDoc from "@/pages/docs/Components/reactjs/ripple/RippleDoc";
 import NumberFlowDoc from "@/pages/docs/Text/number-flow/NumberFlowDoc";
 import AnimatedTextDoc from "@/pages/docs/Text/animated-text/AnimatedTextDoc";
 import ZoomParallaxDoc from "@/pages/docs/Components/reactjs/zoom-parallax/ZoomParallaxDoc";
+import PerspectiveGridDoc from "@/pages/docs/Components/reactjs/perspective-grid/PerspectiveGridDoc";
 
 export const ComponentMap = {
   introduction: Introduction,
@@ -27,6 +28,7 @@ export const ComponentMap = {
   "number-flow": NumberFlowDoc,
   "animated-text": AnimatedTextDoc,
   "zoom-parallax": ZoomParallaxDoc,
+  "perspective-grid": PerspectiveGridDoc,
   sheet: SheetDoc,
   loader: LoaderTextDoc,
   auth: AuthenticationDoc,

@@ -152,6 +152,12 @@ const ButtonDoc = () => {
                   navigator.clipboard.writeText(codeString);
                   showToast(setCopyCode);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    navigator.clipboard.writeText(codeString);
+                    showToast(setCopyCode);
+                  }
+                }}
               >
                 <CopyCodeToggleIcons copyCode={copyCode} />
               </div>
@@ -164,6 +170,12 @@ const ButtonDoc = () => {
                 onClick={() => {
                   navigator.clipboard.writeText(codeString);
                   showToast(setCopyCode);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    navigator.clipboard.writeText(codeString);
+                    showToast(setCopyCode);
+                  }
                 }}
               >
                 <CopyCodeToggleIcons copyCode={copyCode} />

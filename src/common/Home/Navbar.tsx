@@ -5,7 +5,9 @@ const Navbar = () => {
   return (
     <div className=" py-4 lg:px-10 px-4 flex items-center justify-center border-b border-white/10  bg-[#090716]">
       <div
-        className={`w-[1024px] lg:px-16 flex items-center lg:justify-between justify-center text-white`}
+        className={
+          "w-[1024px] lg:px-16 flex items-center lg:justify-between justify-center text-white"
+        }
       >
         <h1 className="hidden lg:block w-[80px]">
           <img src="/auratypo.svg" alt="" />

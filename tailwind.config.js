@@ -4,9 +4,6 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {
-        royalblue: "#4169e1",
-      },
       fontFamily: {
         geistThin: ["Geist Thin", "sans-serif"],
         geistLight: ["Geist Light", "sans-serif"],
@@ -17,6 +14,14 @@ export default {
         geistBlack: ["Geist Black", "sans-serif"],
       },
       keyframes: {
+        "shiny-text": {
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shiny-width)) 0",
+          },
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shiny-width)) 0",
+          },
+        },
         ripple: {
           "0%, 100%": {
             transform: "translate(-50%, -50%) scale(1)",
@@ -314,6 +319,7 @@ export default {
         shadow3: "shadow 0.5s alternate infinite ease 0.3s",
         "spin-words": "spinWords 8s infinite",
         shimmer: "shimmer 2s infinite",
+        "shiny-text": "shiny-text 8s infinite",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -321,6 +327,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        royalblue: "#4169e1",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

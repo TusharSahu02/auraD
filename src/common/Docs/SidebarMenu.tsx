@@ -61,6 +61,11 @@ const SidebarMenu = () => {
                       <li
                         key={subcategory}
                         onClick={() => setActive(!active)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            setActive(!active);
+                          }
+                        }}
                         className="transition-colors duration-300 px-3 text-gray-500 text-sm hover:border-l-2 border-gray-500 w-max"
                       >
                         <NavLink
@@ -133,6 +138,11 @@ const SidebarMenu = () => {
                         key={subcategory}
                         onClick={() => {
                           setActive(!active);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            setActive(!active);
+                          }
                         }}
                         className="transition-colors duration-300  text-gray-500 text-sm border-gray-500 w-max"
                       >
@@ -223,6 +233,7 @@ const SidebarMenu = () => {
               <a
                 href="https://www.linkedin.com/in/tusharsahu-rgh/"
                 target="_blank"
+                rel="noreferrer"
               >
                 Tushar
               </a>
