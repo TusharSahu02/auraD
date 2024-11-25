@@ -1,7 +1,5 @@
 import type React from "react";
 import { Check, Clipboard } from "lucide-react";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import type { CodeDisplayCommmonProps } from "@/Types/common.types";
 import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 

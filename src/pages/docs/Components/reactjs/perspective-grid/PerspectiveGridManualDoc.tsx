@@ -4,7 +4,6 @@ import {
   getPerspectiveGridImportCodeString,
   getSmoothScrollCodeString,
 } from "@/constants/reactjs/codeString.PerspectiveGrid";
-import { getUtilCodeString } from "@/constants/reactjs/codeString.zoomParallax";
 import { showToast } from "@/lib/utils";
 import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";
 import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
