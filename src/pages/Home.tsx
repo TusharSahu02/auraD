@@ -17,6 +17,7 @@ import {
   TelegramButton,
 } from "@/components/reactjs/atoms/button/CustomButtons";
 import DotPattern from "@/components/reactjs/atoms/pattern/DotPattern";
+import { TextHoverEffect } from "@/components/reactjs/atoms/text/TextHoverEffect";
 // import TailwindCSSIndicator from "@/utils/TailwindCSSIndicator";
 // import PerspectiveGrid from "@/components/reactjs/atoms/perspective-grid/PerspectiveGrid";
 const Home = () => {
@@ -126,13 +127,13 @@ const Home = () => {
               <div className="flex items-center justify-center mt-28">
                 <div className=" xl:w-[70%] 2xl:w-[60%] w-full px-10 grid lg:grid-cols-3 gap-6">
                   {components.map((item, index) => (
-                    <div key={index} className="relative">
+                    <div key={index} className="relative ">
                       <div className="h-[200px] bg-gray-900/20 flex items-center justify-center border border-white/10 rounded-xl">
                         <div className="absolute z-20">{item?.component}</div>
                       </div>
                       <DotPattern
                         className={cn(
-                          "[mask-image:radial-gradient(200px_circle_at_center,white,transparent)]  z-10 "
+                          "[mask-image:radial-gradient(135px_circle_at_center,white,transparent)]  z-10 "
                         )}
                       />
                     </div>
@@ -146,8 +147,6 @@ const Home = () => {
           <div className=" xl:w-[70%] 2xl:w-[60%] mt-[2150px] lg:mt-[800px]">
             <Bento />
           </div>
-
-          {/* <PerspectiveGrid /> */}
 
           <motion.div
             className="w-[80%] flex items-center justify-center my-6"
@@ -166,6 +165,10 @@ const Home = () => {
               </button>
             </Link>
           </motion.div>
+        </div>
+
+        <div className=" pt-10 hidden md:block">
+          <TextHoverEffect text="AURAD" />
         </div>
 
         <motion.h1
