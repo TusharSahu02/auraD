@@ -180,7 +180,7 @@ const Home = () => {
           All rights reserved © 2024 auraD |
           <span className="ml-1">
             <a
-              href="https://github.com/TusharSahu02"
+              href="https://x.com/BuddyHidden"
               target="_blank"
               rel="noopener noreferrer"
               className=" underline text-gray-300 underline-offset-2"
