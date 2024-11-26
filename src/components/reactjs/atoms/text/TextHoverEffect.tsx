@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 export const TextHoverEffect = ({
   text,
-  duration,
 }: {
   text: string;
   duration?: number;
