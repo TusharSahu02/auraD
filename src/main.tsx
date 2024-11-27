@@ -5,6 +5,7 @@ import "./index.css";
 import { ThemeProvider } from "@/common/theme-provider.tsx";
 import { SelectedOptionProvider } from "./context/SelectedOptionContext.tsx";
 import { BrowserRouter } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")!).render(
           </BrowserRouter>
         </SelectedOptionProvider>
       </ThemeProvider>
+      <Analytics />
     </div>
   </StrictMode>
 );
