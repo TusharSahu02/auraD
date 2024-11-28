@@ -55,7 +55,8 @@ const Bento = () => {
               },
             }}
           >
-            <div className=" overflow-hidden h-[200px] w-full rounded-lg bg-gray-600/10"></div>
+            {/* <div className=" overflow-hidden h-[200px] w-full rounded-lg bg-gray-600/10"></div> */}
+            <div className=" overflow-hidden h-[200px] w-full rounded-lg bg-gradient-to-tl from-sky-900 via-zinc-800 to-stone-90" />
             <div className="px-1 group-hover:ml-3   w-full transition-all duration-300">
               <h1 className="text-white">{item.title}</h1>
               <p className="text-white/60">{item.description}</p>
