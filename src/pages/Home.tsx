@@ -18,9 +18,9 @@ import {
 } from "@/components/reactjs/atoms/button/CustomButtons";
 import DotPattern from "@/components/reactjs/atoms/pattern/DotPattern";
 import { TextHoverEffect } from "@/components/reactjs/atoms/text/TextHoverEffect";
+import HomeGridPattern from "@/common/HomeGridPattern";
 import ScrollTranslateHome from "@/components/reactjs/atoms/scroll-translate/ScrollTranslateHome";
-// import TailwindCSSIndicator from "@/utils/TailwindCSSIndicator";
-// import PerspectiveGrid from "@/components/reactjs/atoms/perspective-grid/PerspectiveGrid";
+
 const Home = () => {
   const components = [
     { component: <TelegramButton /> },
@@ -36,7 +36,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-[#090716] w-full min-h-screen relative overflow-x-hidden">
+      <div className="bg-[#090716] w-full min-h-screen relative">
         <Navbar />
         <div className=" py-2 lg:px-10 flex items-center flex-col justify-center z-20 ">
           <div className=" flex px-10 items-center flex-col justify-center pt-24 text-white ">
@@ -66,13 +66,13 @@ const Home = () => {
               </span>
             </AnimatedShinyText>
             {/* <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="text-4xl mt-10 font-geistMedium capitalize"
-            >
-            copy. paste. ship.
-          </motion.p> */}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        className="text-4xl mt-10 font-geistMedium capitalize"
+        >
+        copy. paste. ship.
+      </motion.p> */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -144,6 +144,7 @@ const Home = () => {
             </ZoomParallax>
           </div>
 
+          {/* Scroll Translate GSAP */}
           <div className=" lg:mt-[800px] mt-[2080px]">
             <ScrollTranslateHome />
           </div>
@@ -172,7 +173,6 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* auraD text hover */}
         <div className=" pt-10 hidden md:block">
           <TextHoverEffect text="AURAD" />
         </div>
@@ -197,117 +197,7 @@ const Home = () => {
         </motion.h1>
 
         {/* background pattern designs */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="lg:grid grid-cols-4 hidden  absolute top-[130px] w-full   left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="h-[80px]"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-t border-white/10 border-b h-[80px] col-span-2"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className=" border-white/10  h-[80px]"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-b border-white/10 h-[130px]"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-b border-white/10 h-[130px] col-span-2"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-b border-white/10 h-[130px]"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-b border-white/10 h-60"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-b border-white/10 h-60 col-span-2"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-b border-white/10 h-60"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className=" border-white/10 h-[80px]"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-b border-white/10 rounded-3xl h-[80px] col-span-2"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className=" border-white/20 h-[80px]"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-          className="lg:grid grid-cols-4 hidden  mt-[63px] absolute top-0 w-full  left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // transition={{ duration: 0.3, delay: 0.2 }}
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            className="col-span-2 rounded-b-3xl  border-l border-r border-white/10 grid grid-cols-8 "
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.2 }}
-            />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.2 }}
-              className="border-r  border-l border-white/10 col-span-6"
-            />
-          </motion.div>
-          <div className="h-[596px]" />
-        </motion.div>
+        <HomeGridPattern />
       </div>
       {/* <TailwindCSSIndicator /> */}
     </>

@@ -85,7 +85,7 @@ const ZoomParallax: FC<Props> = ({ children, classes }) => {
           );
         })}
       </div>
-      <div className="h-[100vh] leading-[0]"></div>
+      <div className="h-[100vh] leading-[0]" />
       {children}
     </section>
   );
