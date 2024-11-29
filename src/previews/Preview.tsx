@@ -2,6 +2,7 @@ import ZoomParallax from "@/components/reactjs/atoms/zoom-parallax/ZoomParallax"
 import { useLocation } from "react-router-dom";
 import SmoothScrolling from "../utils/SmoothScrool";
 import PerspectiveGrid from "@/components/reactjs/atoms/perspective-grid/PerspectiveGrid";
+import ScrollTranslate from "@/components/reactjs/atoms/scroll-translate/ScrollTranslate";
 
 interface PathComponents {
   [path: string]: () => JSX.Element;
@@ -67,6 +68,7 @@ const pathComponents: PathComponents = {
       <div className="h-dvh" />
     </>
   ),
+  "scroll-translate": () => <ScrollTranslate />,
 };
 
 const Preview = () => {

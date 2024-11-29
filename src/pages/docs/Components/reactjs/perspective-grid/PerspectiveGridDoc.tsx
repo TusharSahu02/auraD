@@ -36,10 +36,10 @@ const PerspectiveGridDoc = () => {
       </div>
       <PerspectiveGridManualDoc />
       <NavigationButton
-        previousTitle="Ripple"
-        nextTitle="Number Flow"
-        previousLink="/docs/reactjs/components/ripple"
-        nextLink="/docs/reactjs/text/number-flow"
+        previousTitle="Zoom Parallax"
+        nextTitle="Scroll Translate"
+        previousLink="/docs/reactjs/components/zoom-parallax"
+        nextLink="/docs/reactjs/components/scroll-translate"
       />
     </>
   );

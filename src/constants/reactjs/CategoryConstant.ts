@@ -24,6 +24,7 @@ export const CATEGORIES = [
       { name: "Ripple", isNew: false },
       { name: "Zoom Parallax", isNew: true },
       { name: "Perspective Grid", isNew: true },
+      { name: "Scroll Translate", isNew: true },
     ],
   },
   {

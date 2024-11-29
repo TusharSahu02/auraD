@@ -18,6 +18,7 @@ import {
 } from "@/components/reactjs/atoms/button/CustomButtons";
 import DotPattern from "@/components/reactjs/atoms/pattern/DotPattern";
 import { TextHoverEffect } from "@/components/reactjs/atoms/text/TextHoverEffect";
+import ScrollTranslateHome from "@/components/reactjs/atoms/scroll-translate/ScrollTranslateHome";
 // import TailwindCSSIndicator from "@/utils/TailwindCSSIndicator";
 // import PerspectiveGrid from "@/components/reactjs/atoms/perspective-grid/PerspectiveGrid";
 const Home = () => {
@@ -35,7 +36,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-[#090716] w-full min-h-screen relative">
+      <div className="bg-[#090716] w-full min-h-screen relative overflow-x-hidden">
         <Navbar />
         <div className=" py-2 lg:px-10 flex items-center flex-col justify-center z-20 ">
           <div className=" flex px-10 items-center flex-col justify-center pt-24 text-white ">
@@ -143,8 +144,12 @@ const Home = () => {
             </ZoomParallax>
           </div>
 
+          <div className=" lg:mt-[800px] mt-[2080px]">
+            <ScrollTranslateHome />
+          </div>
+
           {/* bento grid components */}
-          <div className=" xl:w-[70%] 2xl:w-[60%] mt-[2150px] lg:mt-[800px]">
+          <div className=" xl:w-[70%] 2xl:w-[60%] px-2">
             <Bento />
           </div>
 
@@ -167,6 +172,7 @@ const Home = () => {
           </motion.div>
         </div>
 
+        {/* auraD text hover */}
         <div className=" pt-10 hidden md:block">
           <TextHoverEffect text="AURAD" />
         </div>

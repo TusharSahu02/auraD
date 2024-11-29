@@ -47,9 +47,9 @@ const NumberFlowDoc = () => {
       </div>
       <ManualNFDoc />
       <NavigationButton
-        previousTitle="Ripple"
+        previousTitle="Scroll Translate"
         nextTitle="Auth"
-        previousLink="/docs/reactjs/components/ripple"
+        previousLink="/docs/reactjs/components/scroll-translate"
         nextLink="/docs/reactjs/molecules/auth"
       />
     </>

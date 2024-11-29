@@ -37,9 +37,9 @@ const ZoomParallaxDoc = () => {
       <ZoomParallaxManualDoc />
       <NavigationButton
         previousTitle="Ripple"
-        nextTitle="Number Flow"
+        nextTitle="Perspective Grid"
         previousLink="/docs/reactjs/components/ripple"
-        nextLink="/docs/reactjs/text/number-flow"
+        nextLink="/docs/reactjs/components/perspective-grid"
       />
     </>
   );

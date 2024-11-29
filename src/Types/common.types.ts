@@ -60,3 +60,9 @@ export interface ShowPerspectiveGridButton {
 export interface CopyPerspectiveGridButton {
   perspectiveGrid: boolean;
 }
+export interface ScrollTranslateButton {
+  scrollTranslate: boolean;
+}
+export interface ScrollTranslateButton {
+  scrollTranslate: boolean;
+}

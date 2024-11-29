@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { ShowState } from "../../Types/Reactjs/input.types";
 import type { ShowStateAuth } from "@/Types/Reactjs/auth.types";
 import type {
+  ScrollTranslateButton,
   ShowAnimatedNumberButton,
   ShowNumberButton,
   ShowPerspectiveGridButton,
@@ -52,6 +53,9 @@ const initialZoomParallaxState: ShowZoomParallaxButton = {
 };
 const perspectiveGridState: ShowPerspectiveGridButton = {
   perspectiveGrid: true,
+};
+const scrollTranslateState: ScrollTranslateButton = {
+  scrollTranslate: true,
 };
 
 export const useTabState = () => {
@@ -132,6 +136,18 @@ export const usePerspectiveGridTabState = () => {
   const [show, setShow] =
     useState<ShowPerspectiveGridButton>(perspectiveGridState);
   const toggleTab = (key: keyof ShowPerspectiveGridButton) => {
+    setShow((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  return { show, toggleTab };
+};
+
+export const useScrollTranslateTabState = () => {
+  const [show, setShow] = useState<ScrollTranslateButton>(scrollTranslateState);
+  const toggleTab = (key: keyof ScrollTranslateButton) => {
     setShow((prev) => ({
       ...prev,
       [key]: !prev[key],

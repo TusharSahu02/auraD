@@ -14,6 +14,7 @@ import NumberFlowDoc from "@/pages/docs/Text/number-flow/NumberFlowDoc";
 import AnimatedTextDoc from "@/pages/docs/Text/animated-text/AnimatedTextDoc";
 import ZoomParallaxDoc from "@/pages/docs/Components/reactjs/zoom-parallax/ZoomParallaxDoc";
 import PerspectiveGridDoc from "@/pages/docs/Components/reactjs/perspective-grid/PerspectiveGridDoc";
+import ScrollTranslateDoc from "@/pages/docs/Components/reactjs/scroll-translate/ScrollTranslateDoc";
 
 export const ComponentMap = {
   introduction: Introduction,
@@ -29,6 +30,7 @@ export const ComponentMap = {
   "animated-text": AnimatedTextDoc,
   "zoom-parallax": ZoomParallaxDoc,
   "perspective-grid": PerspectiveGridDoc,
+  "scroll-translate": ScrollTranslateDoc,
   sheet: SheetDoc,
   loader: LoaderTextDoc,
   auth: AuthenticationDoc,
