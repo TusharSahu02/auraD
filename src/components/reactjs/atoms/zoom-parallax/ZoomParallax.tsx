@@ -23,9 +23,10 @@ const ZoomParallax: FC<Props> = ({ children, classes }) => {
 
   const pictures = [
     {
-      src: "https://wallpapercave.com/wp/3i6dLrF.jpg",
+      src: "https://res.cloudinary.com/dnbsn9kwr/video/upload/v1732951960/1_-_Made_with_Clipchamp_iwkkzw.mp4",
       scale: scale1,
       classes: "relative w-[25%] h-[25%]",
+      isVideo: true,
     },
     {
       src: "https://images.unsplash.com/photo-1561905199-e7adfe8aa7d1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -67,19 +68,29 @@ const ZoomParallax: FC<Props> = ({ children, classes }) => {
       className={cn("relative h-[200vh] w-full", classes)}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        {pictures.map(({ src, scale, classes }, index) => {
+        {pictures.map((picture, index) => {
           return (
             <motion.div
               key={index}
-              style={{ scale }}
+              style={{ scale: picture.scale }}
               className="absolute top-0 flex h-full w-full items-center justify-center"
             >
-              <div className={classes}>
-                <img
-                  src={src}
-                  alt="image"
-                  className="h-full w-full object-cover"
-                />
+              <div className={picture.classes}>
+                {picture.isVideo ? (
+                  <video
+                    src={picture.src}
+                    autoPlay
+                    muted
+                    loop
+                    className=" h-full w-full object-cover "
+                  />
+                ) : (
+                  <img
+                    src={picture.src}
+                    alt="image"
+                    className="h-full w-full object-cover"
+                  />
+                )}
               </div>
             </motion.div>
           );
