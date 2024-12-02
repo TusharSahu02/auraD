@@ -7,17 +7,21 @@ import { SelectedOptionProvider } from "./context/SelectedOptionContext.tsx";
 import { BrowserRouter } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
+import { HelmetProvider } from "react-helmet-async";
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <div className=" font-geistRegular h-full">
+    <div className="h-full font-geistRegular">
       <ThemeProvider defaultTheme="dark" storageKey="aurad-theme">
         <SelectedOptionProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <HelmetProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </HelmetProvider>
         </SelectedOptionProvider>
       </ThemeProvider>
       <Analytics />
     </div>
-  </StrictMode>
+  </StrictMode>,
 );

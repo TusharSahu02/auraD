@@ -1,5 +1,3 @@
-// import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { useEffect } from "react";
 import hljs from "highlight.js";
 import "highlight.js/styles/github-dark.css";
@@ -18,9 +16,9 @@ const SyntaxHighlighterWrapper = ({
     hljs.highlightAll();
   }, []);
   return (
-    <pre className=" whitespace-pre-wrap border p-2 mt-4 rounded-md">
+    <pre className="mt-4 whitespace-pre-wrap rounded-md border">
       <code
-        className={`rounded-lg px-3 mt-2 w-full hideScrollBar language-javascript ${className}`}
+        className={`hideScrollBar language-javascript mt-0 w-full rounded-lg px-3 ${className}`}
         {...props}
       >
         {children}

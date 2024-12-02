@@ -4,19 +4,20 @@ import { ComponentMap } from "../constants/reactjs/ComponentMap";
 import { ChevronRight } from "lucide-react";
 import { ReactNativeComponentMap } from "@/constants/react-native/ReactNativeComponentMap";
 import { replaceHyphensWithSpaces } from "@/lib/utils";
+import { Helmet } from "react-helmet-async";
 
 type ComponentMapType = typeof ComponentMap;
 type ReactNativeComponentMapType = typeof ReactNativeComponentMap;
 
 const LazyFallback = () => (
-  <div className="text-center py-10">Loading component...</div>
+  <div className="py-10 text-center">Loading component...</div>
 );
 
 const Category = () => {
   const location = useLocation();
   const selectedOption = useMemo(
     () => location.pathname.split("/")[2],
-    [location]
+    [location],
   );
 
   const { category, subcategory, instruction } = useParams<{
@@ -32,28 +33,28 @@ const Category = () => {
   // Lazy loading components to optimize load time
   const SubcategoryComponent = useMemo(
     () => getComponent(ComponentMap, subcategory),
-    [subcategory]
+    [subcategory],
   );
   const InstructionComponent = useMemo(
     () => getComponent(ComponentMap, instruction),
-    [instruction]
+    [instruction],
   );
 
   const ReactNativeSubcategoryComponent = useMemo(
     () =>
       getComponent(
         ReactNativeComponentMap,
-        subcategory as keyof ReactNativeComponentMapType
+        subcategory as keyof ReactNativeComponentMapType,
       ),
-    [subcategory]
+    [subcategory],
   );
   const ReactNativeInstructionComponent = useMemo(
     () =>
       getComponent(
         ReactNativeComponentMap,
-        instruction as keyof ReactNativeComponentMapType
+        instruction as keyof ReactNativeComponentMapType,
       ),
-    [instruction]
+    [instruction],
   );
 
   const contentRef = useRef<HTMLDivElement>(null);
@@ -62,14 +63,33 @@ const Category = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [category, subcategory, instruction]);
 
+  const generateMetadata = () => {
+    const isReactNative = selectedOption === "react-native";
+    const baseTitle = isReactNative ? "React Native" : "React.js";
+    const baseDescription = `${baseTitle} documentation and guides`;
+
+    let title = `${baseTitle} Documentation`;
+    let description = baseDescription;
+
+    // Prioritize instruction over subcategory
+    const currentItem = instruction || subcategory;
+    if (currentItem) {
+      const formattedItem = replaceHyphensWithSpaces(currentItem);
+      title = `${formattedItem.charAt(0).toUpperCase() + formattedItem.slice(1)} | ${baseTitle} Documentation`;
+      description = `Detailed guide and documentation for ${formattedItem} in ${baseTitle}`;
+    }
+
+    return { title, description };
+  };
+
   const renderComponent = (subtitle: string | undefined) => (
-    <div className="flex gap-x-1 justify-start items-center">
-      <p className="capitalize text-gray-500 text-sm">{category ?? "Docs"}</p>
+    <div className="flex items-center justify-start gap-x-1">
+      <p className="text-sm capitalize text-gray-500">{category ?? "Docs"}</p>
       <ChevronRight
-        className="w-[16px] text-gray-500 text-sm"
+        className="w-[16px] text-sm text-gray-500"
         aria-hidden="true"
       />
-      <p className="capitalize text-sm">
+      <p className="text-sm capitalize">
         {replaceHyphensWithSpaces(subtitle ?? "")}
       </p>
     </div>
@@ -86,12 +106,23 @@ const Category = () => {
       : InstructionComponent;
 
     if (SubcategoryToRender || InstructionToRender) {
+      const { title, description } = generateMetadata();
       return (
         <>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            <link
+              rel="canonical"
+              href={`https://aurad.vercel.app/${location.pathname}`}
+            />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+          </Helmet>
           {SubcategoryToRender && (
             <div>
               {renderComponent(subcategory)}
-              <h1 className="capitalize text-6xl font-black">
+              <h1 className="text-6xl font-black capitalize">
                 {replaceHyphensWithSpaces(subcategory ?? "")}
               </h1>
               <Suspense fallback={<LazyFallback />}>
@@ -102,7 +133,7 @@ const Category = () => {
           {InstructionToRender && (
             <div>
               {renderComponent(instruction)}
-              <h1 className="capitalize text-6xl font-black mb-1">
+              <h1 className="mb-1 text-6xl font-black capitalize">
                 {instruction}
               </h1>
               <Suspense fallback={<LazyFallback />}>
@@ -115,7 +146,7 @@ const Category = () => {
     }
 
     return (
-      <div className="w-full flex items-center justify-center py-20">
+      <div className="flex w-full items-center justify-center py-20">
         <p className="text-center text-gray-600">
           This component is currently under development. Follow us for updates:
           <br />

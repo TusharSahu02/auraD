@@ -11,7 +11,7 @@ import Tooltip from "./components/reactjs/atoms/Tooltip";
 import BugReport from "./pages/docs/BugReport";
 import Test from "./test/Test";
 import Preview from "./previews/Preview";
-import SmoothScrolling from "./utils/SmoothScrool";
+import SmoothScrolling from "./utils/SmoothScroll";
 
 function App() {
   // Set the default theme in localStorage if not already set

@@ -1,6 +1,6 @@
 import ZoomParallax from "@/components/reactjs/atoms/zoom-parallax/ZoomParallax";
 import { useLocation } from "react-router-dom";
-import SmoothScrolling from "../utils/SmoothScrool";
+import SmoothScrolling from "../utils/SmoothScroll";
 import PerspectiveGrid from "@/components/reactjs/atoms/perspective-grid/PerspectiveGrid";
 import ScrollTranslate from "@/components/reactjs/atoms/scroll-translate/ScrollTranslate";
 
@@ -62,8 +62,8 @@ const pathComponents: PathComponents = {
   "perspective-grid": () => (
     <>
       <PerspectiveGrid />
-      <div className=" flex items-center justify-center">
-        <h1 className=" text-center">Your Content Goes Here</h1>
+      <div className="flex items-center justify-center">
+        <h1 className="text-center">Your Content Goes Here</h1>
       </div>
       <div className="h-dvh" />
     </>
