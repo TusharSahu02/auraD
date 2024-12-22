@@ -4,24 +4,27 @@ import {
   getPerspectiveGridImportCodeString,
   getSmoothScrollCodeString,
 } from "@/constants/reactjs/codeString.PerspectiveGrid";
+import {
+  getTextParallaxImportCodeString,
+  getTextParallaxLenisCodeString,
+} from "@/constants/reactjs/codeString.TextParallax";
 import { showToast } from "@/lib/utils";
 import CopyCodeToggleIcons from "@/utils/CopyCodeToggleIcons";
 import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 import { SquareArrowOutUpRight } from "lucide-react";
 import { useState } from "react";
 
-const PerspectiveGridManualDoc = () => {
+const TextParallaxManualDoc = () => {
   const [copy, setCopy] = useState(false);
   const [copy2, setCopy2] = useState(false);
   const [copy3, setCopy3] = useState(false);
   const [copy4, setCopy4] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
-  const zoomParallaxCodeString = getPerspectiveGridCodeString();
+  const scrollTranslateCodeString = getTextParallaxImportCodeString();
   const utilsCodeString = getSmoothScrollCodeString();
-  const importCodeString = getPerspectiveGridImportCodeString();
+  const importCodeString = getTextParallaxLenisCodeString();
 
-  const gsapCodeString = "npm i gsap @gsap/react";
-
+  const gsapCodeString = "npm i framer-motion";
   return (
     <div>
       <Button
@@ -34,19 +37,21 @@ const PerspectiveGridManualDoc = () => {
           const left = (screenWidth - width) / 2;
           const top = (screenHeight - height) / 2;
           window.open(
-            "/preview/perspective-grid",
+            "/preview/text-parallax",
             "_blank",
             `width=${width},height=${height},left=${left},top=${top}`,
           );
         }}
-        className="mt-5 w-full"
+        className="mt-0 w-full"
         iconPosition="right"
         iconSize="small"
         icon={<SquareArrowOutUpRight />}
       >
         Preview
       </Button>
+
       <h2 className="mt-10 border-b pb-2 text-2xl font-medium">Manually</h2>
+
       <div className="mt-4">
         <div className="flex items-start justify-center gap-2 border-l border-gray-500">
           <div className="h-full border-l lg:w-[20px]">
@@ -84,12 +89,12 @@ const PerspectiveGridManualDoc = () => {
           </div>
           <div className="w-full">
             <h1 className="text-lg font-medium" id="manualZoomParallaxDoc">
-              Add PerspectiveGrid.tsx File
+              Add TextParallax.tsx File
             </h1>
 
             <p className="mt-3">
               <kbd className="rounded-md bg-gray-200 px-2 py-1 dark:bg-gray-800">
-                src/components/PerspectiveGrid.tsx
+                src/components/TextParallax.tsx
               </kbd>
             </p>
             {!seeAll ? (
@@ -97,12 +102,12 @@ const PerspectiveGridManualDoc = () => {
                 <div
                   className="absolute right-3 top-8 z-20 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                   onClick={() => {
-                    navigator.clipboard.writeText(zoomParallaxCodeString);
+                    navigator.clipboard.writeText(scrollTranslateCodeString);
                     showToast(setCopy2);
                   }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
-                      navigator.clipboard.writeText(zoomParallaxCodeString);
+                      navigator.clipboard.writeText(scrollTranslateCodeString);
                       showToast(setCopy2);
                     }
                   }}
@@ -111,7 +116,7 @@ const PerspectiveGridManualDoc = () => {
                 </div>
                 <div className="relative">
                   <SyntaxHighlighterWrapper className="h-[500px] text-sm">
-                    {zoomParallaxCodeString}
+                    {scrollTranslateCodeString}
                   </SyntaxHighlighterWrapper>
                 </div>
                 <div className="absolute left-0 top-0 z-10 h-full w-full rounded-lg bg-gradient-to-b from-transparent to-black/80" />
@@ -137,12 +142,14 @@ const PerspectiveGridManualDoc = () => {
                   <div
                     className="absolute right-3 top-3 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                     onClick={() => {
-                      navigator.clipboard.writeText(zoomParallaxCodeString);
+                      navigator.clipboard.writeText(scrollTranslateCodeString);
                       showToast(setCopy2);
                     }}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
-                        navigator.clipboard.writeText(zoomParallaxCodeString);
+                        navigator.clipboard.writeText(
+                          scrollTranslateCodeString,
+                        );
                         showToast(setCopy2);
                       }
                     }}
@@ -151,7 +158,7 @@ const PerspectiveGridManualDoc = () => {
                   </div>
 
                   <SyntaxHighlighterWrapper className="h-[700px] text-sm">
-                    {zoomParallaxCodeString}
+                    {scrollTranslateCodeString}
                   </SyntaxHighlighterWrapper>
                 </div>
                 <div className="mt-3 flex items-center justify-center">
@@ -247,4 +254,4 @@ const PerspectiveGridManualDoc = () => {
   );
 };
 
-export default PerspectiveGridManualDoc;
+export default TextParallaxManualDoc;

@@ -77,6 +77,13 @@ const LoadersDoc = () => {
             }`}
             onClick={() => setShow({ ...show, [id]: true })}
             tabIndex={0}
+            aria-selected={show[id]}
+            role="tab"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setShow({ ...show, [id]: true });
+              }
+            }}
           >
             Preview
           </div>
@@ -86,15 +93,27 @@ const LoadersDoc = () => {
             }`}
             onClick={() => setShow({ ...show, [id]: false })}
             tabIndex={0}
+            aria-selected={!show[id]}
+            role="tab"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setShow({ ...show, [id]: false });
+              }
+            }}
           >
             Code
           </div>
         </div>
         {show[id] ? (
-          <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
+          <div className="relative mt-5 flex h-[300px] w-full items-center justify-center rounded-lg border border-gray-300 dark:border-gray-800 lg:h-[400px]">
             <div
-              className="absolute top-3 right-3 size-7 hover:bg-gray-100 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+              className="absolute right-3 top-3 flex size-7 cursor-pointer items-center justify-center rounded-md border p-[6px] transition-all duration-300 hover:bg-gray-100"
               onClick={() => handleCopy(id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleCopy(id);
+                }
+              }}
             >
               {copy[id] ? <Check /> : <Clipboard />}
             </div>
@@ -103,8 +122,13 @@ const LoadersDoc = () => {
         ) : (
           <div className="relative">
             <div
-              className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+              className="absolute right-3 top-3 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
               onClick={() => handleCopy(id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleCopy(id);
+                }
+              }}
             >
               {copy[id] ? (
                 <Check className="text-white" />
@@ -115,7 +139,7 @@ const LoadersDoc = () => {
             <SyntaxHighlighter
               language="tsx"
               style={atomOneDark}
-              className="rounded-lg p-5 mt-5 w-full customScrollBarHorizonalal"
+              className="customScrollBarHorizonalal mt-5 w-full rounded-lg p-5"
             >
               {codeString}
             </SyntaxHighlighter>

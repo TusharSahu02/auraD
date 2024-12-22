@@ -21,7 +21,7 @@ const PerspectiveGridDoc = () => {
       <p className="text-gray-500">
         Displays a animated perspective grid using GSAP and lenis
       </p>
-      <div className=" relative">
+      <div className="relative">
         {sections.map(({ title, key, component, codeString }) => (
           <SectionCommon
             key={key}
@@ -34,7 +34,9 @@ const PerspectiveGridDoc = () => {
           />
         ))}
       </div>
-      <PerspectiveGridManualDoc />
+      <div className="mt-5">
+        <PerspectiveGridManualDoc />
+      </div>
       <NavigationButton
         previousTitle="Zoom Parallax"
         nextTitle="Scroll Translate"

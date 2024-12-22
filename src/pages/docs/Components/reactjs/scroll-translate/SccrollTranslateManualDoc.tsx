@@ -36,10 +36,10 @@ const ScrollTranslateManualDoc = () => {
           window.open(
             "/preview/scroll-translate",
             "_blank",
-            `width=${width},height=${height},left=${left},top=${top}`
+            `width=${width},height=${height},left=${left},top=${top}`,
           );
         }}
-        className=" w-full mt-5"
+        className="mt-5 w-full"
         iconPosition="right"
         iconSize="small"
         icon={<SquareArrowOutUpRight />}
@@ -47,18 +47,18 @@ const ScrollTranslateManualDoc = () => {
         Preview
       </Button>
 
-      <h2 className="font-medium mt-10 border-b pb-2 text-2xl">Manually</h2>
+      <h2 className="mt-10 border-b pb-2 text-2xl font-medium">Manually</h2>
 
       <div className="mt-4">
         <div className="flex items-start justify-center gap-2 border-l border-gray-500">
-          <div className="lg:w-[20px] border-l h-full">
-            <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] " />
+          <div className="h-full border-l lg:w-[20px]">
+            <div className="-ml-[1px] h-[30px] w-[5px] rounded-r-[10px] rounded-br-[10px] bg-gray-500" />
           </div>
           <div className="w-full">
             <h1 className="text-lg font-medium">Install dependencies</h1>
-            <div className="relative overflow-hidden mb-3">
+            <div className="relative mb-3 overflow-hidden">
               <div
-                className="absolute top-7 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex z-20 items-center p-[6px] cursor-pointer justify-center rounded-md"
+                className="absolute right-3 top-7 z-20 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                 onClick={() => {
                   navigator.clipboard.writeText(gsapCodeString);
                   showToast(setCopy);
@@ -73,16 +73,16 @@ const ScrollTranslateManualDoc = () => {
                 <CopyCodeToggleIcons copyCode={copy} />
               </div>
               <div className="relative">
-                <SyntaxHighlighterWrapper className="rounded-md w-full   mt-1  text-sm md:text-md">
+                <SyntaxHighlighterWrapper className="md:text-md mt-1 w-full rounded-md text-sm">
                   {gsapCodeString}
                 </SyntaxHighlighterWrapper>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex items-start pt-5 justify-center  gap-2 border-l border-gray-500">
-          <div className="lg:w-[20px] border-l h-full">
-            <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] " />
+        <div className="flex items-start justify-center gap-2 border-l border-gray-500 pt-5">
+          <div className="h-full border-l lg:w-[20px]">
+            <div className="-ml-[1px] h-[30px] w-[5px] rounded-r-[10px] rounded-br-[10px] bg-gray-500" />
           </div>
           <div className="w-full">
             <h1 className="text-lg font-medium" id="manualZoomParallaxDoc">
@@ -90,14 +90,14 @@ const ScrollTranslateManualDoc = () => {
             </h1>
 
             <p className="mt-3">
-              <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-md">
+              <kbd className="rounded-md bg-gray-200 px-2 py-1 dark:bg-gray-800">
                 src/components/ScrollTranslate.tsx
               </kbd>
             </p>
             {!seeAll ? (
               <div className="relative overflow-hidden">
                 <div
-                  className="absolute top-8 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex z-20 items-center p-[6px] cursor-pointer justify-center rounded-md"
+                  className="absolute right-3 top-8 z-20 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                   onClick={() => {
                     navigator.clipboard.writeText(scrollTranslateCodeString);
                     showToast(setCopy2);
@@ -116,7 +116,7 @@ const ScrollTranslateManualDoc = () => {
                     {scrollTranslateCodeString}
                   </SyntaxHighlighterWrapper>
                 </div>
-                <div className="absolute h-full w-full z-10 top-0 left-0 bg-gradient-to-b from-transparent rounded-lg to-black/80" />
+                <div className="absolute left-0 top-0 z-10 h-full w-full rounded-lg bg-gradient-to-b from-transparent to-black/80" />
                 <h1
                   onClick={() => {
                     setSeeAll(true);
@@ -126,7 +126,7 @@ const ScrollTranslateManualDoc = () => {
                       setSeeAll(true);
                     }
                   }}
-                  className="text-gray-400 absolute bottom-5 left-1/2 -translate-x-1/2 z-10 cursor-pointer hover:underline "
+                  className="absolute bottom-5 left-1/2 z-10 -translate-x-1/2 cursor-pointer text-gray-400 hover:underline"
                 >
                   <Button variant="ghost" className="text-white">
                     See more
@@ -137,7 +137,7 @@ const ScrollTranslateManualDoc = () => {
               <>
                 <div className="relative">
                   <div
-                    className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                    className="absolute right-3 top-3 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                     onClick={() => {
                       navigator.clipboard.writeText(scrollTranslateCodeString);
                       showToast(setCopy2);
@@ -145,7 +145,7 @@ const ScrollTranslateManualDoc = () => {
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
                         navigator.clipboard.writeText(
-                          scrollTranslateCodeString
+                          scrollTranslateCodeString,
                         );
                         showToast(setCopy2);
                       }
@@ -158,7 +158,7 @@ const ScrollTranslateManualDoc = () => {
                     {scrollTranslateCodeString}
                   </SyntaxHighlighterWrapper>
                 </div>
-                <div className="flex items-center justify-center mt-3 ">
+                <div className="mt-3 flex items-center justify-center">
                   <Button
                     variant="ghost"
                     onClick={() => {
@@ -172,9 +172,9 @@ const ScrollTranslateManualDoc = () => {
             )}
           </div>
         </div>
-        <div className="flex items-start pt-5 justify-center  gap-2 border-l border-gray-500">
-          <div className="lg:w-[20px] border-l h-full">
-            <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] " />
+        <div className="flex items-start justify-center gap-2 border-l border-gray-500 pt-5">
+          <div className="h-full border-l lg:w-[20px]">
+            <div className="-ml-[1px] h-[30px] w-[5px] rounded-r-[10px] rounded-br-[10px] bg-gray-500" />
           </div>
           <div className="w-full">
             <h1 className="text-lg font-medium">
@@ -182,13 +182,13 @@ const ScrollTranslateManualDoc = () => {
             </h1>
 
             <p className="mt-3">
-              <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-md">
+              <kbd className="rounded-md bg-gray-200 px-2 py-1 dark:bg-gray-800">
                 @/lib/utils/SmoothScrolling.tsx
               </kbd>
             </p>
             <div className="relative overflow-hidden">
               <div
-                className="absolute top-8 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex z-20 items-center p-[6px] cursor-pointer justify-center rounded-md"
+                className="absolute right-3 top-8 z-20 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                 onClick={() => {
                   navigator.clipboard.writeText(utilsCodeString);
                   showToast(setCopy3);
@@ -203,28 +203,28 @@ const ScrollTranslateManualDoc = () => {
                 <CopyCodeToggleIcons copyCode={copy3} />
               </div>
               <div className="relative">
-                <SyntaxHighlighterWrapper className="h-[170px]  text-sm md:text-md">
+                <SyntaxHighlighterWrapper className="md:text-md h-[170px] text-sm">
                   {utilsCodeString}
                 </SyntaxHighlighterWrapper>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex items-start pt-5 justify-center  gap-2 border-l border-gray-500">
-          <div className="lg:w-[20px] border-l h-full">
-            <div className=" w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px] " />
+        <div className="flex items-start justify-center gap-2 border-l border-gray-500 pt-5">
+          <div className="h-full border-l lg:w-[20px]">
+            <div className="-ml-[1px] h-[30px] w-[5px] rounded-r-[10px] rounded-br-[10px] bg-gray-500" />
           </div>
           <div className="w-full">
             <h1 className="text-lg font-medium">Now Import the file</h1>
 
             <p className="mt-3">
-              <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-md">
+              <kbd className="rounded-md bg-gray-200 px-2 py-1 dark:bg-gray-800">
                 lenis helps you to add smooth scrolling to your website
               </kbd>
             </p>
             <div className="relative overflow-hidden">
               <div
-                className="absolute top-8 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex z-20 items-center p-[6px] cursor-pointer justify-center rounded-md"
+                className="absolute right-3 top-8 z-20 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                 onClick={() => {
                   navigator.clipboard.writeText(importCodeString);
                   showToast(setCopy4);
@@ -239,7 +239,7 @@ const ScrollTranslateManualDoc = () => {
                 <CopyCodeToggleIcons copyCode={copy4} />
               </div>
               <div className="relative">
-                <SyntaxHighlighterWrapper className="h-[170px]  text-sm md:text-md">
+                <SyntaxHighlighterWrapper className="md:text-md h-[170px] text-sm">
                   {importCodeString}
                 </SyntaxHighlighterWrapper>
               </div>

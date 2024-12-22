@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import Bento from "@/components/reactjs/atoms/Bento";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { getBentoCodeString } from "@/constants/reactjs/CodeString";
 import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
 
-const BentoDoc: React.FC = () => {
+const BentoDoc: React.FC = memo(() => {
   const [copyStates, setCopyStates] = useState({ code: false, framer: false });
 
   const codeString: string = getBentoCodeString();
@@ -59,9 +59,8 @@ const BentoDoc: React.FC = () => {
           (title, index) => (
             <div
               key={index}
-              className={`flex items-start justify-center gap-2 border-l border-gray-500 ${
-                index > 0 && "pt-4"
-              }`}
+              className={`flex items-start justify-center gap-2 border-l border-gray-500 ${index > 0 && "pt-4"
+                }`}
             >
               <div className="w-[15px] border-l h-full">
                 <div className="w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px]" />
@@ -105,6 +104,6 @@ const BentoDoc: React.FC = () => {
       />
     </>
   );
-};
+});
 
 export default BentoDoc;

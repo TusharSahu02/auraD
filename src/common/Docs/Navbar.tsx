@@ -63,21 +63,19 @@ const Navbar = () => {
   if (pathname === "/" || pathname === "/test" || pathname.includes("preview"))
     return null;
 
-  // TODO : make the navbar tab highlighed based on the links active
-
   return (
     <div
       className={
-        " flex items-center bg-[#090716] justify-center py-4 lg:py-0 md:py-5 border-b fixed z-10 top-0 w-full backdrop-blur-sm "
+        "fixed top-0 z-10 flex w-full items-center justify-center border-b bg-[#090716] py-4 backdrop-blur-sm md:py-5 lg:py-0"
       }
     >
-      <div className="xl:container flex items-center justify-between w-full px-4 lg:px-10 ">
-        <div className="flex gap-x-6 items-center">
+      <div className="flex w-full items-center justify-between px-4 xl:container lg:px-10">
+        <div className="flex items-center gap-x-6">
           <Link to="/" className="w-[70px]">
-            <img src="/auratypo.svg" alt="" className="dark:hidden invert" />
+            <img src="/auratypo.svg" alt="" className="invert dark:hidden" />
             <img src="/auratypo.svg" alt="" className="hidden dark:block" />
           </Link>
-          <div className="hidden lg:block ml-7">
+          <div className="ml-7 hidden lg:block">
             <ul className="flex items-center gap-x-6">
               <Link
                 to={`/docs/${
@@ -87,7 +85,7 @@ const Navbar = () => {
                   location.pathname.includes(
                     selectedOption === "react-js"
                       ? "docs/reactjs"
-                      : "docs/react-native"
+                      : "docs/react-native",
                   ) && !location.pathname.includes("/components")
                     ? "text-sm text-white"
                     : "text-sm text-white"
@@ -103,7 +101,7 @@ const Navbar = () => {
                   location.pathname.includes(
                     selectedOption === "react-js"
                       ? "docs/reactjs/components"
-                      : "docs/react-native/components"
+                      : "docs/react-native/components",
                   )
                     ? "text-sm text-white"
                     : "text-sm text-white"
@@ -124,7 +122,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <div className="lg:flex items-center gap-x-3 hidden relative">
+        <div className="relative hidden items-center gap-x-3 lg:flex">
           <ToogleJsToNative active={active} setActive={setActive} />
 
           {/* <div className=" border dark:bg-gray-400/30 bg-gray-100/70 rounded-lg px-3 flex items-center ">
@@ -183,7 +181,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-x-2">
             <a href="https://x.com/auraD_UI" target="_blank" rel="noreferrer">
-              <FaXTwitter className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white  transition-colors duration-300" />
+              <FaXTwitter className="size-5 cursor-pointer text-gray-500 transition-colors duration-300 hover:text-black dark:hover:text-white" />
             </a>
             <a
               // href="https://www.linkedin.com/company/aura-d"
@@ -191,14 +189,14 @@ const Navbar = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
+              <FaLinkedinIn className="size-5 cursor-pointer text-gray-500 transition-colors duration-300 hover:text-black dark:hover:text-white" />
             </a>
             <a
               href="https://github.com/aura-desgins"
               target="_blank"
               rel="noreferrer"
             >
-              <Github className="size-5 cursor-pointer text-gray-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
+              <Github className="size-5 cursor-pointer text-gray-500 transition-colors duration-300 hover:text-black dark:hover:text-white" />
             </a>
           </div>
           {/* <ModeToggle /> */}

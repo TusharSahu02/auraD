@@ -1,8 +1,10 @@
 import path from "path";
 import react from "@vitejs/plugin-react";
+// import MillionLint from "@million/lint";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  // plugins: [react(), MillionLint.vite()],
   plugins: [react()],
   resolve: {
     alias: {

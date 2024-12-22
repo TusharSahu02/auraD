@@ -82,7 +82,7 @@ const Button: React.FC<Props> = ({
         "text-black dark:text-white",
         "bg-transparent",
         "hover:bg-gray-200 dark:hover:bg-gray-900",
-        "hover:bg-opacity-60"
+        "hover:bg-opacity-60",
       );
       break;
     case "outline":
@@ -91,7 +91,7 @@ const Button: React.FC<Props> = ({
         "border",
         "bg-transparent",
         "hover:bg-gray-200 dark:hover:bg-gray-900",
-        "hover:bg-opacity-60"
+        "hover:bg-opacity-60",
       );
       break;
     case "destructive":
@@ -110,7 +110,7 @@ const Button: React.FC<Props> = ({
         "py-2",
         "rounded-full",
         "group",
-        "bg-transparent"
+        "bg-transparent",
       );
       break;
     default:
@@ -122,10 +122,10 @@ const Button: React.FC<Props> = ({
     <span
       className={
         iconSize === "small"
-          ? "w-4 h-4 flex items-center justify-center"
+          ? "flex h-4 w-4 items-center justify-center"
           : iconSize === "medium"
-          ? "w-6 h-6 flex items-center justify-center"
-          : "w-8 h-8 flex items-center justify-center"
+            ? "flex h-6 w-6 items-center justify-center"
+            : "flex h-8 w-8 items-center justify-center"
       }
     >
       {icon}
@@ -150,14 +150,14 @@ const Button: React.FC<Props> = ({
     >
       {variant === "animation" ? (
         <>
-          <span className="absolute inset-x-0 w-1/2 mx-auto transition-opacity duration-300 -top-px bg-gradient-to-r opacity-0 group-hover:opacity-100 from-transparent dark:via-blue-500 via-green-500 to-transparent h-px" />
+          <span className="absolute inset-x-0 -top-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:via-blue-500" />
           <span>{children}</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent dark:via-blue-500 via-green-400 to-transparent h-px" />
+          <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-green-400 to-transparent dark:via-blue-500" />
         </>
       ) : loading ? (
         <span className="flex items-center">
           <svg
-            className="animate-spin h-5 w-5 text-white"
+            className="h-5 w-5 animate-spin text-white"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

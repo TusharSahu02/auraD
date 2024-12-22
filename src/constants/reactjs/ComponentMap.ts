@@ -15,6 +15,8 @@ import AnimatedTextDoc from "@/pages/docs/Text/animated-text/AnimatedTextDoc";
 import ZoomParallaxDoc from "@/pages/docs/Components/reactjs/zoom-parallax/ZoomParallaxDoc";
 import PerspectiveGridDoc from "@/pages/docs/Components/reactjs/perspective-grid/PerspectiveGridDoc";
 import ScrollTranslateDoc from "@/pages/docs/Components/reactjs/scroll-translate/ScrollTranslateDoc";
+import ScrollWindowDoc from "@/pages/docs/Components/reactjs/scroll-window/ScrollWindowDoc";
+import TextParallaxDoc from "@/pages/docs/Text/text-parallax/TextParallaxDoc";
 
 export const ComponentMap = {
   introduction: Introduction,
@@ -31,6 +33,8 @@ export const ComponentMap = {
   "zoom-parallax": ZoomParallaxDoc,
   "perspective-grid": PerspectiveGridDoc,
   "scroll-translate": ScrollTranslateDoc,
+  "scroll-window": ScrollWindowDoc,
+  "text-parallax": TextParallaxDoc,
   sheet: SheetDoc,
   loader: LoaderTextDoc,
   auth: AuthenticationDoc,

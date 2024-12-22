@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import Button from "@/components/reactjs/atoms/button/Button";
 import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
 import {
@@ -39,7 +39,7 @@ import { SectionCommon } from "@/common/SectionCommon";
 type Variant = "primary" | "secondary" | "destructive" | "outline" | "ghost";
 // | "animation";
 
-const ButtonDoc = () => {
+const ButtonDoc = memo(() => {
   const [show, setShow] = useState({
     primary: true,
     secondary: true,
@@ -133,7 +133,7 @@ const ButtonDoc = () => {
 
   return (
     <>
-      <div className="mt-1 ">
+      <div className="mt-1">
         <p className="text-gray-500">
           Displays a button or a component that looks like a button.
         </p>
@@ -145,9 +145,9 @@ const ButtonDoc = () => {
             rightText="Code"
           />
           {code ? (
-            <div className="w-full relative lg:h-[400px] h-[300px] border border-gray-300 dark:border-gray-800 flex items-center justify-center mt-5 rounded-lg">
+            <div className="relative mt-5 flex h-[300px] w-full items-center justify-center rounded-lg border border-gray-300 dark:border-gray-800 lg:h-[400px]">
               <div
-                className="absolute top-3 right-3 size-7 hover:bg-gray-100/10 border transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                className="absolute right-3 top-3 flex size-7 cursor-pointer items-center justify-center rounded-md border p-[6px] transition-all duration-300 hover:bg-gray-100/10"
                 onClick={() => {
                   navigator.clipboard.writeText(codeString);
                   showToast(setCopyCode);
@@ -166,7 +166,7 @@ const ButtonDoc = () => {
           ) : (
             <div className="relative">
               <div
-                className="absolute top-3 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                className="absolute right-3 top-3 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                 onClick={() => {
                   navigator.clipboard.writeText(codeString);
                   showToast(setCopyCode);
@@ -181,19 +181,19 @@ const ButtonDoc = () => {
                 <CopyCodeToggleIcons copyCode={copyCode} />
               </div>
 
-              <SyntaxHighlighterWrapper className="text-sm md:text-md ">
+              <SyntaxHighlighterWrapper className="md:text-md text-sm">
                 {codeString}
               </SyntaxHighlighterWrapper>
             </div>
           )}
         </div>
 
-        <h2 className="font-medium mt-10 border-b pb-2 text-2xl">
+        <h2 className="mt-10 border-b pb-2 text-2xl font-medium">
           Installation
         </h2>
         <ManualDocs />
 
-        <h1 className="font-medium mt-10 border-b pb-2 text-2xl">Examples</h1>
+        <h1 className="mt-10 border-b pb-2 text-2xl font-medium">Examples</h1>
         {variants.map(({ variant, buttonText }) => {
           const codeString = getCodeString(variant as Variant);
           return (
@@ -211,8 +211,8 @@ const ButtonDoc = () => {
           );
         })}
       </div>
-      <h1 className=" mt-5">
-        <kbd className=" bg-gray-800 px-2 py-1 rounded-lg">
+      <h1 className="mt-5">
+        <kbd className="rounded-lg bg-gray-800 px-2 py-1">
           Below Button are Custom Buttons and is not added in the above varients
         </kbd>
       </h1>
@@ -236,6 +236,6 @@ const ButtonDoc = () => {
       <div className="mb-5 md:mb-0" />
     </>
   );
-};
+});
 
 export default ButtonDoc;

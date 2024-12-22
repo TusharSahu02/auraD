@@ -22,9 +22,11 @@ export const CATEGORIES = [
       { name: "Input", isNew: false },
       { name: "Bento", isNew: false },
       { name: "Ripple", isNew: false },
-      { name: "Zoom Parallax", isNew: true },
-      { name: "Perspective Grid", isNew: true },
+      { name: "Zoom Parallax", isNew: false },
+      { name: "Perspective Grid", isNew: false },
       { name: "Scroll Translate", isNew: true },
+      // { name: "Scroll Window", isNew: true },
+      { name: "Text Parallax", isNew: true },
     ],
   },
   {

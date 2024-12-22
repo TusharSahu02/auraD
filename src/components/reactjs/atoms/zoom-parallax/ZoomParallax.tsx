@@ -1,4 +1,4 @@
-import { FC, useRef } from "react";
+import { type FC, useRef } from "react";
 
 import { useScroll, useTransform, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -72,6 +72,7 @@ const ZoomParallax: FC<Props> = ({ children, classes }) => {
         {pictures.map(({ src, scale, classes }, index) => {
           return (
             <motion.div
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={index}
               // style={{ scale: picture.scale }}
               style={{ scale }}
@@ -97,6 +98,7 @@ const ZoomParallax: FC<Props> = ({ children, classes }) => {
               <div className={classes}>
                 <img
                   src={src}
+                  // biome-ignore lint/a11y/noRedundantAlt: <explanation>
                   alt="image"
                   className="h-full w-full object-cover"
                 />

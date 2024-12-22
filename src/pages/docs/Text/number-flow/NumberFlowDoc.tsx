@@ -43,9 +43,11 @@ const NumberFlowDoc = () => {
         />
       ))}
       <div>
-        <h2 className="font-medium mt-10 border-b pb-2 text-2xl">Manually</h2>
+        <h2 className="mt-10 border-b pb-2 text-2xl font-medium">Manually</h2>
       </div>
-      <ManualNFDoc />
+      <div className="mt-5">
+        <ManualNFDoc />
+      </div>
       <NavigationButton
         previousTitle="Scroll Translate"
         nextTitle="Auth"

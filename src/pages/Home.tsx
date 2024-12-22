@@ -20,8 +20,10 @@ import DotPattern from "@/components/reactjs/atoms/pattern/DotPattern";
 import { TextHoverEffect } from "@/components/reactjs/atoms/text/TextHoverEffect";
 import HomeGridPattern from "@/common/HomeGridPattern";
 import ScrollTranslateHome from "@/components/reactjs/atoms/scroll-translate/ScrollTranslateHome";
+import { memo } from "react";
 
-const Home = () => {
+
+const Home = memo(() => {
   const components = [
     { component: <TelegramButton /> },
     { component: <SaveHoverAnimationButton /> },
@@ -202,6 +204,6 @@ const Home = () => {
       {/* <TailwindCSSIndicator /> */}
     </>
   );
-};
+});
 
 export default Home;

@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import SmoothScrolling from "../utils/SmoothScroll";
 import PerspectiveGrid from "@/components/reactjs/atoms/perspective-grid/PerspectiveGrid";
 import ScrollTranslate from "@/components/reactjs/atoms/scroll-translate/ScrollTranslate";
+import TextParallax from "@/components/reactjs/atoms/text-parallax/TextParallax";
 
 interface PathComponents {
   [path: string]: () => JSX.Element;
@@ -69,6 +70,7 @@ const pathComponents: PathComponents = {
     </>
   ),
   "scroll-translate": () => <ScrollTranslate />,
+  "text-parallax": () => <TextParallax />,
 };
 
 const Preview = () => {

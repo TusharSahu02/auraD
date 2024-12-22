@@ -1,5 +1,5 @@
 import { useLocation, useParams } from "react-router-dom";
-import { Suspense, useEffect, useRef, useMemo } from "react";
+import { Suspense, useEffect, useRef, useMemo, memo } from "react";
 import { ComponentMap } from "../constants/reactjs/ComponentMap";
 import { ChevronRight } from "lucide-react";
 import { ReactNativeComponentMap } from "@/constants/react-native/ReactNativeComponentMap";
@@ -13,7 +13,7 @@ const LazyFallback = () => (
   <div className="py-10 text-center">Loading component...</div>
 );
 
-const Category = () => {
+const Category = memo(() => {
   const location = useLocation();
   const selectedOption = useMemo(
     () => location.pathname.split("/")[2],
@@ -189,6 +189,6 @@ const Category = () => {
       {renderContent()}
     </div>
   );
-};
+});
 
 export default Category;

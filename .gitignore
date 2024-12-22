@@ -33,3 +33,5 @@ demo
 .env
 
 .vscode
+# Million Lint
+.million

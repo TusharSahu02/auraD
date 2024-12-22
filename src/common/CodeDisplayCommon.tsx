@@ -12,11 +12,9 @@ export const CodeDisplayCommon: React.FC<CodeDisplayCommmonProps> = ({
 }) => {
   const CopyButton = () => (
     <div
-      className={`absolute top-3 right-3 size-7 hover:bg-gray-${
+      className={`absolute right-3 top-3 size-7 hover:bg-gray-${
         show ? "100" : "600"
-      } 
-        border transition-all duration-300 flex items-center p-[6px] cursor-pointer 
-        justify-center rounded-md`}
+      } flex cursor-pointer items-center justify-center rounded-md border p-[6px] transition-all duration-300 hover:dark:bg-gray-700`}
       onClick={onCopy}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
@@ -34,7 +32,7 @@ export const CodeDisplayCommon: React.FC<CodeDisplayCommmonProps> = ({
 
   if (show) {
     return (
-      <div className="w-full relative lg:h-[400px] h-[300px] border border-white/10 flex items-center justify-center mt-5 rounded-lg">
+      <div className="relative mt-5 flex h-[300px] w-full items-center justify-center rounded-lg border border-white/10 lg:h-[400px]">
         <CopyButton />
         <Component />
       </div>
@@ -44,7 +42,7 @@ export const CodeDisplayCommon: React.FC<CodeDisplayCommmonProps> = ({
   return (
     <div className="relative">
       <CopyButton />
-      <SyntaxHighlighterWrapper className="rounded-lg p-5 mt-5 w-full">
+      <SyntaxHighlighterWrapper className="mt-5 w-full rounded-lg p-5">
         {codeString}
       </SyntaxHighlighterWrapper>
     </div>

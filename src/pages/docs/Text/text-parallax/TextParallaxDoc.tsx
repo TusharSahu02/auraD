@@ -1,26 +1,27 @@
 import { SectionCommon } from "@/common/SectionCommon";
-import { ScrollTranslatePreview } from "@/components/reactjs/atoms/scroll-translate/ScrollTranslate";
-import { getScrollTranslateCodeString } from "@/constants/reactjs/codeString.ScrollTranslate";
-import { useScrollTranslateTabState } from "@/hooks/reactjs/useTabState";
-import ScrollTranslateManualDoc from "./SccrollTranslateManualDoc";
+// import { ScrollTranslatePreview } from "@/components/reactjs/atoms/scroll-translate/ScrollTranslate";
 import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
+import { getTextParallaxImportCodeString } from "@/constants/reactjs/codeString.TextParallax";
+import { useScrollTranslateTabState } from "@/hooks/reactjs/useTabState";
+import TextParallaxManualDoc from "./TextParallaxManualDoc";
+import { TextParallaxPreview } from "@/components/reactjs/atoms/text-parallax/TextParallax";
 
-const ScrollTranslateDoc = () => {
+const TextParallaxDoc = () => {
   const { show: Show, toggleTab } = useScrollTranslateTabState();
 
   const sections = [
     {
-      title: "Scroll Translate",
+      title: "Text Parallax",
       key: "scrollTranslate" as const,
-      component: ScrollTranslatePreview,
-      codeString: getScrollTranslateCodeString(),
+      component: TextParallaxPreview,
+      codeString: getTextParallaxImportCodeString(),
     },
   ];
 
   return (
     <>
       <p className="text-gray-500">
-        Displays a animated perspective grid using GSAP and lenis
+        Displays a parallax effect using GSAP, lenis and ScrollTrigger
       </p>
 
       <div className="relative">
@@ -36,19 +37,18 @@ const ScrollTranslateDoc = () => {
           />
         ))}
       </div>
-
       <div className="mt-5">
-        <ScrollTranslateManualDoc />
+        <TextParallaxManualDoc />
       </div>
 
       <NavigationButton
         previousTitle="Perspective Grid"
-        nextTitle="Text Parallax"
+        nextTitle="Number Flow"
         previousLink="/docs/reactjs/components/perspective-grid"
-        nextLink="/docs/reactjs/components/text-parallax"
+        nextLink="/docs/reactjs/text/number-flow"
       />
     </>
   );
 };
 
-export default ScrollTranslateDoc;
+export default TextParallaxDoc;
