@@ -1,8 +1,8 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, type MotionValue, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const TextParallax = () => {
-  const container = useRef();
+  const container = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -47,7 +47,7 @@ interface Props {
   src: string;
   direction: "left" | "right";
   left: string;
-  progress: any;
+  progress: MotionValue<number>;
 }
 
 const Slide = (props: Props) => {
