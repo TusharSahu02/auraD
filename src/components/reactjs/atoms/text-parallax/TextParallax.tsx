@@ -43,7 +43,14 @@ const TextParallax = () => {
 
 export default TextParallax;
 
-const Slide = (props) => {
+interface Props {
+  src: string;
+  direction: "left" | "right";
+  left: string;
+  progress: any;
+}
+
+const Slide = (props: Props) => {
   const direction = props.direction === "left" ? -1 : 1;
   const translateX = useTransform(
     props.progress,
@@ -63,7 +70,7 @@ const Slide = (props) => {
   );
 };
 
-const Phrase = ({ src }) => {
+const Phrase = ({ src }: { src: string }) => {
   return (
     <div className={"flex items-center gap-5 px-5"}>
       <p className="text-[7.5vw]">Front End Developer</p>

@@ -1,4 +1,3 @@
-import { TextParallax } from '@/components/reactjs/atoms/text-parallax/TextParallax';
 export const getTextParallaxImportCodeString = () => {
   return `
 import { motion, useScroll, useTransform } from "framer-motion";

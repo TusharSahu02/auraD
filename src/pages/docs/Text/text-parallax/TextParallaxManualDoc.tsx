@@ -1,7 +1,5 @@
 import Button from "@/components/reactjs/atoms/button/Button";
 import {
-  getPerspectiveGridCodeString,
-  getPerspectiveGridImportCodeString,
   getSmoothScrollCodeString,
 } from "@/constants/reactjs/codeString.PerspectiveGrid";
 import {
