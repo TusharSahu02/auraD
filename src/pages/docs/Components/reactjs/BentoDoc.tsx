@@ -85,8 +85,7 @@ const BentoDoc: React.FC = memo(() => {
                     {getCopyIcon(index === 0 ? "install" : "code")}
                   </div>
                   <SyntaxHighlighterWrapper>
-                    {/* {index === 0 ? framerMotionCodeString : codeString} */}
-                    {framerMotionCodeString}
+                    {index === 0 ? framerMotionCodeString : codeString}
                   </SyntaxHighlighterWrapper>
                 </div>
               </div>
