@@ -6,12 +6,13 @@ import { Check, Clipboard } from "lucide-react";
 import { toast } from "sonner";
 import { getBentoCodeString } from "@/constants/reactjs/CodeString";
 import NavigationButton from "@/components/reactjs/molecules/NavigationButton";
+import SyntaxHighlighterWrapper from "@/utils/SyntaxHighlighterWrapper";
 
 const BentoDoc: React.FC = memo(() => {
   const [copyStates, setCopyStates] = useState({ code: false, framer: false });
 
   const codeString: string = getBentoCodeString();
-  const framerMotionCodeString: string = `npm i framer-motion`;
+  const framerMotionCodeString: string = "npm i framer-motion";
 
   const handleCopy = (variant: string) => {
     const copyTest =
@@ -46,11 +47,11 @@ const BentoDoc: React.FC = memo(() => {
   return (
     <>
       <p className="text-gray-500">Displays a bento grid of cards.</p>
-      <div id="bento4Grid" className="flex gap-x-6 border-b px-4 mt-10">
+      <div id="bento4Grid" className="mt-10 flex gap-x-6 border-b px-4">
         <h1>Preview</h1>
       </div>
       <Bento />
-      <div className="gap-x-6 px-2 border-b mt-5">
+      <div className="mt-5 gap-x-6 border-b px-2">
         <h1>Code</h1>
       </div>
 
@@ -59,40 +60,40 @@ const BentoDoc: React.FC = memo(() => {
           (title, index) => (
             <div
               key={index}
-              className={`flex items-start justify-center gap-2 border-l border-gray-500 ${index > 0 && "pt-4"
-                }`}
+              className={`flex items-start justify-center gap-2 border-l border-gray-500 ${
+                index > 0 && "pt-4"
+              }`}
             >
-              <div className="w-[15px] border-l h-full">
-                <div className="w-[5px] h-[30px] bg-gray-500 rounded-r-[10px] rounded-br-[10px] -ml-[1px]" />
+              <div className="h-full w-[15px] border-l">
+                <div className="-ml-[1px] h-[30px] w-[5px] rounded-r-[10px] rounded-br-[10px] bg-gray-500" />
               </div>
               <div className="w-full">
                 <h1 className="text-lg font-medium">{title}</h1>
                 {index === 1 && (
                   <p className="my-3">
-                    <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-md">
+                    <kbd className="rounded-md bg-gray-200 px-2 py-1 dark:bg-gray-800">
                       src/components/Bento.tsx
                     </kbd>
                   </p>
                 )}
                 <div className="relative">
                   <div
-                    className="absolute top-1.5 right-3 size-7 hover:bg-gray-600 transition-all duration-300 flex items-center p-[6px] cursor-pointer justify-center rounded-md"
+                    className="absolute right-3 top-1.5 flex size-7 cursor-pointer items-center justify-center rounded-md p-[6px] transition-all duration-300 hover:bg-gray-600"
                     onClick={() => handleCopy(index === 0 ? "install" : "code")}
+                    onKeyDown={() =>
+                      handleCopy(index === 0 ? "install" : "code")
+                    }
                   >
                     {getCopyIcon(index === 0 ? "install" : "code")}
                   </div>
-                  <SyntaxHighlighter
-                    language="tsx"
-                    wrapLongLines={true}
-                    style={atomOneDark}
-                    className="rounded-lg p-5 mt-2 w-full"
-                  >
-                    {index === 0 ? framerMotionCodeString : codeString}
-                  </SyntaxHighlighter>
+                  <SyntaxHighlighterWrapper>
+                    {/* {index === 0 ? framerMotionCodeString : codeString} */}
+                    {framerMotionCodeString}
+                  </SyntaxHighlighterWrapper>
                 </div>
               </div>
             </div>
-          )
+          ),
         )}
       </div>
 

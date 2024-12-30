@@ -27,7 +27,7 @@ const Bento = () => {
   return (
     <>
       <motion.div
-        className="grid lg:grid-cols-3 grid-cols-1 gap-5 w-full mt-4"
+        className="mx-auto mt-4 grid w-full max-w-[1024px] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
         initial="hidden"
         animate="visible"
         variants={{
@@ -41,11 +41,11 @@ const Bento = () => {
         {Items.map((item, index) => (
           <motion.div
             key={item.id}
-            className={`border w-full border-black/[0.2] dark:border-white/10 group  md:w-[450px] lg:w-full cursor-pointer ${
-              item.id === 2 ? "col-span-2 lg:col-span-1" : "col-span-2"
+            className={`group w-full cursor-pointer border border-black/[0.2] dark:border-white/10 ${
+              item.id === 2 ? "col-span-2 md:col-span-1" : "col-span-2"
             } ${
-              item.id === 3 ? "lg:col-span-1" : ""
-            } flex items-center justify-start flex-col rounded-lg p-3 space-y-2`}
+              item.id === 3 ? "md:col-span-1 lg:col-span-1" : ""
+            } flex flex-col items-center justify-start space-y-2 rounded-lg p-3`}
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: {
@@ -56,8 +56,8 @@ const Bento = () => {
             }}
           >
             {/* <div className=" overflow-hidden h-[200px] w-full rounded-lg bg-gray-600/10"></div> */}
-            <div className=" overflow-hidden h-[200px] w-full rounded-lg bg-gradient-to-tl from-sky-900 via-zinc-800 to-stone-90" />
-            <div className="px-1 group-hover:ml-3   w-full transition-all duration-300">
+            <div className="to-stone-90 h-[200px] w-full overflow-hidden rounded-lg bg-gradient-to-tl from-sky-900 via-zinc-800" />
+            <div className="w-full px-1 transition-all duration-300 group-hover:ml-3">
               <h1 className="text-white">{item.title}</h1>
               <p className="text-white/60">{item.description}</p>
             </div>
