@@ -11,7 +11,7 @@ import SidebarMenu from "./SidebarMenu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useSelectedOption } from "@/context/SelectedOptionContext";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
-import ToogleJsToNative from "../Home/ToogleJsToNative";
+// import ToogleJsToNative from "../Home/ToogleJsToNative";
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -19,7 +19,7 @@ const Navbar = () => {
   // const [searchInput, setSearchInput] = useState("");
   // const [showKbd, setShowKbd] = useState(true);
   // const [filteredCategories, setFilteredCategories] = useState(CATEGORIES);
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
 
   const { selectedOption } = useSelectedOption();
 
