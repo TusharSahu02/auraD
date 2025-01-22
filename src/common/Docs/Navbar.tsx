@@ -123,7 +123,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="relative hidden items-center gap-x-3 lg:flex">
-          <ToogleJsToNative active={active} setActive={setActive} />
+          {/* <ToogleJsToNative active={active} setActive={setActive} /> */}
 
           {/* <div className=" border dark:bg-gray-400/30 bg-gray-100/70 rounded-lg px-3 flex items-center ">
             <input
