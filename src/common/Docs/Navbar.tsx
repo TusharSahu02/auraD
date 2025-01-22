@@ -70,7 +70,7 @@ const Navbar = () => {
       }
     >
       <div className="flex w-full items-center justify-between px-4 xl:container lg:px-10">
-        <div className="flex items-center gap-x-6">
+        <div className="flex items-center gap-x-6 py-5">
           <Link to="/" className="w-[70px]">
             <img src="/auratypo.svg" alt="" className="invert dark:hidden" />
             <img src="/auratypo.svg" alt="" className="hidden dark:block" />
