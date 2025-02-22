@@ -184,6 +184,7 @@ const Docs = memo(() => {
       <div className="mt-[60px] flex h-[calc(100vh-60px)] w-full items-center justify-center bg-[#090716]">
         {/* <div className=" h-[calc(100vh-60px)] w-full flex items-center justify-center mt-[55px] relative  bg-red-500 "> */}
         <div className="flex h-full w-full items-center justify-center px-4 xl:container lg:px-10">
+          {/* Left aside */}
           <div className="hideScrollBar hidden h-full w-[40%] overflow-y-scroll py-3 pl-6 pt-5 md:block lg:w-[30%] lg:pl-0 xl:w-[20%]">
             {GETTING_STARTED.map(
               (category: { name: string; subcategories: string[] }) => {
@@ -267,10 +268,14 @@ const Docs = memo(() => {
               );
             })}
           </div>
+
+          {/* Main Content */}
           <div className="hideScrollBar h-full w-full overflow-y-scroll md:border-l md:p-4 xl:w-[70%] xl:border-r">
             <Category />
           </div>
-          <div className="hidden h-full w-[15%] p-4 xl:block">
+
+          {/* Right side */}
+          <aside className="hidden h-full w-[15%] p-4 xl:block">
             <p className="mb-4 mt-2 font-semibold">On this page</p>
             {currentSections.length > 0 && (
               <ul className="space-y-1">
@@ -291,7 +296,7 @@ const Docs = memo(() => {
                 ))}
               </ul>
             )}
-          </div>
+          </aside>
         </div>
       </div>
       <TailwindCSSIndicator />

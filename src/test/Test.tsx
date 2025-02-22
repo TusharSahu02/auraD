@@ -1,21 +1,118 @@
+import Bento from "@/components/reactjs/atoms/Bento";
 import SmoothScrolling from "@/utils/SmoothScroll";
+import TailwindCSSIndicator from "@/utils/TailwindCSSIndicator";
 // import "./test.css";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+// import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import TextParallax from "@/components/reactjs/atoms/text-parallax/TextParallax";
+import { useEffect, useState } from "react";
+// import TextParallax from "@/components/reactjs/atoms/text-parallax/TextParallax";
 
-gsap.registerPlugin(useGSAP);
+import { Pane } from "tweakpane";
+
+// gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
-const Test = () => {
+interface Config {
+  text: string;
+  theme: "system" | "light" | "dark";
+  hue: number;
+  saturation: number;
+  lightness: number;
+  speed: number;
+}
+const Test: React.FC = () => {
+  const [config, setConfig] = useState<Config>({
+    text: "Design is not just what it looks like and feels like. Design is how it works. People think design is this veneer—like frosting on a cake – Steve Jobs",
+    theme: "system",
+    hue: 320,
+    saturation: 100,
+    lightness: 50,
+    speed: 0.8,
+  });
+
+  const updateStyles = () => {
+    document.documentElement.style.setProperty(
+      "--text-length",
+      `${config.text.length + 1}`,
+    );
+    document.documentElement.style.setProperty("--cursor-hue", `${config.hue}`);
+    document.documentElement.style.setProperty(
+      "--cursor-blink",
+      `${config.speed}`,
+    );
+    document.documentElement.style.setProperty(
+      "--cursor-saturation",
+      `${config.saturation}`,
+    );
+    document.documentElement.style.setProperty(
+      "--cursor-lightness",
+      `${config.lightness}`,
+    );
+    document.documentElement.dataset.theme = config.theme;
+  };
+
+  useEffect(() => {
+    const pane = new Pane();
+    pane.addBinding(config, "hue", { min: 0, max: 359, step: 1 });
+    pane.addBinding(config, "saturation", { min: 0, max: 100, step: 1 });
+    pane.addBinding(config, "lightness", { min: 0, max: 100, step: 1 });
+    pane.addBinding(config, "speed", { min: 0.1, max: 2, step: 0.1 });
+    pane.addBinding(config, "text");
+
+    pane.on("change", ({ updatedConfig }: { updatedConfig: Config }) => {
+      setConfig((prev) => ({ ...prev, ...updatedConfig }));
+    });
+
+    return () => pane.dispose();
+  }, [config]);
+
+  useEffect(() => {
+    updateStyles();
+  }, [config]);
+
   return (
     <SmoothScrolling>
       {/* <TestComponent />
       <div className="container mx-auto h-[100vh] pt-64 text-center text-6xl">
         yo man! another component starts here
       </div> */}
-      <TextParallax />
+      {/* <TextParallax /> */}
+      {/* <div className="bg-gray-50 font-mono text-gray-800 dark:bg-black dark:text-gray-200">
+        <header className="flex min-h-screen items-center justify-center">
+          <h1 className="text-4xl uppercase">Scroll to type</h1>
+        </header>
+        <main>
+          <section className="sticky top-0 flex min-h-screen items-center justify-center">
+            <blockquote>
+              <h2 className="text-2xl tracking-wide">
+                <span style={{ whiteSpace: "break-spaces" }}>
+                  {config.text}
+                </span>
+              </h2>
+            </blockquote>
+          </section>
+          <section className="flex min-h-screen flex-col items-center justify-center space-y-4 text-center">
+            <p className="text-lg">
+              <a
+                href="https://craftofui.substack.com/subscribe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Follow along
+              </a>
+            </p>
+            <hr className="w-full max-w-sm border-gray-500" />
+            <p>The Craft of UI</p>
+          </section>
+        </main>
+        <footer className="py-4 text-center text-sm text-gray-500">
+          ʕ •ᴥ•ʔ &copy; @jh3yy 2024
+        </footer>
+      </div> */}
+      <Bento />
+      <TailwindCSSIndicator />
     </SmoothScrolling>
   );
 };

@@ -333,6 +333,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        canvasText: "var(--cursor-lightness)",
         royalblue: "#4169e1",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -384,16 +385,27 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors, scrollbar],
 };
 
 function addVariablesForColors({ addBase, theme }) {
   const allColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
   );
 
   addBase({
     ":root": newVars,
+  });
+}
+
+function scrollbar({ addUtilities }) {
+  addUtilities({
+    ".scrollbar-none": {
+      "scrollbar-width": "none",
+      "&::-webkit-scrollbar": {
+        display: "none",
+      },
+    },
   });
 }

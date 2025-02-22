@@ -114,7 +114,7 @@ const Category = memo(() => {
             <meta name="description" content={description} />
             <link
               rel="canonical"
-              href={`https://aurad.vercel.app/${location.pathname}`}
+              href={`https://aurad.pro/${location.pathname}`}
             />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />

@@ -21,6 +21,7 @@ const BentoDoc: React.FC = memo(() => {
       icon: "📋",
       position: "top-center",
     });
+    
 
     setCopyStates((prev) => ({
       ...prev,
